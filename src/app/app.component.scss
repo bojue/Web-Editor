@@ -1,0 +1,80 @@
+.body {
+    position: relative;
+    display: grid;
+    grid-template-columns: 84% 15%;
+    grid-column-gap: 3px;
+    .h90 {
+        height: 800px;
+    }
+    .border1 {
+        border: 1px solid #cccccc;
+    }
+
+    #componentsBody {
+        position: relative;
+        background-image:
+        linear-gradient(rgba(200, 205, 208, .3) 1px, transparent 0),
+        linear-gradient(90deg, rgba(200, 205, 208, .3), 1px, transparent 0),
+        linear-gradient( #C8CDD0 1px, transparent 0),
+        linear-gradient(90deg, #C8CDD0 1px, transparent 0);
+        background-size: 15px 15px, 15px 15px, 75px 75px, 75px 75px;
+    }
+
+    .setting {
+        .header {
+            display: block;
+            position: relative;
+            text-align: left;
+            margin: 5px 0px;
+            border-bottom: 1px solid #aaaaaa;
+
+            .heade {
+                display: inline-block;
+                width: 60px;
+                text-align: center;
+                margin-left: 6px;
+                margin-bottom: 6px;
+                padding: 3px 4px;
+                cursor: pointer;
+                &:hover {
+                    background: #cccccc;
+                    color: #ffffff;
+                }
+
+                &.active {
+                    background: deepskyblue;
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .lists {
+            display: grid;
+            grid-template-columns: 33.3% 33.3% auto;
+            grid-gap: 3px;
+            padding: 5px;
+    
+            .item {
+                cursor: pointer;
+                border: 1px solid #cccccc;
+                height: 89px;
+                position: relative;
+                text-align: center;
+                img.icon {
+                    width: 40px;
+                    height: 40px;
+                    margin-top: 10px;
+                }
+                p.text{
+                    position: absolute;
+                    bottom: 0px;
+                    text-align: center;
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+   
+}
