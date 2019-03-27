@@ -17,54 +17,38 @@ export class AppServiceService{
     state: 'settings'
   }]
 
-  basicComponents = [{
-      name:'文本',
-      iconUrl: './../assets/imgs/text.svg'
-    },
-    {
-    name:'图片',
-    iconUrl: './../assets/imgs/image.svg'
-  }]
+
 
   componentModules = [{ 
     name:'基础',
     state: 'default'
   }, {
-    name: '模块',
+    name: '功能',
     state: 'module'
-  },
-  {
-    name: '模板',
-    state: 'template'
   }]
 
+  //基础组件列表
+  basicComponents = [{
+      name:'文本',
+      type: 'text',
+      iconUrl: './../assets/imgs/text.svg'
+    },
+    {
+    name:'图片',
+    type: 'img',
+    iconUrl: './../assets/imgs/image.svg'
+  },{
+    name:'矩形',
+    type: 'rectangle',
+    iconUrl: './../assets/imgs/rectangle.svg'
+  },]
+
+  //后台测试数据
   testCreateComp = [{
-    name:'图片组件',
+    name:'文本',
     type:'text',
     data: {
-      'name':'图片',
-      'url':'./../assets/imgs/chart.svg"'
-    }
-  },{
-    name:'图片组件',
-    type:'img',
-    data: {
-      'name':'图片',
-      'url':'./../assets/imgs/chart.svg"'
-    }
-  },{
-    name:'图片组件',
-    type:'img',
-    data: {
-      'name':'图片',
-      'url':'./../assets/imgs/chart.svg"'
-    }
-  },{
-    name:'图片组件',
-    type:'img',
-    data: {
-      'name':'图片',
-      'url':'./../assets/imgs/chart.svg"'
+      'name':'文本'
     }
   },{
     name:'图片组件',

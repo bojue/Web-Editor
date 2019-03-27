@@ -1,0 +1,33 @@
+<div class="comp-item">
+  <div class="item-discription">图片</div>
+  <div class="item-tit">
+    基本
+  </div>
+  <div class="set-body">
+    <div class="item-set">
+      <label class="set-name">长度(px):</label>
+      <input class="set-val" type="number">
+    </div>
+    <div class="item-set">
+        <label class="set-name">高度(px):</label>
+        <input [(ngModel)]="settingObj['height']" class="set-val" type="number">
+      </div>
+    <div class="item-set">
+       <label for="" class="set-name">绑定属性</label>
+       <span class="set-val">  {{settingObj['height']}} </span>
+    </div>
+  </div>
+
+  <div class="item-tit">
+      辅助
+    </div>
+    <div class="set-body">
+      <div class="item-set">
+        <label class="set-name">动画:</label>
+        <select class="set-val">
+          <option value="">上下跳转</option>
+          <option value="">左右摆动</option>
+        </select>
+      </div>
+    </div>
+</div>

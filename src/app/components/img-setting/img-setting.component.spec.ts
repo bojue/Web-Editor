@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FontColorComponent } from './font-color.component';
+import { ImgSettingComponent } from './img-setting.component';
 
-describe('FontColorComponent', () => {
-  let component: FontColorComponent;
-  let fixture: ComponentFixture<FontColorComponent>;
+describe('ImgSettingComponent', () => {
+  let component: ImgSettingComponent;
+  let fixture: ComponentFixture<ImgSettingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FontColorComponent ]
+      declarations: [ ImgSettingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FontColorComponent);
+    fixture = TestBed.createComponent(ImgSettingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,13 +9,17 @@ export class ImgComponent implements OnInit {
   @Output() dragComponentStart = new EventEmitter;
   @Output() dragComponentEnd = new EventEmitter;
 
-  inputObj: any;
+  propeSetting: any;
 
 
   constructor() { }
 
   ngOnInit() {
- 
+     this.propeSetting = {
+       width: 100,
+       height: 100,
+       url:'./../assets/imgs/image.svg'
+     }
   }
 
   dragComponetStart(event){

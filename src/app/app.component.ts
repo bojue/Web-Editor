@@ -3,7 +3,6 @@ import { Component, OnInit , ElementRef, ViewChild, ComponentFactoryResolver, Vi
 import { ImgComponent } from './../app/communal/component/basic/img/img.component';
 import { TextComponent } from './../app/communal/component/basic/text/text.component';
 import { AppServiceService} from './providers/app-service.service';
-import { forEach } from '../../node_modules/@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +36,6 @@ export class AppComponent implements OnInit{
     this.componentsHeaders = this.service.getComponentHeaders();
     this.basicComponents = this.service.getBasicComponent();
     this.testCreateComp = this.service.getTestCreateComp();
-
     this.testCreateComp.forEach( (item) =>{
       this.addComponent(item)
     })
@@ -48,29 +46,30 @@ export class AppComponent implements OnInit{
     this.settingState = state;
   }
 
-  dragCompStart(event) {
-    this.addComponent();
+  dragCompStart(event, comp) {
+    this.addComponent(comp);
+    console.log(event, comp)
   }
 
   dragCompOver(event) {
     event.preventDefault();
-    // event.stopPropagation();
   }
 
   dragCompEnd(event) {
-    // this.addComponent()
+
   }
 
-  addComponent(item ?: null) {
-    let crateComp = item ? this.createTemp(item) : TextComponent;
+  addComponent(item ?: {}, type?: null) {
+    let _type = item && item['type'] || type ;
+    console.log(_type, type)
+    let crateComp:any = _type ? this.createTemp(_type) : TextComponent;
     let comp = this.cfr.resolveComponentFactory(crateComp);
     this.compBody.createComponent(comp);
-
   }
 
-  createTemp(item) {
-    let comp = item['type'] === 'text'? TextComponent : ImgComponent;
-    console.log(item , comp, item['type'])
+  createTemp(type) {
+    let comp = type === 'text'? TextComponent : ImgComponent;
+    console.log("type --> ", type , comp)
     return comp;
   }
 
