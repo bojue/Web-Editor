@@ -3,7 +3,9 @@
   <p class="title">组件开发</p>
   <div class="body">
     <div id='componentsBody' class="border1 h90" (drop)="drop_handler(event)">
-      <div class="content" #compBody></div>
+      <div class="content" #compBody >
+        <ng-template view-contain-ref></ng-template>
+      </div>
     </div>
     <div class="setting border1 h90">
       <div class="header">
@@ -14,8 +16,8 @@
 
       <!-- 组件 -->
       <div *ngIf="settingState === 'default'" class="lists"> 
-        <div class="item" *ngFor="let comp of basicComponents;" >
-            <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp)" (dragover)="dragCompOver($event)" (dragend)="dragCompEnd($event)">
+        <div class="item" *ngFor="let comp of basicCompIconList;" >
+            <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp)" >
               <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
             <p class="text">{{comp['name']}}</p>
           </div>

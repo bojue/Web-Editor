@@ -11,10 +11,10 @@ import { ColorComponent } from './communal/component/settings/color/color.compon
 import { ImgComponent } from './communal/component/basic/img/img.component';
 import { TextComponent } from './communal/component/basic/text/text.component';
 import { BackgroundComponent } from './communal/component/settings/background/background.component';
-
 import { AppServiceService} from './providers/app-service.service';
-import { ImgSettingComponent } from './components/img-setting/img-setting.component'
-
+import { ImgSettingComponent } from './components/img-setting/img-setting.component';
+import { ComponentWrapperRefComponent } from './code/component/component-wrapper-ref/component-wrapper-ref.component';
+import { ViewContainRefHostDirective } from './communal/directive/view-contain-ref-host.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,8 @@ import { ImgSettingComponent } from './components/img-setting/img-setting.compon
     TextComponent,
     BackgroundComponent,
     ImgSettingComponent,
+    ComponentWrapperRefComponent,
+    ViewContainRefHostDirective,
   ],
   imports: [
     FormsModule,

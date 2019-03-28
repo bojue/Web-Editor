@@ -10,7 +10,7 @@
     </div>
     <div class="item-set">
         <label class="set-name">高度(px):</label>
-        <input [(ngModel)]="settingObj['height']" class="set-val" type="number">
+        <input [(ngModel)]="settingObj['height']" class="set-val" type="number" (ngModelChange)="paramsChange($event, 'height')">
       </div>
     <div class="item-set">
        <label for="" class="set-name">绑定属性</label>

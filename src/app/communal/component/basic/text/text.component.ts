@@ -1,27 +1,19 @@
-import { Component, OnInit ,Output, EventEmitter} from '@angular/core';
+import { SettingObject } from './../../code/setting-object.module';
+import { SetttingObjComponent } from '../../code/seting-component.component';
+import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss']
 })
-export class TextComponent implements OnInit {
-  @Output() dragComponentStart = new EventEmitter();
-  @Output() dragComponentEnd = new EventEmitter();
+export class TextComponent implements SetttingObjComponent {
+  @Input() settingObj: SettingObject;
 
-  inputObj: any;
   constructor() { }
 
-  ngOnInit() {
-
-  }
-
-  dragComponetStart(event) {
-    this.dragComponentStart.emit(event)
-  }
-
-  dragComponetEnd(event) {
-    this.dragComponentEnd.emit(event)
+  expandUnit(val = 100) {
+    return val + 'px';
   }
 
 }

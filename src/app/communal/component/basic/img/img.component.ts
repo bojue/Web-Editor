@@ -1,33 +1,25 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { SetttingObjComponent } from '../../code/seting-component.component';
+import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
+import { SettingObject } from './../../code/setting-object.module';
 
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss']
 })
-export class ImgComponent implements OnInit {
-  @Output() dragComponentStart = new EventEmitter;
-  @Output() dragComponentEnd = new EventEmitter;
 
-  propeSetting: any;
+export class ImgComponent implements OnInit, SetttingObjComponent{
+  @Input() settingObj: SettingObject;
+  
+  constructor() {
 
-
-  constructor() { }
-
-  ngOnInit() {
-     this.propeSetting = {
-       width: 100,
-       height: 100,
-       url:'./../assets/imgs/image.svg'
-     }
   }
 
-  dragComponetStart(event){
-    this.dragComponentStart.emit(event)
-  }
+   ngOnInit() {
+  
+   }
 
-  dragComponetEnd(event) {
-    this.dragComponentEnd.emit(event)
-  }
-
+   expandUnit(val = 100) {
+     return val + 'px';
+   }
 }

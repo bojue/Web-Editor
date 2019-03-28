@@ -1,3 +1,11 @@
+$color-blue-1: #F6F7FB ;
+$color-blue-2: #eaf6fe;
+
+$backgroudn-color1: $color-blue-2;
+
+$border-color1: $color-blue-1;
+$border-color2: $color-blue-2;
+
 :host /deep/ {
     .body {
         position: relative;
@@ -18,7 +26,7 @@
             linear-gradient(90deg, rgba(200, 205, 208, .3), 1px, transparent 0),
             linear-gradient( #C8CDD0 1px, transparent 0),
             linear-gradient(90deg, #C8CDD0 1px, transparent 0);
-            background-size: 15px 15px, 15px 15px, 75px 75px, 75px 75px;
+            background-size: 15px 15px, 15px 15px, 105px 105px, 105px 105px;
         }
 
         .setting {
@@ -90,12 +98,12 @@
                     font-size: 14px;
                     font-weight: 600;
                     letter-spacing:2px;
-                    border-left: 5px solid red;
+                    border-left: 5px solid #108CEE ;
                 }
 
                 .item-tit {
                     padding: 6px 10px;
-                    background:moccasin;
+                    background:$backgroudn-color1;
                 }
 
                 .set-body {
