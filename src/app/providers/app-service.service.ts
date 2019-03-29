@@ -50,10 +50,6 @@ export class AppServiceService{
         url: './../assets/imgs/image.svg',
       }
     }
-  },{
-    name:'矩形',
-    type: 'rectangle',
-    iconUrl: './../assets/imgs/rectangle.svg'
   }]
 
   //后台测试数据
@@ -61,25 +57,29 @@ export class AppServiceService{
     name:'文本',
     type:'text',
     data: {
-      'name':'文本'
+      compIndex: 1,
+      name:'文本',
+      value: "文本"
     }
   },{
     name:'图片组件',
     type:'img',
     data: {
-      'name':'图片',
+      compIndex: 2,
+      name:'图片',
       height:100,
       width: 100,
-      'url':'./../assets/imgs/image.svg'
+      url:'./../assets/imgs/es.jpeg'
     }
   },{
     name:'图片组件',
     type:'img',
     data: {
-      'name':'图片',
+      compIndex: 3,
+      name:'图片',
       height:200,
-      width: 400,
-      'url':'./../assets/imgs/image.svg'
+      width: 300,
+      url:'./../assets/imgs/es.jpeg'
     }
   }]
 

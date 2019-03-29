@@ -2,6 +2,6 @@
 import { Type } from '@angular/core';
 
 export class ComponentItem {
-  constructor(public component: Type<any>, public settingObj: any) {}
+  constructor(public compType: Type<any>, public settingObj: any) {}
 }
 

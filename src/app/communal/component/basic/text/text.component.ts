@@ -1,5 +1,5 @@
-import { SettingObject } from './../../code/setting-object.module';
-import { SetttingObjComponent } from '../../code/seting-component.component';
+import { SettingObject } from '../../code/setting-object.module';
+import { SettingObjComponent } from '../../code/seting-component.component';
 import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss']
 })
-export class TextComponent implements SetttingObjComponent {
+export class TextComponent implements SettingObjComponent {
   @Input() settingObj: SettingObject;
 
   constructor() { }

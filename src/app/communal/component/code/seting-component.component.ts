@@ -1,6 +1,6 @@
-import { SettingObject } from './../code/setting-object.module';
+import { SettingObject } from './setting-object.module';
 
-export interface SetttingObjComponent {
+export interface SettingObjComponent {
     settingObj: SettingObject;
 }
   

@@ -2,10 +2,8 @@
 <div style="text-align:center">
   <p class="title">组件开发</p>
   <div class="body">
-    <div id='componentsBody' class="border1 h90" (drop)="drop_handler(event)">
-      <div class="content" #compBody >
+    <div id='componentsBody' class="border1 h90 content" (drop)="drop_handler(event)">
         <ng-template view-contain-ref></ng-template>
-      </div>
     </div>
     <div class="setting border1 h90">
       <div class="header">
@@ -17,7 +15,7 @@
       <!-- 组件 -->
       <div *ngIf="settingState === 'default'" class="lists"> 
         <div class="item" *ngFor="let comp of basicCompIconList;" >
-            <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp)" >
+            <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp['type'])" >
               <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
             <p class="text">{{comp['name']}}</p>
           </div>
@@ -26,11 +24,15 @@
 
       <!-- 设置 -->
       <div *ngIf= "settingState === 'settings'" class="settings">
-        <app-img-setting></app-img-setting>
+        <app-comp-setting></app-comp-setting>
+      </div>
+
+      <div class="del">
+        <button (click)="delComponent()">清除</button>
       </div>
 
     </div>
   </div>
 </div>
 
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

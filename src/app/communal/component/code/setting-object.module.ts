@@ -4,4 +4,5 @@ export class SettingObject {
     url: string;
     name: string;
     value: any;
+    compIndex: number;
 }

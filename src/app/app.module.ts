@@ -1,3 +1,5 @@
+import { BasicInfoConfigService } from './communal/component/config/basic-info-config.service';
+import { CompSettingComponent } from './components/settings/comp-setting.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +14,6 @@ import { ImgComponent } from './communal/component/basic/img/img.component';
 import { TextComponent } from './communal/component/basic/text/text.component';
 import { BackgroundComponent } from './communal/component/settings/background/background.component';
 import { AppServiceService} from './providers/app-service.service';
-import { ImgSettingComponent } from './components/img-setting/img-setting.component';
 import { ComponentWrapperRefComponent } from './code/component/component-wrapper-ref/component-wrapper-ref.component';
 import { ViewContainRefHostDirective } from './communal/directive/view-contain-ref-host.directive';
 
@@ -27,7 +28,7 @@ import { ViewContainRefHostDirective } from './communal/directive/view-contain-r
     ImgComponent,
     TextComponent,
     BackgroundComponent,
-    ImgSettingComponent,
+    CompSettingComponent,
     ComponentWrapperRefComponent,
     ViewContainRefHostDirective,
   ],
@@ -37,12 +38,14 @@ import { ViewContainRefHostDirective } from './communal/directive/view-contain-r
     AppRoutingModule
   ],
   providers: [
-    AppServiceService
+    AppServiceService,
+    BasicInfoConfigService
   ],
   bootstrap: [AppComponent],
   entryComponents:[
-    ImgComponent,
-    TextComponent
+    CompSettingComponent,
+    TextComponent,
+    ImgComponent
   ]
 })
 export class AppModule { }

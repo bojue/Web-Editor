@@ -2,19 +2,19 @@ import { SettingObject } from '.history/src/app/communal/modules/setting-object_
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-img-setting',
-  templateUrl: './img-setting.component.html',
-  styleUrls: ['./img-setting.component.scss']
+  selector: 'app-comp-setting',
+  templateUrl: './comp-setting.component.html',
+  styleUrls: ['./comp-setting.component.scss']
 })
-export class ImgSettingComponent implements OnInit{
+export class CompSettingComponent implements OnInit{
   /**
    * 属性对象声明
    * @param height 高度
    * @param width 宽度
    */
   private settingObj: SettingObject = {
-    height: 400,
-    width: 200
+    height: 300,
+    width: 300
   }
 
   constructor(private renderer: Renderer2, eleRef: ElementRef) { 
@@ -28,8 +28,6 @@ export class ImgSettingComponent implements OnInit{
   paramsChange(event: any, key: string) {
     if (!this.settingObj.hasOwnProperty(key)) return false;
     this.settingObj[key] = event;
-   
-    console.log(event, key, this.settingObj)
   }
 
 }
