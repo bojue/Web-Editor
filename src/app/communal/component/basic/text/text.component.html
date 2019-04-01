@@ -1,2 +1,9 @@
-<span class="item" [ngClass]="{'comp-active': settingObj['active'] }"  draggable="true" (click)="selectComp($event)" (dragstart)="dragComponetStart($event)"  [ngStyle]="{'width':expandUnit(settingObj['width']),'height':expandUnit(settingObj['height']), 'border': settingObj['border']}"  (dragend)="dragComponetEnd($event)" > {{settingObj['value'] || '输入文本'}} 
+<span class="item" [ngClass]="{'comp-active': settingObj['active'] }"  draggable="true" (click)="selectComp($event)" (dragstart)="dragComponetStart($event)" 
+ [ngStyle]="{
+  'width':expandUnit('width'),
+  'height':expandUnit('height'),
+  'border-style':style['borderStyle'],
+  'border-color':style['borderColor'],
+  'border-width':expandUnit('borderWidth')
+  }"  (dragend)="dragComponetEnd($event)" > {{settingObj['value'] || '输入文本'}} 
 </span>

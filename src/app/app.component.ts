@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
   cmpRef: any[];
   currentViewContRef: any; //当前组件实例
   currentCompIndex: number; //当前组件的下标
-  activeCurrentComp: [SettingObject, any];//当前组件的数据
+  activeCurrentComp: [SettingObject, any ];//当前组件的数据
   activeCompSettingObject: SettingObject; //当前组件的设置对象
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
 
@@ -54,7 +54,7 @@ export class AppComponent implements OnInit{
     this.componentsHeaders = this.service.getComponentHeaders();
     this.basicCompIconList = this.service.getBasicCompIconList();
     this.testCreateComp = this.service.getTestCreateComp();
-    console.log("读取JSON数据 ==> ",this.testCreateComp)
+    console.log("init json数据 ==> ",this.testCreateComp)
     this.getCompList(this.testCreateComp)
 
   }
@@ -69,11 +69,26 @@ export class AppComponent implements OnInit{
   }
 
 
+  //增加组件
   addComponent(compType) {
     let compDefinInfo = this.createTemp(compType);
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.testCreateComp.push(addCompJson);
     this.getCompList(this.testCreateComp)
+  }
+  
+  //修改组件
+  chengeComponent(event) {
+    console.log("组件设置 --->  ", this.testCreateComp)
+    let settingObj = event;
+    let compInstance  = this.activeCurrentComp[1];
+    return (<SettingObjComponent> compInstance).settingObj = settingObj;    
+  }
+
+  //删除组件 
+  delComponent() {
+    console.log(this.currentIndex)
+    // this.currentViewContRef.remove()
   }
 
   //创建组件列表
@@ -90,21 +105,23 @@ export class AppComponent implements OnInit{
   }
 
   //组件渲染
-  renderComponent(index) {
-    this.currentIndex = index || 0;
-    let currentComponent = this.components[this.currentIndex];
+  renderComponent(currentIndex) {
+    let index = currentIndex || 0;
+    let currentComponent = this.components[index];
     let compFactory  = this.componentFactoryResolver.resolveComponentFactory(currentComponent.compType);
     let compRef = this.currentViewContRef.createComponent(compFactory);
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
       this.beforeSelectComp();
-      this.selectComp(currentComponent.settingObj, compInstance)
+      this.selectComp(currentComponent.settingObj, compInstance, index)
     })
 
   }
 
+  //处理之前选择的组件
   beforeSelectComp() {
+    this.activeCompSettingObject = null; //初始化
     if(this.activeCurrentComp && this.activeCurrentComp.length > 0) {
       let beforeActiveCompSettingObj = this.activeCurrentComp[0];
       beforeActiveCompSettingObj['active'] = false;
@@ -113,19 +130,13 @@ export class AppComponent implements OnInit{
     }
   }
 
-  selectComp(settingObj, compInstance) {
-    console.log(settingObj)
+  //选择组件
+  selectComp(settingObj, compInstance, currentIndex) {
+    this.currentIndex = currentIndex;
     this.activeCurrentComp = [settingObj, compInstance];
     this.activeCompSettingObject = settingObj;
     settingObj['active'] = !settingObj['active'];
     return (<SettingObjComponent> compInstance).settingObj = settingObj;
-  }
-
-  testCurrentComp() {
-    this.activeCurrentComp[0]['active'] = true;
-    let settingObj = this.activeCurrentComp[0];
-    let compInstance  = this.activeCurrentComp[1];
-    return (<SettingObjComponent> compInstance).settingObj = settingObj;    
   }
   
   //组件映射列表
@@ -165,11 +176,5 @@ export class AppComponent implements OnInit{
     }
     return tempInfo;
   }
-  
-  delComponent() {
-    console.log("清除组件 ...")
-    this.currentViewContRef.remove()
-  }
-
 
 };

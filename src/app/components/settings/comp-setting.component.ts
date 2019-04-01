@@ -1,5 +1,5 @@
 import { SettingObject } from '.history/src/app/communal/modules/setting-object_20190327170043';
-import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-comp-setting',
@@ -8,19 +8,24 @@ import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
 })
 export class CompSettingComponent implements OnInit{
    @Input() activeSettingObj: SettingObject = {}
+   @Output() settingObjChange = new EventEmitter<any>();
 
   constructor(private renderer: Renderer2, eleRef: ElementRef) { 
-    this.renderer.setProperty(eleRef.nativeElement, 'author', 'maliang')
+    this.initData()
   }
 
   ngOnInit() {
-    console.log(this.activeSettingObj)
+ 
   }
 
-  paramsChange(event: any, key: string) {
-    console.log(this.activeSettingObj)
-    // if (!this.activeSettingObj.hasOwnProperty(key)) return false;
-    // this.activeSettingObj[key] = event;
+  initData() {
+    this.activeSettingObj = {
+      'style': {}
+    }
+  }
+
+  paramsChange(key: string) {
+    this.settingObjChange.emit(this.activeSettingObj)
   }
 
 }

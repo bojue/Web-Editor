@@ -48,6 +48,9 @@ export class AppServiceService{
       width:100,
       height:40,
       border: '',
+      borderColor: '',
+      borderWidth: 0,
+      borderStyle: ''
     }
   },{
     compIndex: 2,
@@ -60,6 +63,9 @@ export class AppServiceService{
       height:200,
       width: 300,
       border: '',
+      borderColor: '',
+      borderWidth: 0,
+      borderStyle: ''
     }
   },{
     compIndex: 2,
@@ -72,6 +78,9 @@ export class AppServiceService{
       height:100,
       width: 100,
       border: '',
+      borderColor: '',
+      borderWidth: 0,
+      borderStyle: ''
     }
   }]
 

@@ -18,23 +18,16 @@ export class ImgComponent implements OnInit, SettingObjComponent{
   }
 
    ngOnInit() {
-      console.log(this.settingObj)
-      this.style = this.settingObj && this.settingObj['style'] || {};
-      this.data = this.settingObj && this.settingObj['data'] || {};
-    }
+     this.style = this.settingObj && this.settingObj['style'] || {};
+     this.data = this.settingObj && this.settingObj['data'] || {};
+   }
 
    expandUnit(param) {
-     let paramVal = this.style[param] || 100;
+     let paramVal = this.style[param] || 1;
      return paramVal + 'px'; 
    }
   
-   getCurrentCompName(name: string) {
-     console.log("currentName --->  ", name)
-   }
-
-   
    selectComp(event) {
-    console.log(this.settingObj, this.data)
     this.onChildComponentChange.emit(event);
   }
    

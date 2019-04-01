@@ -16,7 +16,7 @@ export class TextComponent implements SettingObjComponent {
   constructor() { }
 
   expandUnit(param) {
-    let paramVal = this.style[param] || 100;
+    let paramVal = this.style[param] || 1;
     return paramVal + 'px'; ;
   }
 
@@ -25,13 +25,7 @@ export class TextComponent implements SettingObjComponent {
     this.data = this.settingObj && this.settingObj['data'] || {};
   }
 
-  getCurrentCompName(name: string) {
-    console.log("currentName --->  ",this.settingObj)
-  }
-
-
   selectComp(event) {
-    console.log(event)
     this.onChildComponentChange.emit(event);
   }
 }

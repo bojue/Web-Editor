@@ -19,6 +19,9 @@ export class BasicInfoConfigService {
               height:100,
               width: 100,
               border: '',
+              borderColor: '',
+              borderWidth: 0,
+              borderStyle: ''
             }
           }
         return data;
@@ -36,6 +39,9 @@ export class BasicInfoConfigService {
               height:100,
               width: 100,
               border: '',
+              borderColor: '',
+              borderWidth: 0,
+              borderStyle: ''
             }
           }
         return data;

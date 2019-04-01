@@ -5,43 +5,47 @@
   </div>
   <div class="set-body">
     <div class="item-set">
-      <label class="set-name">长度(px):</label>
-      <input class="set-val" [(ngModel)]="activeSettingObj['style']['width']" type="number">
+      <label class="set-name">长度:</label>
+      <input class="set-val" [(ngModel)]="activeSettingObj['style']['width']" (ngModelChange)="paramsChange()" type="number">
     </div>
     <div class="item-set">
-        <label class="set-name">高度(px):</label>
-        <input  class="set-val" type="number"  [(ngModel)]="activeSettingObj['style']['width']" (ngModelChange)="paramsChange($event, 'height')">
+        <label class="set-name">高度:</label>
+        <input  class="set-val" type="number"  [(ngModel)]="activeSettingObj['style']['height']" (ngModelChange)="paramsChange()">
       </div>
     <div class="item-set">
        <label for="" class="set-name">绑定属性</label>
        <span class="set-val"></span>
     </div>
+    
   </div>
 
   <!-- 高级 -->
   <div class="item-tit">
-      高级
+      事件
+  </div>
+  <div class="set-body">
+    <div class="item-set">
+      <label class="set-name">事件</label>
+        <select class="set-val">
+          <option value="">单击</option>
+          <option value="">双击</option>
+        </select>
     </div>
-    <div class="set-body">
-      <div class="item-set">
-        <label class="set-name">绑定:</label>
-        <span>后端取值</span>
-      </div>
-    </div>
+  </div>
 
-    <!-- 3.动画 -->
-    <div class="item-tit">
-        动画
-      </div>
-      <div class="set-body">
-        <div class="item-set">
-          <label class="set-name">动画:</label>
-          <select class="set-val">
-            <option value="">上下跳转</option>
-            <option value="">左右摆动</option>
-          </select>
-        </div>
-      </div>
+  <!-- 3.动画 -->
+  <div class="item-tit">
+    动画
+  </div>
+  <div class="set-body">
+    <div class="item-set">
+      <label class="set-name">动画:</label>
+      <select class="set-val">
+        <option value="">上下跳转</option>
+        <option value="">左右摆动</option>
+      </select>
+    </div>
+  </div>
 </div>
 <div class="comp-item disabled-opeaticy" disabled *ngIf="!activeSettingObj">
     <div class="item-discription">请选择组件</div>
