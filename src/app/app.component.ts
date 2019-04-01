@@ -1,3 +1,4 @@
+import { SettingObject } from './communal/component/code/setting-object.module';
 import { BasicInfoConfigService } from './communal/component/config/basic-info-config.service';
 import { ComponentItem } from './communal/component/code/component-item';
 import { Component, OnInit, ComponentFactoryResolver, ChangeDetectorRef, Input, ViewChild ,ViewContainerRef, Injector} from '@angular/core';
@@ -26,9 +27,11 @@ export class AppComponent implements OnInit{
   components: any[];
   cmpRef: any[];
   currentViewContRef: any;
-
   currentCompIndex: number;
+  dynamicCurrentComp: [SettingObject, any];
+  dymamicSelectCompList:[SettingObject, any][];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
+
   constructor(
     private changeDetectorRef:ChangeDetectorRef,
     private viewContainerRef: ViewContainerRef,
@@ -53,6 +56,7 @@ export class AppComponent implements OnInit{
     this.testCreateComp = this.service.getTestCreateComp();
     console.log("读取JSON数据 ==> ",this.testCreateComp)
     this.getCompList(this.testCreateComp)
+    this.dymamicSelectCompList = [];
   }
 
   activeSettingState(state = 'default') {
@@ -60,7 +64,6 @@ export class AppComponent implements OnInit{
   }
 
   dragCompStart(event, compType) {
-    console.log(compType)
     this.currentViewContRef.clear()
     this.addComponent(compType)
   }
@@ -76,7 +79,6 @@ export class AppComponent implements OnInit{
   //创建组件列表
   getCompList(jsonList: any[]) {
      this.components = this.createComp(jsonList); //获取组件列表
-     console.log("组价列表 ===> ", this.components)
      this.updateComponent(this.components)
   }
   
@@ -96,8 +98,30 @@ export class AppComponent implements OnInit{
  
     let numb = currentComponent.settingObj['compIndex'];
     console.log(numb)
-    let componentRef = this.currentViewContRef.createComponent(compFactory);
-    (<SettingObjComponent> componentRef.instance).settingObj = currentComponent.settingObj;
+    let compRef = this.currentViewContRef.createComponent(compFactory);
+    let compInstance = compRef.instance;
+    (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
+    (compInstance).onChildComponentChange.subscribe((e)=> {
+      this.selectComp( currentComponent.settingObj, compInstance)
+    })
+
+  }
+
+  selectComp(settingObj, compInstance) {
+    this.dymamicSelectCompList.push(compInstance);
+    this.dynamicCurrentComp = [settingObj, compInstance];
+    settingObj['border'] = '1px solid blue';
+    return (<SettingObjComponent> compInstance).settingObj = settingObj;
+  }
+
+  testCurrentComp() {
+    this.dynamicCurrentComp[0]['border'] = '1px solid red';
+    console.log(this.dymamicSelectCompList)
+    let settingObj = this.dynamicCurrentComp[0];
+    let compInstance  = this.dynamicCurrentComp[1];
+    return (<SettingObjComponent> compInstance).settingObj = settingObj;
+
+    
   }
   
   //组件映射列表
@@ -143,4 +167,6 @@ export class AppComponent implements OnInit{
     console.log("清除组件 ...")
     this.currentViewContRef.remove()
   }
+
+
 };

@@ -9,6 +9,7 @@ import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
 })
 export class TextComponent implements SettingObjComponent {
   @Input() settingObj: SettingObject;
+  @Output() onChildComponentChange = new EventEmitter<any>();
 
   constructor() { }
 
@@ -16,4 +17,12 @@ export class TextComponent implements SettingObjComponent {
     return val + 'px';
   }
 
+  getCurrentCompName(name: string) {
+    console.log("currentName --->  ", name)
+  }
+
+
+  selectComp(event) {
+    this.onChildComponentChange.emit(event);
+  }
 }

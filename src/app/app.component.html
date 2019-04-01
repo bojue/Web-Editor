@@ -3,7 +3,7 @@
   <p class="title">组件开发</p>
   <div class="body">
     <div id='componentsBody' class="border1 h90 content" (drop)="drop_handler(event)">
-        <ng-template view-contain-ref></ng-template>
+        <ng-template view-contain-ref #contentComp></ng-template>
     </div>
     <div class="setting border1 h90">
       <div class="header">
@@ -29,6 +29,9 @@
 
       <div class="del">
         <button (click)="delComponent()">清除</button>
+      </div>
+      <div class="test">
+        <button (click)="testCurrentComp()">测试绑定</button>
       </div>
 
     </div>

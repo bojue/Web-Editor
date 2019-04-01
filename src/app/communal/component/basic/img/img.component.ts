@@ -10,6 +10,7 @@ import { SettingObject } from '../../code/setting-object.module';
 
 export class ImgComponent implements OnInit, SettingObjComponent{
   @Input() settingObj: SettingObject;
+  @Output() onChildComponentChange = new EventEmitter<any>();
   
   constructor() {
 
@@ -22,4 +23,14 @@ export class ImgComponent implements OnInit, SettingObjComponent{
    expandUnit(val = 100) {
      return val + 'px';
    }
+  
+   getCurrentCompName(name: string) {
+     console.log("currentName --->  ", name)
+   }
+
+   
+   selectComp(event) {
+    this.onChildComponentChange.emit(event);
+  }
+   
 }

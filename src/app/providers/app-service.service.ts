@@ -29,27 +29,11 @@ export class AppServiceService{
   basicCompIconList = [{
       name:'文本',
       type: 'text',
-      iconUrl: './../assets/imgs/text.svg',
-      compData: {
-        name:'文本',
-        type:'text',
-        data: {
-          'name':'文本'
-        }
-      }
-    },
-    {
+      iconUrl: './../assets/icons/text.svg'
+    },{
     name:'图片',
     type: 'img',
-    iconUrl: './../assets/imgs/image.svg',
-    compData: {
-      name:'文本',
-      type:'text',
-      data: {
-        name:'文本',
-        url: './../assets/imgs/image.svg',
-      }
-    }
+    iconUrl: './../assets/icons/image.svg'
   }]
 
   //后台测试数据
