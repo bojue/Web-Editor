@@ -1,33 +1,48 @@
-<div class="comp-item">
+<div class="comp-item" *ngIf="activeSettingObj">
   <div class="item-discription">图片</div>
-  <div class="item-tit">
+  <div class="item-tit" >
     基本
   </div>
   <div class="set-body">
     <div class="item-set">
       <label class="set-name">长度(px):</label>
-      <input class="set-val" type="number">
+      <input class="set-val" [(ngModel)]="activeSettingObj['style']['width']" type="number">
     </div>
     <div class="item-set">
         <label class="set-name">高度(px):</label>
-        <input [(ngModel)]="settingObj['height']" class="set-val" type="number" (ngModelChange)="paramsChange($event, 'height')">
+        <input  class="set-val" type="number"  [(ngModel)]="activeSettingObj['style']['width']" (ngModelChange)="paramsChange($event, 'height')">
       </div>
     <div class="item-set">
        <label for="" class="set-name">绑定属性</label>
-       <span class="set-val">  {{settingObj['height']}} </span>
+       <span class="set-val"></span>
     </div>
   </div>
 
+  <!-- 高级 -->
   <div class="item-tit">
-      辅助
+      高级
     </div>
     <div class="set-body">
       <div class="item-set">
-        <label class="set-name">动画:</label>
-        <select class="set-val">
-          <option value="">上下跳转</option>
-          <option value="">左右摆动</option>
-        </select>
+        <label class="set-name">绑定:</label>
+        <span>后端取值</span>
       </div>
     </div>
+
+    <!-- 3.动画 -->
+    <div class="item-tit">
+        动画
+      </div>
+      <div class="set-body">
+        <div class="item-set">
+          <label class="set-name">动画:</label>
+          <select class="set-val">
+            <option value="">上下跳转</option>
+            <option value="">左右摆动</option>
+          </select>
+        </div>
+      </div>
+</div>
+<div class="comp-item disabled-opeaticy" disabled *ngIf="!activeSettingObj">
+    <div class="item-discription">请选择组件</div>
 </div>

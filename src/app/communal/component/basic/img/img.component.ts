@@ -11,17 +11,21 @@ import { SettingObject } from '../../code/setting-object.module';
 export class ImgComponent implements OnInit, SettingObjComponent{
   @Input() settingObj: SettingObject;
   @Output() onChildComponentChange = new EventEmitter<any>();
-  
+  style: any;
+  data: any;
   constructor() {
 
   }
 
    ngOnInit() {
-  
-   }
+      console.log(this.settingObj)
+      this.style = this.settingObj && this.settingObj['style'] || {};
+      this.data = this.settingObj && this.settingObj['data'] || {};
+    }
 
-   expandUnit(val = 100) {
-     return val + 'px';
+   expandUnit(param) {
+     let paramVal = this.style[param] || 100;
+     return paramVal + 'px'; 
    }
   
    getCurrentCompName(name: string) {
@@ -30,6 +34,7 @@ export class ImgComponent implements OnInit, SettingObjComponent{
 
    
    selectComp(event) {
+    console.log(this.settingObj, this.data)
     this.onChildComponentChange.emit(event);
   }
    

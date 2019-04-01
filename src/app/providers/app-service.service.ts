@@ -40,30 +40,38 @@ export class AppServiceService{
   testCreateComp = [{
     name:'文本',
     type:'text',
+    compIndex: 1,
     data: {
-      compIndex: 1,
-      name:'文本',
-      value: "文本"
+      value: "文本",
+    },
+    style: {
+      width:100,
+      height:40,
+      border: '',
     }
   },{
-    name:'图片组件',
+    compIndex: 2,
+    name:'图片',
     type:'img',
     data: {
-      compIndex: 2,
-      name:'图片',
-      height:100,
-      width: 100,
-      url:'./../assets/imgs/es.jpeg'
-    }
-  },{
-    name:'图片组件',
-    type:'img',
-    data: {
-      compIndex: 3,
-      name:'图片',
+      value:'./../assets/imgs/es.jpeg',
+    },
+    style: {
       height:200,
       width: 300,
-      url:'./../assets/imgs/es.jpeg'
+      border: '',
+    }
+  },{
+    compIndex: 2,
+    name:'图片',
+    type:'img',
+    data: {
+      value:'./../assets/imgs/es.jpeg',
+    },
+    style: {
+      height:100,
+      width: 100,
+      border: '',
     }
   }]
 

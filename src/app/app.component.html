@@ -7,8 +7,8 @@
     </div>
     <div class="setting border1 h90">
       <div class="header">
-        <div class="heade" *ngFor="let heade of componentsHeaders" [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
-          <span>{{heade['name']}}</span>
+        <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
+          <span >{{heade['name']}}</span>
         </div>
       </div>
 
@@ -24,16 +24,8 @@
 
       <!-- 设置 -->
       <div *ngIf= "settingState === 'settings'" class="settings">
-        <app-comp-setting></app-comp-setting>
+        <app-comp-setting [activeSettingObj]="activeCompSettingObject"></app-comp-setting>
       </div>
-
-      <div class="del">
-        <button (click)="delComponent()">清除</button>
-      </div>
-      <div class="test">
-        <button (click)="testCurrentComp()">测试绑定</button>
-      </div>
-
     </div>
   </div>
 </div>

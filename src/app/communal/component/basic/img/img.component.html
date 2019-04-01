@@ -1,1 +1,1 @@
-<img class="item" (click)="selectComp($event)" [ngStyle]="{'width':expandUnit(settingObj['width']),'height':expandUnit(settingObj['height']), 'border': settingObj['border']}" src="{{settingObj['url']}}" alt="imgs" class="icon">    
+<img class="item" (click)="selectComp($event)" [ngClass]="{'comp-active': settingObj['active'] }" [ngStyle]="{'width':expandUnit('width'),'height':expandUnit('height')}" src="{{data['value']}}" alt="imgs" class="icon">    

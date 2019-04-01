@@ -26,10 +26,10 @@ export class AppComponent implements OnInit{
   basicCompIconList: any[];
   components: any[];
   cmpRef: any[];
-  currentViewContRef: any;
-  currentCompIndex: number;
-  dynamicCurrentComp: [SettingObject, any];
-  dymamicSelectCompList:[SettingObject, any][];
+  currentViewContRef: any; //当前组件实例
+  currentCompIndex: number; //当前组件的下标
+  activeCurrentComp: [SettingObject, any];//当前组件的数据
+  activeCompSettingObject: SettingObject; //当前组件的设置对象
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
 
   constructor(
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit{
     this.testCreateComp = this.service.getTestCreateComp();
     console.log("读取JSON数据 ==> ",this.testCreateComp)
     this.getCompList(this.testCreateComp)
-    this.dymamicSelectCompList = [];
+
   }
 
   activeSettingState(state = 'default') {
@@ -93,46 +93,49 @@ export class AppComponent implements OnInit{
   renderComponent(index) {
     this.currentIndex = index || 0;
     let currentComponent = this.components[this.currentIndex];
-    console.log(this.currentIndex, currentComponent)
     let compFactory  = this.componentFactoryResolver.resolveComponentFactory(currentComponent.compType);
- 
-    let numb = currentComponent.settingObj['compIndex'];
-    console.log(numb)
     let compRef = this.currentViewContRef.createComponent(compFactory);
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
-      this.selectComp( currentComponent.settingObj, compInstance)
+      this.beforeSelectComp();
+      this.selectComp(currentComponent.settingObj, compInstance)
     })
 
   }
 
+  beforeSelectComp() {
+    if(this.activeCurrentComp && this.activeCurrentComp.length > 0) {
+      let beforeActiveCompSettingObj = this.activeCurrentComp[0];
+      beforeActiveCompSettingObj['active'] = false;
+      let beforeActiveCompInstance = this.activeCurrentComp[1];
+      return (<SettingObjComponent> beforeActiveCompInstance).settingObj = beforeActiveCompSettingObj;
+    }
+  }
+
   selectComp(settingObj, compInstance) {
-    this.dymamicSelectCompList.push(compInstance);
-    this.dynamicCurrentComp = [settingObj, compInstance];
-    settingObj['border'] = '1px solid blue';
+    console.log(settingObj)
+    this.activeCurrentComp = [settingObj, compInstance];
+    this.activeCompSettingObject = settingObj;
+    settingObj['active'] = !settingObj['active'];
     return (<SettingObjComponent> compInstance).settingObj = settingObj;
   }
 
   testCurrentComp() {
-    this.dynamicCurrentComp[0]['border'] = '1px solid red';
-    console.log(this.dymamicSelectCompList)
-    let settingObj = this.dynamicCurrentComp[0];
-    let compInstance  = this.dynamicCurrentComp[1];
-    return (<SettingObjComponent> compInstance).settingObj = settingObj;
-
-    
+    this.activeCurrentComp[0]['active'] = true;
+    let settingObj = this.activeCurrentComp[0];
+    let compInstance  = this.activeCurrentComp[1];
+    return (<SettingObjComponent> compInstance).settingObj = settingObj;    
   }
   
   //组件映射列表
   createComp(objList:any[]){
-    console.log(objList)
     let compList = [];
-    objList.forEach(item =>{
-      let _type = item && item['type'];
+    objList.forEach(settingItem =>{
+      let _type = settingItem && settingItem['type'];
       let compInfo = this.createTemp(_type)
-      item['data'] = item['data'] || compInfo['data']
-      let createComp = new ComponentItem(compInfo['comp'],item['data']);
+      let settingData = settingItem || compInfo['data']
+      let createComp = new ComponentItem(compInfo['comp'], settingData);
       compList.push(createComp)
     })
     return compList;

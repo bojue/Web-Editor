@@ -1,5 +1,5 @@
 import { SettingObject } from '.history/src/app/communal/modules/setting-object_20190327170043';
-import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-comp-setting',
@@ -7,27 +7,20 @@ import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
   styleUrls: ['./comp-setting.component.scss']
 })
 export class CompSettingComponent implements OnInit{
-  /**
-   * 属性对象声明
-   * @param height 高度
-   * @param width 宽度
-   */
-  private settingObj: SettingObject = {
-    height: 300,
-    width: 300
-  }
+   @Input() activeSettingObj: SettingObject = {}
 
   constructor(private renderer: Renderer2, eleRef: ElementRef) { 
     this.renderer.setProperty(eleRef.nativeElement, 'author', 'maliang')
   }
 
   ngOnInit() {
-    console.log(this.settingObj)
+    console.log(this.activeSettingObj)
   }
 
   paramsChange(event: any, key: string) {
-    if (!this.settingObj.hasOwnProperty(key)) return false;
-    this.settingObj[key] = event;
+    console.log(this.activeSettingObj)
+    // if (!this.activeSettingObj.hasOwnProperty(key)) return false;
+    // this.activeSettingObj[key] = event;
   }
 
 }

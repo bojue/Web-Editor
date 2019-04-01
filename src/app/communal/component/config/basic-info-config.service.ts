@@ -9,29 +9,35 @@ export class BasicInfoConfigService {
 
     getTextInfoConfig() {
         let data = {
-            name:'文字组件',
+            compIndex: 2,
+            name:'文本',
             type:'text',
             data: {
-              compIndex: 4,
-              name:'图片',
-              value:''
+              value:'./../assets/imgs/text.jpeg',
+            },
+            style: {
+              height:100,
+              width: 100,
+              border: '',
             }
-        }
+          }
         return data;
     }
 
     getImgInfoConfig() {
-        let data =  {
-            name:'图片组件',
+        let data = {
+            compIndex: 2,
+            name:'图片',
             type:'img',
             data: {
-              compIndex: 3,
-              name:'图片',
-              height:200,
-              width: 400,
-              url:'./../assets/imgs/es.jpeg'
+              value:'./../assets/imgs/es.jpeg',
+            },
+            style: {
+              height:100,
+              width: 100,
+              border: '',
             }
-        }
+          }
         return data;
     }
 

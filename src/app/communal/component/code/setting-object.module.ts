@@ -1,8 +1,13 @@
 export class SettingObject {
-    width: number;
-    height: number;
-    url: string;
-    name: string;
-    value: any;
     compIndex: number;
+    name: string;
+    type: string;
+    data: {
+        url: string;  
+        value: any;      
+    };
+    style:{
+        width: number;
+        height: number;
+    };
 }
