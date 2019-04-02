@@ -1,3 +1,4 @@
+import { ChartComponent } from './../../communal/component/custom/chart/chart.component';
 import { Component, OnInit, ComponentFactoryResolver, ChangeDetectorRef, Input, ViewChild ,ViewContainerRef, Injector} from '@angular/core';
 import { SettingObjComponent } from './../../communal//code/setting-object.component';
 import { ComponentItem } from './../../communal/code/component-item';
@@ -8,7 +9,6 @@ import { ImgComponent } from './../../communal/component/basic/img/img.component
 import { TextComponent } from './../../communal/component/basic/text/text.component';
 import { AppServiceService} from './../../providers/app-service.service';
 import { ViewContainRefHostDirective } from './../../communal/directive/view-contain-ref-host.directive'
-
 
 @Component({
   selector: 'app-development-page',
@@ -76,6 +76,7 @@ export class DevelopmentPageComponent implements OnInit {
   //增加组件
   addComponent(compType) {
     let compDefinInfo = this.createTemp(compType);
+    console.log(compDefinInfo)
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.testCreateComp.push(addCompJson);
     this.getCompList(this.testCreateComp)
@@ -174,6 +175,12 @@ export class DevelopmentPageComponent implements OnInit {
           comp: ImgComponent,
           data: this.getCompDefaultConfig(type)
         }
+        break;
+      case 'chart':
+        tempInfo = {
+          comp: ChartComponent,
+          data : this.getCompDefaultConfig(type)
+        }  
         break;
       default:
         return;    

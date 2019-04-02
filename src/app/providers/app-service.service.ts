@@ -34,6 +34,10 @@ export class AppServiceService{
     name:'图片',
     type: 'img',
     iconUrl: './../assets/icons/image.svg'
+  },{
+    name:'图表',
+    type: 'chart',
+    iconUrl: './../assets/icons/chart.svg'
   }]
 
   //后台测试数据
@@ -74,18 +78,18 @@ export class AppServiceService{
       borderStyle: ''
     }
   },{
-    compIndex: 2,
-    name:'图片',
-    type:'img',
+    compIndex: 3,
+    name:'图表',
+    type:'chart',
     data: {
-      value:'./../assets/imgs/es.jpeg',
+
     },
     style: {
-      height:100,
-      width: 100,
+      height:220,
+      width: 300,
       position: 'absolute',
-      top:10,
-      left:10,
+      top:120,
+      left:600,
       border: '',
       borderColor: '',
       borderWidth: 0,

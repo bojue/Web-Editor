@@ -49,8 +49,27 @@ export class BasicInfoConfigService {
                     borderWidth: 0,
                     borderStyle: ''
                 }
-                }                 
+            } ,               
+            chart:{
+                compIndex: 3,
+                name:'图表',
+                type:'chart',
+                data: {
+            
+                },
+                style: {
+                  height:180,
+                  width: 500,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                }
             }
+        }
         return data[style]  ? data[style] : {} 
     }
 

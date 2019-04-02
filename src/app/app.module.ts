@@ -16,7 +16,15 @@ import { BackgroundComponent } from './communal/component/settings/background/ba
 import { AppServiceService} from './providers/app-service.service';
 import { ComponentWrapperRefComponent } from './code/component/component-wrapper-ref/component-wrapper-ref.component';
 import { ViewContainRefHostDirective } from './communal/directive/view-contain-ref-host.directive';
+import { ChartComponent } from './communal/component/custom/chart/chart.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
+const ENTRY_COMPONENT = [
+  ChartComponent,
+  CompSettingComponent,
+  TextComponent,
+  ImgComponent
+]
 
 @NgModule({
   declarations: [
@@ -31,12 +39,15 @@ import { ViewContainRefHostDirective } from './communal/directive/view-contain-r
     ComponentWrapperRefComponent,
     ViewContainRefHostDirective,
     SizeComponent,
-    PositionComponent
+    PositionComponent,
+    ChartComponent,
+
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxEchartsModule
   ],
   providers: [
     AppServiceService,
@@ -44,9 +55,7 @@ import { ViewContainRefHostDirective } from './communal/directive/view-contain-r
   ],
   bootstrap: [AppComponent],
   entryComponents:[
-    CompSettingComponent,
-    TextComponent,
-    ImgComponent
+    ...ENTRY_COMPONENT
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
