@@ -1,5 +1,5 @@
+import { SettingObject } from '../../communal/module/setting-object.module';
 import { SettingStyle } from '../../communal/module/setting-style.module';
-import { SettingObject } from '.history/src/app/communal/modules/setting-object_20190327170043';
 import { Component, OnInit, Renderer2, ElementRef, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
@@ -8,21 +8,21 @@ import { Component, OnInit, Renderer2, ElementRef, Input, Output, EventEmitter} 
   styleUrls: ['./comp-setting.component.scss']
 })
 export class CompSettingComponent implements OnInit{
-   @Input() activeSettingObj: SettingObject = {}
+   @Input() activeSettingObj: SettingObject;
    @Output() settingObjChange = new EventEmitter<any>();
+   styles: SettingStyle;
 
-  constructor(private renderer: Renderer2, eleRef: ElementRef) { 
+  constructor() { 
     this.initData()
   }
 
   ngOnInit() {
- 
+
   }
 
   initData() {
-    this.activeSettingObj = {
-      style: SettingStyle
-    }
+   this.styles = this.activeSettingObj && this.activeSettingObj['style']
+   console.log(this.activeSettingObj, this.styles)
   }
 
   paramsChange(key: string) {

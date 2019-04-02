@@ -1,7 +1,9 @@
+import { PositionComponent } from './communal/component/settings/position/position.component';
+import { SizeComponent } from './communal/component/settings/size/size.component';
 import { BasicInfoConfigService } from './providers/basic-info-config.service';
 import { CompSettingComponent } from './components/settings/comp-setting.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,10 +16,7 @@ import { BackgroundComponent } from './communal/component/settings/background/ba
 import { AppServiceService} from './providers/app-service.service';
 import { ComponentWrapperRefComponent } from './code/component/component-wrapper-ref/component-wrapper-ref.component';
 import { ViewContainRefHostDirective } from './communal/directive/view-contain-ref-host.directive';
-import { SizeComponentComponent } from './communal/component/settings/size-component/size-component.component';
-import { PositionComponentComponent } from './communal/component/settings/position-component/position-component.component';
-import { BorderComponentComponent } from './communal/component/settings/border-component/border-component.component';
-import { FontComponentComponent } from './communal/component/settings/font-component/font-component.component';
+
 
 @NgModule({
   declarations: [
@@ -31,10 +30,8 @@ import { FontComponentComponent } from './communal/component/settings/font-compo
     CompSettingComponent,
     ComponentWrapperRefComponent,
     ViewContainRefHostDirective,
-    SizeComponentComponent,
-    PositionComponentComponent,
-    BorderComponentComponent,
-    FontComponentComponent,
+    SizeComponent,
+    PositionComponent
   ],
   imports: [
     FormsModule,
@@ -50,6 +47,7 @@ import { FontComponentComponent } from './communal/component/settings/font-compo
     CompSettingComponent,
     TextComponent,
     ImgComponent
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
