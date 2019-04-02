@@ -46,6 +46,9 @@ export class AppServiceService{
     },
     style: {
       width:100,
+      position: 'absolute',
+      top:10,
+      left:10,
       height:40,
       border: '',
       borderColor: '',
@@ -62,6 +65,9 @@ export class AppServiceService{
     style: {
       height:200,
       width: 300,
+      position: 'absolute',
+      top:10,
+      left:10,
       border: '',
       borderColor: '',
       borderWidth: 0,
@@ -77,6 +83,9 @@ export class AppServiceService{
     style: {
       height:100,
       width: 100,
+      position: 'absolute',
+      top:10,
+      left:10,
       border: '',
       borderColor: '',
       borderWidth: 0,

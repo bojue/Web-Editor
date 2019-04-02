@@ -22,6 +22,9 @@ export class BasicInfoConfigService {
                 style: {
                     height:100,
                     width: 100,
+                    position: 'absolute',
+                    top:200,
+                    left:100,
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
@@ -38,6 +41,9 @@ export class BasicInfoConfigService {
                 style: {
                     height:100,
                     width: 100,
+                    position: 'absolute',
+                    top:200,
+                    left:100,
                     border: '',
                     borderColor: '',
                     borderWidth: 0,

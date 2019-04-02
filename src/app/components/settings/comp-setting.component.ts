@@ -1,3 +1,4 @@
+import { SettingStyle } from '../../communal/module/setting-style.module';
 import { SettingObject } from '.history/src/app/communal/modules/setting-object_20190327170043';
 import { Component, OnInit, Renderer2, ElementRef, Input, Output, EventEmitter} from '@angular/core';
 
@@ -20,7 +21,7 @@ export class CompSettingComponent implements OnInit{
 
   initData() {
     this.activeSettingObj = {
-      'style': {}
+      style: SettingStyle
     }
   }
 

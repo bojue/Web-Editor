@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeightComponent } from './height.component';
+import { FontComponentComponent } from './font-component.component';
 
-describe('HeightComponent', () => {
-  let component: HeightComponent;
-  let fixture: ComponentFixture<HeightComponent>;
+describe('FontComponentComponent', () => {
+  let component: FontComponentComponent;
+  let fixture: ComponentFixture<FontComponentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeightComponent ]
+      declarations: [ FontComponentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeightComponent);
+    fixture = TestBed.createComponent(FontComponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

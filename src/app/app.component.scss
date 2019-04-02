@@ -1,10 +1,14 @@
 $color-blue-1: #F6F7FB ;
 $color-blue-2: #eaf6fe;
+$color-blue-3: #3399ff;
+
+$color-red-1: red;
 
 $backgroudn-color1: $color-blue-2;
 
 $border-color1: $color-blue-1;
 $border-color2: $color-blue-2;
+$border-color3: $color-red-1;
 
 :host /deep/ {
     .body {
@@ -31,7 +35,7 @@ $border-color2: $color-blue-2;
                 cursor: pointer;
             }
             .comp-active {
-                border: 1px solid red;
+                border: 1px solid $border-color3;
             }
         }
 
@@ -75,6 +79,9 @@ $border-color2: $color-blue-2;
                     height: 70px;
                     position: relative;
                     text-align: center;
+                    &:hover {
+                        border: 1px solid $border-color3;
+                    }
                     img.icon {
                         width: 30px;
                         height: 30px;
@@ -113,22 +120,37 @@ $border-color2: $color-blue-2;
                 }
 
                 .set-body {
-                    
                     .item-set {
-                        display: inline-block;
-                        margin: 6px 6px;
                         position: relative;
-
-                        .set-name {
-                            width: 80px;
-                            text-align: center;
-                            display: inline-block;
+                        margin-top: 5px 2px;
+                        padding:3px 5px;
+                        &.item-set-grid {
+                            display: grid;
+                            position: relative;
+                            grid-template-columns: 48% 48%;
+                            grid-column-gap: 3px;
+                            &.grid-3 {
+                                grid-template-columns: 18% 40% 40%;
+                            }
+                            .set-val {
+                                position: relative;
+                                padding: 2px;
+                                .lab {
+                                    position: absolute;
+                                    z-index: 100;
+                                    background: lightgrey;
+                                    margin-top: 0px;
+                                    padding: 2px 4px;
+                                    left: 2px;
+                                    top: 2px;
+                                }
+                                .val {
+                                    width: 70px;
+                                    padding-left: 30px;
+                                }
+                            }
                         }
-
-                        .set-val {
-                            display: inline-block;
-                            width: 120px;
-                        }
+                        
                     }
                 }
             }

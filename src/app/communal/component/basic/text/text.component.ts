@@ -1,5 +1,5 @@
-import { SettingObject } from '../../code/setting-object.module';
-import { SettingObjComponent } from '../../code/seting-component.component';
+import { SettingObjComponent } from '../../../code/setting-object.component';
+import { SettingObject } from '../../../module/setting-object.module';
 import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
 
 @Component({

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WidthComponent } from './width.component';
+import { SizeComponentComponent } from './size-component.component';
 
-describe('WidthComponent', () => {
-  let component: WidthComponent;
-  let fixture: ComponentFixture<WidthComponent>;
+describe('SizeComponentComponent', () => {
+  let component: SizeComponentComponent;
+  let fixture: ComponentFixture<SizeComponentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WidthComponent ]
+      declarations: [ SizeComponentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WidthComponent);
+    fixture = TestBed.createComponent(SizeComponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

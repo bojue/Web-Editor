@@ -1,6 +1,6 @@
-import { SettingObjComponent } from '../../code/seting-component.component';
+import { SettingObjComponent } from '../../../code/setting-object.component';
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
-import { SettingObject } from '../../code/setting-object.module';
+import { SettingObject } from '../../../module/setting-object.module';
 
 @Component({
   selector: 'app-img',

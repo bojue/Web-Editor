@@ -3,12 +3,13 @@
     (click)="selectComp($event)" 
     [ngClass]="{'comp-active': settingObj['active'] }"
     [ngStyle]="{
+        'position':style['position'],
+        'top':expandUnit('top'),
+        'left':expandUnit('left'),
         'width':expandUnit('width'),
         'height':expandUnit('height'),
         'border-width':expandUnit('borderWidth'),
         'border-style':style['borderStyle'],
         'border-color':style['borderColor']
-
     }" 
-    src="{{data['value']}}" 
-    >    
+    src="{{data['value']}}" >    
