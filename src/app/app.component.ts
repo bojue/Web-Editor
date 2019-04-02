@@ -162,19 +162,24 @@ export class AppComponent implements OnInit{
       case 'text':
         tempInfo = {
           comp: TextComponent,
-          data: this.infoService.getTextInfoConfig()
+          data: this.getCompDefaultConfig(type)
         }
         break;
       case 'img':  
         tempInfo = {
           comp: ImgComponent,
-          data: this.infoService.getImgInfoConfig()
+          data: this.getCompDefaultConfig(type)
         }
         break;
       default:
         return;    
     }
     return tempInfo;
+  }
+
+  //获取组件默认配置
+  getCompDefaultConfig(type) {
+    return this.infoService.getCompDefaultConfig(type);
   }
 
 };
