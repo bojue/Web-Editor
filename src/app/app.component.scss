@@ -19,8 +19,19 @@ $border-color3: $color-red-1;
         .h90 {
             height: 800px;
         }
+        .m-l-5 {
+            margin-left: 5px;
+        }
+
+        .border-b {
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .border-r {
+            border-right: 1px solid #cccccc;
+        }
         .border1 {
-            border: 1px solid #cccccc;
+            border: 1px solid #cccccc;  
         }
 
         #componentsBody {
@@ -36,6 +47,10 @@ $border-color3: $color-red-1;
             }
             .comp-active {
                 border: 1px solid $border-color3;
+            }
+
+            .comp-resize {
+                cursor: e-resize;
             }
         }
 

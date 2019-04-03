@@ -1,7 +1,11 @@
 <img alt="imgs"
     class="comp-item" 
-    (click)="selectComp($event)" 
-    [ngClass]="{'comp-active': settingObj['active'] }"
+    draggable="true" 
+    (dragstart)="compEvent($event)"
+    (click)="compEvent($event)" 
+    (dragend)="compEvent($event)"
+    (mousedown)="compEvent($event)"
+    [ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
     [ngStyle]="{
         'position':style['position'],
         'top':expandUnit('top'),

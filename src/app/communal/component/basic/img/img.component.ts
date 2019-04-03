@@ -20,6 +20,10 @@ export class ImgComponent implements OnInit, SettingObjComponent{
    ngOnInit() {
      this.style = this.settingObj && this.settingObj['style'] || {};
      this.data = this.settingObj && this.settingObj['data'] || {};
+
+    //  document.addEventListener("dragover", (ev: DragEvent) =>{
+      // console.log(ev)
+    // });
    }
 
    expandUnit(param) {
@@ -27,8 +31,12 @@ export class ImgComponent implements OnInit, SettingObjComponent{
      return paramVal + 'px'; 
    }
   
-   selectComp(event) {
+  compEvent(event) {
     this.onChildComponentChange.emit(event);
   }
-   
+
+  compEvent1(event) {
+    console.log("拖拽 -----> ",event)
+  }
+
 }

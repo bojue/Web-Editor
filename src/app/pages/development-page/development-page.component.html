@@ -1,7 +1,8 @@
 <div class="body">
-  <div id='componentsBody' class="border1 h90 content" (drop)="drop_handler(event)">
-      <ng-template view-contain-ref #contentComp></ng-template>
+  <div id='componentsBody' class="border-r border-b m-l-5 h90 content" (drop)="drop_handler($event)" >
+      <ng-template  view-contain-ref #contentComp></ng-template>
   </div>
+
   <div class="setting border1 h90">
     <div class="header">
       <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
@@ -9,7 +10,7 @@
       </div>
     </div>
 
-    <!-- 组件 -->
+
     <div *ngIf="settingState === 'default'" class="lists"> 
       <div class="item" *ngFor="let comp of basicCompIconList;" >
           <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp['type'])" >
@@ -19,7 +20,6 @@
       </div>
     </div>
 
-    <!-- 设置 -->
     <div *ngIf= "settingState === 'settings'" class="settings">
       <app-comp-setting [activeSettingObj]="activeCompSettingObject" (settingObjChange)="chengeComponent($event)"></app-comp-setting>
     </div>

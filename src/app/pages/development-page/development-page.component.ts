@@ -17,8 +17,9 @@ import { ViewContainRefHostDirective } from './../../communal/directive/view-con
 })
 export class DevelopmentPageComponent implements OnInit {
   @Input() componets: Component[];
-  currentIndex = -1;
+  @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
 
+  currentIndex = -1;
   settingState: string; // default or  customer
   componentsHeaders: any[];
   componentModules: any[];
@@ -31,7 +32,9 @@ export class DevelopmentPageComponent implements OnInit {
   currentCompIndex: number; //当前组件的下标
   activeCurrentComp: [SettingObject, any ];//当前组件的数据
   activeCompSettingObject: SettingObject; //当前组件的设置对象
-  @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
+  
+  dragCompStartX:any; //组件拖拽记录开始坐标X
+  dragCompStartY:any; //组件拖拽记录开始坐标Y
 
   constructor(
     private changeDetectorRef:ChangeDetectorRef,
@@ -118,8 +121,22 @@ export class DevelopmentPageComponent implements OnInit {
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
+      let eventType = e && e.type;
+      console.log(eventType, e.clientY)
+      let style = currentComponent.settingObj && currentComponent.settingObj['style'];
+
+      if(eventType === 'dragstart') {
+        this.dragCompStartX = e.clientX;
+        this.dragCompStartY = e.clientY;
+      }else if(eventType === 'dragend'){
+        let changeX = e.clientX - this.dragCompStartX;
+        let changeY = e.clientY - this.dragCompStartY;
+        style['left'] = style['left'] + changeX;
+        style['top'] = style['top'] + changeY ;
+      }
       this.beforeSelectComp();
       this.selectComp(currentComponent.settingObj, compInstance, index)
+
     })
 
   }
