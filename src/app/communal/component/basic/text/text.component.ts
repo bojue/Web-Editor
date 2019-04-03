@@ -1,6 +1,8 @@
 import { SettingObjComponent } from '../../../code/setting-object.component';
 import { SettingObject } from '../../../module/setting-object.module';
 import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
+import { SettingStyle } from './../../../module/setting-style.module';
+import { SettingDate } from './../../../module/setting-data.module';
 
 @Component({
   selector: 'app-text',
@@ -10,8 +12,8 @@ import { Component, OnInit ,Output, Input, EventEmitter} from '@angular/core';
 export class TextComponent implements SettingObjComponent {
   @Input() settingObj: SettingObject;
   @Output() onChildComponentChange = new EventEmitter<any>();
-  style: any;
-  data: any;
+  style: SettingStyle;
+  data: SettingDate;
   inputBool : boolean;
   statue: any;
 
@@ -23,9 +25,9 @@ export class TextComponent implements SettingObjComponent {
   }
 
   ngOnInit() {
-    this.inputBool = false;
-    this.style = this.settingObj && this.settingObj['style'] || {};
-    this.data = this.settingObj && this.settingObj['data'] || {};
+    this.settingObj['editeabled'] = false;
+    this.style =  this.settingObj['style'];
+    this.data = this.settingObj['data'];
     this.statue = this.settingObj && this.settingObj['statue'] || {}
   }
 
@@ -34,7 +36,7 @@ export class TextComponent implements SettingObjComponent {
   }
 
   inputState(event) {
-    this.statue['editeabled'] = true;
+    this.settingObj['editeabled'] = true;
   }
 
   inputVal(event) {

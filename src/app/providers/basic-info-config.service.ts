@@ -17,7 +17,7 @@ export class BasicInfoConfigService {
                 name:'文本',
                 type:'text',
                 data: {
-                    value:'./../assets/imgs/text.jpeg',
+                    value:'双击修改文本',
                 },
                 style: {
                     height:100,

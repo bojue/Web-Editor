@@ -1,5 +1,5 @@
 import { ChartComponent } from './../../communal/component/custom/chart/chart.component';
-import { Component, OnInit, ComponentFactoryResolver, ChangeDetectorRef, Input, ViewChild ,ViewContainerRef, Injector} from '@angular/core';
+import { Component, OnInit,AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild } from '@angular/core';
 import { SettingObjComponent } from './../../communal//code/setting-object.component';
 import { ComponentItem } from './../../communal/code/component-item';
 import { SettingObject } from './../../communal/module/setting-object.module';
@@ -15,7 +15,7 @@ import { ViewContainRefHostDirective } from './../../communal/directive/view-con
   templateUrl: './development-page.component.html',
   styleUrls: ['./development-page.component.scss']
 })
-export class DevelopmentPageComponent implements OnInit {
+export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
 
@@ -37,9 +37,7 @@ export class DevelopmentPageComponent implements OnInit {
   dragCompStartY:any; //组件拖拽记录开始坐标Y
 
   constructor(
-    private changeDetectorRef:ChangeDetectorRef,
-    private viewContainerRef: ViewContainerRef,
-    private injector:Injector,
+    private elementRef:ElementRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private service: AppServiceService,
     private infoService: BasicInfoConfigService,
@@ -49,6 +47,11 @@ export class DevelopmentPageComponent implements OnInit {
 
   ngOnInit() {
     this.initData();
+  }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.querySelector('.body')
+    .addEventListener('click', this.clickListernerHandle.bind(this));
   }
 
 
@@ -93,6 +96,15 @@ export class DevelopmentPageComponent implements OnInit {
     return (<SettingObjComponent> compInstance).settingObj = settingObj;    
   }
 
+  //父类容器监听事件
+  clickListernerHandle(e) {
+    let currentComp = this.testCreateComp[this.currentIndex];
+    if(currentComp && currentComp['type'] === 'text') {
+      currentComp['editeabled'] = false;
+    }
+    this.beforeSelectComp()
+  }
+
   //删除组件 
   delComponent() {
     console.log(this.currentIndex)
@@ -121,6 +133,7 @@ export class DevelopmentPageComponent implements OnInit {
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
+      e.stopPropagation();
       let eventType = e && e.type;
       let style = currentComponent.settingObj && currentComponent.settingObj['style'];
       let changeX = e.clientX - this.dragCompStartX;

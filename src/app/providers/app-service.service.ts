@@ -102,10 +102,6 @@ export class AppServiceService{
       borderColor: '',
       borderWidth: 0,
       borderStyle: ''
-    },
-    statue: {
-      editeabled: false,
-      cativeBool: false
     }
   }]
 
