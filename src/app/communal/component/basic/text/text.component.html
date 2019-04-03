@@ -1,5 +1,11 @@
-<span class="comp-item" 
+<div class="comp-item" 
   draggable="true" 
+  (dragstart)="compEvent($event)"
+  (dragover)="compEvent($event)"
+  (dragend)="compEvent($event)"
+  (click)="compEvent($event)" 
+  (dbclick)="inputState($event)"
+  (mousedown)="compEvent($event)"
   [ngClass]="{'comp-active': settingObj['active'] }"  
   [ngStyle]="{
     'position':style['position'],
@@ -11,8 +17,6 @@
     'border-style':style['borderStyle'],
     'border-color':style['borderColor']
   }"  
-  (dragstart)="dragComponetStart($event)" 
-  (dragend)="dragComponetEnd($event)" 
-  (click)="selectComp($event)" 
-> {{settingObj['value'] || '输入文本'}} 
-</span>
+>
+  <span > {{data['value'] || "?????"}} </span>
+</div>

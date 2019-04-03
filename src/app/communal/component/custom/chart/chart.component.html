@@ -1,4 +1,11 @@
-<div [ngClass]="{'comp-active': settingObj['active'] }"  
+<div class=" comp-item custom-comp-item demo-chart"
+  [ngClass]="{'comp-active': settingObj['active'] }"  
+  draggable="true" 
+  (dragstart)="compEvent($event)"
+  (dragover)="compEvent($event)"
+  (dragend)="compEvent($event)"
+  (click)="compEvent($event)" 
+  (mousedown)="compEvent($event)"
   [ngStyle]="{
     'position':style['position'],
     'top':expandUnit('top'),
@@ -9,6 +16,7 @@
     'border-style':style['borderStyle'],
     'border-color':style['borderColor']
   }"
-  (click)="selectComp($event)" 
-  echarts [options]="chartOption" class=" comp-item demo-chart">
+
+  echarts 
+  [options]="chartOption">
 </div>

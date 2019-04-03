@@ -2,8 +2,9 @@
     class="comp-item" 
     draggable="true" 
     (dragstart)="compEvent($event)"
-    (click)="compEvent($event)" 
+    (dragover)="compEvent($event)"
     (dragend)="compEvent($event)"
+    (click)="compEvent($event)" 
     (mousedown)="compEvent($event)"
     [ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
     [ngStyle]="{

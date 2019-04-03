@@ -44,7 +44,7 @@ export class ChartComponent  implements SettingObjComponent  {
     }
   }
 
-  selectComp(event) {
+  compEvent(event) {
     this.onChildComponentChange.emit(event);
   }
 }

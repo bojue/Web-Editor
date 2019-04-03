@@ -12,6 +12,7 @@ export class TextComponent implements SettingObjComponent {
   @Output() onChildComponentChange = new EventEmitter<any>();
   style: any;
   data: any;
+  inputBool : boolean;
 
   constructor() { }
 
@@ -21,11 +22,16 @@ export class TextComponent implements SettingObjComponent {
   }
 
   ngOnInit() {
+    this.inputBool = false;
     this.style = this.settingObj && this.settingObj['style'] || {};
     this.data = this.settingObj && this.settingObj['data'] || {};
   }
 
-  selectComp(event) {
+  compEvent(event) {
     this.onChildComponentChange.emit(event);
+  }
+
+  inputState(event) {
+    this.inputBool = true;
   }
 }

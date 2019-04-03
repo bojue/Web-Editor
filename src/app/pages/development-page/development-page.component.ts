@@ -122,23 +122,44 @@ export class DevelopmentPageComponent implements OnInit {
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
       let eventType = e && e.type;
-      console.log(eventType, e.clientY)
       let style = currentComponent.settingObj && currentComponent.settingObj['style'];
-
+      let changeX = e.clientX - this.dragCompStartX;
+      let changeY = e.clientY - this.dragCompStartY;
       if(eventType === 'dragstart') {
         this.dragCompStartX = e.clientX;
         this.dragCompStartY = e.clientY;
       }else if(eventType === 'dragend'){
-        let changeX = e.clientX - this.dragCompStartX;
-        let changeY = e.clientY - this.dragCompStartY;
-        style['left'] = style['left'] + changeX;
-        style['top'] = style['top'] + changeY ;
+        if(!this.boundaryBool(changeX,changeY, style, 'l')) {
+          style['left'] = style['left'] + changeX;
+        }else{
+          style['left'] = 0;
+        } 
+        
+        if(!this.boundaryBool(changeX,changeY, style, 't')) {
+          style['top'] = style['top'] + style['height'] + changeY < 800 ?  style['top'] + changeY : 800 -  style['height'];
+        }else {
+          style['top'] = 0;
+        }
       }
       this.beforeSelectComp();
       this.selectComp(currentComponent.settingObj, compInstance, index)
-
     })
 
+  }
+
+  //拖拽边界处理
+  boundaryBool(changeX,changeY, style, direction) {
+    let bool = false;
+    switch (direction) {
+      case 'l':
+        bool = changeX + style['left'] < 0;
+        break;
+      case 't':
+        bool = changeY + style['top'] < 0
+        break;
+    }
+   
+    return bool;
   }
 
   //处理之前选择的组件
