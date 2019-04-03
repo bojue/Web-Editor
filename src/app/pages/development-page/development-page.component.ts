@@ -98,11 +98,17 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //父类容器监听事件
   clickListernerHandle(e) {
+    
+    //1.更新文本编辑状态
     let currentComp = this.testCreateComp[this.currentIndex];
     if(currentComp && currentComp['type'] === 'text') {
       currentComp['editeabled'] = false;
     }
     this.beforeSelectComp()
+    
+    //2.初始化选中组件标识
+    this.currentIndex = -1;
+    this.currentViewContRef = null;
   }
 
   //删除组件 
