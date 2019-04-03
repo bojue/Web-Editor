@@ -46,7 +46,7 @@ export class AppServiceService{
     type:'text',
     compIndex: 1,
     data: {
-      value: "文本",
+      value: "文本1",
     },
     style: {
       width:100,
@@ -58,6 +58,10 @@ export class AppServiceService{
       borderColor: '',
       borderWidth: 0,
       borderStyle: ''
+    }, 
+    statue: {
+      inputBool: false,
+      cativeBool: false
     }
   },{
     compIndex: 2,
@@ -76,6 +80,10 @@ export class AppServiceService{
       borderColor: '',
       borderWidth: 0,
       borderStyle: ''
+    },
+    statue: {
+      inputBool: false,
+      cativeBool: false
     }
   },{
     compIndex: 3,
@@ -94,6 +102,10 @@ export class AppServiceService{
       borderColor: '',
       borderWidth: 0,
       borderStyle: ''
+    },
+    statue: {
+      editeabled: false,
+      cativeBool: false
     }
   }]
 

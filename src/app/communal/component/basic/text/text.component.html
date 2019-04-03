@@ -3,8 +3,8 @@
   (dragstart)="compEvent($event)"
   (dragover)="compEvent($event)"
   (dragend)="compEvent($event)"
-  (click)="compEvent($event)" 
-  (dbclick)="inputState($event)"
+  (click)="compEvent($event, '')" 
+  (dblclick)="inputState($event)"
   (mousedown)="compEvent($event)"
   [ngClass]="{'comp-active': settingObj['active'] }"  
   [ngStyle]="{
@@ -18,5 +18,9 @@
     'border-color':style['borderColor']
   }"  
 >
-  <span > {{data['value'] || "?????"}} </span>
+
+<span *ngIf="!statue['editeabled']"> {{data['value']}} </span>
+<div *ngIf="statue['editeabled']" contenteditable="true" (input)="inputVal($event)">
+  {{data['value']}} 
+</div>
 </div>
