@@ -1,6 +1,7 @@
 $color-blue-1: #F6F7FB ;
 $color-blue-2: #eaf6fe;
 $color-blue-3: #3399ff;
+$color-grey-1: #cccccc;
 
 $color-red-1: red;
 
@@ -9,6 +10,7 @@ $backgroudn-color1: $color-blue-2;
 $border-color1: $color-blue-1;
 $border-color2: $color-blue-2;
 $border-color3: $color-red-1;
+$border-color4: $color-grey-1;
 
 :host /deep/ {
     .body {
@@ -24,6 +26,9 @@ $border-color3: $color-red-1;
         }
         .p-2-5 {
             padding: 2px 5px;
+        }
+        .dis-in {
+            display: inline-block;
         }
 
         .border-b {
@@ -57,6 +62,7 @@ $border-color3: $color-red-1;
             }
         }
 
+        //1.设置组件
         .setting {
             .header {
                 display: block;
@@ -85,12 +91,32 @@ $border-color3: $color-red-1;
                 }
             }
 
+            .comp-tit {
+                position: relative;
+                cursor: pointer;
+                padding: 5px 13px;
+                .icon-disc {
+                    width: 18px;
+                    height:18px;
+                    background-repeat: no-repeat;
+                }
+                .tit {
+                    font-size: 15px;
+                    letter-spacing: 2px;
+                    position: absolute;
+                    top: 8px;
+                    left: 39px;
+                }
+
+            }
+
+            //1.设置组件-组件
             .lists {
                 display: grid;
                 grid-template-columns: auto auto auto;
                 grid-gap: 1%;
                 padding: 8px;
-        
+                border-bottom: 1px solid $border-color4;
                 .item {
                     cursor: pointer;
                     border: 1px solid #cccccc;
@@ -116,6 +142,7 @@ $border-color3: $color-red-1;
                 }
             }
 
+            //2.设置组件-组件
             .settings {
                 position: relative;
                 width: 100%;

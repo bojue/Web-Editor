@@ -27,7 +27,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   componentModules: any[];
   basicComponents: any[];
   testCreateComp: any[];
-  basicCompIconList: any[];
+
   components: any[];
   cmpRef: any[];
   currentViewContRef: any; //当前组件实例
@@ -61,7 +61,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
     this.componentsHeaders = this.service.getComponentHeaders();
-    this.basicCompIconList = this.service.getBasicCompIconList();
     this.testCreateComp = this.service.getTestCreateComp(); //获取json数据(组件数据)
     this.getCompList(this.testCreateComp) //json数据生成组件集合
   }
@@ -83,7 +82,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   //增加组件
   addComponent(compType) {
     let compDefinInfo = this.createTemp(compType);
-    console.log(compDefinInfo)
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.testCreateComp.push(addCompJson);
     this.getCompList(this.testCreateComp)

@@ -1,6 +1,5 @@
 import { SettingStyle } from './../../../module/setting-style.module';
 import { SettingDate } from './../../../module/setting-data.module';
-import { SettingObjComponent } from '../../../code/setting-object.component';
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import { SettingObject } from '../../../module/setting-object.module';
 
@@ -14,6 +13,7 @@ export class BasicComponent implements OnInit {
   @Output() onChildComponentChange = new EventEmitter<any>();
   style: SettingStyle;
   data: SettingDate;
+  ngStyle: any = {};
   constructor() { }
 
   ngOnInit() {

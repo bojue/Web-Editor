@@ -11,7 +11,8 @@ export class AppServiceService{
 
   componentsHeaders = [{ 
     name:'组件',
-    state: 'default'
+    state: 'default',
+ 
   }, {
     name: '设置',
     state: 'settings'
@@ -19,34 +20,46 @@ export class AppServiceService{
 
   componentModules = [{ 
     name:'基础',
-    state: 'default'
+    state: 'default',
+    compList: [
+      {
+        name:'文本',
+        type: 'text',
+        iconUrl: './../assets/icons/text.svg'
+      },{
+        name:'输入',
+        type: 'input',
+        iconUrl: './../assets/icons/input.svg'
+      },{
+        name:'文本输入',
+        type: 'textarea',
+        iconUrl: './../assets/icons/textarea.svg'
+      },{
+        name:'图片',
+        type: 'img',
+        iconUrl: './../assets/icons/image.svg'
+      }]
   }, {
-    name: '功能',
-    state: 'module'
+    name: '业务',
+    state: 'module',
+    compList: [
+      {
+        name:'饼图',
+        type: 'chart',
+        iconUrl: './../assets/icons/chart.svg'
+      }]
+  },
+  {
+    name: '模板',
+    state: 'template',
+    compList: [
+      {
+        name:'默认模板',
+        type: 'template',
+        iconUrl: './../assets/icons/template.svg'
+      }]
   }]
 
-  //基础组件列表
-  basicCompIconList = [{
-      name:'文本',
-      type: 'text',
-      iconUrl: './../assets/icons/text.svg'
-    },{
-      name:'输入',
-      type: 'input',
-      iconUrl: './../assets/icons/input.svg'
-    },{
-      name:'文本输入',
-      type: 'textarea',
-      iconUrl: './../assets/icons/textarea.svg'
-    },{
-      name:'图片',
-      type: 'img',
-      iconUrl: './../assets/icons/image.svg'
-    },{
-      name:'图表',
-      type: 'chart',
-      iconUrl: './../assets/icons/chart.svg'
-    }]
 
   //后台测试数据
   testCreateComp = [{
@@ -118,10 +131,6 @@ export class AppServiceService{
     return this.testCreateComp;
   }
 
-
-  getBasicCompIconList() {
-    return this.basicCompIconList;
-  }
   getComponentHeaders() {
     return this.componentsHeaders;
   }

@@ -1,0 +1,14 @@
+
+:host /deep/ {
+    .icon-disc {
+        width: 30px;
+        height: 30px;
+        margin-top: 5px;
+
+        background: url("../../../assets/icons/down.svg");
+
+        &.acitve {
+            background: url("../../../assets/icons/up.svg");
+        }
+    }
+}

@@ -10,18 +10,22 @@
       </div>
     </div>
 
-
-    <div *ngIf="settingState === 'default'" class="lists"> 
-      <div class="item" *ngFor="let comp of basicCompIconList;" >
-          <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp['type'])" >
-            <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
-          <p class="text">{{comp['name']}}</p>
+    <div *ngIf="settingState === 'default'" class="modules">
+      <div class="item-module " *ngFor="let module of componentModules ">
+        <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
+          <span alt="" [ngClass]="{'acitve':!module['hiddenBool']}" class="icon-disc dis-in"></span>
+          <span class="tit">{{module['name']}}</span>
         </div>
+        <div class="comp-list lists" *ngIf="!module['hiddenBool']">
+            <div class="item" *ngFor="let comp of module['compList'];" >
+                <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp['type'])" >
+                  <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
+                  <p class="text">{{comp['name']}}</p>
+              </div>
+            </div>
+        </div>  
       </div>
     </div>
-
-    <div *ngIf= "settingState === 'settings'" class="settings">
-      <app-comp-setting [activeSettingObj]="activeCompSettingObject" (settingObjChange)="chengeComponent($event)"></app-comp-setting>
-    </div>
+    <app-comp-setting *ngIf= "settingState === 'settings'" class="settings" [activeSettingObj]="activeCompSettingObject" (settingObjChange)="chengeComponent($event)"></app-comp-setting>
   </div>
 </div>
