@@ -22,7 +22,6 @@ export class CompSettingComponent implements OnInit{
 
   initData() {
    this.styles = this.activeSettingObj && this.activeSettingObj['style']
-   console.log(this.activeSettingObj, this.styles)
   }
 
   paramsChange(key: string) {

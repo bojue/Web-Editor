@@ -31,14 +31,22 @@ export class AppServiceService{
       type: 'text',
       iconUrl: './../assets/icons/text.svg'
     },{
-    name:'图片',
-    type: 'img',
-    iconUrl: './../assets/icons/image.svg'
-  },{
-    name:'图表',
-    type: 'chart',
-    iconUrl: './../assets/icons/chart.svg'
-  }]
+      name:'输入',
+      type: 'input',
+      iconUrl: './../assets/icons/input.svg'
+    },{
+      name:'文本输入',
+      type: 'textarea',
+      iconUrl: './../assets/icons/textarea.svg'
+    },{
+      name:'图片',
+      type: 'img',
+      iconUrl: './../assets/icons/image.svg'
+    },{
+      name:'图表',
+      type: 'chart',
+      iconUrl: './../assets/icons/chart.svg'
+    }]
 
   //后台测试数据
   testCreateComp = [{
@@ -46,7 +54,7 @@ export class AppServiceService{
     type:'text',
     compIndex: 1,
     data: {
-      value: "文本1",
+      value: "文本",
     },
     style: {
       width:100,

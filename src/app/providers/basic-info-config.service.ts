@@ -23,14 +23,54 @@ export class BasicInfoConfigService {
                     height:100,
                     width: 100,
                     position: 'absolute',
-                    top:200,
-                    left:100,
+                    top:400,
+                    left:200,
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
                     borderStyle: ''
                 }
+            },
+            input: {
+                compIndex: 2,
+                name:'输入框',
+                type:'input',
+                data: {
+                    value:'',
+                    placeholder:"输入"
                 },
+                style: {
+                    height:20,
+                    width: 190,
+                    position: 'absolute',
+                    top:100,
+                    left:500,
+                    border: '',
+                    borderColor: '',
+                    borderWidth: 0,
+                    borderStyle: ''
+                }
+            },
+            textarea: {
+                compIndex: 2,
+                name:'多行输入',
+                type:'textarea',
+                data: {
+                    value:'',
+                    placeholder:"文本输入"
+                },
+                style: {
+                    height:80,
+                    width: 120,
+                    position: 'absolute',
+                    top:200,
+                    left:500,
+                    border: '',
+                    borderColor: '',
+                    borderWidth: 0,
+                    borderStyle: ''
+                }
+            },
             img:  {
                 compIndex: 2,
                 name:'图片',

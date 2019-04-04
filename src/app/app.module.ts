@@ -18,12 +18,21 @@ import { ComponentWrapperRefComponent } from './code/component/component-wrapper
 import { ViewContainRefHostDirective } from './communal/directive/view-contain-ref-host.directive';
 import { ChartComponent } from './communal/component/custom/chart/chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { BasicComponent } from './communal/component/basic/basic/basic.component';
+import { InputComponent } from './communal/component/basic/input/input.component';
+import { TextareaComponent } from './communal/component/basic/textarea/textarea.component';
+import { LineComponent } from './communal/component/basic/line/line.component';
+import { ButtonComponent } from './communal/component/basic/button/button.component';
+import { SelectComponent } from './communal/component/basic/select/select.component';
+import { RoundComponent } from './communal/component/basic/round/round.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
   CompSettingComponent,
   TextComponent,
-  ImgComponent
+  ImgComponent,
+  InputComponent,
+  TextareaComponent
 ]
 
 @NgModule({
@@ -41,6 +50,13 @@ const ENTRY_COMPONENT = [
     SizeComponent,
     PositionComponent,
     ChartComponent,
+    BasicComponent,
+    InputComponent,
+    TextareaComponent,
+    LineComponent,
+    ButtonComponent,
+    SelectComponent,
+    RoundComponent,
 
   ],
   imports: [

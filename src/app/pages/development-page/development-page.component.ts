@@ -1,3 +1,5 @@
+import { TextareaComponent } from './../../communal/component/basic/textarea/textarea.component';
+import { InputComponent } from './../../communal/component/basic/input/input.component';
 import { ChartComponent } from './../../communal/component/custom/chart/chart.component';
 import { Component, OnInit,AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild } from '@angular/core';
 import { SettingObjComponent } from './../../communal//code/setting-object.component';
@@ -50,7 +52,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.elementRef.nativeElement.querySelector('.body')
+    this.elementRef.nativeElement.querySelector('#componentsBody')
     .addEventListener('click', this.clickListernerHandle.bind(this));
   }
 
@@ -74,7 +76,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //拖拽icon图标添加组件
   dragCompStart(event, compType) {
-    this.currentViewContRef.clear()
     this.addComponent(compType)
   }
 
@@ -90,7 +91,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   
   //修改组件
   chengeComponent(event) {
-    console.log("组件设置 --->  ", this.testCreateComp)
     let settingObj = event;
     let compInstance  = this.activeCurrentComp[1];
     return (<SettingObjComponent> compInstance).settingObj = settingObj;    
@@ -108,13 +108,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     
     //2.初始化选中组件标识
     this.currentIndex = -1;
-    this.currentViewContRef = null;
   }
 
   //删除组件 
   delComponent() {
     console.log(this.currentIndex)
-    // this.currentViewContRef.remove()
   }
 
   //创建组件列表
@@ -236,6 +234,18 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       case 'chart':
         tempInfo = {
           comp: ChartComponent,
+          data : this.getCompDefaultConfig(type)
+        }  
+        break;
+      case 'input':
+        tempInfo = {
+          comp: InputComponent,
+          data : this.getCompDefaultConfig(type)
+        }  
+        break;
+      case 'textarea':
+        tempInfo = {
+          comp: TextareaComponent,
           data : this.getCompDefaultConfig(type)
         }  
         break;

@@ -1,8 +1,6 @@
-import { SettingStyle } from './../../../module/setting-style.module';
-import { SettingDate } from './../../../module/setting-data.module';
+import { BasicComponent } from './../basic/basic.component';
 import { SettingObjComponent } from '../../../code/setting-object.component';
-import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
-import { SettingObject } from '../../../module/setting-object.module';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-img',
@@ -10,28 +8,12 @@ import { SettingObject } from '../../../module/setting-object.module';
   styleUrls: ['./img.component.scss']
 })
 
-export class ImgComponent implements OnInit, SettingObjComponent{
-  @Input() settingObj: SettingObject;
-  @Output() onChildComponentChange = new EventEmitter<any>();
-  style: SettingStyle;
-  data: SettingDate;
+export class ImgComponent extends BasicComponent implements OnInit, SettingObjComponent{
   constructor() {
-
+    super();
   }
 
   ngOnInit() {
-    this.style = this.settingObj['style']
-    this.data =  this.settingObj['data']
+    this.initData();
   }
-
-  expandUnit(param) {
-    let paramVal = this.style[param] || 1;    
-    return paramVal + 'px'; 
-  }
-  
-  compEvent(event) {
-    this.onChildComponentChange.emit(event);
-  }
-
-
 }

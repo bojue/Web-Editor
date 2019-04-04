@@ -1,5 +1,5 @@
 <img alt="imgs"
-    class="comp-item" 
+    class="comp-item active-border" 
     draggable="true" 
     (dragstart)="compEvent($event)"
     (dragover)="compEvent($event)"
@@ -14,7 +14,7 @@
         'width':expandUnit('width'),
         'height':expandUnit('height'),
         'border-width':expandUnit('borderWidth'),
-        'border-style':settingObj['style']['borderStyle'],
-        'border-color':settingObj['style']['borderColor']
+        'border-style':style['borderStyle'],
+        'border-color':style['borderColor']
     }" 
     src="{{data['value']}}" >    
