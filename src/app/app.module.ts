@@ -28,6 +28,7 @@ import { CompSettingComponent } from './pages/development-page/settings/comp-set
 import { CompViewComponent } from './pages/development-page/comp-view/comp-view.component';
 import { ViewContainRefHostDirective } from './directive/view-contain-ref-host.directive';
 import { HomeComponent } from './pages/home/home.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -63,7 +64,8 @@ const ENTRY_COMPONENT = [
     CompListComponent,
     CompViewComponent,
     ViewContainRefHostDirective,
-    HomeComponent
+    HomeComponent,
+    DetailComponent
   ],
   imports: [
     FormsModule,

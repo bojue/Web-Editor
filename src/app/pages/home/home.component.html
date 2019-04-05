@@ -1,8 +1,6 @@
 <div class="home">
     <p class="title">首页</p>
     <div class="route-list">
-      <div class="item">开发</div>
-      <div class="item">详情</div>
-      <div class="item">帮助</div>
+      <div class="item" (click)="route(page['route'])" *ngFor="let page of pageList;">{{page['name']}}</div>
     </div>
 </div>
