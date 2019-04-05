@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input,Output } from '@angular/core';
-import { SettingObjComponent } from '../../module/setting-object.component';
 import { EChartOption } from 'echarts';
-import { SettingObject } from '../../module/setting-object.module';
+import { SettingObject } from 'src/app/module/setting-object.module';
+import { SettingObjComponent } from 'src/app/module/setting-object.component';
 
 @Component({
   selector: 'app-chart',

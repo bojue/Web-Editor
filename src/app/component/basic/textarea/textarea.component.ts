@@ -1,8 +1,7 @@
 
 import { BasicComponent } from '../basic/basic.component';
 import { Component, OnInit } from '@angular/core';
-import { SettingObjComponent } from '../../module/setting-object.component';
-
+import { SettingObjComponent } from 'src/app/module/setting-object.component';
 @Component({
   selector: 'app-textarea',
   templateUrl: './textarea.component.html',

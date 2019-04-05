@@ -1,20 +1,20 @@
 import { TextareaComponent } from '../../component/basic/textarea/textarea.component';
 import { InputComponent } from '../../component/basic/input/input.component';
 import { ChartComponent } from '../../component/custom/chart/chart.component';
-import { Component, OnInit,AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild } from '@angular/core';
-import { ComponentItem } from '../../component/module/component-item';
-import { SettingObject } from '../../component/module/setting-object.module';
-import { BasicInfoConfigService } from './../../providers/basic-info-config.service';
+import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild, EventEmitter } from '@angular/core';
+import { ComponentItem } from '../../module/component-item';
+import { SettingObject } from '../../module/setting-object.module';
+import { BasicInfoConfigService } from '../../providers/basic-info-config.service';
 import { ImgComponent } from '../../component/basic/img/img.component';
 import { TextComponent } from '../../component/basic/text/text.component';
-import { AppServiceService} from './../../providers/app-service.service';
-import { SettingObjComponent } from 'src/app/component/module/setting-object.component';
+import { AppServiceService} from '../../providers/app-service.service';
 import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
+import { SettingObjComponent } from 'src/app/module/setting-object.component';
 
 @Component({
-  selector: 'app-development-page',
-  templateUrl: './development-page.component.html',
-  styleUrls: ['./development-page.component.scss']
+  selector: 'app-development',
+  templateUrl: './development.html',
+  styleUrls: ['./development.scss']
 })
 export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   @Input() componets: Component[];
@@ -78,16 +78,17 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   }
 
   //拖拽icon图标添加组件
-  dragCompStart(event) {
+  dragCompEnd(event) {
     let compType = event && event['compType'] || 'text'; //容错处理，默认创建text组件
-    this.addComponent(compType)
+    this.addComponent(compType, event)
   }
 
 
   //增加组件
-  addComponent(compType) {
+  addComponent(compType, event ?:any) {
     let compDefinInfo = this.createTemp(compType);
     let addCompJson = compDefinInfo && compDefinInfo['data'];
+    console.log(event, compType)
     this.testCreateComp.push(addCompJson);
     this.getCompList(this.testCreateComp)
   }

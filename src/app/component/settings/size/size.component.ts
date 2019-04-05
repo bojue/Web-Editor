@@ -1,7 +1,6 @@
 
 import { Component, OnInit, Input } from '@angular/core';
-import { SettingStyle } from '../../module/setting-style.module';
-
+import { SettingStyle } from 'src/app/module/setting-style.module';
 
 @Component({
   selector: 'app-size',
@@ -9,7 +8,7 @@ import { SettingStyle } from '../../module/setting-style.module';
   styleUrls: ['./size.component.scss']
 })
 export class SizeComponent implements OnInit {
-  @Input() style:SettingStyle;
+  @Input() style: SettingStyle;
 
   constructor() { }
 

@@ -1,5 +1,6 @@
-import { SettingStyle } from '../../module/setting-style.module';
+
 import { Component, OnInit, Input } from '@angular/core';
+import { SettingStyle } from 'src/app/module/setting-style.module';
 
 @Component({
   selector: 'app-position',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./position.component.scss']
 })
 export class PositionComponent implements OnInit {
-  @Input() style:SettingStyle;
+  @Input() style: SettingStyle;
   constructor() { }
 
   ngOnInit() {

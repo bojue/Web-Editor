@@ -203,17 +203,14 @@ $border-color4: $color-grey-1;
                                     position: relative;
                                     padding: 2px;
                                     .lab {
-                                        position: absolute;
+                                        position: relative;
                                         z-index: 100;
-                                        background: lightgrey;
-                                        margin-top: 0px;
-                                        padding: 2px 4px;
-                                        left: 2px;
-                                        top: 2px;
+                                        display: inline-block;
+                                        width: 20px;
                                     }
                                     .val {
-                                        width:60%;
-                                        padding-left: 30px;
+                                        width:50px;
+                                        padding-left: 6px;
                                     }
                                 }
                             }

@@ -22,7 +22,7 @@
         <app-comp-list *ngIf="settingState === 'default'" 
           class="modules" 
           [componentModules]="componentModules"
-          (compDragEvent)="dragCompStart($event)"></app-comp-list>
+          (compDragEvent)="dragCompEnd($event)"></app-comp-list>
          
         <app-comp-setting *ngIf= "settingState === 'settings'" 
           class="settings" 

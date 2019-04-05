@@ -14,7 +14,7 @@ export class CompListComponent implements OnInit {
   ngOnInit() {
   }
 
-  dragCompStart(event, data){
+  dragCompEnd(event, data){
     event['compType'] = data;
     this.compDragEvent.emit(event);
   }
