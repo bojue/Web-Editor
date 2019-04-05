@@ -1,8 +1,9 @@
 <div class="body">
   <div id='componentsBody' class="border-r border-b m-l-5 h90 content">
-      <ng-template  view-contain-ref #contentComp></ng-template>
+    <ng-template view-contain-ref #contentComp></ng-template>
   </div>
 
+  <!-- 设置组件 -->
   <div class="setting border1 h90">
     <div class="header">
       <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
