@@ -1,3 +1,14 @@
-<p>
-  comp-list works!
-</p>
+<div class="item-module " *ngFor="let module of componentModules ">
+    <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
+      <span alt="" [ngClass]="{'acitve':!module['hiddenBool']}" class="icon-disc dis-in"></span>
+      <span class="tit">{{module['name']}}</span>
+    </div>
+    <div class="comp-list lists" *ngIf="!module['hiddenBool']">
+        <div class="item" *ngFor="let comp of module['compList'];" >
+            <div class="cont" draggable="true" (dragstart)="dragCompStart($event, comp['type'])" >
+              <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
+              <p class="text">{{comp['name']}}</p>
+          </div>
+        </div>
+    </div>  
+  </div>

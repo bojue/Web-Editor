@@ -74,7 +74,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   }
 
   //拖拽icon图标添加组件
-  dragCompStart(event, compType) {
+  dragCompStart(event) {
+    let compType = event && event['compType'] || 'text'; //容错处理，默认创建text组件
     this.addComponent(compType)
   }
 

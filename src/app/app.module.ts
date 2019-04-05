@@ -26,6 +26,7 @@ import { SelectComponent } from './communal/component/basic/select/select.compon
 import { RoundComponent } from './communal/component/basic/round/round.component';
 import { CompListComponent } from './pages/development-page/comp-list/comp-list.component';
 import { CompSettingComponent } from './pages/development-page/settings/comp-setting.component';
+import { CompViewComponent } from './pages/development-page/comp-view/comp-view.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -60,6 +61,7 @@ const ENTRY_COMPONENT = [
     SelectComponent,
     RoundComponent,
     CompListComponent,
+    CompViewComponent,
 
   ],
   imports: [
