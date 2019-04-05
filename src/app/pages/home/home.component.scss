@@ -1,0 +1,23 @@
+:host /deep/ { 
+    .home {
+        position: relative;
+        margin-left: 10px;
+        .route-list {
+            position: relative;
+            display: grid;
+            grid-template-columns: 10% 10% 10% 10% ;
+            grid-column-gap: 5px;
+            .item {
+                cursor: pointer;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                word-spacing: 10px;
+                border: 1px solid #cccccc;
+                &:hover {
+                    border-color: black;
+                }
+            }
+        }
+    }
+}

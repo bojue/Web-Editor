@@ -27,6 +27,7 @@ import { CompListComponent } from './pages/development-page/comp-list/comp-list.
 import { CompSettingComponent } from './pages/development-page/settings/comp-setting.component';
 import { CompViewComponent } from './pages/development-page/comp-view/comp-view.component';
 import { ViewContainRefHostDirective } from './directive/view-contain-ref-host.directive';
+import { HomeComponent } from './pages/home/home.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -61,7 +62,8 @@ const ENTRY_COMPONENT = [
     RoundComponent,
     CompListComponent,
     CompViewComponent,
-    ViewContainRefHostDirective
+    ViewContainRefHostDirective,
+    HomeComponent
   ],
   imports: [
     FormsModule,

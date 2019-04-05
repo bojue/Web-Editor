@@ -15,8 +15,12 @@ $border-color4: $color-grey-1;
 :host /deep/ {
     .body {
         position: relative;
-        width: 99%;
-        margin-left: 0.5%;
+        display: grid;
+        grid-template-columns: auto 210px;
+        &.whole-view {
+            grid-template-columns: auto;
+        }
+        grid-column-gap: 3px;
         .h90 {
             height: 800px;
         }
@@ -61,11 +65,10 @@ $border-color4: $color-grey-1;
             }
         }
         .setting-but {
-        
             .set-but {
                 position: absolute;
                 top: -35px;
-                right: 30px;
+                right: 20px;
                 cursor: pointer;
                 img {
                     width: 25px;
@@ -78,11 +81,11 @@ $border-color4: $color-grey-1;
 
             //1.设置组件
             .setting {
+                width: 200px;
                 position: absolute;
                 top: 0px;
-                right: 0px;
+                right: 10px;
                 background: #ffffff;
-                width: 200px;
                 .header {
                     display: block;
                     position: relative;
@@ -209,7 +212,7 @@ $border-color4: $color-grey-1;
                                         top: 2px;
                                     }
                                     .val {
-                                        width: 70px;
+                                        width:60%;
                                         padding-left: 30px;
                                     }
                                 }
