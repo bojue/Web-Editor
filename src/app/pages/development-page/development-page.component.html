@@ -1,25 +1,33 @@
 <div class="body">
   <!-- 视图组件 -->
-  <div id='componentsBody' class="border-r border-b m-l-5 h90 content">
+  <section id='componentsBody' class="border-r border-b m-l-5 h90 content">
     <ng-template view-contain-ref #contentComp></ng-template>
-  </div>
+  </section>
 
-  <!-- 设置组件 -->
-  <div class="setting border1 h90">
-    <div class="header">
-      <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
-        <span >{{heade['name']}}</span>
-      </div>
+  <!-- 设置组件开关 -->
+  <section class="setting-but">
+    <div class="set-but" (click)="settingHidle()">
+      <img src="./../../../assets/icons/settings.svg" title="组件设置" alt="组件设置">
     </div>
 
-    <app-comp-list *ngIf="settingState === 'default'" 
-      class="modules" 
-      [componentModules]="componentModules"
-      (compDragEvent)="dragCompStart($event)"></app-comp-list>
-     
-    <app-comp-setting *ngIf= "settingState === 'settings'" 
-      class="settings" 
-      [activeSettingObj]="activeCompSettingObject" 
-      (settingObjChange)="chengeComponent($event)"></app-comp-setting>
-  </div>
+    <div class="setting border1 h90" *ngIf="setingBool">
+        <div class="header">
+          <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
+            <span >{{heade['name']}}</span>
+          </div>
+        </div>
+    
+        <app-comp-list *ngIf="settingState === 'default'" 
+          class="modules" 
+          [componentModules]="componentModules"
+          (compDragEvent)="dragCompStart($event)"></app-comp-list>
+         
+        <app-comp-setting *ngIf= "settingState === 'settings'" 
+          class="settings" 
+          [activeSettingObj]="activeCompSettingObject" 
+          (settingObjChange)="chengeComponent($event)"></app-comp-setting>
+      </div>
+  </section>
+
+
 </div>

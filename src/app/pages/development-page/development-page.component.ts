@@ -19,7 +19,7 @@ import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-
 export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
-
+  setingBool: boolean;
   currentIndex = -1;
   settingState: string; // default or  customer
   componentsHeaders: any[];
@@ -50,6 +50,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.initData();
   }
 
+  settingHidle() {
+    this.setingBool = !this.setingBool;
+  }
+
   ngAfterViewInit() {
     this.elementRef.nativeElement.querySelector('#componentsBody')
     .addEventListener('click', this.clickListernerHandle.bind(this));
@@ -57,6 +61,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
 
   initData() {
+    this.setingBool = true;
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
     this.componentsHeaders = this.service.getComponentHeaders();
