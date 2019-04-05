@@ -25,6 +25,8 @@ import { LineComponent } from './communal/component/basic/line/line.component';
 import { ButtonComponent } from './communal/component/basic/button/button.component';
 import { SelectComponent } from './communal/component/basic/select/select.component';
 import { RoundComponent } from './communal/component/basic/round/round.component';
+import { SettingsCompComponent } from './components/settings-comp/settings-comp.component';
+import { GComponent } from './components/g/g.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -57,6 +59,8 @@ const ENTRY_COMPONENT = [
     ButtonComponent,
     SelectComponent,
     RoundComponent,
+    SettingsCompComponent,
+    GComponent,
 
   ],
   imports: [
