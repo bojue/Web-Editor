@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GComponent } from './g.component';
+import { CompListComponent } from './comp-list.component';
 
-describe('GComponent', () => {
-  let component: GComponent;
-  let fixture: ComponentFixture<GComponent>;
+describe('CompListComponent', () => {
+  let component: CompListComponent;
+  let fixture: ComponentFixture<CompListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GComponent ]
+      declarations: [ CompListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GComponent);
+    fixture = TestBed.createComponent(CompListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
