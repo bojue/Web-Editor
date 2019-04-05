@@ -1,4 +1,4 @@
-import { SettingStyle } from '../../../module/setting-style.module';
+import { SettingStyle } from '../../module/setting-style.module';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

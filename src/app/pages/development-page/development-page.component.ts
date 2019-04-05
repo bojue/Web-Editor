@@ -1,16 +1,15 @@
-import { TextareaComponent } from './../../communal/component/basic/textarea/textarea.component';
-import { InputComponent } from './../../communal/component/basic/input/input.component';
-import { ChartComponent } from './../../communal/component/custom/chart/chart.component';
+import { TextareaComponent } from '../../component/basic/textarea/textarea.component';
+import { InputComponent } from '../../component/basic/input/input.component';
+import { ChartComponent } from '../../component/custom/chart/chart.component';
 import { Component, OnInit,AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild } from '@angular/core';
-import { SettingObjComponent } from './../../communal//code/setting-object.component';
-import { ComponentItem } from './../../communal/code/component-item';
-import { SettingObject } from './../../communal/module/setting-object.module';
+import { ComponentItem } from '../../component/module/component-item';
+import { SettingObject } from '../../component/module/setting-object.module';
 import { BasicInfoConfigService } from './../../providers/basic-info-config.service';
-
-import { ImgComponent } from './../../communal/component/basic/img/img.component';
-import { TextComponent } from './../../communal/component/basic/text/text.component';
+import { ImgComponent } from '../../component/basic/img/img.component';
+import { TextComponent } from '../../component/basic/text/text.component';
 import { AppServiceService} from './../../providers/app-service.service';
-import { ViewContainRefHostDirective } from './../../communal/directive/view-contain-ref-host.directive'
+import { SettingObjComponent } from 'src/app/component/module/setting-object.component';
+import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
 
 @Component({
   selector: 'app-development-page',

@@ -1,6 +1,6 @@
-import { SettingObjComponent } from './../../../code/setting-object.component';
-import { BasicComponent } from './../basic/basic.component';
+import { BasicComponent } from '../basic/basic.component';
 import { Component, OnInit } from '@angular/core';
+import { SettingObjComponent } from '../../module/setting-object.component';
 
 @Component({
   selector: 'app-input',

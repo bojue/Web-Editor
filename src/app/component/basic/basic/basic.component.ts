@@ -1,7 +1,7 @@
-import { SettingStyle } from './../../../module/setting-style.module';
-import { SettingDate } from './../../../module/setting-data.module';
+import { SettingStyle } from '../../module/setting-style.module';
+import { SettingDate } from '../../module/setting-data.module';
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
-import { SettingObject } from '../../../module/setting-object.module';
+import { SettingObject } from '../../module/setting-object.module';
 
 @Component({
   selector: 'app-basic',
