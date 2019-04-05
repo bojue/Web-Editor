@@ -1,7 +1,6 @@
 import { PositionComponent } from './communal/component/settings/position/position.component';
 import { SizeComponent } from './communal/component/settings/size/size.component';
 import { BasicInfoConfigService } from './providers/basic-info-config.service';
-import { CompSettingComponent } from './components/settings/comp-setting.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -26,26 +25,28 @@ import { ButtonComponent } from './communal/component/basic/button/button.compon
 import { SelectComponent } from './communal/component/basic/select/select.component';
 import { RoundComponent } from './communal/component/basic/round/round.component';
 import { CompListComponent } from './pages/development-page/comp-list/comp-list.component';
+import { CompSettingComponent } from './pages/development-page/settings/comp-setting.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
-  CompSettingComponent,
   TextComponent,
   ImgComponent,
   InputComponent,
-  TextareaComponent
+  TextareaComponent,
+  CompSettingComponent,
+  CompListComponent
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     DevelopmentPageComponent,
+    CompSettingComponent,
     OpeacityComponent,
     ColorComponent,
     ImgComponent,
     TextComponent,
     BackgroundComponent,
-    CompSettingComponent,
     ComponentWrapperRefComponent,
     ViewContainRefHostDirective,
     SizeComponent,
