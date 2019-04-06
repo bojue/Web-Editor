@@ -24,11 +24,11 @@ import { ButtonComponent } from './component/basic/button/button.component';
 import { SelectComponent } from './component/basic/select/select.component';
 import { RoundComponent } from './component/basic/round/round.component';
 import { CompListComponent } from './pages/develop/comp-list/comp-list.component';
-import { CompSettingComponent } from './pages/develop/settings/comp-setting.component';
 import { CompViewComponent } from './pages/develop/comp-view/comp-view.component';
 import { ViewContainRefHostDirective } from './directive/view-contain-ref-host.directive';
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { CompSettingComponent } from './pages/develop/comp-setting/comp-setting.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,

@@ -27,7 +27,8 @@
         <app-comp-setting *ngIf= "settingState === 'settings'" 
           class="settings" 
           [activeSettingObj]="activeCompSettingObject" 
-          (settingObjChange)="chengeComponent($event)"></app-comp-setting>
+          (settingObjChange)="chengeComponent($event)"
+          (deleteComponent)="deleteComponent($event)"></app-comp-setting>
       </div>
   </section>
 

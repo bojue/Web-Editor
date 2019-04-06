@@ -1,0 +1,19 @@
+
+:host /deep/ {
+    .del {
+        display: block;
+        position: relative;
+        margin-top: 20px;
+        padding-top: 10px;
+        text-align: center;
+        cursor: pointer;
+        img {
+            width: 24px;
+            padding: 5px;
+            &:hover {
+                background: rgba(255, 0, 0, 0.1);
+                border-radius: 50%;
+            }
+        }
+    }
+}

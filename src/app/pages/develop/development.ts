@@ -114,9 +114,19 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.currentIndex = -1;
   }
 
+  // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑
+  initViewContRef(){
+    let len = this.components.length;
+    for(let i=0; i < len;i++){
+      this.currentViewContRef.clear(i)
+    }
+  }
+
   //删除组件 
-  delComponent() {
-    console.log(this.currentIndex)
+  deleteComponent(event) {
+    this.testCreateComp.splice(this.currentIndex, 1);
+    this.initViewContRef();
+    this.getCompList(this.testCreateComp)
   }
 
   //创建组件列表

@@ -1,3 +1,20 @@
-<p>
-  comp-setting works!
-</p>
+<div class="comp-item" *ngIf="activeSettingObj">
+    <div class="item-discription">{{activeSettingObj['name']}}</div>
+    <div class="item-tit" >
+      基本
+    </div>
+    <div class="set-body">
+      <div class="set-list">
+        <app-size [style]="activeSettingObj['style']"></app-size>
+        <app-position  [style]="activeSettingObj['style']"></app-position>
+      </div>
+    </div>
+
+    <!-- 组件删除 -->
+    <div class="del">
+      <img (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
+    </div>
+  </div>
+  <div class="comp-item disabled-opeaticy " disabled *ngIf="!activeSettingObj">
+      <div class="item-discription">请选择组件</div>
+  </div>

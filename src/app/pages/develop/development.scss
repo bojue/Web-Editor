@@ -11,4 +11,9 @@
             background: url("../../../assets/icons/up.svg");
         }
     }
+
+    .disabled-opeaticy {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
 }
