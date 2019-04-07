@@ -162,8 +162,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       let style = currentComponent.settingObj && currentComponent.settingObj['style'];
       let changeX = e.clientX - this.dragCompStartX;
       let changeY = e.clientY - this.dragCompStartY;
-
-      console.log(eventType)
       if(eventType === 'dragstart') {
         this.dragCompStartX = e.clientX;
         this.dragCompStartY = e.clientY;
@@ -222,7 +220,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.testCreateComp[this.currentIndex] = settingObj;
 
     if(eventType === 'click') {
-      console.log(eventType)
       this.initViewContRef();
       this.getCompList(this.testCreateComp)
     }else {
@@ -301,16 +298,13 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //辅助组件处理 
   getAuxiliaryComponent(selectStyle?: any, eventType ?: string) {
-    console.log(this.testCreateComp.includes(this.auxiComp));
     if(eventType === 'selectComp' && !this.testCreateComp.includes(this.auxiComp)) {
       this.auxiComp['style'] = selectStyle;
       this.testCreateComp.push(this.auxiComp)
     }else if(eventType !== 'selectComp' && this.testCreateComp.includes(this.auxiComp)) {
       let auxiIndex = this.testCreateComp.indexOf(this.auxiComp);
-      console.log(this.testCreateComp)
-      this.testCreateComp.splice(auxiIndex, 1)
-      console.log(this.testCreateComp)
-      this.currentViewContRef.remove(auxiIndex)
+      this.testCreateComp.splice(auxiIndex, 1);
+      this.currentViewContRef.remove(auxiIndex);
     }
   }
 
