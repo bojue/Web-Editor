@@ -1,3 +1,19 @@
-<p>
-  button works!
-</p>
+<button
+  class="comp-item active-border" 
+  draggable="true" 
+  (dragstart)="compEvent($event)"
+  (dragover)="compEvent($event)"
+  (dragend)="compEvent($event)"
+  (click)="compEvent($event)" 
+  (mousedown)="compEvent($event)"
+  [ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
+  [ngStyle]="{
+      'position':style['position'],
+      'top':expandUnit('top'),
+      'left':expandUnit('left'),
+      'width':expandUnit('width'),
+      'height':expandUnit('height'),
+      'border-width':expandUnit('borderWidth'),
+      'border-style':style['borderStyle'],
+      'border-color':style['borderColor']
+  }" >提交</button>

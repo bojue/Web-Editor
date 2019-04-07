@@ -35,6 +35,10 @@ export class AppServiceService{
         type: 'textarea',
         iconUrl: './../assets/icons/textarea.svg'
       },{
+        name:'按钮',
+        type: 'button',
+        iconUrl: './../assets/icons/mtbutton.svg'
+      },{
         name:'图片',
         type: 'img',
         iconUrl: './../assets/icons/image.svg'

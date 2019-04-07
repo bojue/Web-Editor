@@ -108,6 +108,25 @@ export class BasicInfoConfigService {
                   borderWidth: 0,
                   borderStyle: ''
                 }
+            },
+            button:{
+                compIndex: 3,
+                name:'按钮',
+                type:'button',
+                data: {
+            
+                },
+                style: {
+                  height:28,
+                  width: 40,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                }
             }
         }
         return data[style]  ? data[style] : {} 

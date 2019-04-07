@@ -29,6 +29,7 @@ import { ViewContainRefHostDirective } from './directive/view-contain-ref-host.d
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { CompSettingComponent } from './pages/develop/comp-setting/comp-setting.component';
+import { AuxiliaryComponent } from './component/tool/auxiliary/auxiliary.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -37,7 +38,9 @@ const ENTRY_COMPONENT = [
   InputComponent,
   TextareaComponent,
   CompSettingComponent,
-  CompListComponent
+  CompListComponent,
+  ButtonComponent,
+  AuxiliaryComponent
 ]
 
 @NgModule({
@@ -65,7 +68,8 @@ const ENTRY_COMPONENT = [
     CompViewComponent,
     ViewContainRefHostDirective,
     HomeComponent,
-    DetailComponent
+    DetailComponent,
+    AuxiliaryComponent
   ],
   imports: [
     FormsModule,

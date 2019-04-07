@@ -10,6 +10,7 @@ import { TextComponent } from '../../component/basic/text/text.component';
 import { AppServiceService} from '../../providers/app-service.service';
 import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
+import { ButtonComponent } from 'src/app/component/basic/button/button.component';
 
 @Component({
   selector: 'app-development',
@@ -260,6 +261,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       case 'textarea':
         tempInfo = {
           comp: TextareaComponent,
+          data : this.getCompDefaultConfig(type)
+        }  
+        break;
+      case 'button':
+        tempInfo = {
+          comp: ButtonComponent,
           data : this.getCompDefaultConfig(type)
         }  
         break;
