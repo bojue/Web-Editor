@@ -11,6 +11,7 @@ import { AppServiceService} from '../../providers/app-service.service';
 import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { ButtonComponent } from 'src/app/component/basic/button/button.component';
+import { AuxiliaryComponent } from  'src/app/component/tool/auxiliary/auxiliary.component'
 
 @Component({
   selector: 'app-development',
@@ -27,6 +28,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   componentModules: any[];
   basicComponents: any[];
   testCreateComp: any[];
+  auxiComp: any = {};
 
   components: any[];
   cmpRef: any[];
@@ -41,6 +43,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   constructor(
     private elementRef:ElementRef,
     private componentFactoryResolver: ComponentFactoryResolver,
+    private auxisFactoryResolver: ComponentFactoryResolver,
     private service: AppServiceService,
     private infoService: BasicInfoConfigService,
   ) {
@@ -60,14 +63,14 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     .addEventListener('click', this.clickListernerHandle.bind(this));
   }
 
-
   initData() {
     this.setingBool = true;
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
     this.componentsHeaders = this.service.getComponentHeaders();
     this.testCreateComp = this.service.getTestCreateComp(); //获取json数据(组件数据)
-    this.getCompList(this.testCreateComp) //json数据生成组件集合
+    this.getCompList(this.testCreateComp); //json数据生成组件集合
+    this.auxiComp = this.service.getAuxiComp();
   }
 
   /**
@@ -89,9 +92,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   addComponent(compType, event ?:any) {
     let compDefinInfo = this.createTemp(compType);
     let addCompJson = compDefinInfo && compDefinInfo['data'];
-    console.log(event, compType)
+    this.getAuxiliaryComponent();
     this.testCreateComp.push(addCompJson);
-    this.getCompList(this.testCreateComp)
+    this.getCompList(this.testCreateComp);
   }
   
   //修改组件
@@ -110,9 +113,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       currentComp['editeabled'] = false;
     }
     this.beforeSelectComp()
-    
     //2.初始化选中组件标识
     this.currentIndex = -1;
+
+    //3.处理选中辅助组件
+    this.getAuxiliaryComponent();
   }
 
   // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑
@@ -157,6 +162,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       let style = currentComponent.settingObj && currentComponent.settingObj['style'];
       let changeX = e.clientX - this.dragCompStartX;
       let changeY = e.clientY - this.dragCompStartY;
+
+      console.log(eventType)
       if(eventType === 'dragstart') {
         this.dragCompStartX = e.clientX;
         this.dragCompStartY = e.clientY;
@@ -207,11 +214,16 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //选择组件
   selectComp(settingObj, compInstance, currentIndex) {
+    this.getAuxiliaryComponent(settingObj['style'], 'selectComp')
     this.currentIndex = currentIndex;
     this.activeCurrentComp = [settingObj, compInstance];
     this.activeCompSettingObject = settingObj;
     settingObj['active'] = !settingObj['active'];
+    this.testCreateComp[this.currentIndex] = settingObj;
+    // this.initViewContRef();
+    // this.getCompList(this.testCreateComp)
     return (<SettingObjComponent> compInstance).settingObj = settingObj;
+
   }
   
   //组件映射列表
@@ -230,55 +242,69 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   //组件映射
   createTemp(type) {
     let tempInfo = {
-      comp:null,
-      data:null
+      comp:null
     };
     switch(type) {
       case 'text':
         tempInfo = {
           comp: TextComponent,
-          data: this.getCompDefaultConfig(type)
         }
         break;
       case 'img':  
         tempInfo = {
           comp: ImgComponent,
-          data: this.getCompDefaultConfig(type)
         }
         break;
       case 'chart':
         tempInfo = {
           comp: ChartComponent,
-          data : this.getCompDefaultConfig(type)
         }  
         break;
       case 'input':
         tempInfo = {
           comp: InputComponent,
-          data : this.getCompDefaultConfig(type)
         }  
         break;
       case 'textarea':
         tempInfo = {
           comp: TextareaComponent,
-          data : this.getCompDefaultConfig(type)
         }  
         break;
       case 'button':
         tempInfo = {
           comp: ButtonComponent,
-          data : this.getCompDefaultConfig(type)
         }  
+        break;
+      case 'auxi':
+        tempInfo = {
+          comp : AuxiliaryComponent
+        }
         break;
       default:
         return;    
     }
+    tempInfo['data'] = this.getCompDefaultConfig(type);
     return tempInfo;
   }
 
   //获取组件默认配置
   getCompDefaultConfig(type) {
     return this.infoService.getCompDefaultConfig(type);
+  }
+
+  //辅助组件处理 
+  getAuxiliaryComponent(selectStyle?: any, eventType ?: string) {
+    console.log(this.testCreateComp.includes(this.auxiComp));
+    if(eventType === 'selectComp' && !this.testCreateComp.includes(this.auxiComp)) {
+      this.auxiComp['style'] = selectStyle;
+      this.testCreateComp.push(this.auxiComp)
+    }else if(eventType !== 'selectComp' && this.testCreateComp.includes(this.auxiComp)) {
+      let auxiIndex = this.testCreateComp.indexOf(this.auxiComp);
+      console.log(this.testCreateComp)
+      this.testCreateComp.splice(auxiIndex, 1)
+      console.log(this.testCreateComp)
+      this.currentViewContRef.remove(auxiIndex)
+    }
   }
 
 }

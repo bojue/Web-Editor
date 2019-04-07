@@ -128,7 +128,53 @@ export class AppServiceService{
       borderWidth: 0,
       borderStyle: ''
     }
-  }]
+  },{
+    compIndex: 2,
+    name:'图片',
+    type:'img',
+    data: {
+      value:'./../assets/imgs/es.jpeg',
+    },
+    style: {
+      height:200,
+      width: 300,
+      position: 'absolute',
+      top:10,
+      left:10,
+      border: '',
+      borderColor: '',
+      borderWidth: 0,
+      borderStyle: ''
+    },
+    statue: {
+      inputBool: false,
+      cativeBool: false
+    }
+  }];
+
+  auxiComp = {
+    compIndex: 1000,
+    name:'辅助线',
+    type:'auxi',
+    data: {
+      title: '辅助线'
+    },
+    style: {
+      height:220,
+      width: 300,
+      position: 'absolute',
+      top:120,
+      left:600,
+      border: '',
+      borderColor: '',
+      borderWidth: 0,
+      borderStyle: ''
+    }
+  }
+
+  getAuxiComp() {
+    return this.auxiComp;
+  }
 
 
   getTestCreateComp() {
