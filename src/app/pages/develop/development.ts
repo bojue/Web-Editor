@@ -181,7 +181,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
         }
       }
       this.beforeSelectComp();
-      this.selectComp(currentComponent.settingObj, compInstance, index)
+      this.selectComp(currentComponent.settingObj, compInstance, index, eventType)
     })
 
   }
@@ -213,16 +213,23 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   }
 
   //选择组件
-  selectComp(settingObj, compInstance, currentIndex) {
+  selectComp(settingObj, compInstance, currentIndex, eventType) {
     this.getAuxiliaryComponent(settingObj['style'], 'selectComp')
     this.currentIndex = currentIndex;
     this.activeCurrentComp = [settingObj, compInstance];
     this.activeCompSettingObject = settingObj;
     settingObj['active'] = !settingObj['active'];
     this.testCreateComp[this.currentIndex] = settingObj;
-    // this.initViewContRef();
-    // this.getCompList(this.testCreateComp)
-    return (<SettingObjComponent> compInstance).settingObj = settingObj;
+
+    if(eventType === 'click') {
+      console.log(eventType)
+      this.initViewContRef();
+      this.getCompList(this.testCreateComp)
+    }else {
+      return (<SettingObjComponent> compInstance).settingObj = settingObj;
+    }
+
+
 
   }
   
