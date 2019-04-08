@@ -1,4 +1,20 @@
 
 :host /deep/ {
+    #auxi-comp {
+        .line-item  {
+            position: absolute;
+            background: rgba(255, 0, 0, 0.4);
+            display: block;
+        }
+        .line-view-w {
+            height: 0.5px;
+            width: 100%;
+        }
+
+        .line-view-h {
+            width: 0.5px;
+            height: 100%;
+        }
+    }
 
 }

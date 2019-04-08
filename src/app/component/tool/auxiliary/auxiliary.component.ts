@@ -1,3 +1,4 @@
+import { SettingStyle } from './../../../module/setting-style.module';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { BasicComponent } from '../../basic/basic/basic.component';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
@@ -9,6 +10,7 @@ import { SettingObjComponent } from 'src/app/module/setting-object.component';
 })
 export class AuxiliaryComponent extends BasicComponent implements OnInit, SettingObjComponent{
   element: any;
+  style: SettingStyle;
   constructor(
     private elementRef: ElementRef
   ) {
@@ -16,16 +18,11 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, Settin
   }
 
   ngOnInit() {
-    this.element = this.elementRef.nativeElement;
+
     this.initData();
   }
 
   initData() {
-
-    let topLineEle = this.element.querySelector('#line-top');
-    console.log(topLineEle)
-    topLineEle.setAttribute('x1', 0)
-    topLineEle.setAttribute('y1', 0)
-    topLineEle.setAttribute('width', '100%')
+    this.style = this.settingObj['style'];
   }
 }
