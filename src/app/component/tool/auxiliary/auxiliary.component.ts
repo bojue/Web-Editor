@@ -10,7 +10,6 @@ import { SettingObjComponent } from 'src/app/module/setting-object.component';
 })
 export class AuxiliaryComponent extends BasicComponent implements OnInit, SettingObjComponent{
   element: any;
-  style: SettingStyle;
   constructor(
     private elementRef: ElementRef
   ) {
@@ -18,11 +17,10 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, Settin
   }
 
   ngOnInit() {
-
     this.initData();
+
+    console.log(this.settingObj)
   }
 
-  initData() {
-    this.style = this.settingObj['style'];
-  }
+
 }

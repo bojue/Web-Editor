@@ -212,13 +212,15 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //选择组件
   selectComp(settingObj, compInstance, currentIndex, eventType) {
-    this.getAuxiliaryComponent(settingObj['style'], 'selectComp')
+
     this.currentIndex = currentIndex;
     this.activeCurrentComp = [settingObj, compInstance];
     this.activeCompSettingObject = settingObj;
     settingObj['active'] = !settingObj['active'];
     this.testCreateComp[this.currentIndex] = settingObj;
+    this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComp')
 
+    console.log(this.activeCompSettingObject)
     if(eventType === 'click') {
       this.initViewContRef();
       this.getCompList(this.testCreateComp)
@@ -301,9 +303,22 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     if(eventType === 'selectComp' && !this.testCreateComp.includes(this.auxiComp)) {
       this.auxiComp['style'] = selectStyle;
       this.testCreateComp.push(this.auxiComp)
+    }else if(eventType === 'selectComp' && this.testCreateComp.includes(this.auxiComp)) {
+      this.auxiCompInit()
+      this.auxiComp['style'] = selectStyle;
+      this.testCreateComp.push(this.auxiComp)
     }else if(eventType !== 'selectComp' && this.testCreateComp.includes(this.auxiComp)) {
-      let auxiIndex = this.testCreateComp.indexOf(this.auxiComp);
-      this.testCreateComp.splice(auxiIndex, 1);
+      this.auxiCompInit(true);
+
+    }
+  }
+
+
+  //辅助组件处理
+  auxiCompInit( removeBool?:any ) {
+    let auxiIndex = this.testCreateComp.indexOf(this.auxiComp);
+    this.testCreateComp.splice(auxiIndex, 1);
+    if(removeBool) {
       this.currentViewContRef.remove(auxiIndex);
     }
   }
