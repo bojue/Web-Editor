@@ -26,7 +26,7 @@ export class BasicComponent implements OnInit {
   }
   
   expandUnit(param, other ?: string) {
-    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] + 2)) || 1;    
+    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] + 1)) || 1;    
     return paramVal + 'px'; 
   }
   
