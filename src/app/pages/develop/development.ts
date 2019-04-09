@@ -170,13 +170,13 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
         this.dragCompStartX = e.clientX;
         this.dragCompStartY = e.clientY;
       }else if(eventType === 'dragend'){
-        if(!this.dynamicService.getboundaryBool(changeX,changeY, style, 'l')) {
+        if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
           style['left'] = style['left'] + changeX;
         }else{
           style['left'] = 0;
         } 
         
-        if(!this.dynamicService.getboundaryBool(changeX,changeY, style, 'l')) {
+        if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
           style['top'] = style['top'] + style['height'] + changeY < 800 ?  style['top'] + changeY : 800 -  style['height'];
         }else {
           style['top'] = 0;

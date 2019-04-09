@@ -136,17 +136,19 @@ $border-color4: $color-grey-1;
                 .lists {
                     display: grid;
                     grid-template-columns: auto auto auto;
-                    grid-gap: 1%;
                     padding: 8px;
                     border-bottom: 1px solid $border-color4;
                     .item {
                         cursor: pointer;
+                        margin-right: -1px;
+                        margin-bottom: -1px;
                         border: 1px solid #cccccc;
                         height: 70px;
                         position: relative;
                         text-align: center;
                         &:hover {
                             border: 1px solid $border-color3;
+                            z-index: 2;
                         }
                         img.icon {
                             width: 30px;
@@ -219,6 +221,22 @@ $border-color4: $color-grey-1;
                             
                         }
                     }
+                }
+            }
+        }
+
+    .data-val {
+        position: relative;
+            .tit {
+                margin: 10px;
+            }
+            .val {
+                width: 80%;
+                padding-left: 10px;
+                input {
+                    height: 30px;
+                    padding: 2px 5px;
+                    width: 100%;
                 }
             }
         }

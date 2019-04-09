@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DataBasicComponent implements OnInit {
   @Input() data:any;
-
   data_type: string;
   createObj = {
 
@@ -19,8 +18,7 @@ export class DataBasicComponent implements OnInit {
   }
 
   showBoolHeader() {
-   return this.data.hasOwnProperty(this.data_type);
-  
+    return this.data.hasOwnProperty(this.data_type);
   }
 
 }

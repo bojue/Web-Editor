@@ -1,6 +1,7 @@
 <textarea type="text"
   class="comp-item p-2-5" 
   draggable="true" 
+  [(ngModel)]="data['textarea_val']"
   [placeholder]="data['placeholder']"
   (dragstart)="compEvent($event)"
   (dragover)="compEvent($event)"

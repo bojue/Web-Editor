@@ -13,9 +13,5 @@ export class ButtonValComponent extends DataBasicComponent implements OnInit {
     super()
   }
 
-  ngOnInit() {
-  }
-
-
-
+  ngOnInit() {}
 }

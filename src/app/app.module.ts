@@ -33,6 +33,9 @@ import { AuxiliaryComponent } from './component/tool/auxiliary/auxiliary.compone
 import { UploaderComponent } from './component/data/uploader/uploader.component';
 import { ButtonValComponent } from './component/data/button-val/button-val.component';
 import { DataBasicComponent } from './component/data/data-basic/data-basic.component';
+import { TextValComponent } from './component/data/text-val/text-val.component';
+import { TextareaValComponent } from './component/data/textarea-val/textarea-val.component';
+import { InputValComponent } from './component/data/input-val/input-val.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -64,15 +67,22 @@ const TOOL_COMPONENT = [
   AuxiliaryComponent
 ]
 
+const DATA_COMPONENT = [
+  ButtonValComponent,
+  DataBasicComponent,
+  TextValComponent,
+  TextareaValComponent,
+  InputValComponent,
+]
+
 @NgModule({
   declarations: [
     AppComponent,
-    
     [...SETTING_COMPONENT],
     [...ENTRY_COMPONENT],
     [...EVENT_COMPONENT],
     [...TOOL_COMPONENT],
-
+    [...DATA_COMPONENT],
     DevelopmentPageComponent,
     OpeacityComponent,
     BasicComponent,
@@ -82,8 +92,6 @@ const TOOL_COMPONENT = [
     ViewContainRefHostDirective,
     HomeComponent,
     DetailComponent,
-    ButtonValComponent,
-    DataBasicComponent,
   ],
   imports: [
     FormsModule,

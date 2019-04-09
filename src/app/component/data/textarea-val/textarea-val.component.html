@@ -1,0 +1,6 @@
+<div *ngIf="showBoolHeader()" class="data-val">
+    <div class="tit">文本值</div>
+    <div class="val">
+      <textarea  #textarea_val="ngModel" [(ngModel)]="data['textarea_val']"></textarea>
+    </div>
+  </div>
