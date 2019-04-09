@@ -30,7 +30,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { CompSettingComponent } from './pages/develop/comp-setting/comp-setting.component';
 import { AuxiliaryComponent } from './component/tool/auxiliary/auxiliary.component';
-import { UploaderComponent } from './component/events/uploader/uploader.component';
+import { UploaderComponent } from './component/data/uploader/uploader.component';
+import { ButtonValComponent } from './component/data/button-val/button-val.component';
+import { DataBasicComponent } from './component/data/data-basic/data-basic.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -43,6 +45,7 @@ const ENTRY_COMPONENT = [
   ButtonComponent,
   AuxiliaryComponent,
   SelectComponent,
+  LineComponent,
 ]
 
 const SETTING_COMPONENT = [
@@ -79,6 +82,8 @@ const TOOL_COMPONENT = [
     ViewContainRefHostDirective,
     HomeComponent,
     DetailComponent,
+    ButtonValComponent,
+    DataBasicComponent,
   ],
   imports: [
     FormsModule,

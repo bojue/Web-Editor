@@ -13,6 +13,7 @@ import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { ButtonComponent } from 'src/app/component/basic/button/button.component';
 import { AuxiliaryComponent } from  'src/app/component/tool/auxiliary/auxiliary.component'
 import * as _ from 'lodash';    
+import { DynamicComponentServiceService } from 'src/app/code/provider/dynamic-component-service.service';
 
 @Component({
   selector: 'app-development',
@@ -46,7 +47,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     private componentFactoryResolver: ComponentFactoryResolver,
     private service: AppServiceService,
     private infoService: BasicInfoConfigService,
-    private renderer: Renderer,
+    private dynamicService: DynamicComponentServiceService,
   ) {
       this.activeSettingState('default');
   }
@@ -89,10 +90,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.addComponent(compType, event)
   }
 
-
   //增加组件
   addComponent(compType, event ?:any) {
-    let compDefinInfo = this.createTemp(compType);
+    let compDefinInfo = this.dynamicService.createComponent(compType, this.getCompDefaultConfig(compType));
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.getAuxiliaryComponent(null , 'addComponent');
     this.testCreateComp.push(addCompJson);
@@ -115,7 +115,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     if(currentComp && currentComp['type'] === 'text') {
       currentComp['editeabled'] = false;
     }
-    this.beforeSelectComp()
+    this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
     //2.初始化选中组件标识
     this.currentIndex = -1;
 
@@ -141,15 +141,15 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //创建组件列表
   getCompList(jsonList: any[]) {
-     this.components = this.createComp(jsonList); //获取组件列表
-     this.updateComponent(this.components)
+    this.components = this.dynamicService.getCompList(jsonList); //获取组件列表
+    this.updateComponent(this.components)
   }
   
   //更新组件列表渲染
   updateComponent(compList){
     compList.forEach((comp , k) => {
       this.renderComponent(k)
-    })    
+    })   
   }
 
   //组件渲染
@@ -170,48 +170,22 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
         this.dragCompStartX = e.clientX;
         this.dragCompStartY = e.clientY;
       }else if(eventType === 'dragend'){
-        if(!this.boundaryBool(changeX,changeY, style, 'l')) {
+        if(!this.dynamicService.getboundaryBool(changeX,changeY, style, 'l')) {
           style['left'] = style['left'] + changeX;
         }else{
           style['left'] = 0;
         } 
         
-        if(!this.boundaryBool(changeX,changeY, style, 't')) {
+        if(!this.dynamicService.getboundaryBool(changeX,changeY, style, 'l')) {
           style['top'] = style['top'] + style['height'] + changeY < 800 ?  style['top'] + changeY : 800 -  style['height'];
         }else {
           style['top'] = 0;
         }
       }
-      this.beforeSelectComp();
+      this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
       this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e)
     })
 
-  }
-
-  //拖拽边界处理
-  boundaryBool(changeX,changeY, style, direction) {
-    let bool = false;
-    switch (direction) {
-      case 'l':
-        bool = changeX + style['left'] < 0;
-        break;
-      case 't':
-        bool = changeY + style['top'] < 0
-        break;
-    }
-   
-    return bool;
-  }
-
-  //处理之前选择的组件
-  beforeSelectComp() {
-    this.activeCompSettingObject = null; //初始化
-    if(this.activeCurrentComp && this.activeCurrentComp.length > 0) {
-      let beforeActiveCompSettingObj = this.activeCurrentComp[0];
-      beforeActiveCompSettingObj['active'] = false;
-      let beforeActiveCompInstance = this.activeCurrentComp[1];
-      return (<SettingObjComponent> beforeActiveCompInstance).settingObj = beforeActiveCompSettingObj;
-    }
   }
 
   //选择组件
@@ -222,73 +196,14 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     settingObj['active'] = !settingObj['active'];
     this.testCreateComp[this.currentIndex] = settingObj;
     if(eventType === 'click') {
-      this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent')
+      this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent');
+      console.log(this.activeCompSettingObject)
     }else {
       return (<SettingObjComponent> compInstance).settingObj = settingObj;
     }
 
   }
-  
-  //组件映射列表
-  createComp(objList:any[]){
-    let compList = [];
-    objList.forEach(settingItem =>{
-      let _type = settingItem && settingItem['type'];
-      let compInfo = this.createTemp(_type)
-      let settingData = settingItem || compInfo['data']
-      let createComp = new ComponentItem(compInfo['comp'], settingData);
-      compList.push(createComp)
-    })
-    return compList;
-  }
 
-  //组件映射
-  createTemp(type) {
-    let tempInfo = {
-      comp:null
-    };
-    switch(type) {
-      case 'text':
-        tempInfo = {
-          comp: TextComponent,
-        }
-        break;
-      case 'img':  
-        tempInfo = {
-          comp: ImgComponent,
-        }
-        break;
-      case 'chart':
-        tempInfo = {
-          comp: ChartComponent,
-        }  
-        break;
-      case 'input':
-        tempInfo = {
-          comp: InputComponent,
-        }  
-        break;
-      case 'textarea':
-        tempInfo = {
-          comp: TextareaComponent,
-        }  
-        break;
-      case 'button':
-        tempInfo = {
-          comp: ButtonComponent,
-        }  
-        break;
-      case 'auxi':
-        tempInfo = {
-          comp : AuxiliaryComponent
-        }
-        break;
-      default:
-        return;    
-    }
-    tempInfo['data'] = this.getCompDefaultConfig(type);
-    return tempInfo;
-  }
 
   //获取组件默认配置
   getCompDefaultConfig(type) {

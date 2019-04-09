@@ -1,15 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataBasicComponent } from '../data-basic/data-basic.component';
 
 @Component({
   selector: 'app-uploader',
   templateUrl: './uploader.component.html',
   styleUrls: ['./uploader.component.scss']
 })
-export class UploaderComponent implements OnInit {
-  @Input() data:any;
+export class UploaderComponent extends DataBasicComponent implements OnInit {
   imgs = [];
-
-  constructor() { }
+  data_type = 'img_url';
+  constructor() {
+    super()
+  }
 
   ngOnInit() {
     this.imgs = [{

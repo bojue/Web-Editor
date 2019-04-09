@@ -15,4 +15,9 @@ export class ButtonComponent extends BasicComponent implements OnInit, SettingOb
   ngOnInit() {
     this.initData();
   }
+  
+  inputState(event) {
+    this.settingObj['editeabled'] = true;
+  }
+
 }

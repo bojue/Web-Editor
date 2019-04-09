@@ -107,6 +107,9 @@ export class BasicInfoConfigService {
                   borderColor: '',
                   borderWidth: 0,
                   borderStyle: ''
+                },
+                event: {
+                    
                 }
             },
             button:{
@@ -114,7 +117,7 @@ export class BasicInfoConfigService {
                 name:'按钮',
                 type:'button',
                 data: {
-            
+                    button_val:'确认'
                 },
                 style: {
                   height:28,
