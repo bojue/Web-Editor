@@ -71,7 +71,7 @@ export class AppServiceService{
     type:'text',
     compIndex: 1,
     data: {
-      value: "文本",
+      text_val: "文本",
     },
     style: {
       width:100,
@@ -93,7 +93,7 @@ export class AppServiceService{
     name:'图片',
     type:'img',
     data: {
-      value:'./../assets/imgs/es.jpeg',
+      img_url:'./../assets/imgs/es.jpeg',
     },
     style: {
       height:200,
@@ -133,7 +133,7 @@ export class AppServiceService{
     name:'图片',
     type:'img',
     data: {
-      value:'./../assets/imgs/es.jpeg',
+      img_url:'./../assets/imgs/es.jpeg',
     },
     style: {
       height:200,

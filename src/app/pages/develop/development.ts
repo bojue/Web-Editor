@@ -1,7 +1,7 @@
 import { TextareaComponent } from '../../component/basic/textarea/textarea.component';
 import { InputComponent } from '../../component/basic/input/input.component';
 import { ChartComponent } from '../../component/custom/chart/chart.component';
-import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild, Renderer, EventEmitter, OnChanges } from '@angular/core';
 import { ComponentItem } from '../../module/component-item';
 import { SettingObject } from '../../module/setting-object.module';
 import { BasicInfoConfigService } from '../../providers/basic-info-config.service';
@@ -12,6 +12,7 @@ import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { ButtonComponent } from 'src/app/component/basic/button/button.component';
 import { AuxiliaryComponent } from  'src/app/component/tool/auxiliary/auxiliary.component'
+import * as _ from 'lodash';    
 
 @Component({
   selector: 'app-development',
@@ -43,9 +44,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   constructor(
     private elementRef:ElementRef,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private auxisFactoryResolver: ComponentFactoryResolver,
     private service: AppServiceService,
     private infoService: BasicInfoConfigService,
+    private renderer: Renderer,
   ) {
       this.activeSettingState('default');
   }
@@ -60,7 +61,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.querySelector('#componentsBody')
-    .addEventListener('click', this.clickListernerHandle.bind(this));
+    .addEventListener('click', this.clickListernerHandle.bind(this))
+
   }
 
   initData() {
@@ -92,8 +94,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   addComponent(compType, event ?:any) {
     let compDefinInfo = this.createTemp(compType);
     let addCompJson = compDefinInfo && compDefinInfo['data'];
-    this.getAuxiliaryComponent();
+    this.getAuxiliaryComponent(null , 'addComponent');
     this.testCreateComp.push(addCompJson);
+    this.initViewContRef()
     this.getCompList(this.testCreateComp);
   }
   
@@ -117,7 +120,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.currentIndex = -1;
 
     //3.处理选中辅助组件
-    this.getAuxiliaryComponent();
+    this.getAuxiliaryComponent(null, 'parentListerner');
   }
 
   // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑
@@ -130,6 +133,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //删除组件 
   deleteComponent(event) {
+    this.getAuxiliaryComponent(null, 'deleteComponent');
     this.testCreateComp.splice(this.currentIndex, 1);
     this.initViewContRef();
     this.getCompList(this.testCreateComp)
@@ -179,7 +183,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
         }
       }
       this.beforeSelectComp();
-      this.selectComp(currentComponent.settingObj, compInstance, index, eventType)
+      this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e)
     })
 
   }
@@ -211,24 +215,17 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   }
 
   //选择组件
-  selectComp(settingObj, compInstance, currentIndex, eventType) {
-
+  selectComp(settingObj, compInstance, currentIndex, eventType, event) {
     this.currentIndex = currentIndex;
     this.activeCurrentComp = [settingObj, compInstance];
     this.activeCompSettingObject = settingObj;
     settingObj['active'] = !settingObj['active'];
     this.testCreateComp[this.currentIndex] = settingObj;
-    this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComp')
-
-    console.log(this.activeCompSettingObject)
     if(eventType === 'click') {
-      this.initViewContRef();
-      this.getCompList(this.testCreateComp)
+      this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent')
     }else {
       return (<SettingObjComponent> compInstance).settingObj = settingObj;
     }
-
-
 
   }
   
@@ -299,28 +296,32 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   }
 
   //辅助组件处理 
-  getAuxiliaryComponent(selectStyle?: any, eventType ?: string) {
-    if(eventType === 'selectComp' && !this.testCreateComp.includes(this.auxiComp)) {
-      this.auxiComp['style'] = selectStyle;
-      this.testCreateComp.push(this.auxiComp)
-    }else if(eventType === 'selectComp' && this.testCreateComp.includes(this.auxiComp)) {
-      this.auxiCompInit()
-      this.auxiComp['style'] = selectStyle;
-      this.testCreateComp.push(this.auxiComp)
-    }else if(eventType !== 'selectComp' && this.testCreateComp.includes(this.auxiComp)) {
-      this.auxiCompInit(true);
+  getAuxiliaryComponent( selectStyle?: any, eventType ?: string) {
+    /**
+     * 1.parentListerner 监听父类容器 
+     * 2.selectComponent 选择动态组件 
+     * 3.addComponent 添加组件
+     * 4.deleteComponent 删除组件
+     */
+    this.auxiCompInit() 
 
+    if(eventType === 'selectComponent') {
+      this.testCreateComp.push(this.auxiComp)
+      let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AuxiliaryComponent);
+      let compRef = this.currentViewContRef.createComponent(compFactory);
+      let compInstance = compRef.instance;
+      (<SettingObjComponent> compInstance).settingObj = this.activeCompSettingObject;
     }
   }
 
 
   //辅助组件处理
-  auxiCompInit( removeBool?:any ) {
-    let auxiIndex = this.testCreateComp.indexOf(this.auxiComp);
-    this.testCreateComp.splice(auxiIndex, 1);
-    if(removeBool) {
+  auxiCompInit() {
+    //计算辅助组件下标
+    let auxiIndex =  _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'auxi'; });
+    if(auxiIndex > -1) {
+      this.testCreateComp.splice(auxiIndex, 1);
       this.currentViewContRef.remove(auxiIndex);
     }
   }
-
 }

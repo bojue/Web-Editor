@@ -9,18 +9,11 @@ import { SettingObjComponent } from 'src/app/module/setting-object.component';
   styleUrls: ['./auxiliary.component.scss']
 })
 export class AuxiliaryComponent extends BasicComponent implements OnInit, SettingObjComponent{
-  element: any;
-  constructor(
-    private elementRef: ElementRef
-  ) {
+  constructor() {
     super();
   }
 
   ngOnInit() {
     this.initData();
-
-    console.log(this.settingObj)
   }
-
-
 }

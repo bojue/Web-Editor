@@ -194,8 +194,10 @@ $border-color4: $color-grey-1;
                             &.item-set-grid {
                                 display: grid;
                                 position: relative;
-                                grid-template-columns: 48% 48%;
                                 grid-column-gap: 3px;
+                                &.grid-2 {
+                                    grid-template-columns: 48% 48%;
+                                }
                                 &.grid-3 {
                                     grid-template-columns: 18% 40% 40%;
                                 }

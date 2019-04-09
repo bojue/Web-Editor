@@ -30,6 +30,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { CompSettingComponent } from './pages/develop/comp-setting/comp-setting.component';
 import { AuxiliaryComponent } from './component/tool/auxiliary/auxiliary.component';
+import { UploaderComponent } from './component/events/uploader/uploader.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -40,36 +41,44 @@ const ENTRY_COMPONENT = [
   CompSettingComponent,
   CompListComponent,
   ButtonComponent,
+  AuxiliaryComponent,
+  SelectComponent,
+]
+
+const SETTING_COMPONENT = [
+  ColorComponent,
+  SizeComponent,
+  BackgroundComponent,
+  RoundComponent,
+  PositionComponent,
+]
+
+const EVENT_COMPONENT = [
+  UploaderComponent
+]
+
+const TOOL_COMPONENT = [
   AuxiliaryComponent
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    
+    [...SETTING_COMPONENT],
+    [...ENTRY_COMPONENT],
+    [...EVENT_COMPONENT],
+    [...TOOL_COMPONENT],
+
     DevelopmentPageComponent,
-    CompSettingComponent,
     OpeacityComponent,
-    ColorComponent,
-    ImgComponent,
-    TextComponent,
-    BackgroundComponent,
-    ComponentWrapperRefComponent,
-    SizeComponent,
-    PositionComponent,
-    ChartComponent,
     BasicComponent,
-    InputComponent,
-    TextareaComponent,
-    LineComponent,
-    ButtonComponent,
-    SelectComponent,
-    RoundComponent,
+    ComponentWrapperRefComponent,  
     CompListComponent,
     CompViewComponent,
     ViewContainRefHostDirective,
     HomeComponent,
     DetailComponent,
-    AuxiliaryComponent
   ],
   imports: [
     FormsModule,

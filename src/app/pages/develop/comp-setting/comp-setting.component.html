@@ -1,12 +1,20 @@
 <div class="comp-item" *ngIf="activeSettingObj">
     <div class="item-discription">{{activeSettingObj['name']}}</div>
     <div class="item-tit" >
-      基本
+      基本属性
     </div>
     <div class="set-body">
       <div class="set-list">
         <app-size [style]="activeSettingObj['style']"></app-size>
         <app-position  [style]="activeSettingObj['style']"></app-position>
+      </div>
+    </div>
+    <div class="item-tit" >
+      文件
+    </div>
+    <div class="set-body">
+      <div class="set-list">
+        <app-uploader [data]="activeSettingObj['data']"></app-uploader>
       </div>
     </div>
 

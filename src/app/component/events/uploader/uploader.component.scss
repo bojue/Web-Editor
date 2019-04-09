@@ -1,0 +1,19 @@
+:host /deep/ {
+    .uploader {
+        margin-top: 10px;
+        .file-val {
+            display:grid;
+            grid-template-columns: 50% 50%;
+            .img-item {
+                cursor: pointer;
+                text-align: center;
+                img {
+                    width: 92%;
+                    height: 76px;
+                    border:1px solid blueviolet;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

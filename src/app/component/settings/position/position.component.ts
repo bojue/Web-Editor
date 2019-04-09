@@ -9,9 +9,12 @@ import { SettingStyle } from 'src/app/module/setting-style.module';
 })
 export class PositionComponent implements OnInit {
   @Input() style: SettingStyle;
+
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
+

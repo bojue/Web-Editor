@@ -17,7 +17,7 @@ export class BasicInfoConfigService {
                 name:'文本',
                 type:'text',
                 data: {
-                    value:'双击修改文本',
+                    text_val:'双击修改文本',
                 },
                 style: {
                     height:100,
@@ -36,7 +36,7 @@ export class BasicInfoConfigService {
                 name:'输入框',
                 type:'input',
                 data: {
-                    value:'',
+                    input_val:'',
                     placeholder:"输入"
                 },
                 style: {
@@ -56,7 +56,7 @@ export class BasicInfoConfigService {
                 name:'多行输入',
                 type:'textarea',
                 data: {
-                    value:'',
+                    textarea_val:'',
                     placeholder:"文本输入"
                 },
                 style: {
@@ -76,7 +76,7 @@ export class BasicInfoConfigService {
                 name:'图片',
                 type:'img',
                 data: {
-                    value:'./../assets/imgs/es.jpeg',
+                    img_url:'./../assets/imgs/es.jpeg',
                 },
                 style: {
                     height:100,

@@ -14,7 +14,8 @@ export class BasicComponent implements OnInit {
   style: SettingStyle;
   data: SettingDate;
   ngStyle: any = {};
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.initData()

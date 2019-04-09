@@ -1,0 +1,7 @@
+<div class="uploader">
+  <div class="file-val">
+    <div class="img-item" *ngFor="let img of imgs">
+      <img src="{{img['url']}}" alt="" (click)="selectImg(img)">
+    </div> 
+  </div>
+</div>
