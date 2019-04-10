@@ -45,6 +45,7 @@ import { TreeComponent } from './component/custom/tree/tree.component';
 import { CustomBasicComponent } from './component/custom/custom-basic/custom-basic.component';
 import { TreeModule } from 'angular-tree-component';
 import { ListComponent } from './component/custom/list/list.component';
+import { BorderComponent } from './component/settings/border/border.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -69,6 +70,7 @@ const SETTING_COMPONENT = [
   RoundComponent,
   PositionComponent,
   TextsComponent,
+  BorderComponent
 ]
 
 const EVENT_COMPONENT = [
@@ -96,6 +98,7 @@ const DATA_COMPONENT = [
     [...EVENT_COMPONENT],
     [...TOOL_COMPONENT],
     [...DATA_COMPONENT],
+
     DevelopmentPageComponent,
     OpeacityComponent,
     BasicComponent,

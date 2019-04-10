@@ -1,0 +1,17 @@
+<div class="item-set item-set-grid grid-1">
+    <div class="tit">边框</div>
+  <div class="set-val">
+      <label class="lab">宽度</label>
+      <input  class="val" type="number"  [(ngModel)]="style['borderWidth']" placeholder="宽度" >
+  </div>
+  <div class="set-val">
+      <label class="lab">颜色 </label>
+      <input  class="val" type="color"  [(ngModel)]="style['borderColor']" placeholder="颜色" >
+  </div>
+  <div class="set-val">
+      <label class="lab">类型</label>
+      <select class="val" [(ngModel)]="style['borderStyle']">
+          <option [value]="item.value" *ngFor="let item of borderStyles;">{{item.name}}</option>
+      </select>
+  </div>
+</div>

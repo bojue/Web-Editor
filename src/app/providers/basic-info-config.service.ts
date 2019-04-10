@@ -85,9 +85,9 @@ export class BasicInfoConfigService {
                     top:200,
                     left:100,
                     border: '',
-                    borderColor: '',
-                    borderWidth: 0,
-                    borderStyle: ''
+                    borderColor: 'red',
+                    borderWidth: 1,
+                    borderStyle: 'dotted'
                 }
             } ,    
             button:{

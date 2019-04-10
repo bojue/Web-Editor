@@ -1,0 +1,23 @@
+:host /deep/ { 
+    .grid-1 {
+        grid-template-columns: 100%;
+        .tit {
+            margin: 6px 0px;
+        }
+        .set-val {
+            display: grid;
+            grid-template-columns: 30% 69%;
+            .lab {
+                width: 50px !important;
+                padding-left: 15px;
+            }
+            .val {
+                width: 100px !important;
+            }
+            select.val {
+                width: 111px !important;
+                padding:3px 6px;
+            }
+        }
+    }
+}

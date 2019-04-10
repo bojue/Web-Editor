@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BorderComponentComponent } from './border-component.component';
+import { BorderComponent } from './border.component';
 
-describe('BorderComponentComponent', () => {
-  let component: BorderComponentComponent;
-  let fixture: ComponentFixture<BorderComponentComponent>;
+describe('BorderComponent', () => {
+  let component: BorderComponent;
+  let fixture: ComponentFixture<BorderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorderComponentComponent ]
+      declarations: [ BorderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BorderComponentComponent);
+    fixture = TestBed.createComponent(BorderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -20,6 +20,13 @@ export class ImgValComponent extends DataBasicComponent implements OnInit {
       },{
         name:"es6",
         url: './../assets/imgs/es.jpeg',
+      },
+      {
+        name:"es6",
+        url: './../assets/imgs/test1.jpg',
+      },{
+        name:"es6",
+        url: './../assets/imgs/test2.jpg',
       }]
     }
   
