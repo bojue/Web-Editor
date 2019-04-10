@@ -1,3 +1,4 @@
+import { CompEmitService } from './../../../providers/comp-emit.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SettingObject } from 'src/app/module/setting-object.module';
 import { EChartOption } from 'echarts';
@@ -9,14 +10,17 @@ import { SettingDate } from 'src/app/module/setting-data.module';
   templateUrl: './custom-basic.component.html',
   styleUrls: ['./custom-basic.component.scss']
 })
-export class CustomBasicComponent implements OnInit {
+export class CustomBasicComponent  implements OnInit {
   @Input() settingObj: SettingObject;
   @Output() onChildComponentChange = new EventEmitter<any>();
+
   style: SettingStyle;
   data: SettingDate;
   chartOption: EChartOption;
   
-  constructor() { 
+  constructor(
+    private compEmitService: CompEmitService
+  ) { 
 
   }
 
@@ -33,8 +37,9 @@ export class CustomBasicComponent implements OnInit {
     this.onChildComponentChange.emit(event);
   }
 
-  expandUnit(param) {
-    this.style[param] = this.style[param] || 1;
-    return this.style[param] + 'px'; 
+  expandUnit(param, other ?: string) {
+    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] + 1)) || 1;    
+    return paramVal + 'px'; 
   }
+
 }

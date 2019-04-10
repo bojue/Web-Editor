@@ -3,15 +3,18 @@ import { EChartOption } from 'echarts';
 import { SettingObject } from 'src/app/module/setting-object.module';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { CustomBasicComponent } from '../custom-basic/custom-basic.component';
+import { CompEmitService } from './../../../providers/comp-emit.service';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent extends CustomBasicComponent  implements SettingObjComponent  {
-  constructor() {
-    super()
+export class ChartComponent extends CustomBasicComponent  {
+  constructor(
+    private eventService: CompEmitService,
+  ) {
+    super(eventService)
   }
 
   ngOnInit() {

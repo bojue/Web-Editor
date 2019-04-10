@@ -141,7 +141,26 @@ export class BasicInfoConfigService {
                 },
                 style: {
                   height:700,
-                  width: 400,
+                  width: 300,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                }
+            },
+            list: {
+                compIndex: 3,
+                name:'列表',
+                type:'list',
+                data: {
+                    api_val:'http://10.169.43.4:8100/api/dutys'
+                },
+                style: {
+                  height:700,
+                  width: 500,
                   position: 'absolute',
                   top:10,
                   left:400,

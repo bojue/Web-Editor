@@ -1,3 +1,4 @@
+import { ListComponent } from './../../component/custom/list/list.component';
 import { Injectable } from '@angular/core';
 import { AuxiliaryComponent } from 'src/app/component/tool/auxiliary/auxiliary.component';
 import { ButtonComponent } from 'src/app/component/basic/button/button.component';
@@ -61,6 +62,11 @@ export class DynamicComponentServiceService {
       case 'tree':
         tempInfo = {
           comp : TreeComponent
+        }  
+        break;
+      case 'list': 
+        tempInfo = {
+          comp : ListComponent
         }  
         break;
       default:

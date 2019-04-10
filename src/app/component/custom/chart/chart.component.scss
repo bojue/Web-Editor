@@ -1,3 +1,5 @@
-.demo-chart {
+:host /deep/ {
+    .demo-chart {
     height: 200px;
+    }
 }

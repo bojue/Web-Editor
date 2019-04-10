@@ -56,9 +56,9 @@ export class AppServiceService{
         type: 'tree',
         iconUrl: './../assets/icons/tree.svg'
       },{
-        name:'列表(TODO)',
-        type: 'tree',
-        iconUrl: './../assets/icons/tree.svg'
+        name:'列表',
+        type: 'list',
+        iconUrl: './../assets/icons/list.svg'
       }]
   },
   {
@@ -75,28 +75,6 @@ export class AppServiceService{
 
   //后台测试数据
   testCreateComp = [{
-    name:'文本',
-    type:'text',
-    compIndex: 1,
-    data: {
-      text_val: "文本",
-    },
-    style: {
-      width:100,
-      position: 'absolute',
-      top:10,
-      left:10,
-      height:40,
-      border: '',
-      borderColor: '',
-      borderWidth: 0,
-      borderStyle: ''
-    }, 
-    statue: {
-      inputBool: false,
-      cativeBool: false
-    }
-  },{
     compIndex: 3,
     name:'图表',
     type:'chart',

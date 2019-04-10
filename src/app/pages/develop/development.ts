@@ -92,10 +92,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //增加组件
   addComponent(compType, event ?:any) {
-    let compDefinInfo = this.dynamicService.createComponent(compType, this.getCompDefaultConfig(compType));
-
-    console.log(compType, compDefinInfo)
-
+    let compDefinInfo = this.dynamicService.createComponent(compType, this.infoService.getCompDefaultConfig(compType));
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.getAuxiliaryComponent(null , 'addComponent');
     this.testCreateComp.push(addCompJson);
@@ -164,31 +161,33 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
-      e.stopPropagation();
-      let eventType = e && e.type;
-      let style = currentComponent.settingObj && currentComponent.settingObj['style'];
-      let changeX = e.clientX - this.dragCompStartX;
-      let changeY = e.clientY - this.dragCompStartY;
-      if(eventType === 'dragstart') {
-        this.dragCompStartX = e.clientX;
-        this.dragCompStartY = e.clientY;
-      }else if(eventType === 'dragend'){
-        if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
-          style['left'] = style['left'] + changeX;
-        }else{
-          style['left'] = 0;
-        } 
-        
-        if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
-          style['top'] = style['top'] + style['height'] + changeY < 800 ?  style['top'] + changeY : 800 -  style['height'];
-        }else {
-          style['top'] = 0;
-        }
-      }
-      this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
-      this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e)
-    })
 
+    if(e && e.stopPropagation){
+        e.stopPropagation();
+        let eventType = e && e.type;
+        let style = currentComponent.settingObj && currentComponent.settingObj['style'];
+        let changeX = e.clientX - this.dragCompStartX;
+        let changeY = e.clientY - this.dragCompStartY;
+        if(eventType === 'dragstart') {
+          this.dragCompStartX = e.clientX;
+          this.dragCompStartY = e.clientY;
+        }else if(eventType === 'dragend'){
+          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
+            style['left'] = style['left'] + changeX;
+          }else{
+            style['left'] = 0;
+          } 
+          
+          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
+            style['top'] = style['top'] + style['height'] + changeY < 800 ?  style['top'] + changeY : 800 -  style['height'];
+          }else {
+            style['top'] = 0;
+          }
+        }
+        this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
+        this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e)
+      }
+    })
   }
 
   //选择组件
@@ -200,19 +199,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     this.testCreateComp[this.currentIndex] = settingObj;
     if(eventType === 'click') {
       this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent');
-      console.log(this.activeCompSettingObject)
     }else {
       return (<SettingObjComponent> compInstance).settingObj = settingObj;
     }
 
-  }
-
-
-  //获取组件默认配置
-  getCompDefaultConfig(type) {
-    let compType = type;
-    console.log(type+ "name")
-    return this.infoService.getCompDefaultConfig(compType);
   }
 
   //辅助组件处理 
@@ -244,4 +234,5 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       this.currentViewContRef.remove(auxiIndex);
     }
   }
+
 }

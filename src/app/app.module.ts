@@ -1,3 +1,4 @@
+import { CompEmitService } from './providers/comp-emit.service';
 import { PositionComponent } from './component/settings/position/position.component';
 import { SizeComponent } from './component/settings/size/size.component';
 import { BasicInfoConfigService } from './providers/basic-info-config.service';
@@ -43,6 +44,7 @@ import { PreviewComponent } from './pages/preview/preview.component';
 import { TreeComponent } from './component/custom/tree/tree.component';
 import { CustomBasicComponent } from './component/custom/custom-basic/custom-basic.component';
 import { TreeModule } from 'angular-tree-component';
+import { ListComponent } from './component/custom/list/list.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -56,7 +58,8 @@ const ENTRY_COMPONENT = [
   AuxiliaryComponent,
   SelectComponent,
   LineComponent,
-  TreeComponent
+  TreeComponent,
+  ListComponent
 ]
 
 const SETTING_COMPONENT = [
@@ -77,8 +80,8 @@ const TOOL_COMPONENT = [
 ]
 
 const DATA_COMPONENT = [
-  ButtonValComponent,
   DataBasicComponent,
+  ButtonValComponent,
   TextValComponent,
   TextareaValComponent,
   InputValComponent,
@@ -104,7 +107,7 @@ const DATA_COMPONENT = [
     DetailComponent,
     SettingBasicComponent,
     PreviewComponent,
-    CustomBasicComponent,
+    CustomBasicComponent
   ],
   imports: [
     FormsModule,
@@ -115,7 +118,8 @@ const DATA_COMPONENT = [
   ],
   providers: [
     AppServiceService,
-    BasicInfoConfigService
+    BasicInfoConfigService,
+    CompEmitService
   ],
   bootstrap: [AppComponent],
   entryComponents:[

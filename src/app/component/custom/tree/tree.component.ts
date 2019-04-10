@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output , EventEmitter} from '@angular/core';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { CustomBasicComponent } from '../custom-basic/custom-basic.component';
-
+import { CompEmitService } from './../../../providers/comp-emit.service';
 
 @Component({
   selector: 'app-tree',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss',]
 })
-export class TreeComponent extends CustomBasicComponent  implements SettingObjComponent  {
+export class TreeComponent extends CustomBasicComponent implements OnInit, SettingObjComponent  {
+
   nodes = [
     {
       id: 1,
@@ -34,8 +35,11 @@ export class TreeComponent extends CustomBasicComponent  implements SettingObjCo
     }
   ];
   options:any;
-  constructor() {
-    super()
+  eventEmitter:any;
+  constructor(
+    private emitService: CompEmitService,
+  ) {
+    super(emitService)
   }
 
   ngOnInit() {
@@ -44,14 +48,21 @@ export class TreeComponent extends CustomBasicComponent  implements SettingObjCo
   }
 
   initData() {
-    this.options = {};
+    this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
+      console.log("tree - event -->",event)
+    })
   }
 
+  ngOnDestroy() {
+    this.eventEmitter.unsubscribe();
+  }
 
   onEvent(event) {
     let data = event && event['node'] && event['node']['data'];
     if(data) {
-      console.log(data)
+       console.log("tree --> ", data)
+       event['data'] = data;
+       this.emitService.emitEvent(event)
     }
   }
 
