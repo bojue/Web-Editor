@@ -17,6 +17,11 @@ $border-color4: $color-grey-1;
         position: relative;
         display: grid;
         grid-template-columns: auto 210px;
+        ul,li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
         &.whole-view {
             grid-template-columns: auto;
         }

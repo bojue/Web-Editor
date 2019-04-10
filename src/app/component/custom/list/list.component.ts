@@ -27,8 +27,8 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, Sett
   }
 
   initData() {
+    this.lists = [];
     this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
-      console.log(this.data)
       this.getData(event)
     })
   }
@@ -38,17 +38,17 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, Sett
   }
 
   getData(event) {
+    //mork数据
     this.lists = [
       { name:'张三', age: 23 },
       { name:'李四', age: 23 },
       { name:'网易', age: 23 },
       { name:'哈哈', age: 23 }
     ];
-    let data = event && event['data']
-    let val = "当前 id" + data['id']
-
+    let data = event && event['data'];
     _.map(this.lists, item => {
-      item['name'] = item['name'] + val;
+      item['id'] = data['id'];
+      item['name'] = item['name'] + data['name'];
     })
   }
 }

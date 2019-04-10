@@ -18,10 +18,12 @@
     'border-color':style['borderColor']
   }" >
   <div class="list-cont">
-    <div class="tit">列表</div>
-    <div class="body">
+    <div class="tit"> 列表 </div>
+    <div class="list-body">
       <ul>
-        <li *ngFor="let item of lists;">
+        <li class="item" *ngIf="lists.length === 0">没有数据</li>
+        <li class="item" *ngFor="let item of lists;">
+          <span class="id">{{item['id']}}</span>
           <span class="name">{{item['name']}}</span>
         </li>
       </ul>
