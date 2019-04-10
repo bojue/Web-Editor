@@ -8,6 +8,7 @@ import { ImgComponent } from 'src/app/component/basic/img/img.component';
 import { TextComponent } from 'src/app/component/basic/text/text.component';
 import { ComponentItem } from 'src/app/module/component-item';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
+import { TreeComponent } from 'src/app/component/custom/tree/tree.component';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,11 @@ export class DynamicComponentServiceService {
           comp : AuxiliaryComponent
         }
         break;
+      case 'tree':
+        tempInfo = {
+          comp : TreeComponent
+        }  
+        break;
       default:
         return;    
     }
@@ -72,7 +78,6 @@ export class DynamicComponentServiceService {
     objList.forEach(settingItem =>{
       let _type = settingItem && settingItem['type'];
       let compInfo = this.createComponent(_type)
-      console.log(settingItem, compInfo)
       let settingData = settingItem || compInfo['data']
       let createComp = new ComponentItem(compInfo['comp'], settingData);
       compList.push(createComp)
@@ -91,7 +96,6 @@ export class DynamicComponentServiceService {
         bool = changeY + style['top'] < 0
         break;
     }
-    
     return bool;
   }
 

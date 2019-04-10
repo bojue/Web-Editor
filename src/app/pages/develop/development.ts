@@ -93,6 +93,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   //增加组件
   addComponent(compType, event ?:any) {
     let compDefinInfo = this.dynamicService.createComponent(compType, this.getCompDefaultConfig(compType));
+
+    console.log(compType, compDefinInfo)
+
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.getAuxiliaryComponent(null , 'addComponent');
     this.testCreateComp.push(addCompJson);
@@ -207,7 +210,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //获取组件默认配置
   getCompDefaultConfig(type) {
-    return this.infoService.getCompDefaultConfig(type);
+    let compType = type;
+    console.log(type+ "name")
+    return this.infoService.getCompDefaultConfig(compType);
   }
 
   //辅助组件处理 

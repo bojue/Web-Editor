@@ -2,29 +2,20 @@ import { Component, EventEmitter, Input,Output } from '@angular/core';
 import { EChartOption } from 'echarts';
 import { SettingObject } from 'src/app/module/setting-object.module';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
+import { CustomBasicComponent } from '../custom-basic/custom-basic.component';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent  implements SettingObjComponent  {
-  @Input() settingObj: SettingObject;
-  @Output() onChildComponentChange = new EventEmitter<any>();
-  style: any;
-  data: any;
-  chartOption: EChartOption;
-
-  constructor() { }
-
-  expandUnit(param) {
-    let paramVal = this.style[param] || 1;
-    return paramVal + 'px'; ;
+export class ChartComponent extends CustomBasicComponent  implements SettingObjComponent  {
+  constructor() {
+    super()
   }
 
   ngOnInit() {
-    this.style = this.settingObj && this.settingObj['style'] || {};
-    this.data = this.settingObj && this.settingObj['data'] || {};
+    this.initBasicData();
     this.initData();
   }
 
@@ -44,7 +35,5 @@ export class ChartComponent  implements SettingObjComponent  {
     }
   }
 
-  compEvent(event) {
-    this.onChildComponentChange.emit(event);
-  }
+
 }

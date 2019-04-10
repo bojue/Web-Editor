@@ -12,7 +12,7 @@ export class BasicInfoConfigService {
 
         // TODO:获取接口写在后端,前端增加视图组件配置页面
         let data = {
-           text: {
+            text: {
                 compIndex: 2,
                 name:'文本',
                 type:'text',
@@ -89,7 +89,26 @@ export class BasicInfoConfigService {
                     borderWidth: 0,
                     borderStyle: ''
                 }
-            } ,               
+            } ,    
+            button:{
+                compIndex: 3,
+                name:'按钮',
+                type:'button',
+                data: {
+                    button_val:'确认'
+                },
+                style: {
+                  height:28,
+                  width: 40,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                }
+            },
             chart:{
                 compIndex: 3,
                 name:'图表',
@@ -109,19 +128,20 @@ export class BasicInfoConfigService {
                   borderStyle: ''
                 },
                 event: {
-                    
+
                 }
             },
-            button:{
+          
+            tree:{
                 compIndex: 3,
-                name:'按钮',
-                type:'button',
+                name:'结构树',
+                type:'tree',
                 data: {
-                    button_val:'确认'
+                    api_val:'http://10.169.43.4:8100/api/dutys'
                 },
                 style: {
-                  height:28,
-                  width: 40,
+                  height:700,
+                  width: 400,
                   position: 'absolute',
                   top:10,
                   left:400,

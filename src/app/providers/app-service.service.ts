@@ -51,6 +51,14 @@ export class AppServiceService{
         name:'饼图',
         type: 'chart',
         iconUrl: './../assets/icons/chart.svg'
+      },{
+        name:'结构树',
+        type: 'tree',
+        iconUrl: './../assets/icons/tree.svg'
+      },{
+        name:'列表(TODO)',
+        type: 'tree',
+        iconUrl: './../assets/icons/tree.svg'
       }]
   },
   {
@@ -58,7 +66,7 @@ export class AppServiceService{
     state: 'template',
     compList: [
       {
-        name:'默认模板',
+        name:'默认模板(TODO)',
         type: 'template',
         iconUrl: './../assets/icons/template.svg'
       }]
@@ -84,28 +92,6 @@ export class AppServiceService{
       borderWidth: 0,
       borderStyle: ''
     }, 
-    statue: {
-      inputBool: false,
-      cativeBool: false
-    }
-  },{
-    compIndex: 2,
-    name:'图片',
-    type:'img',
-    data: {
-      img_url:'./../assets/imgs/es.jpeg',
-    },
-    style: {
-      height:200,
-      width: 300,
-      position: 'absolute',
-      top:10,
-      left:10,
-      border: '',
-      borderColor: '',
-      borderWidth: 0,
-      borderStyle: ''
-    },
     statue: {
       inputBool: false,
       cativeBool: false

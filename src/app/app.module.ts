@@ -40,6 +40,9 @@ import { SettingBasicComponent } from './component/settings/setting-basic/settin
 import { TextsComponent } from './component/settings/texts/texts.component';
 import { ImgValComponent } from './component/data/img-val/img-val.component';
 import { PreviewComponent } from './pages/preview/preview.component';
+import { TreeComponent } from './component/custom/tree/tree.component';
+import { CustomBasicComponent } from './component/custom/custom-basic/custom-basic.component';
+import { TreeModule } from 'angular-tree-component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -53,6 +56,7 @@ const ENTRY_COMPONENT = [
   AuxiliaryComponent,
   SelectComponent,
   LineComponent,
+  TreeComponent
 ]
 
 const SETTING_COMPONENT = [
@@ -100,12 +104,14 @@ const DATA_COMPONENT = [
     DetailComponent,
     SettingBasicComponent,
     PreviewComponent,
+    CustomBasicComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    TreeModule.forRoot()
   ],
   providers: [
     AppServiceService,
