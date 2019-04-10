@@ -1,3 +1,4 @@
+import { SettingBasicComponent } from './../setting-basic/setting-basic.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './background.component.html',
   styleUrls: ['./background.component.scss']
 })
-export class BackgroundComponent implements OnInit {
+export class BackgroundComponent extends SettingBasicComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    super();
+   }
 
   ngOnInit() {
   }

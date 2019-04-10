@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { SettingBasicComponent } from '../setting-basic/setting-basic.component';
 
 @Component({
-  selector: 'app-opeacity',
-  templateUrl: './opeacity.component.html',
-  styleUrls: ['./opeacity.component.scss']
+  selector: 'app-texts',
+  templateUrl: './texts.component.html',
+  styleUrls: ['./texts.component.scss']
 })
-export class OpeacityComponent extends SettingBasicComponent implements OnInit {
+export class TextsComponent extends SettingBasicComponent implements OnInit {
 
   constructor() { 
     super()

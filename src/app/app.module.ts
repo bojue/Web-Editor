@@ -36,6 +36,10 @@ import { DataBasicComponent } from './component/data/data-basic/data-basic.compo
 import { TextValComponent } from './component/data/text-val/text-val.component';
 import { TextareaValComponent } from './component/data/textarea-val/textarea-val.component';
 import { InputValComponent } from './component/data/input-val/input-val.component';
+import { SettingBasicComponent } from './component/settings/setting-basic/setting-basic.component';
+import { TextsComponent } from './component/settings/texts/texts.component';
+import { ImgValComponent } from './component/data/img-val/img-val.component';
+import { PreviewComponent } from './pages/preview/preview.component';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
@@ -57,6 +61,7 @@ const SETTING_COMPONENT = [
   BackgroundComponent,
   RoundComponent,
   PositionComponent,
+  TextsComponent,
 ]
 
 const EVENT_COMPONENT = [
@@ -73,6 +78,7 @@ const DATA_COMPONENT = [
   TextValComponent,
   TextareaValComponent,
   InputValComponent,
+  ImgValComponent,
 ]
 
 @NgModule({
@@ -92,6 +98,8 @@ const DATA_COMPONENT = [
     ViewContainRefHostDirective,
     HomeComponent,
     DetailComponent,
+    SettingBasicComponent,
+    PreviewComponent,
   ],
   imports: [
     FormsModule,
