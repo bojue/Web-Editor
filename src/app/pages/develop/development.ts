@@ -233,8 +233,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
 
   //运行
   preView() {
-    let compList = JSON.stringify(this.testCreateComp);
-    this.router.navigate(['/preview', { queryParams: compList}]);
+    let auxiIndex =  _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'auxi'; });
+    let compList = auxiIndex > -1 ?  this.testCreateComp.slice(0, auxiIndex) : this.testCreateComp;
+    this.router.navigate(['/preview', { queryParams: JSON.stringify(compList)}]);
   }
 
 }
