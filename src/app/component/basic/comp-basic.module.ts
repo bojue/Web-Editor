@@ -8,6 +8,7 @@ import { ImgComponent } from './img/img.component';
 import { InputComponent } from './input/input.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { LineComponent } from './line/line.component';
+import { BasicComponent } from './../basic/basic/basic.component';
 
 const basicComp = [
     ButtonComponent,
@@ -17,6 +18,7 @@ const basicComp = [
     InputComponent,
     TextareaComponent,
     LineComponent,
+    BasicComponent
 ]
 
 @NgModule({

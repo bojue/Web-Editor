@@ -1,3 +1,4 @@
+import { SettingBasicComponent } from './setting-basic/setting-basic.component';
 import { PositionComponent } from './position/position.component';
 import { BorderComponent } from './border/border.component';
 import { TextsComponent } from './texts/texts.component';
@@ -10,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ColorComponent } from './color/color.component';
 
 const settingComp = [
+    SettingBasicComponent,
     ColorComponent,
     SizeComponent,
     BackgroundComponent,
@@ -35,7 +37,7 @@ const settingComp = [
   ],
   bootstrap: [],
   entryComponents:[
-
+    [...settingComp]
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
