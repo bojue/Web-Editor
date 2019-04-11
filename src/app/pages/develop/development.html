@@ -6,8 +6,11 @@
     <ng-template view-contain-ref #contentComp ></ng-template>
   </section>
 
-  <!-- 设置组件开关 -->
+  <!-- 设置组件-->
   <section class="setting-but">
+    <div class="run-but" (click)="preView()">
+      <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
+    </div>    
     <div class="set-but" (click)="settingHidle()">
       <img src="./../../../assets/icons/settings.svg" title="组件设置" alt="组件设置">
     </div>

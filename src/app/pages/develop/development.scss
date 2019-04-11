@@ -11,6 +11,27 @@
             background: url("../../../assets/icons/up.svg");
         }
     }
+    .run-but {
+        cursor: pointer;
+        right: 60px;
+        position: absolute;
+        top: -35px;
+        border-radius: 50%;
+        img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            &:hover {
+                background:rgba(255,0,0,0.1);
+            }
+        }
+    }
+
+    .set-but {
+        img {
+            width: 24px;
+        }
+    }
 
     .disabled-opeaticy {
         opacity: 0.7;

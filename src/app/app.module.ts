@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { AppServiceService} from './providers/app-service.service';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { AuxiliaryComponent } from './component/tool/auxiliary/auxiliary.component';
-import { TreeModule } from 'angular-tree-component';
 import { FormsModule } from '@angular/forms';
 import { CodeModule } from './code/code.module';
 import { CommonModule } from '@angular/common';
@@ -32,8 +31,7 @@ import { CompCustomModule } from './component/custom/comp-custom.module';
     CommonModule,
     CodeModule,
     PagesModule,
-    CompBasicModule,
-    TreeModule.forRoot()
+    CompBasicModule
   ],
   providers: [
     AppServiceService,

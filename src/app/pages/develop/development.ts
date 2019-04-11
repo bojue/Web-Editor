@@ -1,16 +1,11 @@
-import { TextareaComponent } from '../../component/basic/textarea/textarea.component';
-import { InputComponent } from '../../component/basic/input/input.component';
-import { ChartComponent } from '../../component/custom/chart/chart.component';
 import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild, Renderer, EventEmitter, OnChanges } from '@angular/core';
 import { ComponentItem } from '../../module/component-item';
 import { SettingObject } from '../../module/setting-object.module';
 import { BasicInfoConfigService } from '../../providers/basic-info-config.service';
-import { ImgComponent } from '../../component/basic/img/img.component';
-import { TextComponent } from '../../component/basic/text/text.component';
 import { AppServiceService} from '../../providers/app-service.service';
-import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
+import { ViewContainRefHostDirective } from './../../directive/view-contain-ref-host.directive';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
-import { ButtonComponent } from 'src/app/component/basic/button/button.component';
+import { Router, Routes } from '@angular/router';
 import { AuxiliaryComponent } from  'src/app/component/tool/auxiliary/auxiliary.component'
 import * as _ from 'lodash';    
 import { DynamicComponentServiceService } from 'src/app/code/provider/dynamic-component-service.service';
@@ -48,6 +43,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     private service: AppServiceService,
     private infoService: BasicInfoConfigService,
     private dynamicService: DynamicComponentServiceService,
+    private router: Router  
   ) {
       this.activeSettingState('default');
   }
@@ -233,6 +229,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
       this.testCreateComp.splice(auxiIndex, 1);
       this.currentViewContRef.remove(auxiIndex);
     }
+  }
+
+  //运行
+  preView() {
+    let compList = JSON.stringify(this.testCreateComp);
+    this.router.navigate(['/preview', { queryParams: compList}]);
   }
 
 }

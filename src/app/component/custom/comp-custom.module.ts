@@ -6,6 +6,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { TreeModule } from 'angular-tree-component';
 
 const customComp = [
     CustomBasicComponent,
@@ -21,7 +22,8 @@ const customComp = [
   imports: [
     FormsModule,
     BrowserModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    TreeModule.forRoot()
   ],
   exports: [
     [...customComp]
