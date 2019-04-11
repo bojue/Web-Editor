@@ -2,5 +2,16 @@
     .preview {
         position: relative;
         display: block;
+        .preview-icon {
+            position: absolute;
+            right: 30px;
+            top:-40px;
+            img.preview {
+                border:2px solid red;
+                padding: 5px;
+                border-radius: 50%;
+                width: 30px;
+            }
+        }
     }
 }
