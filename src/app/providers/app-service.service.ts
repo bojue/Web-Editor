@@ -76,43 +76,33 @@ export class AppServiceService{
   //后台测试数据
   testCreateComp = [{
     compIndex: 3,
-    name:'图表',
-    type:'chart',
+    name:'列表',
+    type:'list',
     data: {
-
+        api_val:'http://10.169.43.4:8100/api/dutys',
+        list_val:{
+            list_tit_val:'列表',
+            list_cols_number_val:1,
+            list_cols_width:[],
+            list_style_grid_bool:true,
+            list_cols:[{
+                tit:"标题",
+                width:10,
+                prefix:"",
+                suffix:""
+            }]
+        }
     },
     style: {
-      height:220,
-      width: 300,
-      position: 'absolute',
-      top:120,
-      left:600,
-      border: '',
-      borderColor: '',
-      borderWidth: 0,
-      borderStyle: ''
-    }
-  },{
-    compIndex: 2,
-    name:'图片',
-    type:'img',
-    data: {
-      img_url:'./../assets/imgs/es.jpeg',
-    },
-    style: {
-      height:200,
-      width: 300,
+      height:700,
+      width: 500,
       position: 'absolute',
       top:10,
-      left:10,
+      left:400,
       border: '',
       borderColor: '',
       borderWidth: 0,
       borderStyle: ''
-    },
-    statue: {
-      inputBool: false,
-      cativeBool: false
     }
   }];
 

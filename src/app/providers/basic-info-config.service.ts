@@ -156,7 +156,19 @@ export class BasicInfoConfigService {
                 name:'列表',
                 type:'list',
                 data: {
-                    api_val:'http://10.169.43.4:8100/api/dutys'
+                    api_val:'http://10.169.43.4:8100/api/dutys',
+                    list_val:{
+                        list_tit_val:'列表',
+                        list_cols_number_val:4,
+                        list_cols_width:[],
+                        list_style_grid_bool:true,
+                        list_cols:[{
+                            tit:"标题",
+                            width:10,
+                            prefix:"",
+                            suffix:""
+                        }]
+                    }
                 },
                 style: {
                   height:700,

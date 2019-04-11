@@ -18,13 +18,19 @@
     'border-color':style['borderColor']
   }" >
   <div class="list-cont">
-    <div class="tit"> 列表 </div>
+    <div class="tit"> {{data['list_val']['list_tit_val'] ||"设置列表标题"}} </div>
     <div class="list-body">
       <ul>
+        <li class="item" [ngStyle]="{
+          'grid-template-columns': getGrid()
+        }">
+          <span class="" *ngFor="let item of data['list_val']['list_cols'];">
+            {{item['tit']}}
+          </span>
+        </li>
         <li class="item" *ngIf="lists.length === 0">没有数据</li>
         <li class="item" *ngFor="let item of lists;">
-          <span class="id">{{item['id']}}</span>
-          <span class="name">{{item['name']}}</span>
+          {{item['name']}}
         </li>
       </ul>
     </div>
