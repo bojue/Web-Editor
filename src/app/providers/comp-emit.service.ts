@@ -9,7 +9,6 @@ export class CompEmitService {
   constructor() {}
 
   emitEvent(event) {
-    console.log("service", event)
     this.eventEmitter.emit(event)
   }
   

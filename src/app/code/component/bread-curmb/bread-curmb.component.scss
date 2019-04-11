@@ -1,0 +1,23 @@
+
+:host /deep/ { 
+    ul, li  {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    .bc-ul {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #cccccc;
+        .bc-item {
+            display: inline-block;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+}

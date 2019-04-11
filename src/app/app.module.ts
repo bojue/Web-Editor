@@ -4,8 +4,7 @@ import { SizeComponent } from './component/settings/size/size.component';
 import { BasicInfoConfigService } from './providers/basic-info-config.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { DevelopmentPageComponent } from './pages/develop/development';
 import { OpeacityComponent } from './component/settings/opeacity/opeacity.component';
@@ -14,7 +13,6 @@ import { ImgComponent } from './component/basic/img/img.component';
 import { TextComponent } from './component/basic/text/text.component';
 import { BackgroundComponent } from './component/settings/background/background.component';
 import { AppServiceService} from './providers/app-service.service';
-import { ComponentWrapperRefComponent } from './code/component/component-wrapper-ref/component-wrapper-ref.component';
 import { ChartComponent } from './component/custom/chart/chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { BasicComponent } from './component/basic/basic/basic.component';
@@ -27,8 +25,6 @@ import { RoundComponent } from './component/basic/round/round.component';
 import { CompListComponent } from './pages/develop/comp-list/comp-list.component';
 import { CompViewComponent } from './pages/develop/comp-view/comp-view.component';
 import { ViewContainRefHostDirective } from './directive/view-contain-ref-host.directive';
-import { HomeComponent } from './pages/home/home.component';
-import { DetailComponent } from './pages/detail/detail.component';
 import { CompSettingComponent } from './pages/develop/comp-setting/comp-setting.component';
 import { AuxiliaryComponent } from './component/tool/auxiliary/auxiliary.component';
 import { UploaderComponent } from './component/data/uploader/uploader.component';
@@ -46,31 +42,24 @@ import { CustomBasicComponent } from './component/custom/custom-basic/custom-bas
 import { TreeModule } from 'angular-tree-component';
 import { ListComponent } from './component/custom/list/list.component';
 import { BorderComponent } from './component/settings/border/border.component';
+import { FormsModule } from '@angular/forms';
+import { CodeModule } from './code/code.module';
+import { CommonModule } from '@angular/common';
+import { PagesModule } from './pages/pages.module';
+import { CompBasicModule } from './component/basic/comp-basic.module';
+import { CompSettingModule } from './component/settings/comp-setting.module';
 
 const ENTRY_COMPONENT = [
   ChartComponent,
-  TextComponent,
-  ImgComponent,
-  InputComponent,
-  TextareaComponent,
   CompSettingComponent,
   CompListComponent,
-  ButtonComponent,
   AuxiliaryComponent,
-  SelectComponent,
-  LineComponent,
   TreeComponent,
   ListComponent
 ]
 
 const SETTING_COMPONENT = [
-  ColorComponent,
-  SizeComponent,
-  BackgroundComponent,
-  RoundComponent,
-  PositionComponent,
-  TextsComponent,
-  BorderComponent
+
 ]
 
 const EVENT_COMPONENT = [
@@ -101,15 +90,11 @@ const DATA_COMPONENT = [
 
     DevelopmentPageComponent,
     OpeacityComponent,
-    BasicComponent,
-    ComponentWrapperRefComponent,  
+    BasicComponent, 
     CompListComponent,
     CompViewComponent,
     ViewContainRefHostDirective,
-    HomeComponent,
-    DetailComponent,
     SettingBasicComponent,
-    PreviewComponent,
     CustomBasicComponent
   ],
   imports: [
@@ -117,6 +102,11 @@ const DATA_COMPONENT = [
     BrowserModule,
     AppRoutingModule,
     NgxEchartsModule,
+    CommonModule,
+    CodeModule,
+    PagesModule,
+    CompBasicModule,
+    CompSettingModule,
     TreeModule.forRoot()
   ],
   providers: [
