@@ -1,0 +1,20 @@
+
+:host /deep/ {
+    .route-event {
+        display: block;
+        position: relative;
+        margin: 10px;
+        .value-set {
+            display: grid;
+            margin-left: 15px;
+            margin-top: 10px;
+            grid-template-columns: 40px 110px;
+            .lab {
+                
+            }
+            .val{
+                padding: 4px 6px;
+            }
+        }
+    }
+}

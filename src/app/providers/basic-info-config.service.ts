@@ -107,6 +107,17 @@ export class BasicInfoConfigService {
                   borderColor: '',
                   borderWidth: 0,
                   borderStyle: ''
+                },
+                event:{
+                    clickBool: false,
+                    click: {
+                        data: null
+                    },
+                    routeBool: true,
+                    route:{
+                        route_link: 'home',
+                        data: null,
+                    }
                 }
             },
             chart:{

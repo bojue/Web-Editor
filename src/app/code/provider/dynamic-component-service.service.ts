@@ -78,8 +78,6 @@ export class DynamicComponentServiceService {
 
   //组件映射列表
   getCompList(objList:any[]){
-    console.log(objList)
-
     let compList = [];
     objList.forEach(settingItem =>{
       let _type = settingItem && settingItem['type'];

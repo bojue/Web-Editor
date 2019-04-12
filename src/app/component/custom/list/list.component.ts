@@ -54,7 +54,6 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, Sett
 
   getGrid() {
     let number = this.data['list_val']['list_cols_number_val'];
-    console.log(number);
     return '105px 10px'
   }
 }
