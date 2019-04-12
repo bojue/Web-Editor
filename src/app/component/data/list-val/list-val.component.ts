@@ -14,9 +14,13 @@ export class ListValComponent extends DataBasicComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initDate();
+  }
+
+  initDate() {
     this.list_grid_list = [
       {name: 'grid', value: true},
-      {name: 'æ— ', value: false}
+      {name: '? ', value: false}
     ]
   }
 

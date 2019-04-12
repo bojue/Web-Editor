@@ -4,11 +4,11 @@
         width: 30px;
         height: 30px;
         margin-top: 5px;
-
-        background: url("../../../assets/icons/down.svg");
-
+        background-image: url("../../../assets/icons/right.svg");
+        background-position: 100%;
+        background-repeat: no-repeat;
         &.acitve {
-            background: url("../../../assets/icons/up.svg");
+            background-image: url("../../../assets/icons/down.svg");
         }
     }
     .run-but {

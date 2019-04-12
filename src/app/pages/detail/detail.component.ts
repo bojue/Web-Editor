@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
+  info:any;
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    let queryParam = this.activatedRoute.snapshot.paramMap.get('queryParams')
+    let params = JSON.parse(queryParam);
+    this.info = params && params['param'];
   }
 
 }

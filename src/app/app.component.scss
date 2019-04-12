@@ -144,7 +144,7 @@ $border-color4: $color-grey-1;
                 //1.设置组件-组件
                 .lists {
                     display: grid;
-                    grid-template-columns: auto auto auto;
+                    grid-template-columns: 33.3% 33.3% 33.3% ;
                     padding: 8px;
                     border-bottom: 1px solid $border-color4;
                     .item {

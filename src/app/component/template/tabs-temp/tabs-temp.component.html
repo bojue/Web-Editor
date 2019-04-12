@@ -1,5 +1,4 @@
-<div>
-  <tree-root 
+<div
     class=" comp-item custom-comp-item tree-comp"
     [ngClass]="{'comp-active': settingObj['active'] }"  
     draggable="true" 
@@ -17,9 +16,6 @@
       'border-width':expandUnit('borderWidth'),
       'border-style':style['borderStyle'],
       'border-color':style['borderColor']
-    }" 
-    [nodes]="nodes" 
-    [options]="options"
-    (activate)=" onEvent($event) && $event.stopPropagation"
-  ></tree-root>
+    }" >
+    tabs
 </div>

@@ -192,6 +192,25 @@ export class BasicInfoConfigService {
                   borderWidth: 0,
                   borderStyle: ''
                 }
+            },
+            tabs: {
+                compIndex: 3,
+                name:'Tabs',
+                type:'tabs',
+                data: {
+                   'name':'tabs'
+                },
+                style: {
+                  height:700,
+                  width: 500,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                }
             }
         }
         return data[style]  ? data[style] : {} 

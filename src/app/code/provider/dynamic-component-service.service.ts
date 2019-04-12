@@ -1,3 +1,4 @@
+import { TabsTempComponent } from './../../component/template/tabs-temp/tabs-temp.component';
 import { ListComponent } from './../../component/custom/list/list.component';
 import { Injectable } from '@angular/core';
 import { AuxiliaryComponent } from 'src/app/component/tool/auxiliary/auxiliary.component';
@@ -67,6 +68,11 @@ export class DynamicComponentServiceService {
       case 'list': 
         tempInfo = {
           comp : ListComponent
+        }  
+        break;
+      case 'tabs':
+        tempInfo = {
+          comp: TabsTempComponent
         }  
         break;
       default:

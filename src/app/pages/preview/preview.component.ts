@@ -30,9 +30,7 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
 
   ngOnDestroy() {
      if( this.currentViewContRef) {
-       console.log( this.currentViewContRef)
        this.currentViewContRef.clear();
-       console.log( this.currentViewContRef)
      }
   }
 
@@ -82,7 +80,7 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
 
   routerLink(url?:string, params?:any) {
     if(url !== undefined && url !== null)  {
-      this.route.navigate([url], { queryParams: params});
+      this.route.navigate([url, { queryParams: JSON.stringify(params)}]);
     }
 
   }

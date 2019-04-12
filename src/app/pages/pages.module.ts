@@ -1,3 +1,4 @@
+import { CompTemplateModule } from './../component/template/comp-template.module';
 import { CompEventModule } from './../component/event/comp-event.module';
 import { CompStyleModule } from './../component/style/comp-style.module';
 import { CompCustomModule } from './../component/custom/comp-custom.module';
@@ -31,7 +32,8 @@ import { ConfigsComponent } from './configs/configs.component';
     CompStyleModule,
     CompDataModule,
     CompCustomModule,
-    CompEventModule
+    CompEventModule,
+    CompTemplateModule
   ],
   providers: [
 

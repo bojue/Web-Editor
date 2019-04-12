@@ -1,3 +1,4 @@
+import { EventBasicComponent } from './../event-basic/event-basic.component';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -5,14 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './route-event.component.html',
   styleUrls: ['./route-event.component.scss']
 })
-export class RouteEventComponent implements OnInit {
-  @Input() event:any;
-  event_type: string = 'route_event';
-  constructor() { }
-
-  ngOnInit() {
-
+export class RouteEventComponent extends EventBasicComponent implements OnInit {
+  constructor() { 
+    super();
   }
 
+  ngOnInit() {
+    this.initData();
+  }
 
+  initData() {
+    this.event_type = 'route';
+  }
 }

@@ -66,9 +66,9 @@ export class AppServiceService{
     state: 'template',
     compList: [
       {
-        name:'默认模板(TODO)',
-        type: 'template',
-        iconUrl: './../assets/icons/template.svg'
+        name:'Tabs',
+        type: 'tabs',
+        iconUrl: './../assets/icons/tabs.svg'
       }]
   }]
 

@@ -1,3 +1,4 @@
+import { CompTemplateModule } from './component/template/comp-template.module';
 import { CompEventModule } from './component/event/comp-event.module';
 import { CompStyleModule } from './component/style/comp-style.module';
 import { CompDataModule } from './component/data/comp-data.module';
@@ -32,7 +33,8 @@ import { CompCustomModule } from './component/custom/comp-custom.module';
     PagesModule,
     CompBasicModule,
     CompStyleModule,
-    CompEventModule
+    CompEventModule,
+    CompTemplateModule
   ],
   providers: [
     AppServiceService,
