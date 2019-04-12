@@ -12,7 +12,7 @@
       </div>
     <div class="set-grid">
         <span class="lab">Grid</span>
-        <select class="val" [(ngModel)]="data['list_val']['list_style_grid_bool']">
+        <select class="val disabled-status" disabled [(ngModel)]="data['list_val']['list_style_grid_bool']">
             <option [value]="item.value" *ngFor="let item of list_grid_list;">{{item.name}}</option>
         </select>
       </div>
