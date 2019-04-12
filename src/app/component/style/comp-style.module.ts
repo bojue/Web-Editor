@@ -41,4 +41,4 @@ const settingComp = [
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class CompSettingModule { }
+export class CompStyleModule { }

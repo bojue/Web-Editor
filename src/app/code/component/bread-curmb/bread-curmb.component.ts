@@ -23,7 +23,6 @@ export class BreadCurmbComponent implements OnInit {
 
   initData() {
     this.breadcurms = this.menuBreadCurmsService.getMenuBreadCrumbs();
-    console.log(this.breadcurms)
   }
 
  

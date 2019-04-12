@@ -1,6 +1,6 @@
+import { CompStyleModule } from './../component/style/comp-style.module';
 import { CompCustomModule } from './../component/custom/comp-custom.module';
 import { CompDataModule } from './../component/data/comp-data.module';
-import { CompSettingModule } from './../component/settings/comp-setting.module';
 import { ViewContainRefHostDirective } from './../directive/view-contain-ref-host.directive';
 import { CompSettingComponent } from './develop/comp-setting/comp-setting.component';
 import { CompListComponent } from './develop/comp-list/comp-list.component';
@@ -27,7 +27,7 @@ import { ConfigsComponent } from './configs/configs.component';
   imports: [
     FormsModule,
     BrowserModule,
-    CompSettingModule,
+    CompStyleModule,
     CompDataModule,
     CompCustomModule,
   ],

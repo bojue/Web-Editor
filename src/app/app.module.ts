@@ -1,7 +1,6 @@
+import { CompStyleModule } from './component/style/comp-style.module';
 import { CompDataModule } from './component/data/comp-data.module';
 import { CompEmitService } from './providers/comp-emit.service';
-import { PositionComponent } from './component/settings/position/position.component';
-import { SizeComponent } from './component/settings/size/size.component';
 import { BasicInfoConfigService } from './providers/basic-info-config.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -16,7 +15,6 @@ import { CodeModule } from './code/code.module';
 import { CommonModule } from '@angular/common';
 import { PagesModule } from './pages/pages.module';
 import { CompBasicModule } from './component/basic/comp-basic.module';
-import { CompSettingModule } from './component/settings/comp-setting.module';
 import { CompCustomModule } from './component/custom/comp-custom.module';
 
 @NgModule({
@@ -31,7 +29,8 @@ import { CompCustomModule } from './component/custom/comp-custom.module';
     CommonModule,
     CodeModule,
     PagesModule,
-    CompBasicModule
+    CompBasicModule,
+    CompStyleModule
   ],
   providers: [
     AppServiceService,
