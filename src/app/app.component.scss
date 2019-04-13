@@ -66,7 +66,7 @@ $border-color4: $color-grey-1;
                 background: rgba($color:#ffffff , $alpha: 1.0)
             }
             .comp-active {
-                border: 1px solid $border-color3;
+                box-shadow: $border-color3 0px 0px 3px;
             }
 
             .comp-resize {
