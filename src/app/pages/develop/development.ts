@@ -6,7 +6,7 @@ import { AppServiceService} from '../../providers/app-service.service';
 import { ViewContainRefHostDirective } from './../../directive/view-contain-ref-host.directive';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { Router, Routes } from '@angular/router';
-import { AuxiliaryComponent } from  'src/app/component/tool/auxiliary/auxiliary.component'
+import { AuxiliaryComponent } from  'src/app/component/comp-dev/tool/auxiliary/auxiliary.component'
 import * as _ from 'lodash';    
 import { DynamicComponentServiceService } from 'src/app/code/provider/dynamic-component-service.service';
 

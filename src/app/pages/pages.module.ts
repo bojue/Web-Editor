@@ -1,8 +1,3 @@
-import { CompTemplateModule } from './../component/template/comp-template.module';
-import { CompEventModule } from './../component/event/comp-event.module';
-import { CompStyleModule } from './../component/style/comp-style.module';
-import { CompCustomModule } from './../component/custom/comp-custom.module';
-import { CompDataModule } from './../component/data/comp-data.module';
 import { ViewContainRefHostDirective } from './../directive/view-contain-ref-host.directive';
 import { CompSettingComponent } from './develop/comp-setting/comp-setting.component';
 import { CompListComponent } from './develop/comp-list/comp-list.component';
@@ -14,6 +9,9 @@ import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
 import { PreviewComponent } from './preview/preview.component';
 import { ConfigsComponent } from './configs/configs.component';
+import { CompDevModule } from '../component/comp-dev/comp-dev.module';
+import { CompSettingBasicModule } from '../component/comp-basic/comp-setting-basic.module';
+import { CompViewModule } from '../component/comp-view/comp-view.module';
 
 @NgModule({
   declarations: [
@@ -29,11 +27,9 @@ import { ConfigsComponent } from './configs/configs.component';
   imports: [
     FormsModule,
     BrowserModule,
-    CompStyleModule,
-    CompDataModule,
-    CompCustomModule,
-    CompEventModule,
-    CompTemplateModule
+    CompDevModule,
+    CompViewModule,
+    CompSettingBasicModule
   ],
   providers: [
 

@@ -1,16 +1,16 @@
-import { TabsTempComponent } from './../../component/template/tabs-temp/tabs-temp.component';
-import { ListComponent } from './../../component/custom/list/list.component';
+import { TabsTempComponent } from '../../component/comp-dev/template/tabs-temp/tabs-temp.component';
 import { Injectable } from '@angular/core';
-import { AuxiliaryComponent } from 'src/app/component/tool/auxiliary/auxiliary.component';
-import { ButtonComponent } from 'src/app/component/basic/button/button.component';
-import { TextareaComponent } from 'src/app/component/basic/textarea/textarea.component';
-import { InputComponent } from 'src/app/component/basic/input/input.component';
-import { ChartComponent } from 'src/app/component/custom/chart/chart.component';
-import { ImgComponent } from 'src/app/component/basic/img/img.component';
-import { TextComponent } from 'src/app/component/basic/text/text.component';
+import { AuxiliaryComponent } from 'src/app/component/comp-dev/tool/auxiliary/auxiliary.component';
+import { ButtonComponent } from 'src/app/component/comp-dev/basic/button/button.component';
+import { InputComponent } from 'src/app/component/comp-dev/basic/input/input.component';
+import { ImgComponent } from 'src/app/component/comp-dev/basic/img/img.component';
+import { TextComponent } from 'src/app/component/comp-dev/basic/text/text.component';
 import { ComponentItem } from 'src/app/module/component-item';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
-import { TreeComponent } from 'src/app/component/custom/tree/tree.component';
+import { ChartComponent } from '../../component/comp-dev/custom/chart/chart.component';
+import { TextareaComponent } from '../../component/comp-dev/basic/textarea/textarea.component';
+import { TreeComponent } from '../../component/comp-dev/custom/tree/tree.component';
+import { ListComponent } from '../../component/comp-dev/custom/list/list.component';
 
 @Injectable({
   providedIn: 'root'
