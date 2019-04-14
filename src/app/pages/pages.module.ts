@@ -1,22 +1,22 @@
-import { ViewContainRefHostDirective } from './../directive/view-contain-ref-host.directive';
-import { CompSettingComponent } from './develop/comp-setting/comp-setting.component';
-import { CompListComponent } from './develop/comp-list/comp-list.component';
-import { DevelopmentPageComponent } from './develop/development';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { DetailComponent } from './detail/detail.component';
-import { HomeComponent } from './home/home.component';
-import { PreviewComponent } from './preview/preview.component';
-import { ConfigsComponent } from './configs/configs.component';
-import { CompViewModule } from '../component/comp-view/comp-view.module';
-import { CompSettingBasicModule } from '../component/comp-basic/comp-setting-basic.module';
-import { CompDevModule } from '../component/comp-dev/comp-dev.module';
-import { CompStyleModule } from '../component/comp-dev/style/comp-style.module';
-import { CompDataModule } from '../component/comp-dev/data/comp-data.module';
-import { CompCustomModule } from '../component/comp-dev/custom/comp-custom.module';
-import { CompEventModule } from '../component/comp-dev/event/comp-event.module';
-import { CompTemplateModule } from '../component/comp-dev/template/comp-template.module';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { PreviewComponent } from "./preview/preview.component";
+import { DevelopmentPageComponent } from "./develop/development";
+import { HomeComponent } from "./home/home.component";
+import { DetailComponent } from "./detail/detail.component";
+import { ConfigsComponent } from "./configs/configs.component";
+import { CompListComponent } from "./develop/comp-list/comp-list.component";
+import { CompSettingComponent } from "./develop/comp-setting/comp-setting.component";
+import { ViewContainRefHostDirective } from "../directive/view-contain-ref-host.directive";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { CompDevModule } from "../component/dev/comp-dev.module";
+import { CompViewModule } from "../component/view/comp-view.module";
+import { CompStyleModule } from "../component/dev/style/comp-style.module";
+import { CompDataModule } from "../component/dev/data/comp-data.module";
+import { CompCustomModule } from "../component/dev/custom/comp-custom.module";
+import { CompEventModule } from "../component/dev/event/comp-event.module";
+import { CompTemplateModule } from "../component/dev/template/comp-template.module";
+import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.module";
 
 @NgModule({
   declarations: [
