@@ -157,6 +157,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
+      console.log(e)
 
     if(e && e.stopPropagation){
         e.stopPropagation();

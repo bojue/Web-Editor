@@ -12,6 +12,11 @@ import { ConfigsComponent } from './configs/configs.component';
 import { CompViewModule } from '../component/comp-view/comp-view.module';
 import { CompSettingBasicModule } from '../component/comp-basic/comp-setting-basic.module';
 import { CompDevModule } from '../component/comp-dev/comp-dev.module';
+import { CompStyleModule } from '../component/comp-dev/style/comp-style.module';
+import { CompDataModule } from '../component/comp-dev/data/comp-data.module';
+import { CompCustomModule } from '../component/comp-dev/custom/comp-custom.module';
+import { CompEventModule } from '../component/comp-dev/event/comp-event.module';
+import { CompTemplateModule } from '../component/comp-dev/template/comp-template.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,11 @@ import { CompDevModule } from '../component/comp-dev/comp-dev.module';
     BrowserModule,
     CompDevModule,
     CompViewModule,
+    CompStyleModule,
+    CompDataModule,
+    CompCustomModule,
+    CompEventModule,
+    CompTemplateModule,
     CompSettingBasicModule
   ],
   providers: [

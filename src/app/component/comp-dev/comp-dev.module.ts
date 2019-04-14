@@ -15,8 +15,7 @@ import { CompSettingBasicModule } from '../comp-basic/comp-setting-basic.module'
     AuxiliaryComponent,
   ],
   imports: [
-
-  FormsModule,
+    FormsModule,
     BrowserModule,
     CompStyleModule,
     CompDataModule,

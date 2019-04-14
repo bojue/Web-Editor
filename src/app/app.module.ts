@@ -17,6 +17,7 @@ import { PagesModule } from './pages/pages.module';
 import { CompDevModule } from './component/comp-dev/comp-dev.module';
 import { CompViewModule } from './component/comp-view/comp-view.module';
 import { CompSettingBasicModule } from './component/comp-basic/comp-setting-basic.module';
+import { CompBasicModule } from './component/comp-dev/basic/comp-basic.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CompSettingBasicModule } from './component/comp-basic/comp-setting-basi
     PagesModule,
     CompSettingBasicModule,
     CompDevModule,
-    CompViewModule
+    CompViewModule,
+    CompBasicModule
   ],
   providers: [
     AppServiceService,

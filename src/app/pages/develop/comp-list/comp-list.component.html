@@ -5,7 +5,7 @@
     </div>
     <div class="comp-list lists" *ngIf="!module['hiddenBool']">
         <div class="item" *ngFor="let comp of module['compList'];" >
-            <div class="cont" draggable="true" (dragend)="s($event, comp['type'])" >
+            <div class="cont" draggable="true" (dragend)="dragCompEnd($event, comp['type'])" >
               <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
               <p class="text">{{comp['name']}}</p>
           </div>

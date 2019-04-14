@@ -8,6 +8,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ColorComponent } from './color/color.component';
+import { StyleBasicComponent } from '../../comp-basic/style-basic/style-basic.component';
 
 const settingComp = [
     ColorComponent,
