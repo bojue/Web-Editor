@@ -1,4 +1,3 @@
-import { SettingBasicComponent } from './setting-basic/setting-basic.component';
 import { PositionComponent } from './position/position.component';
 import { BorderComponent } from './border/border.component';
 import { TextsComponent } from './texts/texts.component';
@@ -9,7 +8,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ColorComponent } from './color/color.component';
-import { CompSettingBasicModule } from '../../comp-basic/comp-setting-basic.module';
 
 const settingComp = [
     ColorComponent,
@@ -28,7 +26,7 @@ const settingComp = [
   imports: [
     FormsModule,
     BrowserModule,
-    CompSettingBasicModule
+
   ],
   exports: [
     [...settingComp]

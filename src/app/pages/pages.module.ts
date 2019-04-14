@@ -9,9 +9,9 @@ import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
 import { PreviewComponent } from './preview/preview.component';
 import { ConfigsComponent } from './configs/configs.component';
-import { CompDevModule } from '../component/comp-dev/comp-dev.module';
-import { CompSettingBasicModule } from '../component/comp-basic/comp-setting-basic.module';
 import { CompViewModule } from '../component/comp-view/comp-view.module';
+import { CompSettingBasicModule } from '../component/comp-basic/comp-setting-basic.module';
+import { CompDevModule } from '../component/comp-dev/comp-dev.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { CompViewModule } from '../component/comp-view/comp-view.module';
     ViewContainRefHostDirective
   ],
   imports: [
-    FormsModule,
+
+  FormsModule,
     BrowserModule,
     CompDevModule,
     CompViewModule,

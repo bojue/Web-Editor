@@ -25,6 +25,7 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, Sett
   }
 
   initData() {
+    console.log('red', this.data)
     this.lists = [];
     this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
       this.getData(event)

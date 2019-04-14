@@ -1,20 +1,19 @@
-
-import { Component, OnInit, Input } from '@angular/core';
-import { SettingStyle } from 'src/app/module/setting-style.module';
-import { SettingBasicComponent } from '../setting-basic/setting-basic.component';
+import { Component, OnInit } from "@angular/core";
+import { StyleBasicComponent } from "src/app/component/comp-basic/style-basic/style-basic.component";
 
 @Component({
   selector: 'app-position',
   templateUrl: './position.component.html',
   styleUrls: ['./position.component.scss']
 })
-export class PositionComponent extends SettingBasicComponent implements OnInit {
+export class PositionComponent extends StyleBasicComponent implements OnInit {
 
   constructor() { 
     super()
   }
 
   ngOnInit() {
+    console.log('style',this.style)
   }
 
 }

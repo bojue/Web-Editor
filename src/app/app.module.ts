@@ -8,7 +8,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
-
 import { AppServiceService} from './providers/app-service.service';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +16,6 @@ import { CommonModule } from '@angular/common';
 import { PagesModule } from './pages/pages.module';
 import { CompDevModule } from './component/comp-dev/comp-dev.module';
 import { CompViewModule } from './component/comp-view/comp-view.module';
-import { from } from 'rxjs';
 import { CompSettingBasicModule } from './component/comp-basic/comp-setting-basic.module';
 
 @NgModule({
@@ -25,9 +23,9 @@ import { CompSettingBasicModule } from './component/comp-basic/comp-setting-basi
     AppComponent,
   ],
   imports: [
-  FormsModule,
-    BrowserModule,
+    FormsModule,
     AppRoutingModule,
+    NgxEchartsModule,
     CommonModule,
     CodeModule,
     PagesModule,

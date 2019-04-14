@@ -4,19 +4,25 @@ import { BasicComponent } from "./basic/basic.component";
 import { CustomBasicComponent } from "./custom-basic/custom-basic.component";
 import { DataBasicComponent } from "./data-basic/data-basic.component";
 import { EventBasicComponent } from "./event-basic/event-basic.component";
+import { BrowserModule } from "@angular/platform-browser";
+import { StyleBasicComponent } from './style-basic/style-basic.component';
 
 const settingBasic = [
     BasicComponent,
     CustomBasicComponent,
     DataBasicComponent,
-    EventBasicComponent
+    EventBasicComponent,
+    StyleBasicComponent
 ]
+
 @NgModule({
   declarations: [
     [...settingBasic]
   ],
   imports: [
-    FormsModule,
+
+  FormsModule,
+    BrowserModule,
   ],
   providers: [
 

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { SettingBasicComponent } from '../setting-basic/setting-basic.component';
+import { Component, OnInit } from "@angular/core";
+import { StyleBasicComponent } from "src/app/component/comp-basic/style-basic/style-basic.component";
 
 @Component({
   selector: 'app-texts',
   templateUrl: './texts.component.html',
   styleUrls: ['./texts.component.scss']
 })
-export class TextsComponent extends SettingBasicComponent implements OnInit {
+export class TextsComponent extends StyleBasicComponent implements OnInit {
 
   constructor() { 
     super()

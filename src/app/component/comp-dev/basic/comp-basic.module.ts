@@ -18,7 +18,6 @@ const basicComp = [
     InputComponent,
     TextareaComponent,
     LineComponent,
-    BasicComponent
 ]
 
 @NgModule({

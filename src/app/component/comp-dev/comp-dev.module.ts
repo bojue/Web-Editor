@@ -8,19 +8,22 @@ import { CompEventModule } from "./event/comp-event.module";
 import { CompTemplateModule } from "./template/comp-template.module";
 import { CompCustomModule } from "./custom/comp-custom.module";
 import { CompDataModule } from "./data/comp-data.module";
+import { CompSettingBasicModule } from '../comp-basic/comp-setting-basic.module';
 
 @NgModule({
   declarations: [
     AuxiliaryComponent,
   ],
   imports: [
-    FormsModule,
+
+  FormsModule,
     BrowserModule,
     CompStyleModule,
     CompDataModule,
     CompCustomModule,
     CompEventModule,
-    CompTemplateModule
+    CompTemplateModule,
+    CompSettingBasicModule
   ],
   providers: [
 
