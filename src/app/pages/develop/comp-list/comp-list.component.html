@@ -2,6 +2,9 @@
     <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
       <span alt="" [ngClass]="{'acitve':!module['hiddenBool']}" class="icon-disc dis-in"></span>
       <span class="tit">{{module['name']}}</span>
+      <span class="info">
+        <img src="../../../../assets/icons/info.svg" title="{{module['title']}}" alt="">
+      </span>
     </div>
     <div class="comp-list lists" *ngIf="!module['hiddenBool']">
         <div class="item" *ngFor="let comp of module['compList'];" >

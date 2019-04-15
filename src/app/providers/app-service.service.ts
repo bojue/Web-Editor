@@ -20,6 +20,7 @@ export class AppServiceService{
 
   componentModules = [{ 
     name:'基础',
+    title:"基础组件,多为HTML元素组件",
     state: 'default',
     compList: [
       {
@@ -50,6 +51,7 @@ export class AppServiceService{
   }, {
     name: '业务',
     state: 'module',
+    title:"高级组件,支持数据绑定和接口绑定,支持定制",
     compList: [
       {
         name:'折线',
@@ -68,6 +70,7 @@ export class AppServiceService{
   {
     name: '模板',
     state: 'template',
+    title:"复杂组件,由多个基础或者高级组件组成,支持数据绑定和接口绑定,支持定制",
     compList: [
       {
         name:'Tabs',
@@ -78,56 +81,24 @@ export class AppServiceService{
 
 
   //后台测试数据
-  testCreateComp = [
-  // {
-  //   compIndex: 3,
-  //   name:'列表',
-  //   type:'list',
-  //   data: {
-  //       api_val:'http://10.169.43.4:8100/api/dutys',
-  //       list_val:{
-  //           list_tit_val:'列表',
-  //           list_cols_number_val:1,
-  //           list_cols_width:[],
-  //           list_style_grid_bool:true,
-  //           list_cols:[{
-  //               tit:"标题",
-  //               width:10,
-  //               prefix:"",
-  //               suffix:""
-  //           }]
-  //       }
-  //   },
-  //   style: {
-  //     height:700,
-  //     width: 500,
-  //     position: 'absolute',
-  //     top:10,
-  //     left:400,
-  //     border: '',
-  //     borderColor: '',
-  //     borderWidth: 0,
-  //     borderStyle: ''
-  //   }
-  // },
-  {
-      compIndex: 3,
-      name:'Tabs',
-      type:'tabs',
-      data: {
-         'name':'tabs'
-      },
-      style: {
-        height:700,
-        width: 500,
-        position: 'absolute',
-        top:10,
-        left:400,
-        border: '',
-        borderColor: '',
-        borderWidth: 0,
-        borderStyle: ''
-      }
+  testCreateComp = [{
+    compIndex: 3,
+    name:'Tabs',
+    type:'tabs',
+    data: {
+        'name':'tabs'
+    },
+    style: {
+      height:700,
+      width: 500,
+      position: 'absolute',
+      top:10,
+      left:400,
+      border: '',
+      borderColor: '',
+      borderWidth: 0,
+      borderStyle: ''
+    }
   }];
 
   auxiComp = {
