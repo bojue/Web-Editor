@@ -48,9 +48,9 @@ export class AppServiceService{
     state: 'module',
     compList: [
       {
-        name:'饼图',
+        name:'折线',
         type: 'chart',
-        iconUrl: './../assets/icons/chart.svg'
+        iconUrl: './../assets/icons/zhexian.svg'
       },{
         name:'结构树',
         type: 'tree',
@@ -74,36 +74,56 @@ export class AppServiceService{
 
 
   //后台测试数据
-  testCreateComp = [{
-    compIndex: 3,
-    name:'列表',
-    type:'list',
-    data: {
-        api_val:'http://10.169.43.4:8100/api/dutys',
-        list_val:{
-            list_tit_val:'列表',
-            list_cols_number_val:1,
-            list_cols_width:[],
-            list_style_grid_bool:true,
-            list_cols:[{
-                tit:"标题",
-                width:10,
-                prefix:"",
-                suffix:""
-            }]
-        }
-    },
-    style: {
-      height:700,
-      width: 500,
-      position: 'absolute',
-      top:10,
-      left:400,
-      border: '',
-      borderColor: '',
-      borderWidth: 0,
-      borderStyle: ''
-    }
+  testCreateComp = [
+  // {
+  //   compIndex: 3,
+  //   name:'列表',
+  //   type:'list',
+  //   data: {
+  //       api_val:'http://10.169.43.4:8100/api/dutys',
+  //       list_val:{
+  //           list_tit_val:'列表',
+  //           list_cols_number_val:1,
+  //           list_cols_width:[],
+  //           list_style_grid_bool:true,
+  //           list_cols:[{
+  //               tit:"标题",
+  //               width:10,
+  //               prefix:"",
+  //               suffix:""
+  //           }]
+  //       }
+  //   },
+  //   style: {
+  //     height:700,
+  //     width: 500,
+  //     position: 'absolute',
+  //     top:10,
+  //     left:400,
+  //     border: '',
+  //     borderColor: '',
+  //     borderWidth: 0,
+  //     borderStyle: ''
+  //   }
+  // },
+  {
+      compIndex: 3,
+      name:'Tabs',
+      type:'tabs',
+      data: {
+         'name':'tabs'
+      },
+      style: {
+        height:700,
+        width: 500,
+        position: 'absolute',
+        top:10,
+        left:400,
+        border: '',
+        borderColor: '',
+        borderWidth: 0,
+        borderStyle: ''
+      }
   }];
 
   auxiComp = {

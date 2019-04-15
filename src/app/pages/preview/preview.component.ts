@@ -5,6 +5,7 @@ import { DynamicComponentServiceService } from './../../code/provider/dynamic-co
 import { Component, OnInit, ElementRef, AfterContentInit, OnDestroy, ComponentFactoryResolver, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';   
+import { CompEmitService } from 'src/app/providers/comp-emit.service';
 
 @Component({
   selector: 'app-preview',
@@ -15,17 +16,30 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
   compList: any[];
   currentViewContRef:any;
+  eventEmitter:any;
+  components: any[];
   constructor(
     private elementRef: ElementRef,
     private dynamicService: DynamicComponentServiceService,
     private activatedRoute: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private route: Router
+    private route: Router,
+    private emitSerive: CompEmitService, 
   ) { }
 
   ngOnInit() {
     let compString = this.activatedRoute.snapshot.paramMap.get('queryParams');
     this.compList = JSON.parse(compString);
+
+    let parentCompList = _.cloneDeep(this.compList);
+    this.eventEmitter = this.emitSerive.getEmitEvent().subscribe(res => {
+      if(res && res['type'] === 'child-comp') {
+        let data = res['data']
+        let currentList = _.concat(parentCompList, data);
+        this.initViewContRef();
+        this.updateCompList(currentList);
+      }
+    })
   }
 
   ngOnDestroy() {
@@ -33,18 +47,24 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
        this.currentViewContRef.clear();
      }
   }
-
-
+  
   ngAfterContentInit() {
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.updateCompList();
   }
 
-  updateCompList(){
-    let jsonList = this.dynamicService.getCompList(this.compList);
-    _.map(jsonList, (comp)=> {
+  updateCompList(list?:any[]){
+    this.components = this.dynamicService.getCompList( list || this.compList);
+    _.map(this.components, (comp)=> {
       this.renderComponent(comp)
     })
+  }
+
+  initViewContRef(){
+    let len = this.components.length;
+    for(let i=0; i < len;i++){
+      this.currentViewContRef.clear(i)
+    }
   }
 
   renderComponent(currentComponent) {
@@ -62,7 +82,6 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   eventHandle(type, eventObj) {
-
     switch (type) {
       case 'click':
         if(eventObj['routeBool']) {

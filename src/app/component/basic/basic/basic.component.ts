@@ -40,7 +40,7 @@ export class BasicComponent implements OnInit {
 
   inputVal(event) {
     let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
-    this.data['value'] = text;
+    this.data['text_val'] = text;
   }
 
   inputState(event) {

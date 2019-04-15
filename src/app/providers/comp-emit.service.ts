@@ -15,4 +15,15 @@ export class CompEmitService {
   getEmitEvent() {
     return this.eventEmitter;
   }
+
+  setChildComp(comp) {
+    this.eventEmitter.emit({
+      type:'child-comp',
+      data: comp
+    })
+  }
+
+  getEmitter() {
+    return this.eventEmitter
+  }
 }

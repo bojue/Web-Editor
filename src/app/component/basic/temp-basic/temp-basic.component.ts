@@ -7,8 +7,6 @@ import { BasicComponent } from "../basic/basic.component";
   styleUrls: ['./temp-basic.component.scss']
 })
 export class TempBasicComponent extends BasicComponent implements OnInit {
-
-
   constructor() { 
     super()
   }

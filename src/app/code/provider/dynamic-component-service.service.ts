@@ -11,10 +11,9 @@ import { ListComponent } from "src/app/component/dev/comps/custom/list/list.comp
 import { TabsTempComponent } from "src/app/component/dev/comps/template/tabs-temp/tabs-temp.component";
 import { ComponentItem } from "src/app/module/component-item";
 import { SettingObjComponent } from "src/app/module/setting-object.component";
+import 'core-js/es7/reflect';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
 
   constructor() { }
@@ -84,7 +83,9 @@ export class DynamicComponentServiceService {
 
   //组件映射列表
   getCompList(objList:any[]){
+    console.log(objList)
     let compList = [];
+    console.log(objList)
     objList.forEach(settingItem =>{
       let _type = settingItem && settingItem['type'];
       let compInfo = this.createComponent(_type)

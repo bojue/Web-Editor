@@ -13,7 +13,7 @@ export class PositionComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('style',this.style)
+
   }
 
 }

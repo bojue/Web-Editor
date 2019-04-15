@@ -1,6 +1,6 @@
 
 import * as _ from 'lodash';    
-import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ComponentFactoryResolver, OnDestroy } from '@angular/core';
 import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
 import { SettingObject } from 'src/app/module/setting-object.module';
 import { AppServiceService } from 'src/app/providers/app-service.service';
@@ -9,13 +9,14 @@ import { DynamicComponentServiceService } from 'src/app/code/provider/dynamic-co
 import { Router } from '@angular/router';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/auxiliary.component';
+import { CompEmitService } from 'src/app/providers/comp-emit.service';
 
 @Component({
   selector: 'app-development',
   templateUrl: './development.html',
   styleUrls: ['./development.scss']
 })
-export class DevelopmentPageComponent implements OnInit, AfterViewInit {
+export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
   setingBool: boolean;
@@ -37,19 +38,35 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   dragCompStartX:any; //组件拖拽记录开始坐标X
   dragCompStartY:any; //组件拖拽记录开始坐标Y
 
+  eventEmitter:any;
   constructor(
     private elementRef:ElementRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private service: AppServiceService,
     private infoService: BasicInfoConfigService,
     private dynamicService: DynamicComponentServiceService,
-    private router: Router  
+    private router: Router ,
+    private emitSerive: CompEmitService, 
   ) {
       this.activeSettingState('default');
   }
 
   ngOnInit() {
     this.initData();
+    let parentCompList = _.cloneDeep(this.testCreateComp);
+    this.eventEmitter = this.emitSerive.getEmitEvent().subscribe(res => {
+      if(res && res['type'] === 'child-comp') {
+        let data = res['data']
+        console.log(data)
+        let currentList = _.concat(parentCompList, data)
+        this.initViewContRef()
+        this.getCompList(currentList);
+      }
+    })
+  }
+
+  ngOnDestroy() {
+    this.eventEmitter.unsubscribe();
   }
 
   settingHidle() {
@@ -59,7 +76,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.elementRef.nativeElement.querySelector('#componentsBody')
     .addEventListener('click', this.clickListernerHandle.bind(this))
-
   }
 
   initData() {
@@ -157,7 +173,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit {
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
-      console.log(e)
 
     if(e && e.stopPropagation){
         e.stopPropagation();
