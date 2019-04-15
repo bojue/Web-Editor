@@ -7,7 +7,7 @@
 
 ## 启动
 
->  ng serve
+>  npm run start
 
 ## 构建
 
