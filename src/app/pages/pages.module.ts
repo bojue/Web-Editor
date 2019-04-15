@@ -10,12 +10,12 @@ import { ViewContainRefHostDirective } from "../directive/view-contain-ref-host.
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { CompDevModule } from "../component/dev/comp-dev.module";
-import { CompViewModule } from "../component/view/comp-view.module";
-import { CompStyleModule } from "../component/dev/style/comp-style.module";
-import { CompDataModule } from "../component/dev/data/comp-data.module";
-import { CompCustomModule } from "../component/dev/custom/comp-custom.module";
-import { CompEventModule } from "../component/dev/event/comp-event.module";
-import { CompTemplateModule } from "../component/dev/template/comp-template.module";
+import { CompViewModule } from "../component/views/comp-view.module";
+import { CompStyleModule } from "../component/dev/settings/style/comp-style.module";
+import { CompDataModule } from "../component/dev/settings/data/comp-data.module";
+import { CompCustomModule } from "../component/dev/comps/custom/comp-custom.module";
+import { CompEventModule } from "../component/dev/settings/event/comp-event.module";
+import { CompTemplateModule } from "../component/dev/comps/template/comp-template.module";
 import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.module";
 
 @NgModule({

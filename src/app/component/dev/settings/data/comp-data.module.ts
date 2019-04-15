@@ -8,7 +8,7 @@ import { ListValComponent } from "./list-val/list-val.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { CompSettingBasicModule } from "../../basic/comp-setting-basic.module";
+import { CompSettingBasicModule } from "src/app/component/basic/comp-setting-basic.module";
 
 const dataComp = [
     UploaderComponent,

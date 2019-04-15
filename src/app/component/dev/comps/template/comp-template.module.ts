@@ -1,12 +1,10 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { TabsTempComponent } from './tabs-temp/tabs-temp.component';
-import { TempBasicComponent } from './temp-basic/temp-basic.component';
+import { TabsTempComponent } from "./tabs-temp/tabs-temp.component";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
 
 const templateComp = [
     TabsTempComponent,
-    TempBasicComponent
 ]
 
 @NgModule({

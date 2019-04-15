@@ -1,18 +1,20 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { StyleBasicComponent } from "./style-basic/style-basic.component";
 import { BasicComponent } from "./basic/basic.component";
 import { CustomBasicComponent } from "./custom-basic/custom-basic.component";
 import { DataBasicComponent } from "./data-basic/data-basic.component";
 import { EventBasicComponent } from "./event-basic/event-basic.component";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { StyleBasicComponent } from './style-basic/style-basic.component';
+import { TempBasicComponent } from "./temp-basic/temp-basic.component";
 
 const settingBasic = [
     BasicComponent,
     CustomBasicComponent,
     DataBasicComponent,
     EventBasicComponent,
-    StyleBasicComponent
+    StyleBasicComponent,
+    TempBasicComponent
 ]
 
 @NgModule({
@@ -20,6 +22,7 @@ const settingBasic = [
     [...settingBasic]
   ],
   imports: [
+
 
   FormsModule,
     BrowserModule,

@@ -5,7 +5,7 @@ import { EventListComponent } from "./event-list/event-list.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { CompSettingBasicModule } from "../../basic/comp-setting-basic.module";
+import { CompSettingBasicModule } from "src/app/component/basic/comp-setting-basic.module";
 
 const styleComp = [
     ClickEventComponent,

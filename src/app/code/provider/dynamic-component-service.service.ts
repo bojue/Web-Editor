@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
-import { TextComponent } from "src/app/component/dev/basic/text/text.component";
-import { ImgComponent } from "src/app/component/dev/basic/img/img.component";
-import { ChartComponent } from "src/app/component/dev/custom/chart/chart.component";
-import { InputComponent } from "src/app/component/dev/basic/input/input.component";
-import { TextareaComponent } from "src/app/component/dev/basic/textarea/textarea.component";
-import { ButtonComponent } from "src/app/component/dev/basic/button/button.component";
-import { AuxiliaryComponent } from "src/app/component/dev/tool/auxiliary/auxiliary.component";
-import { TreeComponent } from "src/app/component/dev/custom/tree/tree.component";
-import { ListComponent } from "src/app/component/dev/custom/list/list.component";
-import { TabsTempComponent } from "src/app/component/dev/template/tabs-temp/tabs-temp.component";
+import { TextComponent } from "src/app/component/dev/comps/comp/text/text.component";
+import { ImgComponent } from "src/app/component/dev/comps/comp/img/img.component";
+import { ChartComponent } from "src/app/component/dev/comps/custom/chart/chart.component";
+import { InputComponent } from "src/app/component/dev/comps/comp/input/input.component";
+import { TextareaComponent } from "src/app/component/dev/comps/comp/textarea/textarea.component";
+import { ButtonComponent } from "src/app/component/dev/comps/comp/button/button.component";
+import { AuxiliaryComponent } from "src/app/component/dev/comps/tool/auxiliary/auxiliary.component";
+import { TreeComponent } from "src/app/component/dev/comps/custom/tree/tree.component";
+import { ListComponent } from "src/app/component/dev/comps/custom/list/list.component";
+import { TabsTempComponent } from "src/app/component/dev/comps/template/tabs-temp/tabs-temp.component";
 import { ComponentItem } from "src/app/module/component-item";
 import { SettingObjComponent } from "src/app/module/setting-object.component";
 

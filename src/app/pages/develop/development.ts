@@ -1,14 +1,14 @@
-import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ElementRef, Input, ViewChild, Renderer, EventEmitter, OnChanges } from '@angular/core';
-import { ComponentItem } from '../../module/component-item';
-import { SettingObject } from '../../module/setting-object.module';
-import { BasicInfoConfigService } from '../../providers/basic-info-config.service';
-import { AppServiceService} from '../../providers/app-service.service';
-import { ViewContainRefHostDirective } from './../../directive/view-contain-ref-host.directive';
-import { SettingObjComponent } from 'src/app/module/setting-object.component';
-import { Router, Routes } from '@angular/router';
+
 import * as _ from 'lodash';    
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
+import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
+import { SettingObject } from 'src/app/module/setting-object.module';
+import { AppServiceService } from 'src/app/providers/app-service.service';
+import { BasicInfoConfigService } from 'src/app/providers/basic-info-config.service';
 import { DynamicComponentServiceService } from 'src/app/code/provider/dynamic-component-service.service';
-import { AuxiliaryComponent } from 'src/app/component/dev/tool/auxiliary/auxiliary.component';
+import { Router } from '@angular/router';
+import { SettingObjComponent } from 'src/app/module/setting-object.component';
+import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/auxiliary.component';
 
 @Component({
   selector: 'app-development',
