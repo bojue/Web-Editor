@@ -8,6 +8,7 @@ import { LineComponent } from "./line/line.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { VideoComponent } from './video/video.component';
 
 const basicComp = [
     ButtonComponent,
@@ -17,6 +18,7 @@ const basicComp = [
     InputComponent,
     TextareaComponent,
     LineComponent,
+    VideoComponent,
 ]
 
 @NgModule({

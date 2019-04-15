@@ -42,7 +42,11 @@ export class AppServiceService{
         name:'图片',
         type: 'img',
         iconUrl: './../assets/icons/image.svg'
-      }]
+      },{
+        name:'视频',
+        type: 'video',
+        iconUrl: './../assets/icons/video.svg'
+      },]
   }, {
     name: '业务',
     state: 'module',

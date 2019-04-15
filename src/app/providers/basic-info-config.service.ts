@@ -119,6 +119,28 @@ export class BasicInfoConfigService {
                         data: null,
                     }
                 }
+            },    
+            video:{
+                compIndex: 3,
+                name:'视频',
+                type:'video',
+                data: {
+                    video_val:''
+                },
+                style: {
+                  height:220,
+                  width: 400,
+                  position: 'absolute',
+                  top:100,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                },
+                event:{
+            
+                }
             },
             chart:{
                 compIndex: 3,

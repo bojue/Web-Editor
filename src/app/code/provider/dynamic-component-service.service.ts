@@ -12,6 +12,7 @@ import { TabsTempComponent } from "src/app/component/dev/comps/template/tabs-tem
 import { ComponentItem } from "src/app/module/component-item";
 import { SettingObjComponent } from "src/app/module/setting-object.component";
 import 'core-js/es7/reflect';
+import { VideoComponent } from "src/app/component/dev/comps/comp/video/video.component";
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -72,6 +73,11 @@ export class DynamicComponentServiceService {
       case 'tabs':
         tempInfo = {
           comp: TabsTempComponent
+        }  
+        break;
+      case 'video':
+        tempInfo = {
+          comp: VideoComponent,
         }  
         break;
       default:

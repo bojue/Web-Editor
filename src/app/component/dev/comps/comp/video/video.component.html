@@ -1,0 +1,26 @@
+<div
+  class="comp-item active-border" 
+  draggable="true" 
+  (dragstart)="compEvent($event)"
+  (dragover)="compEvent($event)"
+  (dragend)="compEvent($event)"
+  (click)="compEvent($event)" 
+  (mousedown)="compEvent($event)"
+  [ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
+  [ngStyle]="{
+    'position':style['position'],
+    'top':expandUnit('top'),
+    'left':expandUnit('left'),
+    'width':expandUnit('width'),
+    'height':expandUnit('height'),
+    'border-width':expandUnit('borderWidth'),
+    'border-style':style['borderStyle'],
+    'border-color':style['borderColor']
+}">
+    <video controls [ngStyle]="{
+      'width':expandUnit('width'),
+      'height':expandUnit('height')}">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        浏览器不支持视频,或者格式不支持
+    </video>
+</div>
