@@ -107,6 +107,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let compDefinInfo = this.dynamicService.createComponent(compType, this.infoService.getCompDefaultConfig(compType));
     let addCompJson = compDefinInfo && compDefinInfo['data'];
     this.getAuxiliaryComponent(null , 'addComponent');
+    if(addCompJson && addCompJson['style']) {
+      addCompJson['style']['left'] = event['x']  ||  addCompJson['style']['left'];
+      addCompJson['style']['top'] = event['y'] || addCompJson['style']['top'];
+    }
+
+    console.log(event)
     this.testCreateComp.push(addCompJson);
     this.initViewContRef()
     this.getCompList(this.testCreateComp);

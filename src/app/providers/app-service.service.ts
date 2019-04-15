@@ -27,11 +27,11 @@ export class AppServiceService{
         type: 'text',
         iconUrl: './../assets/icons/text.svg'
       },{
-        name:'输入',
+        name:'单行输入',
         type: 'input',
         iconUrl: './../assets/icons/input.svg'
       },{
-        name:'文本输入',
+        name:'多行输入',
         type: 'textarea',
         iconUrl: './../assets/icons/textarea.svg'
       },{
