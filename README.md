@@ -5,6 +5,16 @@
 2. 组件属性设置
 3. 拖拽功能
 
+## 下载
+
+```
+  git clone https://github.com/bojue/ngx-DynamicComponent.git
+
+  cd ngx-DynamicComponent
+
+  npm install
+```
+
 ## 启动
 
 >  npm run start
