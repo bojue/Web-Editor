@@ -67,14 +67,14 @@ export class TabsTempComponent extends TempBasicComponent implements OnInit,  Af
       name:'文本',
       type:'text',
       data: {
-          text_val:'双击修改文本',
+          text_val:'电池 dashboard',
       },
       style: {
           height:100,
-          width: 100,
+          width: 200,
           position: 'absolute',
-          top:200,
-          left:500,
+          top:100,
+          left:420,
           border: '',
           borderColor: '',
           borderWidth: 0,
@@ -88,7 +88,7 @@ export class TabsTempComponent extends TempBasicComponent implements OnInit,  Af
       data: {
         api_val:'http://10.169.43.4:8100/api/dutys',
         list_val:{
-            list_tit_val:'列表',
+            list_tit_val:'机柜列表',
             list_cols_number_val:1,
             list_cols_width:[],
             list_style_grid_bool:true,
@@ -104,7 +104,7 @@ export class TabsTempComponent extends TempBasicComponent implements OnInit,  Af
         height:400,
         width: 500,
         position: 'absolute',
-        top:100,
+        top:80,
         left:400,
         border: '',
         borderColor: '',
