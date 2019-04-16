@@ -42,7 +42,6 @@ export class TabsTempComponent extends TempBasicComponent implements OnInit,  Af
   }
 
   test(index) {
-     console.log('click',index, this.tempList)
      this.emitSerive.setChildComp(this.tempList[index])
   }
 

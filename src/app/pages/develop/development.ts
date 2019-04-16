@@ -56,8 +56,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let parentCompList = _.cloneDeep(this.testCreateComp);
     this.eventEmitter = this.emitSerive.getEmitEvent().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
-        let data = res['data']
-        console.log(data)
+        let data = res['data'];
         let currentList = _.concat(parentCompList, data)
         this.initViewContRef()
         this.getCompList(currentList);

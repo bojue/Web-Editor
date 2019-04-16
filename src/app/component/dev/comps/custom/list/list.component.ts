@@ -25,7 +25,6 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, OnDe
   }
 
   initData() {
-    console.log('red', this.data)
     this.lists = [];
     this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
       this.getData(event)
@@ -33,7 +32,9 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, OnDe
   }
 
   ngOnDestroy() {
-    this.eventEmitter.unsubscribe();
+    if( this.eventEmitter) {
+      this.eventEmitter.unsubscribe();
+    }
   }
 
   getData(event) {
