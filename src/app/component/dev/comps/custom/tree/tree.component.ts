@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CustomBasicComponent } from "src/app/component/basic/custom-basic/custom-basic.component";
 import { SettingObjComponent } from "src/app/module/setting-object.component";
 import { CompEmitService } from "src/app/providers/comp-emit.service";
@@ -8,32 +8,9 @@ import { CompEmitService } from "src/app/providers/comp-emit.service";
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss',]
 })
-export class TreeComponent extends CustomBasicComponent implements OnInit, SettingObjComponent  {
+export class TreeComponent extends CustomBasicComponent implements OnInit, OnDestroy, SettingObjComponent  {
 
-  nodes = [
-    {
-      id: 1,
-      name: 'root1',
-      children: [
-        { id: 2, name: 'child1' },
-        { id: 3, name: 'child2' }
-      ]
-    },
-    {
-      id: 4,
-      name: 'root2',
-      children: [
-        { id: 5, name: 'child2.1' },
-        {
-          id: 6,
-          name: 'child2.2',
-          children: [
-            { id: 7, name: 'subsub' }
-          ]
-        }
-      ]
-    }
-  ];
+  nodes:any[];
   options:any;
   eventEmitter:any;
   constructor(
@@ -50,6 +27,31 @@ export class TreeComponent extends CustomBasicComponent implements OnInit, Setti
   initData() {
     this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
     })
+
+    this.nodes = [
+      {
+        id: 1,
+        name: 'root1',
+        children: [
+          { id: 2, name: 'child1' },
+          { id: 3, name: 'child2' }
+        ]
+      },
+      {
+        id: 4,
+        name: 'root2',
+        children: [
+          { id: 5, name: 'child2.1' },
+          {
+            id: 6,
+            name: 'child2.2',
+            children: [
+              { id: 7, name: 'subsub' }
+            ]
+          }
+        ]
+      }
+    ];
   }
 
   ngOnDestroy() {

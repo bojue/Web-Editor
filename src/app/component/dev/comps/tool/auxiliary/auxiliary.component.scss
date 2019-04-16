@@ -15,6 +15,24 @@
             width: 0.5px;
             height: 100%;
         }
+
+
+        .circle-item {
+            z-index: 1000;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border:1px solid mediumblue;
+            border-radius: 50%;
+            background: #ffffff;
+            pointer-events:auto;
+            &.col {
+                cursor: ew-resize;
+            }
+            &.row {
+                cursor: ns-resize;
+            }
+        }
     }
 
 }

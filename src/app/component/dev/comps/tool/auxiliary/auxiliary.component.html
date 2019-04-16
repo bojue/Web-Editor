@@ -1,6 +1,46 @@
 <div  id="auxi-comp">
-  <div class="line-item line-view-w" id="line-top" [ngStyle]="{'top':expandUnit('top')}"></div>
-  <div class="line-item line-view-w" id="line-bottom" [ngStyle]="{'top':expandUnit('top', 'height')}"></div>
-  <div class="line-item line-view-h" id="line-left" [ngStyle]="{'left':expandUnit('left')}"></div>
-  <div class="line-item line-view-h" id="line-right" [ngStyle]="{'left':expandUnit('left', 'width')}"></div>
+
+  <!-- 定位辅助 -->
+  <section class="positing">
+    <div class="line-item line-view-w" id="line-top" [ngStyle]="{'top':expandUnit('top')}"></div>
+    <div class="line-item line-view-w" id="line-bottom" [ngStyle]="{'top':expandUnit('top', 'height')}"></div>
+    <div class="line-item line-view-h" id="line-left" [ngStyle]="{'left':expandUnit('left')}"></div>
+    <div class="line-item line-view-h" id="line-right" [ngStyle]="{'left':expandUnit('left', 'width')}"></div>
+  </section>
+
+  <!-- 拉伸辅助 -->
+  <section class="stretch">
+    <div class="circle-item circle-view-left col" 
+      draggable="true" 
+      (dragstart)="compEvent($event, 's')"
+      (drag)="compEvent($event, 'l') && $event.stopPropagation"
+      (dragend)="compEvent($event, 'l', true) && $event.stopPropagation"
+      [ngStyle]="{
+        'top':expandAuxiUnit('top', false, 'height', true, -5),
+        'left':expandAuxiUnit('left', false, null, false, -5)}"></div>
+    <div class="circle-item circle-view-right col" 
+      draggable="true" 
+      (dragstart)="compEvent($event, 's')"
+      (drag)="compEvent($event, 'r')"
+      (dragend)="compEvent($event, 'r', true)"
+      [ngStyle]="{
+        'top':expandAuxiUnit('top', false, 'height', true, -5),
+        'left':expandAuxiUnit('left', false, 'width', false, -5)}"></div>    
+    <div class="circle-item circle-view-top row" 
+      draggable="true"   
+      (dragstart)="compEvent($event, 's')"
+      (drag)="compEvent($event, 't')"
+      (dragend)="compEvent($event, 't', true)"
+      [ngStyle]="{
+        'top':expandAuxiUnit('top', false, null, false, -5),
+        'left':expandAuxiUnit('left', false, 'width', true, -5)}"></div>        
+    <div class="circle-item circle-view-bottom row" 
+      draggable="true" 
+      (dragstart)="compEvent($event, 's')"
+      (drag)="compEvent($event, 'b')"
+      (dragend)="compEvent($event, 'b', true)"
+      [ngStyle]="{
+        'top':expandAuxiUnit('top', false, 'height', false, -5),
+        'left':expandAuxiUnit('left', false, 'width', true, -5)}"></div>            
+  </section>
 </div>

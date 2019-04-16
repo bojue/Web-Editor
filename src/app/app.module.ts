@@ -14,6 +14,7 @@ import { AppServiceService } from "./providers/app-service.service";
 import { BasicInfoConfigService } from "./providers/basic-info-config.service";
 import { CompEmitService } from "./providers/comp-emit.service";
 import { TabsTempComponent } from "./component/dev/comps/template/tabs-temp/tabs-temp.component";
+import { TreeModule } from 'angular-tree-component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TabsTempComponent } from "./component/dev/comps/template/tabs-temp/tabs
     CompDevModule,
     CompViewModule,
     CompBasicModule,
+    TreeModule.forRoot()
   ],
   providers: [
     AppServiceService,

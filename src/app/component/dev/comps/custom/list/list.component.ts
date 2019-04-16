@@ -1,5 +1,5 @@
 import * as _ from 'lodash'; 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomBasicComponent } from 'src/app/component/basic/custom-basic/custom-basic.component';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { CompEmitService } from 'src/app/providers/comp-emit.service';
@@ -9,7 +9,7 @@ import { CompEmitService } from 'src/app/providers/comp-emit.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent extends CustomBasicComponent  implements OnInit, SettingObjComponent{
+export class ListComponent extends CustomBasicComponent  implements OnInit, OnDestroy, SettingObjComponent{
   lists :any[];
   eventEmitter:any;
   data: any;
