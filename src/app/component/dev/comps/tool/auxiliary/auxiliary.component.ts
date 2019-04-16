@@ -59,11 +59,25 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   //辅助拉伸定位
-  expandAuxiUnit(basicParam:string, basicHalfBool?:boolean, secondParam?:string, secondHalfBool?:boolean, otherNumber?: number) {
+  expandAuxiUnit(basicParam:string, direction: string, basicHalfBool?:boolean, secondParam?:string, secondHalfBool?:boolean, otherNumber?: number) {
     let basicNum = (basicHalfBool && this.style[basicParam]) ? this.style[basicParam] / 2 : this.style[basicParam] || 0;
     let secondNum = (secondHalfBool && this.style[secondParam]) ? this.style[secondParam] / 2 : this.style[secondParam] || 0;
     let otherNum = otherNumber || 0;
     let paramVal = basicNum + secondNum + otherNum;
+    paramVal = this.hasStretchBorderWidth(paramVal, direction)
     return paramVal + 'px'; 
+  }
+
+  //拉伸辅助计算
+  hasStretchBorderWidth(paramVal, direction:string) {
+    if(this.style['borderWidth'] && this.style['borderStyle']) {
+      if(['b_l'].indexOf(direction) > -1) {
+        paramVal += this.style['borderWidth'];
+      }else if(['r_l', 'b_t'].indexOf(direction) > -1){
+        paramVal += this.style['borderWidth'] * 2;
+      }
+    }
+
+    return paramVal;
   }
 }

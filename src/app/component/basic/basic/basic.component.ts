@@ -28,10 +28,19 @@ export class BasicComponent implements OnInit {
     this.data =  this.settingObj['data']
   }
   
-  // 拖拽辅助线边框位置 -1px
+  // 拖拽辅助线边框位置 -1px，因为辅助线宽度1px
   expandUnit(param, other ?: string) {
-    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] - 1)) || 1;    
+    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] - 1)) || 1;  //无边框计算方式
+    paramVal = this.hasBorderWidth(paramVal, param, other);
     return paramVal + 'px'; 
+  }
+
+  //有边框辅助位置计算
+  hasBorderWidth(paramVal, param, other ?: string) {
+    if((param === 'top' && other === 'height' || param === 'left' && other === 'width' && this.style['borderWidth']) && this.style['borderWidth'] && this.style['borderStyle']) {
+      paramVal += this.style['borderWidth'] * 2;
+    }
+    return paramVal;
   }
   
   compEvent(event) {

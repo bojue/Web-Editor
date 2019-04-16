@@ -16,31 +16,31 @@
       (drag)="compEvent($event, 'l') && $event.stopPropagation"
       (dragend)="compEvent($event, 'l', true) && $event.stopPropagation"
       [ngStyle]="{
-        'top':expandAuxiUnit('top', false, 'height', true, -5),
-        'left':expandAuxiUnit('left', false, null, false, -5)}"></div>
+        'top':expandAuxiUnit('top', 'l_t', false, 'height', true, -5),
+        'left':expandAuxiUnit('left', 'l_l', false, null, false, -5)}"></div>
     <div class="circle-item circle-view-right col" 
       draggable="true" 
       (dragstart)="compEvent($event, 's')"
       (drag)="compEvent($event, 'r')"
       (dragend)="compEvent($event, 'r', true)"
       [ngStyle]="{
-        'top':expandAuxiUnit('top', false, 'height', true, -5),
-        'left':expandAuxiUnit('left', false, 'width', false, -5)}"></div>    
+        'top':expandAuxiUnit('top', 'r_t', false, 'height', true, -5),
+        'left':expandAuxiUnit('left', 'r_l', false, 'width', false, -5)}"></div>    
     <div class="circle-item circle-view-top row" 
       draggable="true"   
       (dragstart)="compEvent($event, 's')"
       (drag)="compEvent($event, 't')"
       (dragend)="compEvent($event, 't', true)"
       [ngStyle]="{
-        'top':expandAuxiUnit('top', false, null, false, -5),
-        'left':expandAuxiUnit('left', false, 'width', true, -5)}"></div>        
+        'top':expandAuxiUnit('top', 't_t', false, null, false, -5),
+        'left':expandAuxiUnit('left', 't_l', false, 'width', true, -5)}"></div>        
     <div class="circle-item circle-view-bottom row" 
       draggable="true" 
       (dragstart)="compEvent($event, 's')"
       (drag)="compEvent($event, 'b')"
       (dragend)="compEvent($event, 'b', true)"
       [ngStyle]="{
-        'top':expandAuxiUnit('top', false, 'height', false, -5),
-        'left':expandAuxiUnit('left', false, 'width', true, -5)}"></div>            
+        'top':expandAuxiUnit('top', 'b_t', false, 'height', false, -5),
+        'left':expandAuxiUnit('left', 'b_l', false, 'width', true, -5)}"></div>            
   </section>
 </div>
