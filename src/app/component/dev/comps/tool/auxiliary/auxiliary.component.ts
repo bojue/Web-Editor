@@ -1,5 +1,5 @@
 import { Params } from '@angular/router';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BasicComponent } from "src/app/component/basic/basic/basic.component";
 import { SettingObjComponent } from "src/app/module/setting-object.component";
 import * as _ from 'lodash';    
@@ -9,14 +9,21 @@ import * as _ from 'lodash';
   templateUrl: './auxiliary.component.html',
   styleUrls: ['./auxiliary.component.scss']
 })
-export class AuxiliaryComponent extends BasicComponent implements OnInit, SettingObjComponent{
+export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDestroy, SettingObjComponent{
   startEvent: any;
+  auxiBool = false;
   constructor() {
     super();
   }
 
   ngOnInit() {
+    this.auxiBool = true;
     this.initData();
+  }
+
+  ngOnDestroy() {
+    console.log(this.auxiBool)
+    this.auxiBool = false;
   }
 
   compEvent(event, state?:string, eventEndBool?:boolean) {
