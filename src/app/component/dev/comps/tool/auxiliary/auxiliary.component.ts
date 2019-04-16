@@ -1,4 +1,3 @@
-import { Params } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BasicComponent } from "src/app/component/basic/basic/basic.component";
 import { SettingObjComponent } from "src/app/module/setting-object.component";
@@ -25,6 +24,13 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   compEvent(event, state?:string, eventEndBool?:boolean) {
+    this.setSettingParam(event, state, eventEndBool);
+    if(eventEndBool) {
+      this.startEvent = null;
+    }
+  }
+
+  setSettingParam(event, state?:string, eventEndBool?:boolean) {
     switch (state) {
       case 's':
         this.startEvent = _.cloneDeep(this.style);
@@ -50,11 +56,8 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
       default:
         break;    
     }
-
-    if(eventEndBool) {
-      this.startEvent = null;
-    }
   }
+
   //辅助拉伸定位
   expandAuxiUnit(basicParam:string, basicHalfBool?:boolean, secondParam?:string, secondHalfBool?:boolean, otherNumber?: number) {
     let basicNum = (basicHalfBool && this.style[basicParam]) ? this.style[basicParam] / 2 : this.style[basicParam] || 0;

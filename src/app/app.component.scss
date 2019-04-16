@@ -67,6 +67,7 @@ $border-color4: $color-grey-1;
             }
             .comp-active {
                 box-shadow: $border-color3 0px 0px 3px;
+                z-index: 999;
             }
 
             .comp-resize {

@@ -28,8 +28,9 @@ export class BasicComponent implements OnInit {
     this.data =  this.settingObj['data']
   }
   
+  // 拖拽辅助线边框位置 -1px
   expandUnit(param, other ?: string) {
-    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] + 1)) || 1;    
+    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] - 1)) || 1;    
     return paramVal + 'px'; 
   }
   
