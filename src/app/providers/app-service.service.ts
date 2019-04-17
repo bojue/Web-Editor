@@ -44,6 +44,10 @@ export class AppServiceService{
         type: 'img',
         iconUrl: './../assets/icons/image.svg'
       },{
+        name:'音频',
+        type: 'audio',
+        iconUrl: './../assets/icons/audio.svg'
+      },{
         name:'视频',
         type: 'video',
         iconUrl: './../assets/icons/video.svg'

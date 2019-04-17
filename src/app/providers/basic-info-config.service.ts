@@ -119,7 +119,29 @@ export class BasicInfoConfigService {
                         data: null,
                     }
                 }
-            },    
+            },  
+            audio:{
+                compIndex: 1,
+                name:'音频',
+                type:'audio',
+                data: {
+                    audio_val:''
+                },
+                style: {
+                  height:20,
+                  width: 100,
+                  position: 'absolute',
+                  top:100,
+                  left:100,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                },
+                event:{
+            
+                }
+            },  
             video:{
                 compIndex: 3,
                 name:'视频',
