@@ -125,11 +125,11 @@ export class BasicInfoConfigService {
                 name:'音频',
                 type:'audio',
                 data: {
-                    audio_val:''
+                    audio_val:'https://www.w3schools.com/html/horse.mp3'
                 },
                 style: {
-                  height:40,
-                  width: 300,
+                  height:50,
+                  width: 320,
                   position: 'absolute',
                   top:100,
                   left:100,
@@ -147,7 +147,7 @@ export class BasicInfoConfigService {
                 name:'视频',
                 type:'video',
                 data: {
-                    video_val:''
+                    video_val:'http://www.w3school.com.cn/i/horse.mp3'
                 },
                 style: {
                   height:220,

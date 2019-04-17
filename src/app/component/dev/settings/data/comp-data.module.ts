@@ -9,6 +9,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { CompSettingBasicModule } from "src/app/component/basic/comp-setting-basic.module";
+import { AudioValComponent } from './audio-val/audio-val.component';
+import { VideoValComponent } from './video-val/video-val.component';
 
 const dataComp = [
     UploaderComponent,
@@ -17,7 +19,9 @@ const dataComp = [
     TextareaValComponent,
     InputValComponent,
     ImgValComponent,
-    ListValComponent
+    ListValComponent,
+    AudioValComponent,
+    VideoValComponent
 ]
 
 @NgModule({
