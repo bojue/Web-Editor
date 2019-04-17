@@ -1,5 +1,5 @@
-<div    
-  class="comp-item active-border" 
+
+  <audio controls="controls"  class="comp-item active-border" 
   draggable="true" 
   (dragstart)="compEvent($event)"
   (dragover)="compEvent($event)"
@@ -18,8 +18,6 @@
       'border-style':style['borderStyle'],
       'border-color':style['borderColor']
   }">
-    <audio controls="controls">
-      <source src="http://www.w3school.com.cn/i/horse.mp3" type="audio/mp3" />
-      Your browser does not support this audio format.
-    </audio>
-</div>
+    <source src="http://www.w3school.com.cn/i/horse.mp3" type="audio/mp3" />
+    Your browser does not support this audio format.
+  </audio>

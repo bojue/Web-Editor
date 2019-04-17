@@ -128,8 +128,8 @@ export class BasicInfoConfigService {
                     audio_val:''
                 },
                 style: {
-                  height:20,
-                  width: 100,
+                  height:40,
+                  width: 300,
                   position: 'absolute',
                   top:100,
                   left:100,
