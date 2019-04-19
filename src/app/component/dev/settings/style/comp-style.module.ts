@@ -8,6 +8,7 @@ import { BorderComponent } from "./border/border.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { OpeacityComponent } from "./opeacity/opeacity.component";
 
 const settingComp = [
     ColorComponent,
@@ -16,7 +17,8 @@ const settingComp = [
     RoundComponent,
     PositionComponent,
     TextsComponent,
-    BorderComponent
+    BorderComponent,
+    OpeacityComponent
 ]
 
 @NgModule({
