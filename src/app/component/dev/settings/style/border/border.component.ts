@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { StyleBasicComponent } from "src/app/component/basic/style-basic/style-basic.component";
-import { ColorComponent } from '../../../style/color/color.component';
 
 @Component({
   selector: 'app-border-component',
@@ -50,7 +49,7 @@ export class BorderComponent extends StyleBasicComponent implements OnInit {
   selBorderCol(col, colIndex) {
     this.style['borderColor'] = col;
     this.style['borderWidth'] = colIndex === 0 ? 0 : 1;
-    this.style['borderStyle'] = colIndex === 0 ? 'solid' : null;
+    this.style['borderStyle'] = colIndex === 0 ? null : 'solid';
 
   }
 
