@@ -2,6 +2,10 @@
     <div class="tit">背景</div>
   <div class="set-val">
       <label class="lab">颜色 </label>
-      <input  class="val" type="color"  [(ngModel)]="style['background']" placeholder="颜色" >
-  </div>
+      <ul class="bgs">
+        <li class="item" *ngFor="let bg of backgroundArr;let i = index;" [ngClass]="{'bd-style':i === 0}">
+          <span class="bg-col" (click)="selColor(bg)"  [ngStyle]="{'background':bg}"></span>
+        </li>
+      </ul>
+    </div>
 </div>
