@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit, OnDestroy, ViewChild, ElementRef, ComponentFactoryResolver, Inject, forwardRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, ComponentFactoryResolver, Inject, forwardRef, AfterContentInit } from "@angular/core";
 import { TempBasicComponent } from "src/app/component/basic/temp-basic/temp-basic.component";
 import { ViewContainRefHostDirective } from "src/app/directive/view-contain-ref-host.directive";
 import { ActivatedRoute, Router } from "@angular/router";
