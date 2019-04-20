@@ -9,6 +9,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { ZIndexComponent } from './z-index/z-index.component';
+import { OpeacityComponent } from "./opeacity/opeacity.component";
 
 const settingComp = [
     ColorComponent,
@@ -19,6 +20,7 @@ const settingComp = [
     TextsComponent,
     BorderComponent,
     ZIndexComponent,
+    OpeacityComponent
 ]
 
 @NgModule({

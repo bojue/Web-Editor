@@ -13,7 +13,7 @@ export class SizeComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("size ",this.style)
+    
   }
 
 }
