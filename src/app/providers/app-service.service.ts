@@ -85,25 +85,7 @@ export class AppServiceService{
 
 
   //后台测试数据
-  testCreateComp = [{
-    compIndex: 3,
-    name:'Tabs',
-    type:'tabs',
-    data: {
-        'name':'tabs'
-    },
-    style: {
-      height:700,
-      width: 500,
-      position: 'absolute',
-      top:10,
-      left:400,
-      border: '',
-      borderColor: '',
-      borderWidth: 0,
-      borderStyle: ''
-    }
-  }];
+  testCreateComp = [];
 
   auxiComp = {
     compIndex: 1000,

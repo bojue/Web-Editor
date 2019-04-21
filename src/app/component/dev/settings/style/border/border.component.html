@@ -1,5 +1,5 @@
 <div class="item-set item-set-grid grid-1">
-    <div class="tit">边框</div>
+    <!-- <div class="tit">边框</div> -->
   <!-- <div class="set-val">
       <label class="lab">宽度</label>
       <input  class="val" type="number"  [(ngModel)]="style['borderWidth']" placeholder="宽度" >
@@ -16,7 +16,7 @@
   </div> -->
   <!-- 简化用户操作 -->
   <div class="set-val">
-    <label class="lab">颜色</label>
+    <label class="lab">边框</label>
     <ul class="borders">
         <li class="item" *ngFor="let bg of borderCol;let i = index;" [ngClass]="{'bd-style':i === 0}">
           <span class="bg-col" (click)="selBorderCol(bg, i)"  [ngStyle]="{'background':bg}"></span>

@@ -1,7 +1,7 @@
 <div class="item-set item-set-grid grid-1">
-    <div class="tit">背景</div>
+    <!-- <div class="tit">背景</div> -->
   <div class="set-val">
-      <label class="lab">颜色 </label>
+      <label class="lab">背景 </label>
       <ul class="bgs">
         <li class="item" *ngFor="let bg of backgroundArr;let i = index;" [ngClass]="{'bd-style':i === 0}">
           <span class="bg-col" (click)="selColor(bg)"  [ngStyle]="{'background':bg}"></span>

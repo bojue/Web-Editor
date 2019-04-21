@@ -65,7 +65,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
-      this.delCompEvet($event)
+      if($event && $event.keyCode === 8) {
+        this.delCompEvet($event)
+      }else if($event.ctrlKey) {
+        console.log($event)
+      }
+
     });
   }
 
@@ -103,7 +108,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //拖拽icon图标添加组件
   dragCompEnd(event) {
     let compType = event && event['compType'] || 'text'; //容错处理，默认创建text组件
-    this.addComponent(compType, event)
+    this.addComponent(compType, event);
   }
 
   //增加组件
@@ -265,9 +270,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //键盘删除组件
   delCompEvet(event):void {
-    if(event && event.keyCode === 8) {
-      this.deleteComponent(event);
-    }
+    this.deleteComponent(event);
   }
 
 }
