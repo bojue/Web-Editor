@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/auxiliary.component';
 import { CompEmitService } from 'src/app/providers/comp-emit.service';
+import { EventManager } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-development',
@@ -47,6 +48,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private dynamicService: DynamicComponentServiceService,
     private router: Router ,
     private emitSerive: CompEmitService, 
+    private eventManager: EventManager
   ) {
       this.activeSettingState('default');
   }
@@ -61,7 +63,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         this.initViewContRef()
         this.getCompList(currentList);
       }
-    })
+    });
+    this.eventManager.addGlobalEventListener('window','keydown',($event) => {
+      this.delCompEvet($event)
+    });
   }
 
   ngOnDestroy() {
@@ -111,7 +116,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       addCompJson['style']['top'] = event['y'] || addCompJson['style']['top'];
     }
 
-    console.log(event)
     this.testCreateComp.push(addCompJson);
     this.initViewContRef()
     this.getCompList(this.testCreateComp);
@@ -257,6 +261,13 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let auxiIndex =  _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'auxi'; });
     let compList = auxiIndex > -1 ?  this.testCreateComp.slice(0, auxiIndex) : this.testCreateComp;
     this.router.navigate(['/preview', { queryParams: JSON.stringify(compList)}]);
+  }
+
+  //键盘删除组件
+  delCompEvet(event):void {
+    if(event && event.keyCode === 8) {
+      this.deleteComponent(event);
+    }
   }
 
 }
