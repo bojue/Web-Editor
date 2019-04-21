@@ -82,7 +82,7 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   getBorderCol() {
-    return this.style['borderColor'] || 'red';
+    return (this.style['borderColor'] !== '#ffffff') ?  this.style['borderColor']  : 'red';
   }
 
 }
