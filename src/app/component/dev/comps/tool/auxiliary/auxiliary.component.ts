@@ -45,8 +45,8 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
         this.style['width'] = _width > 20 ? _width : 20;
         break;
       case 't':
-        this.style['top'] = event['clientY'] ;
         let _h =  this.startEvent['height'] + (this.startEvent['top'] - event['clientY']);
+        this.style['top'] = event['clientY'] ;
         this.style['height'] = _h > 20 ? _h : 20;
         break;  
       case 'b':
@@ -80,4 +80,9 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
 
     return paramVal;
   }
+
+  getBorderCol() {
+    return this.style['borderColor'] || 'red';
+  }
+
 }

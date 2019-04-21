@@ -16,6 +16,7 @@
       (drag)="compEvent($event, 'l') && $event.stopPropagation"
       (dragend)="compEvent($event, 'l', true) && $event.stopPropagation"
       [ngStyle]="{
+        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'l_t', false, 'height', true, -3),
         'left':expandAuxiUnit('left', 'l_l', false, null, false, -3)}"></div>
     <div class="circle-item circle-view-right col" 
@@ -24,6 +25,7 @@
       (drag)="compEvent($event, 'r')"
       (dragend)="compEvent($event, 'r', true)"
       [ngStyle]="{
+        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'r_t', false, 'height', true, -3),
         'left':expandAuxiUnit('left', 'r_l', false, 'width', false, -3)}"></div>    
     <div class="circle-item circle-view-top row" 
@@ -32,6 +34,7 @@
       (drag)="compEvent($event, 't')"
       (dragend)="compEvent($event, 't', true)"
       [ngStyle]="{
+        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 't_t', false, null, false, -3),
         'left':expandAuxiUnit('left', 't_l', false, 'width', true, -3)}"></div>        
     <div class="circle-item circle-view-bottom row" 
@@ -40,6 +43,7 @@
       (drag)="compEvent($event, 'b')"
       (dragend)="compEvent($event, 'b', true)"
       [ngStyle]="{
+        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'b_t', false, 'height', false, -3),
         'left':expandAuxiUnit('left', 'b_l', false, 'width', true, -3)}"></div>            
   </section>
