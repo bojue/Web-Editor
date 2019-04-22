@@ -32,10 +32,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   components: any[];
   cmpRef: any[];
   currentViewContRef: any; //当前组件实例
-  currentCompIndex: number; //当前组件的下标
   activeCurrentComp: [SettingObject, any ];//当前组件的数据
   activeCompSettingObject: SettingObject; //当前组件的设置对象
-  
+  copyComp: any; //拷贝组件
+  copyNum:number; //单个组件拷贝次数
   dragCompStartX:any; //组件拖拽记录开始坐标X
   dragCompStartY:any; //组件拖拽记录开始坐标Y
 
@@ -65,10 +65,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
-      if($event && $event.keyCode === 8) {
-        this.delCompEvet($event)
-      }else if($event.ctrlKey) {
-        console.log($event)
+      if($event && $event.code === 'Delete') {
+        this.delCompEvet($event);
+      }else if($event.ctrlKey && this.currentIndex >= 0) {
+        if($event.code === 'KeyC' || $event.code === 'KeyV'){
+          this.copyCompEvet($event);
+        }
       }
 
     });
@@ -112,14 +114,18 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   //增加组件
-  addComponent(compType, event ?:any) {
+  addComponent(compType ?:any, event ?:any, addComp?: any) {
     let compDefinInfo = this.dynamicService.createComponent(compType, this.infoService.getCompDefaultConfig(compType));
-    let addCompJson = compDefinInfo && compDefinInfo['data'];
-    this.getAuxiliaryComponent(null , 'addComponent');
-    if(addCompJson && addCompJson['style']) {
-      addCompJson['style']['left'] = event['x']  ||  addCompJson['style']['left'];
-      addCompJson['style']['top'] = event['y'] || addCompJson['style']['top'];
-    }
+    let addCompJson = addComp || compDefinInfo && compDefinInfo['data'];
+
+    if(compType && event){
+      this.initCopyState();
+      this.getAuxiliaryComponent(null , 'addComponent');
+      if(addCompJson && addCompJson['style']) {
+        addCompJson['style']['left'] = event['x']  ||  addCompJson['style']['left'];
+        addCompJson['style']['top'] = event['y'] || addCompJson['style']['top'];
+      }
+    }  
 
     this.testCreateComp.push(addCompJson);
     this.initViewContRef()
@@ -211,7 +217,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           }
         }
         this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
-        this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e)
+        this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e);
+        this.initCopyState();
       }
     })
   }
@@ -268,9 +275,31 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.router.navigate(['/preview', { queryParams: JSON.stringify(compList)}]);
   }
 
-  //键盘删除组件
+  //键盘事件-删除
   delCompEvet(event):void {
     this.deleteComponent(event);
+  }
+
+  //键盘事件-拷贝
+  copyCompEvet(event):void {
+    if(event['key'] === 'c') {
+      this.initCopyState();
+      let currComp = this.testCreateComp[this.currentIndex];
+      this.copyComp = _.cloneDeep(currComp);
+      this.getAuxiliaryComponent(null , 'addComponent');
+    } else if(event['key'] === 'v' && this.copyComp) {
+      ++this.copyNum;
+      let _copyComp = _.cloneDeep( this.copyComp );
+      let _top = _copyComp && _copyComp['style'] &&  _copyComp['style']['top'];
+      let _height = _copyComp && _copyComp['style'] &&  _copyComp['style']['height'];
+      _copyComp['style']['top'] = _top + _height * this.copyNum;
+      this.addComponent(null, null, _copyComp)
+    }
+  }
+
+  initCopyState() {
+    this.copyComp = null;
+    this.copyNum = null;
   }
 
 }
