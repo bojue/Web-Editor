@@ -47,7 +47,7 @@ export class ScaleComponent implements OnInit {
           _w.lineTo(12, i);
         } else {
           _w.font = '500 20px Arial';
-          _w.fillText(`${i}`, 10 + 3 , 24);
+          _w.fillText(`${i / 2}`, 12, i + 10);
           _w.lineTo(12, i);
         }
       }
