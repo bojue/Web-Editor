@@ -1,5 +1,8 @@
 
 :host /deep/ {
+    .canvas-comp {
+        position: absolute;
+    }
     .icon-disc {
         width: 30px;
         height: 30px;
@@ -15,7 +18,7 @@
         cursor: pointer;
         right: 60px;
         position: absolute;
-        top: -35px;
+        top: -62px;
         border-radius: 50%;
         img {
             width: 28px;
@@ -26,7 +29,14 @@
             }
         }
     }
-
+    .setting-but {
+        position: absolute;
+        top: 21px;
+        right: -5px;
+        .set-but {
+            top: -62px;
+        }
+    }
     .set-but {
         img {
             width: 24px;

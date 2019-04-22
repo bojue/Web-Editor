@@ -1,0 +1,24 @@
+
+:host /deep/ {
+    .canvas {
+        position: absolute;
+        left: 0;
+        top:0;
+        #w-canvas {
+            height: 26px;
+            width:1700px;
+            left: 21px;
+            top:0;
+            position: absolute;
+            border-top:1px solid #ccc;
+        }
+        #h-canvas {
+            position: absolute;
+            top:21px;
+            left: 4px;
+            height: 830px;
+            width: 16px;
+            border-left:1px solid #ccc;
+        }
+    }
+}

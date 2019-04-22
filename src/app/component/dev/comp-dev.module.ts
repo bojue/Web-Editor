@@ -8,10 +8,12 @@ import { CompCustomModule } from "./comps/custom/comp-custom.module";
 import { CompEventModule } from "./settings/event/comp-event.module";
 import { CompTemplateModule } from "./comps/template/comp-template.module";
 import { CompSettingBasicModule } from "../basic/comp-setting-basic.module";
+import { ScaleComponent } from './comps/tool/scale/scale.component';
 
 @NgModule({
   declarations: [
     AuxiliaryComponent,
+    ScaleComponent,
   ],
   imports: [
     FormsModule,
@@ -35,13 +37,15 @@ import { CompSettingBasicModule } from "../basic/comp-setting-basic.module";
     CompEventModule,
     CompTemplateModule,
     CompSettingBasicModule,
-    AuxiliaryComponent
+    AuxiliaryComponent,
+    ScaleComponent
   ],
   bootstrap: [
       
   ],
   entryComponents:[
     AuxiliaryComponent,    
+    ScaleComponent,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

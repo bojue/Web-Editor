@@ -1,7 +1,12 @@
 <div class="body" [ngClass]="{
   'whole-view':!setingBool
 }">
+  <div class="canvas-comp">
+    <app-scale></app-scale>
+  </div>
+
   <!-- 视图组件 -->
+
   <section id='componentsBody' class="border-r border-b m-l-5 h90 content">
     <ng-template view-contain-ref #contentComp ></ng-template>
   </section>
