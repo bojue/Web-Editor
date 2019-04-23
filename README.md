@@ -28,6 +28,9 @@
 
 > ng build
 
+## 展示
+<img src="/src/assets/imgs/demo.png" width="300px" height="180px">
+
 ## 更新历史
 
 1. 组件动态创建，更新，删除
