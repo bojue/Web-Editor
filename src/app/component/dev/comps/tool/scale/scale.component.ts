@@ -17,7 +17,7 @@ export class ScaleComponent implements OnInit {
 
   getCanvas() {
     this.getLine(4000, 'w');
-    this.getLine(1520, 'h');
+    this.getLine(1600, 'h');
   }
 
   getLine(maxLine:number = 1500, status: string = 'w') {
@@ -27,27 +27,26 @@ export class ScaleComponent implements OnInit {
     _w.beginPath();
     _w.strokeStyle  = '#000';
     _w.lineWidth = 1;
-    for(let i = 0; i < maxLine; i = i + 20) {
+    for(let i = -40; i < maxLine; i = i + 20) {
       if(status === 'w') {
         _w.moveTo(i, 0);
         if(i % 100 !== 0 ) {
           _w.lineTo(i, 8);
         } else if(i % 200 ===0 ){
-          _w.lineTo(i, 12);
+          _w.lineTo(i, 15);
         } else {
           _w.font = '500 20px Arial';
-          _w.fillText(`${i}`, i + 3, 24);
-          _w.lineTo(i, 12);
+          _w.fillText(`${(i-100)/2}`, i + 3, 24);
+          _w.lineTo(i, 15);
         }
       } else {
+        let _hi = i - 40;
         _w.moveTo(0, i);
-        if(i % 100 !== 0 ) {
+        if(_hi % 100 !== 0 ) {
           _w.lineTo(8, i);
-        } else if(i % 200 ===0 ){
-          _w.lineTo(12, i);
         } else {
           _w.font = '500 20px Arial';
-          _w.fillText(`${i / 2}`, 12, i + 10);
+          _w.fillText(`${_hi / 2}`, 10, i + 10);
           _w.lineTo(12, i);
         }
       }
