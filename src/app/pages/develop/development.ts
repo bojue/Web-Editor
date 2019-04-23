@@ -71,6 +71,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
           this.copyCompEvet($event);
         }
+      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 ){
+        this.arrowEvent($event.code);
       }
 
     });
@@ -296,6 +298,25 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       _copyComp['style']['top'] = _top + _height * this.copyNum;
       this.addComponent(null, null, _copyComp)
     }
+  }
+
+  arrowEvent(direction) {
+    let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
+    switch(direction) {
+      case 'ArrowLeft':
+        styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
+        break;
+      case 'ArrowRight':
+        styleObj['left'] = styleObj['left'] + 1;
+        break;
+      case 'ArrowDown':
+        styleObj['top'] = styleObj['top'] + 1;  
+        break;  
+      case 'ArrowUp':
+        styleObj['top'] = styleObj['top'] > 0 ? styleObj['top'] - 1 : 0;
+        break;    
+    }
+
   }
 
   initCopyState() {
