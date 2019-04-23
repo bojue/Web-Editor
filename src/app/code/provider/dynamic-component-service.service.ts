@@ -15,6 +15,7 @@ import 'core-js/es7/reflect';
 import { VideoComponent } from "src/app/component/dev/comps/comp/video/video.component";
 import { AudioComponent } from '../../component/dev/comps/comp/audio/audio.component';
 import { EquipmentDataInfoComponent } from "src/app/component/dev/comps/custom/equipment-data-info/equipment-data-info.component";
+import { BulletedComponent } from "src/app/component/dev/comps/custom/bulleted/bulleted.component";
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -90,6 +91,11 @@ export class DynamicComponentServiceService {
       case 'equipment':
         tempInfo = {
           comp: EquipmentDataInfoComponent
+        }  
+        break;
+      case 'bulleted':
+        tempInfo = {
+          comp: BulletedComponent
         }  
         break;
       default:
