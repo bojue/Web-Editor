@@ -20,6 +20,7 @@ export class ScaleComponent implements OnInit {
     this.getLine(1600, 'h');
   }
 
+  //刻度尺和刻度标注
   getLine(maxLine:number = 1500, status: string = 'w') {
     let _qEle = status === 'w' ? '#w-canvas' : '#h-canvas';
     let w_canvas = this.element.nativeElement.querySelector(_qEle);
@@ -50,9 +51,7 @@ export class ScaleComponent implements OnInit {
           _w.lineTo(12, i);
         }
       }
-
     }
-  
     _w.stroke();
     _w.closePath();
   }
