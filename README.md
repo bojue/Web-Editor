@@ -29,7 +29,7 @@
 > ng build
 
 ## 展示
-<img src="/src/assets/imgs/demo.png" width="300px" height="180px">
+<img src="/src/assets/imgs/demo.png" width="800px" height="480px">
 
 ## 更新历史
 
