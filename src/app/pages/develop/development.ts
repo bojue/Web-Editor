@@ -167,6 +167,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   deleteComponent(event) {
     this.getAuxiliaryComponent(null, 'deleteComponent');
     this.testCreateComp.splice(this.currentIndex, 1);
+    this.currentIndex = -1;
     this.initViewContRef();
     this.getCompList(this.testCreateComp)
   }
