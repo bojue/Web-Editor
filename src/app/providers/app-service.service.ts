@@ -69,6 +69,10 @@ export class AppServiceService{
         name:'列表',
         type: 'list',
         iconUrl: './../assets/icons/list.svg'
+      },{
+        name:'设备数据',
+        type:'equipment',
+        iconUrl:'./../assets/icons/equipment-info.svg'
       }]
   },
   {

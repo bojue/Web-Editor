@@ -186,7 +186,6 @@ export class BasicInfoConfigService {
 
                 }
             },
-          
             tree:{
                 compIndex: 3,
                 name:'结构树',
@@ -204,6 +203,25 @@ export class BasicInfoConfigService {
                   borderColor: '',
                   borderWidth: 0,
                   borderStyle: ''
+                }
+            },
+            equipment: {
+                compIndex: 3,
+                name:'设备数据管理',
+                type:'equipment',
+                data: {
+                    api_val:'http://10.169.43.4:8100/api/dutys',
+                },
+                style: {
+                  height:200,
+                  width: 300,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '#666',
+                  borderWidth: 1,
+                  borderStyle: 'solid'
                 }
             },
             list: {

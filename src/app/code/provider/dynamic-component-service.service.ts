@@ -14,6 +14,7 @@ import { SettingObjComponent } from "src/app/module/setting-object.component";
 import 'core-js/es7/reflect';
 import { VideoComponent } from "src/app/component/dev/comps/comp/video/video.component";
 import { AudioComponent } from '../../component/dev/comps/comp/audio/audio.component';
+import { EquipmentDataInfoComponent } from "src/app/component/dev/comps/custom/equipment-data-info/equipment-data-info.component";
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -84,6 +85,11 @@ export class DynamicComponentServiceService {
       case 'audio':
         tempInfo = {
           comp: AudioComponent
+        }  
+        break;
+      case 'equipment':
+        tempInfo = {
+          comp: EquipmentDataInfoComponent
         }  
         break;
       default:

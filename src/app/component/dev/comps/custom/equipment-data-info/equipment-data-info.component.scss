@@ -1,0 +1,42 @@
+
+:host /deep/ { 
+    .equipment-data {
+        .data-tit {
+            position: absolute;
+            top: -33px;
+            left: 10px;
+            font-size: 16px;
+            background: #FFF;
+            padding: 3px 6px;
+            font-weight: 600;
+            color:#666;
+        }
+        .content {
+            margin: 28px 20px 10px;
+            font-size: 14px;
+            .item {
+                display: grid;
+                grid-template-columns: 60% 40%;
+                height: 30px;
+                line-height: 30px;
+                margin-bottom: 10px;
+                background: deepskyblue;
+                border-radius: 10px;
+                .name {
+                    padding-left: 20px;
+                }
+                .value {
+                    background: red;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                   
+                    .val {
+                        padding-left: 20px;
+                        padding-right: 10px;
+                    }
+                }
+         
+            }
+        }
+    }
+}

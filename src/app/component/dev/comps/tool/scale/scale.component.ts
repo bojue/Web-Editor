@@ -36,7 +36,7 @@ export class ScaleComponent implements OnInit {
         } else if(i % 200 ===0 ){
           _w.lineTo(i, 15);
         } else {
-          _w.font = '500 20px Arial';
+          _w.font = '500 20px Tahoma';
           _w.fillText(`${(i-100)/2}`, i + 3, 24);
           _w.lineTo(i, 15);
         }
@@ -46,7 +46,7 @@ export class ScaleComponent implements OnInit {
         if(_hi % 100 !== 0 ) {
           _w.lineTo(8, i);
         } else {
-          _w.font = '500 20px Arial';
+          _w.font = '500 20px Tahoma';
           _w.fillText(`${_hi / 2}`, 10, i + 10);
           _w.lineTo(12, i);
         }

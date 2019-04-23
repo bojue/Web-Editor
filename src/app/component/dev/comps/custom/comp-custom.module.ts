@@ -7,11 +7,13 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgxEchartsModule } from "ngx-echarts";
 import { CompSettingBasicModule } from "src/app/component/basic/comp-setting-basic.module";
 import { TreeModule } from "angular-tree-component";
+import { EquipmentDataInfoComponent } from './equipment-data-info/equipment-data-info.component';
 
 const customComp = [
     ChartComponent,
     TreeComponent,
-    ListComponent
+    ListComponent,
+    EquipmentDataInfoComponent
 ]
 
 @NgModule({
