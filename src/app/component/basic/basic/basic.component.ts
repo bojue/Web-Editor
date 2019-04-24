@@ -39,7 +39,7 @@ export class BasicComponent implements OnInit {
   hasBorderWidth(paramVal, param, other ?: string) {
     if((param === 'top' && other === 'height' || param === 'left' && other === 'width' && this.style['borderWidth']) && this.style['borderWidth'] && this.style['borderStyle']) {
       let _padd = 0;
-      console.log(this.style)
+      
       if(other === 'height' || other === 'width') {
 
         _padd = this.style['padding'] || 0;
