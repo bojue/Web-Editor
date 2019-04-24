@@ -96,7 +96,7 @@ export class AppServiceService{
   testCreateComp = [];
 
   auxiComp = {
-    compIndex: 1000,
+    compIndex: 999,
     name:'辅助线',
     type:'auxi',
     data: {
@@ -115,8 +115,32 @@ export class AppServiceService{
     }
   }
 
+  areaComp = {
+    compIndex: 999,
+    name:'区域选中',
+    type:'area',
+    data: {
+      title: '区域选中'
+    },
+    style: {
+      height:0,
+      width: 0,
+      position: 'absolute',
+      top:120,
+      left:600,
+      border: '1',
+      borderColor: 'red',
+      borderWidth: 1,
+      borderStyle: 'solid'
+    }
+  }
+
   getAuxiComp() {
     return this.auxiComp;
+  }
+
+  getAreaComp() {
+    return this.areaComp;
   }
 
 

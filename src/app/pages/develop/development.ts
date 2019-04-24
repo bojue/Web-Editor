@@ -11,6 +11,7 @@ import { SettingObjComponent } from 'src/app/module/setting-object.component';
 import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/auxiliary.component';
 import { CompEmitService } from 'src/app/providers/comp-emit.service';
 import { EventManager } from '@angular/platform-browser';
+import { AreaComponent } from '../../component/dev/comps/tool/area/area.component';
 
 @Component({
   selector: 'app-development',
@@ -28,6 +29,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   basicComponents: any[];
   testCreateComp: any[];
   auxiComp: any = {};
+  areaComp: any = {};
 
   components: any[];
   cmpRef: any[];
@@ -38,6 +40,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   copyNum:number; //单个组件拷贝次数
   dragCompStartX:any; //组件拖拽记录开始坐标X
   dragCompStartY:any; //组件拖拽记录开始坐标Y
+  mouseState = {
+    down: false,
+    move:false,
+    up: false
+  }; //鼠标事件记录，用于选中组件
 
   eventEmitter:any;
   constructor(
@@ -87,8 +94,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   ngAfterViewInit() {
-    this.elementRef.nativeElement.querySelector('#componentsBody')
-    .addEventListener('click', this.clickListernerHandle.bind(this))
+    let compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
+    compBodyDom.addEventListener('click', this.clickListernerHandle.bind(this));
+    compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
+    compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
+    compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
   }
 
   initData() {
@@ -99,6 +109,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.testCreateComp = this.service.getTestCreateComp(); //获取json数据(组件数据)
     this.getCompList(this.testCreateComp); //json数据生成组件集合
     this.auxiComp = this.service.getAuxiComp();
+    this.areaComp = this.service.getAreaComp();
   }
 
   /**
@@ -167,9 +178,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //删除组件 
   deleteComponent(event) {
+    let _delComp =  this.currentIndex;
     this.getAuxiliaryComponent(null, 'deleteComponent');
-    this.testCreateComp.splice(this.currentIndex, 1);
     this.currentIndex = -1;
+    this.testCreateComp.splice(_delComp, 1);
     this.initViewContRef();
     this.getCompList(this.testCreateComp)
   }
@@ -322,6 +334,77 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   initCopyState() {
     this.copyComp = null;
     this.copyNum = null;
+  }
+
+  selectArea(event) {
+    const PAGE_SIZE = 80;
+    let state = event && event['type'];
+    let _left = this.areaComp['style']['left'];
+    let _top = this.areaComp['style']['top'];
+    switch (state) {
+      case 'mousedown':
+      this.mouseState['down'] = true;
+      this.mouseState['up'] = false;
+      this.mouseState['move'] = false;
+      if(this.areaComp && this.areaComp['style']) {
+        this.areaComp['style']['left'] = event.x - PAGE_SIZE;
+        this.areaComp['style']['top'] = event.y - PAGE_SIZE;
+      }
+      break;
+      case 'mousemove':
+      if(this.mouseState['down'] && !this.mouseState['move']) {
+        this.mouseState['move'] = true;
+        this.mouseState['up'] = false;
+        this.areaCompInit('add');
+      }else if(this.mouseState['down']) {
+        let _w = event.x - _left - PAGE_SIZE;
+        let _h =  event.y - _top - PAGE_SIZE;
+
+        if(_w > 1) {
+          this.areaComp['style']['right'] = null;
+          this.areaComp['style']['width'] = _w;
+        } else {
+          this.areaComp['style']['right'] = this.areaComp['style']['right'] || _left;
+          this.areaComp['style']['left'] = event.x - PAGE_SIZE;
+          this.areaComp['style']['width'] = this.areaComp['style']['right'] - _left;
+        }
+
+        if(_h > 1) {
+          this.areaComp['style']['bottom'] = null;
+          this.areaComp['style']['height'] = _h;
+        } else {
+          this.areaComp['style']['bottom'] = this.areaComp['style']['bottom'] || _top;
+          this.areaComp['style']['top'] = event.y - PAGE_SIZE;
+          this.areaComp['style']['height'] = this.areaComp['style']['bottom'] - _top;
+        }
+
+      }
+      break;
+      case 'mouseup':
+      this.mouseState['down'] = false;
+      this.mouseState['up'] = true;
+      this.mouseState['move'] = false;
+      this.areaCompInit();
+      break;
+    }
+  }
+
+  areaCompInit(state ?:string ):void {
+    let areaIndex = _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'area'; });
+    if(areaIndex === -1 && state === 'add') {
+      this.areaComp = this.service.getAreaComp();
+      this.testCreateComp.push(this.areaComp)
+      let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AreaComponent);
+      let compRef = this.currentViewContRef.createComponent(compFactory);
+      let compInstance = compRef.instance;
+      (<SettingObjComponent> compInstance).settingObj = this.areaComp;
+    } else if(areaIndex > -1){
+      this.testCreateComp.splice(areaIndex, 1);
+      let len = this.currentViewContRef.length;
+      this.currentViewContRef.remove(len);
+      this.initViewContRef();
+      this.getCompList(this.testCreateComp)
+    }
   }
 
 }

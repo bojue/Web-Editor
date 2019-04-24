@@ -17,6 +17,7 @@ import { AudioComponent } from '../../component/dev/comps/comp/audio/audio.compo
 import { EquipmentDataInfoComponent } from "src/app/component/dev/comps/custom/equipment-data-info/equipment-data-info.component";
 import { BulletedComponent } from "src/app/component/dev/comps/custom/bulleted/bulleted.component";
 import { GaugeComponent } from "src/app/component/dev/comps/custom/gauge/gauge.component";
+import { AreaComponent } from "src/app/component/dev/comps/tool/area/area.component";
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -104,6 +105,10 @@ export class DynamicComponentServiceService {
           comp: GaugeComponent
         }  
         break;
+      case 'area': 
+        tempInfo = {
+          comp: AreaComponent
+        }  
       default:
         return;    
     }
