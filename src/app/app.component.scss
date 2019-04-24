@@ -17,7 +17,7 @@ $border-color4: $color-grey-1;
     .body {
         position: relative;
         display: grid;
-        grid-template-columns: auto 210px;
+        grid-template-columns: 45px auto 210px;
         ul,li {
             list-style: none;
             padding: 0;

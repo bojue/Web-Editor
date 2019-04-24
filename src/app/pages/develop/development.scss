@@ -1,5 +1,26 @@
 
 :host /deep/ {
+    .pages {
+        width: 45px;
+        padding-left: 3px;
+        background: #ffffff;;
+        z-index: 1;
+        .page-icon {
+            img {
+                cursor: pointer;
+                margin-left: 6px;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                box-shadow: rgba(255,0,0,0.4) 0px 0px 3px;
+                padding: 2px;
+                &:hover {
+                    box-shadow: red 0px 0px 3px;
+            
+                }
+            }
+        }
+    }
     .canvas-comp {
         position: absolute;
     }
