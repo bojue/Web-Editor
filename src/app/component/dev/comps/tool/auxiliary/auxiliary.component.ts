@@ -28,6 +28,7 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
     if(eventEndBool) {
       this.startEvent = null;
     }
+    event.stopPropagation();
   }
 
   setSettingParam(event, state?:string, eventEndBool?:boolean) {

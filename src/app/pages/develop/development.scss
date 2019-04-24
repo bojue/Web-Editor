@@ -1,5 +1,97 @@
 
 :host /deep/ {
+    .pages {
+        width: 45px;
+        padding-left: 3px;
+        background: #ffffff;;
+        z-index: 1;
+        .page-icon {
+            img.pages {
+                cursor: pointer;
+                margin-left: 6px;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                box-shadow: rgba(255,0,0,0.4) 0px 0px 3px;
+                padding: 2px;
+                &:hover {
+                    box-shadow: red 0px 0px 3px;
+                }
+            }
+        }
+        .page-content {
+            position: relative;
+            height: 759px;
+            background: #ffffff;
+            top: -11px;
+            left: 46px;
+            border: 1px solid #ccc;
+            border-left: none;
+            font-size: 13px;
+            padding: 20px 5px;
+            width: 10px;
+            -webkit-animation: widthFn 1s forwards;
+            animation: widthFn 1s forwards;
+            display: block;
+            z-index: 100;
+            .hidden {
+                position: absolute;
+                cursor: pointer;
+                right: -34px;
+                top: 0px;
+                padding: 4px 7px 5px 2px;
+                background: #fff;
+                border: 1px solid #ccc;
+                border-left: none;
+                border-top: none;
+                img {
+                    width: 24px;
+                }
+            }
+            .item {
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+                display: inline-block;
+                width: 96%;
+                height: 32px;
+                padding-left: 3px;
+                line-height: 32px;
+                &:hover {
+                    background: rgb(242, 242, 242);
+                }
+                .page-icon {
+                    position: absolute;
+                    top:7px;
+                    border:none;
+                    display: inline-block;
+                }
+                .page-name {
+                    display: inline-block;
+                    margin-left: 22px;
+                    padding: 0px 4px;
+                    width: 50px;
+                }
+            }
+
+            @keyframes widthFn {
+                0%{    
+                    width:10px;
+                }
+                100%{
+                    width:120px;
+                }
+            }
+            @-webkit-keyframes widthFn {
+                0%{    
+                    width:10px;
+                }
+                100%{
+                    width:120px;
+                }
+            }
+        }
+    }
     .canvas-comp {
         position: absolute;
     }

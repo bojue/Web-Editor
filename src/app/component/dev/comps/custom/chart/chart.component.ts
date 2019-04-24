@@ -8,6 +8,7 @@ import { CompEmitService } from "src/app/providers/comp-emit.service";
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent extends CustomBasicComponent  {
+  chartOption: any;
   constructor(
     private eventService: CompEmitService,
   ) {

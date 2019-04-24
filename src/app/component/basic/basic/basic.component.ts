@@ -52,6 +52,7 @@ export class BasicComponent implements OnInit {
   compEvent(event) {
     event['dynamicData'] = this.settingObj;
     this.onChildComponentChange.emit(event);
+    event.stopPropagation();
   }
 
   inputVal(event) {

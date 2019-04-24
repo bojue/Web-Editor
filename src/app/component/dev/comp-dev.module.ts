@@ -9,11 +9,13 @@ import { CompEventModule } from "./settings/event/comp-event.module";
 import { CompTemplateModule } from "./comps/template/comp-template.module";
 import { CompSettingBasicModule } from "../basic/comp-setting-basic.module";
 import { ScaleComponent } from './comps/tool/scale/scale.component';
+import { AreaComponent } from './comps/tool/area/area.component';
 
 @NgModule({
   declarations: [
     AuxiliaryComponent,
     ScaleComponent,
+    AreaComponent,
   ],
   imports: [
     FormsModule,
@@ -46,6 +48,7 @@ import { ScaleComponent } from './comps/tool/scale/scale.component';
   entryComponents:[
     AuxiliaryComponent,    
     ScaleComponent,
+    AreaComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

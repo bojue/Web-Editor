@@ -17,7 +17,7 @@ $border-color4: $color-grey-1;
     .body {
         position: relative;
         display: grid;
-        grid-template-columns: auto 210px;
+        grid-template-columns: 45px auto 210px;
         ul,li {
             list-style: none;
             padding: 0;
@@ -27,7 +27,7 @@ $border-color4: $color-grey-1;
             cursor: not-allowed;
         }
         &.whole-view {
-            grid-template-columns: auto;
+            grid-template-columns: 45px auto;
         }
         grid-column-gap: 3px;
         .h90 {
