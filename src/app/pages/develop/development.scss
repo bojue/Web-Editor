@@ -53,9 +53,13 @@
                 overflow: hidden;
                 position: relative;
                 display: inline-block;
-                width: 86%;
+                width: 96%;
                 height: 32px;
+                padding-left: 3px;
                 line-height: 32px;
+                &:hover {
+                    background: rgb(242, 242, 242);
+                }
                 .page-icon {
                     position: absolute;
                     top:7px;

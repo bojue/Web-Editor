@@ -348,6 +348,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   arrowEvent(direction) {
     let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
+    if(!styleObj) {
+      return ;
+    }
     switch(direction) {
       case 'ArrowLeft':
         styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
@@ -452,5 +455,21 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   showPage() {
     this.showPageList = !this.showPageList;
+  }
+
+  changeEditable(item, state?:string) {
+    if(state === 'editable') {
+      item['editable'] = true;
+    }else if(state === 'del'){
+      delete item['editable'];
+    }
+    console.log(item)
+  
+  }
+
+  
+  inputVal(event, item) {
+    let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
+    item['name'] = text;
   }
 }

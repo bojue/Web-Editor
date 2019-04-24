@@ -13,7 +13,7 @@
           <ul class="list">
             <li class="item" *ngFor="let item of pageList;">
                 <img class="page-icon" src="./../../../assets/icons/page.svg">
-                <div class="page-name" contenteditable="true">{{item['name']}}</div>
+                <div class="page-name" [contentEditable]="item['editable'] || false"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')" (dblclick)="changeEditable(item, 'editable')">{{item['name']}}</div>
             </li>
           </ul>
         </div>

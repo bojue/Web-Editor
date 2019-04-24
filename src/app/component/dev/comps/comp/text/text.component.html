@@ -20,7 +20,7 @@
   }"  
 >
 
-<span *ngIf="!settingObj['editeabled']"> {{data['text_val'] || '???????'}} </span>
+<span *ngIf="!settingObj['editeabled']"> {{data['text_val'] || '文本'}} </span>
 <div *ngIf="settingObj['editeabled']"  contenteditable="true" (input)="inputVal($event)">
   {{data['text_val']}}
 </div>
