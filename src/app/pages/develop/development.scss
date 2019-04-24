@@ -62,9 +62,11 @@
                     border:none;
                     display: inline-block;
                 }
-                .name {
+                .page-name {
                     display: inline-block;
-                    padding-left: 22px;
+                    margin-left: 22px;
+                    padding: 0px 4px;
+                    width: 50px;
                 }
             }
 
