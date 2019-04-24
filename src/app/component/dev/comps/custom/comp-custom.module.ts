@@ -9,13 +9,15 @@ import { CompSettingBasicModule } from "src/app/component/basic/comp-setting-bas
 import { TreeModule } from "angular-tree-component";
 import { EquipmentDataInfoComponent } from './equipment-data-info/equipment-data-info.component';
 import { BulletedComponent } from './bulleted/bulleted.component';
+import { GaugeComponent } from './gauge/gauge.component';
 
 const customComp = [
     ChartComponent,
     TreeComponent,
     ListComponent,
     EquipmentDataInfoComponent,
-    BulletedComponent
+    BulletedComponent,
+    GaugeComponent
 ]
 
 @NgModule({

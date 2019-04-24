@@ -73,6 +73,10 @@ export class AppServiceService{
         name:'设备数据',
         type:'equipment',
         iconUrl:'./../assets/icons/equipment-info.svg'
+      },{
+        name: '仪表盘',
+        type:'gauge',
+        iconUrl:'./../assets/icons/gauge.svg'
       }]
   },
   {
