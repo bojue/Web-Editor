@@ -27,7 +27,7 @@ $border-color4: $color-grey-1;
             cursor: not-allowed;
         }
         &.whole-view {
-            grid-template-columns: auto;
+            grid-template-columns: 45px auto;
         }
         grid-column-gap: 3px;
         .h90 {

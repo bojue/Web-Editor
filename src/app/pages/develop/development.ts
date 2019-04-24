@@ -45,6 +45,39 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     move:false,
     up: false
   }; //鼠标事件记录，用于选中组件
+  showPageList: boolean = false;
+  pageList:any[] = [
+    {
+      name:'页面1',
+      defaultName:'页面',
+      data:[],
+      style:[],
+    },
+    {
+      name:'页面2',
+      defaultName:'页面',
+      data:[],
+      style:[],
+    },
+    {
+      name:'页面3',
+      defaultName:'页面',
+      data:[],
+      style:[],
+    },
+    {
+      name:'页面4',
+      defaultName:'页面',
+      data:[],
+      style:[],
+    },
+    {
+      name:'页面5',
+      defaultName:'页面',
+      data:[],
+      style:[],
+    }
+  ]
 
   eventEmitter:any;
   constructor(
@@ -103,6 +136,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   initData() {
     this.setingBool = true;
+    this.showPageList = true;
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
     this.componentsHeaders = this.service.getComponentHeaders();
@@ -208,9 +242,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let compInstance = compRef.instance;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
-
     if(e && e.stopPropagation){
         e.stopPropagation();
+        console.log(e.type)
         let eventType = e && e.type;
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
         let changeX = e.clientX - this.dragCompStartX;
@@ -352,7 +386,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
       break;
       case 'mousemove':
-      if(this.mouseState['down'] && !this.mouseState['move']) {
+      if(this.mouseState['down'] && !this.mouseState['move'] && event.ctrlKey) {
         this.mouseState['move'] = true;
         this.mouseState['up'] = false;
         this.areaCompInit('add');
@@ -392,6 +426,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   areaCompInit(state ?:string ):void {
     let areaIndex = _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'area'; });
     if(areaIndex === -1 && state === 'add') {
+      console.log(state)
       this.areaComp = this.service.getAreaComp();
       this.testCreateComp.push(this.areaComp)
       let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AreaComponent);
@@ -399,12 +434,23 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       let compInstance = compRef.instance;
       (<SettingObjComponent> compInstance).settingObj = this.areaComp;
     } else if(areaIndex > -1){
+      this.delAreaComp();
+    }
+  }
+
+  //删除区域选中辅助组件
+  delAreaComp(){
+    let areaIndex = _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'area'; });
+    if(areaIndex > -1) {
       this.testCreateComp.splice(areaIndex, 1);
       let len = this.currentViewContRef.length;
-      this.currentViewContRef.remove(len);
+      this.currentViewContRef.remove(areaIndex);
       this.initViewContRef();
       this.getCompList(this.testCreateComp)
     }
   }
 
+  showPage() {
+    this.showPageList = !this.showPageList;
+  }
 }

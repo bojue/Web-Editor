@@ -6,7 +6,7 @@
         background: #ffffff;;
         z-index: 1;
         .page-icon {
-            img {
+            img.pages {
                 cursor: pointer;
                 margin-left: 6px;
                 width: 26px;
@@ -16,7 +16,72 @@
                 padding: 2px;
                 &:hover {
                     box-shadow: red 0px 0px 3px;
-            
+                }
+            }
+        }
+        .page-content {
+            position: relative;
+            height: 759px;
+            background: #ffffff;
+            top: -11px;
+            left: 46px;
+            border: 1px solid #ccc;
+            border-left: none;
+            font-size: 13px;
+            padding: 20px 5px;
+            width: 10px;
+            -webkit-animation: widthFn 1s forwards;
+            animation: widthFn 1s forwards;
+            display: block;
+            z-index: 100;
+            .hidden {
+                position: absolute;
+                cursor: pointer;
+                right: -34px;
+                top: 0px;
+                padding: 4px 7px 5px 2px;
+                background: #fff;
+                border: 1px solid #ccc;
+                border-left: none;
+                border-top: none;
+                img {
+                    width: 24px;
+                }
+            }
+            .item {
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+                display: inline-block;
+                width: 86%;
+                height: 32px;
+                line-height: 32px;
+                .page-icon {
+                    position: absolute;
+                    top:7px;
+                    border:none;
+                    display: inline-block;
+                }
+                .name {
+                    display: inline-block;
+                    padding-left: 22px;
+                }
+            }
+
+            @keyframes widthFn {
+                0%{    
+                    width:10px;
+                }
+                100%{
+                    width:120px;
+                }
+            }
+            @-webkit-keyframes widthFn {
+                0%{    
+                    width:10px;
+                }
+                100%{
+                    width:120px;
                 }
             }
         }

@@ -3,8 +3,21 @@
 }">
   <div class="pages">
     <!-- #TODO -->
-    <div class="page-body" (drag)="dragPage($event)">
-      <div class="page-icon"  title="页面管理"><img src="./../../../assets/icons/guanli.svg" alt=""></div>
+    <div class="page-body">
+      <div class="page-icon"  title="页面管理">
+        <img class="pages" (click)="showPage()" src="./../../../assets/icons/guanli.svg" alt="">
+        <div class="page-content" *ngIf="showPageList">
+          <div class="hidden" (click)="showPage()">
+            <img src="./../../../assets/icons/hidden.svg" alt="">
+          </div>
+          <ul class="list">
+            <li class="item" *ngFor="let item of pageList;">
+                <img class="page-icon" src="./../../../assets/icons/page.svg">
+                <div class="name">{{item['name']}}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="canvas-comp">
