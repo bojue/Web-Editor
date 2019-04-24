@@ -469,6 +469,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   
   inputVal(event, item) {
+    console.log(event)
     let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
     item['name'] = text;
   }
