@@ -1,3 +1,6 @@
-<p>
-  fonts works!
-</p>
+<div class="item-set item-set-grid grid-1">
+    <div class="tit">字体</div>
+    <div class="val val-grid">
+        <div class="item" (click)="changeStyle('textAlign', item['value'])" [ngClass]="{'sel': item['value'] === style['textAlign']}" *ngFor='let item of fontAlign;'>{{item['name']}}</div>
+    </div>
+  </div>

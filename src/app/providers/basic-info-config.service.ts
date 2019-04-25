@@ -23,6 +23,7 @@ export class BasicInfoConfigService {
                     height:100,
                     width: 100,
                     position: 'absolute',
+                    textAlign:'center',
                     top:400,
                     left:200,
                     border: '',
