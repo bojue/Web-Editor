@@ -111,7 +111,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
           this.copyCompEvet($event);
         }
-      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 ){
+      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 && this.activeCompSettingObject ){
         this.arrowEvent($event.code);
       }
 
@@ -348,9 +348,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   arrowEvent(direction) {
     let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
-    if(!styleObj) {
-      return ;
-    }
     switch(direction) {
       case 'ArrowLeft':
         styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
@@ -446,17 +443,18 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let areaIndex = _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'area'; });
     if(areaIndex > -1) {
       this.testCreateComp.splice(areaIndex, 1);
-      let len = this.currentViewContRef.length;
       this.currentViewContRef.remove(areaIndex);
       this.initViewContRef();
       this.getCompList(this.testCreateComp)
     }
   }
 
+  //页面列表
   showPage() {
     this.showPageList = !this.showPageList;
   }
 
+  //页面列表 - 输入状态
   changeEditable(item, state?:string) {
     if(state === 'editable') {
       item['editable'] = true;
@@ -465,7 +463,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  
+  //页面列表 - 文字输入
   inputVal(event, item) {
     let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
     item['name'] = text;

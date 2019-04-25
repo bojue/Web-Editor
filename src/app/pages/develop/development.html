@@ -1,8 +1,7 @@
-<div class="body" [ngClass]="{
-  'whole-view':!setingBool
-}">
+<div class="body" [ngClass]="{'whole-view':!setingBool}">
+
+  <!-- 页面管理 -->
   <div class="pages">
-    <!-- #TODO -->
     <div class="page-body">
       <div class="page-icon" title="页面管理">
         <img class="pages" (click)="showPage()" src="./../../../assets/icons/guanli.svg" alt="">
@@ -22,13 +21,12 @@
     <app-scale></app-scale>
   </div>
 
-  <!-- 视图组件 -->
-
+  <!-- 视图 -->
   <section id='componentsBody' class="border-r border-b m-l-5 h90 content">
     <ng-template view-contain-ref #contentComp ></ng-template>
   </section>
 
-  <!-- 设置组件-->
+  <!-- 设置-->
   <section class="setting-but">
     <div class="run-but" (click)="preView()">
       <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
