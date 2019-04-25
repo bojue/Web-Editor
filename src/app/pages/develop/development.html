@@ -6,7 +6,7 @@
     <div class="page-body">
       <div class="page-icon" title="页面管理">
         <img class="pages" (click)="showPage()" src="./../../../assets/icons/guanli.svg" alt="">
-        <img class="hidden" (click)="showPage()" [ngClass]="{'curner':showPageList, 'curner-back':!showPageList}"  src="./../../../assets/icons/hidden.svg" alt="">
+        <img class="hidden" (click)="showPage()" title="展示页面列表" [ngClass]="{'curner':showPageList, 'curner-back':!showPageList}"  src="./../../../assets/icons/hidden.svg" alt="">
         <div class="page-content" [ngClass]="{'page-show':showPageList, 'page-hidden':!showPageList}" >
           <ul class="list">
             <li class="item" *ngFor="let item of pageList;"  >
