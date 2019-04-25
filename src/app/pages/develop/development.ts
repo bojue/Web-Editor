@@ -425,6 +425,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //页面列表
   showPage() {
     this.showPageList = !this.showPageList;
+    if(!this.showPageList) {
+      this.initPages();
+    }
   }
 
   //页面列表 - 输入状态
@@ -466,5 +469,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         delete item['detailBool'];
       }
     })
+    this.selectPageInfo = null;
   }
 }
