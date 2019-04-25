@@ -70,9 +70,9 @@
                 position: relative;
                 display: inline-block;
                 width: 96%;
-                height: 32px;
+                height: 36px;
                 padding-left: 3px;
-                line-height: 32px;
+                line-height: 35px;
                 &:hover {
                     background: rgb(242, 242, 242);
                 }
@@ -86,7 +86,8 @@
                     display: inline-block;
                     margin-left: 22px;
                     padding: 0px 4px;
-                    width: 50px;
+                    width: 45px;
+                    border-bottom: 1px solid rgba(200, 205, 208, 0.5);
                 }
             }
 

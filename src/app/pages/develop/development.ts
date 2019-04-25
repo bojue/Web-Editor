@@ -465,7 +465,13 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //页面列表 - 文字输入
   inputVal(event, item) {
-    let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
-    item['name'] = text;
+    if(event['type'] === 'focus') {
+      console.log(event)
+ 
+    } else if(event['type'] === 'input') {
+      let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
+      item['name'] = text;
+    }
+
   }
 }

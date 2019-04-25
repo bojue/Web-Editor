@@ -8,9 +8,9 @@
         <img class="hidden" (click)="showPage()" title="展示页面列表" [ngClass]="{'curner':showPageList, 'curner-back':!showPageList}"  src="./../../../assets/icons/hidden.svg" alt="">
         <div class="page-content" [ngClass]="{'page-show':showPageList, 'page-hidden':!showPageList}" >
           <ul class="list">
-            <li class="item" *ngFor="let item of pageList;"  >
-                <img class="page-icon" src="./../../../assets/icons/page.svg">
-                <div class="page-name" [contentEditable]="item['editable'] || false" (force)="inputVal($event, item)"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')" (dblclick)="changeEditable(item, 'editable')">{{item['name']}}</div>
+            <li class="item" *ngFor="let item of pageList;"   (dblclick)="changeEditable(item, 'editable')">
+                <img class="page-icon" src="./../../../assets/icons/page.svg" >
+                <div class="page-name" [contentEditable]="item['editable'] || false" (focus)="inputVal($event, item)"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')">{{item['name']}}</div>
             </li>
           </ul>
         </div>
