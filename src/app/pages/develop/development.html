@@ -4,16 +4,14 @@
   <div class="pages">
     <!-- #TODO -->
     <div class="page-body">
-      <div class="page-icon"  title="页面管理">
+      <div class="page-icon" title="页面管理">
         <img class="pages" (click)="showPage()" src="./../../../assets/icons/guanli.svg" alt="">
-        <div class="page-content" *ngIf="showPageList">
-          <div class="hidden" (click)="showPage()">
-            <img src="./../../../assets/icons/hidden.svg" alt="">
-          </div>
+        <img class="hidden" (click)="showPage()" [ngClass]="{'curner':showPageList, 'curner-back':!showPageList}"  src="./../../../assets/icons/hidden.svg" alt="">
+        <div class="page-content" [ngClass]="{'page-show':showPageList, 'page-hidden':!showPageList}" >
           <ul class="list">
-            <li class="item" *ngFor="let item of pageList;">
+            <li class="item" *ngFor="let item of pageList;"  >
                 <img class="page-icon" src="./../../../assets/icons/page.svg">
-                <div class="page-name" [contentEditable]="item['editable'] || false"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')" (dblclick)="changeEditable(item, 'editable')">{{item['name']}}</div>
+                <div class="page-name" [contentEditable]="item['editable'] || false" (force)="inputVal($event, item)"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')" (dblclick)="changeEditable(item, 'editable')">{{item['name']}}</div>
             </li>
           </ul>
         </div>

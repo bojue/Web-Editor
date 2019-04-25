@@ -19,34 +19,50 @@
                 }
             }
         }
+        .hidden {
+            position: fixed;
+            cursor: pointer;
+            bottom: 19px;
+            padding: 4px 7px 5px 2px;
+            border-left: none;
+            border-top: none;
+            left: 9px;
+            width: 25px;
+            height: 24px;
+            &.curner {
+                -webkit-animation: transShow 1s forwards;
+                animation: transShow 1s forwards;
+            }
+            &.curner-back {
+                -webkit-animation: transHidden 1s forwards;
+                animation: transHidden 1s forwards;
+            }
+            img {
+                width: 24px;
+            }
+            
+        }
         .page-content {
             position: relative;
             height: 759px;
             background: #ffffff;
             top: -11px;
             left: 46px;
-            border: 1px solid #ccc;
-            border-left: none;
             font-size: 13px;
             padding: 20px 5px;
-            width: 10px;
-            -webkit-animation: widthFn 1s forwards;
-            animation: widthFn 1s forwards;
+            width: 0px;
             display: block;
             z-index: 100;
-            .hidden {
-                position: absolute;
-                cursor: pointer;
-                right: -34px;
-                top: 0px;
-                padding: 4px 7px 5px 2px;
-                background: #fff;
+            &.page-show {
                 border: 1px solid #ccc;
                 border-left: none;
-                border-top: none;
-                img {
-                    width: 24px;
-                }
+                -webkit-animation: showFun 1s forwards;
+                animation: showFun 1s forwards;
+            }
+       
+            &.page-hidden {
+                -webkit-animation: hiddenFun 1s forwards;
+                animation: hiddenFun 1s forwards;
             }
             .item {
                 cursor: pointer;
@@ -74,20 +90,80 @@
                 }
             }
 
-            @keyframes widthFn {
-                0%{    
-                    width:10px;
+            @keyframes transShow {
+                0% {
+                    transform: rotate(0deg);
                 }
-                100%{
-                    width:120px;
+                100% {
+                    transform: rotate(180deg);
                 }
             }
-            @-webkit-keyframes widthFn {
+            @-webkit-keyframes transShow {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(180deg);
+                }
+            }
+            @keyframes transHidden {
+                0% {
+                    transform: rotate(180deg);
+                }
+                100% {
+                    transform: rotate(0deg);
+                    display: none;
+                }
+            }
+            @-webkit-keyframes transHidden {
+                0% {
+                    transform: rotate(180deg);
+                }
+                100% {
+                    transform: rotate(0deg);
+                    display: none;
+                }
+            }
+            @keyframes showFun {
                 0%{    
-                    width:10px;
+                    width:0px;
+                    opacity: 1;
                 }
                 100%{
                     width:120px;
+                    opacity: 1;
+                }
+            }
+            @-webkit-keyframes showFun {
+                0%{    
+                    width:0px;
+                    opacity: 1;
+                }
+                100%{
+                    width:120px;
+                    opacity: 1;
+                }
+            }
+
+            @keyframes hiddenFun {
+                0%{    
+                    width:120px;
+                    opacity: 1;
+                }
+                95% {
+                    opacity: 0.1;
+                }
+                100%{
+                    opacity: 0;
+                    width:0px;
+                }
+            }
+            @-webkit-keyframes hiddenFun {
+                0%{    
+                    width:120px;
+                }
+                100%{
+                    width:0px;
                 }
             }
         }
