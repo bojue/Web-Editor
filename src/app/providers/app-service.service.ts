@@ -78,7 +78,7 @@ export class AppServiceService{
         type:'gauge',
         iconUrl:'./../assets/icons/gauge.svg'
       },{
-        name: '温度计',
+        name: '刻度盘',
         type:'thermomenter',
         iconUrl:'./../assets/icons/thermometer.svg'
       }]
@@ -88,10 +88,19 @@ export class AppServiceService{
     state: 'template',
     title:"复杂组件,由多个基础或者高级组件组成,支持数据绑定和接口绑定,支持定制",
     compList: [
+      // {
+      //   name:'Tabs',
+      //   type: 'tabs',
+      //   iconUrl: './../assets/icons/tabs.svg'
+      // }, 
       {
-        name:'Tabs',
+        name:'房间',
         type: 'tabs',
-        iconUrl: './../assets/icons/tabs.svg'
+        iconUrl: './../assets/icons/home.svg'
+      }, {
+        name:'空调',
+        type: 'ariConditioning',
+        iconUrl: './../assets/icons/ariConditioning.svg'
       }]
   }]
 

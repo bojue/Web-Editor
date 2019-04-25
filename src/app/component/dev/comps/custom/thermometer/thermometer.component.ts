@@ -8,7 +8,6 @@ import { CompEmitService } from 'src/app/providers/comp-emit.service';
   styleUrls: ['./thermometer.component.scss']
 })
 export class ThermometerComponent  extends CustomBasicComponent implements OnInit {
-  chartOption:any;
   constructor(private emitService: CompEmitService) {
     super(emitService)
    }
@@ -19,9 +18,7 @@ export class ThermometerComponent  extends CustomBasicComponent implements OnIni
   }
 
   initData(): void {
-    this.chartOption = {
-      
-    }
+  
   }
 
 }

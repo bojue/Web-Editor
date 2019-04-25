@@ -188,7 +188,7 @@ export class BasicInfoConfigService {
             },
             thermomenter: {
                 compIndex: 3,
-                name:'温度计',
+                name:'刻度盘',
                 type:'thermomenter',
                 data: {
             
