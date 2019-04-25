@@ -320,9 +320,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //运行
   preView() {
-    let auxiIndex =  _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'auxi'; });
-    let compList = auxiIndex > -1 ?  this.testCreateComp.slice(0, auxiIndex) : this.testCreateComp;
-    this.router.navigate(['/preview', { queryParams: JSON.stringify(compList)}]);
+    this.auxiCompInit();
+    this.router.navigate(['/preview', { queryParams: JSON.stringify(this.testCreateComp)}]);
   }
 
   //键盘事件-删除
