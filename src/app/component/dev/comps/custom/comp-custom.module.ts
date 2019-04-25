@@ -10,6 +10,7 @@ import { TreeModule } from "angular-tree-component";
 import { EquipmentDataInfoComponent } from './equipment-data-info/equipment-data-info.component';
 import { BulletedComponent } from './bulleted/bulleted.component';
 import { GaugeComponent } from './gauge/gauge.component';
+import { ThermometerComponent } from './thermometer/thermometer.component';
 
 const customComp = [
     ChartComponent,
@@ -17,7 +18,8 @@ const customComp = [
     ListComponent,
     EquipmentDataInfoComponent,
     BulletedComponent,
-    GaugeComponent
+    GaugeComponent,
+    ThermometerComponent
 ]
 
 @NgModule({

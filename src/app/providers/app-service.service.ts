@@ -77,6 +77,10 @@ export class AppServiceService{
         name: '仪表盘',
         type:'gauge',
         iconUrl:'./../assets/icons/gauge.svg'
+      },{
+        name: '温度计',
+        type:'thermomenter',
+        iconUrl:'./../assets/icons/thermometer.svg'
       }]
   },
   {

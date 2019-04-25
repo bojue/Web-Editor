@@ -186,6 +186,28 @@ export class BasicInfoConfigService {
     
                 }
             },
+            thermomenter: {
+                compIndex: 3,
+                name:'温度计',
+                type:'thermomenter',
+                data: {
+            
+                },
+                style: {
+                  height:400,
+                  width: 400,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                },
+                event: {
+    
+                }
+            },
             chart:{
                 compIndex: 3,
                 name:'图表',
