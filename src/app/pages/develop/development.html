@@ -13,6 +13,9 @@
                 <div class="page-name" [contentEditable]="item['editable'] || false" (focus)="inputVal($event, item)"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')">{{item['name']}}</div>
                 <img class="sett" (click)="selectPage(item)" src="./../../../assets/icons/setting.svg" alt="">
            </li>
+           <li class="item addpage" >
+             <img src="./../../../assets/icons/add.svg" alt="添加页面">
+           </li>
           </ul>
           <div class="seting" *ngIf="selectPageInfo && selectPageInfo['detailBool']">
             <div class="content">
