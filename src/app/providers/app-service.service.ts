@@ -148,6 +148,42 @@ export class AppServiceService{
     }
   }
 
+  pages =  [
+    {
+      name:'房间',
+      defaultName:'页面',
+      data:[],
+      style:{}
+    },
+    {
+      name:'UPS',
+      defaultName:'页面',
+      data:[],
+      style:{}
+    },
+    {
+      name:'空调',
+      defaultName:'页面',
+      data:[],
+      style:{}
+    },
+    {
+      name:'机柜',
+      defaultName:'页面',
+      data:[],
+      style:{}
+    },
+    {
+      name:'UPS2',
+      defaultName:'页面',
+      data:[],
+      style:{}
+    } ];
+
+  getPages() {
+    return this.pages;
+  }  
+
   getAuxiComp() {
     return this.auxiComp;
   }

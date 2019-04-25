@@ -7,13 +7,52 @@
         <img class="pages" (click)="showPage()" src="./../../../assets/icons/guanli.svg" alt="">
         <img class="hidden" (click)="showPage()" title="展示页面列表" [ngClass]="{'curner':showPageList, 'curner-back':!showPageList}"  src="./../../../assets/icons/hidden.svg" alt="">
         <div class="page-content" [ngClass]="{'page-show':showPageList, 'page-hidden':!showPageList}" >
-          <ul class="list">
+          <ul class="list" *ngIf="pageList ">
             <li class="item" *ngFor="let item of pageList;"   (dblclick)="changeEditable(item, 'editable')">
                 <img class="page-icon" src="./../../../assets/icons/page.svg" >
                 <div class="page-name" [contentEditable]="item['editable'] || false" (focus)="inputVal($event, item)"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')">{{item['name']}}</div>
-            </li>
+                <img class="sett" (click)="selectPage(item)" src="./../../../assets/icons/setting.svg" alt="">
+           </li>
           </ul>
+          <div class="seting" *ngIf="selectPageInfo && selectPageInfo['detailBool']">
+            <div class="content">
+              <div class="title">详情</div>
+              <div class="param-item name">
+                <label for="">名称</label>
+                <input class="val" type="text" [(ngModel)]="selectPageInfo['name']">
+              </div>
+              <div class="param-item service">
+                  <label for="">业务</label>
+                  <select class="val" name="" id="">
+                    <option value="ups">UPS</option>
+                    <option value="ups">空调</option>
+                    <option value="ups">房间</option>
+                    <option value="ups">机柜</option>
+                  </select>
+                </div>
+              <div class="style-content style">
+                  <div class="tit">样式</div>
+                  <div class="set">
+                    <div class="set-item">
+                      <label for="">颜色</label>
+                      <div class="val">
+
+                      </div>
+                    </div>
+                    <div class="set-item">
+                      <label for="">大小</label>
+                      <div class="val">
+
+                      </div>
+                    </div>
+                    
+                  </div>
+
+                </div>
+            </div>
+          </div>
         </div>
+        
       </div>
     </div>
   </div>

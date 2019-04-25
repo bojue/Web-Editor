@@ -12,6 +12,7 @@ import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/a
 import { CompEmitService } from 'src/app/providers/comp-emit.service';
 import { EventManager } from '@angular/platform-browser';
 import { AreaComponent } from '../../component/dev/comps/tool/area/area.component';
+import { SettingPage } from 'src/app/module/setting-page.module';
 
 @Component({
   selector: 'app-development',
@@ -46,38 +47,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     up: false
   }; //鼠标事件记录，用于选中组件
   showPageList: boolean = false;
-  pageList:any[] = [
-    {
-      name:'页面1',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面2',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面3',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面4',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面5',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    }
-  ]
+  pageList: SettingPage[];// 页面管理 - 列表
+  selectPageInfo: SettingPage; //页面管理-详情
 
   eventEmitter:any;
   constructor(
@@ -91,6 +62,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private eventManager: EventManager
   ) {
       this.activeSettingState('default');
+      this.pageList = this.service.getPages();
   }
 
   ngOnInit() {
@@ -132,6 +104,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
+
   }
 
   initData() {
@@ -472,6 +445,26 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
       item['name'] = text;
     }
+  }
 
+  //页面管理 - 详情
+  selectPage(item) {
+    if(item['detailBool']) {
+      this.selectPageInfo = null;
+      delete item['detailBool'];
+    } else {
+      this.initPages();
+      item['detailBool'] = true;
+      this.selectPageInfo = item;
+    }
+  }
+
+  //页面管理 - 详情状态初始化
+  initPages() {
+    _.map(this.pageList, item => {
+      if('detailBool' in item) {
+        delete item['detailBool'];
+      }
+    })
   }
 }

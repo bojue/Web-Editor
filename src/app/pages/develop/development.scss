@@ -58,6 +58,49 @@
                 border-left: none;
                 -webkit-animation: showFun 1s forwards;
                 animation: showFun 1s forwards;
+
+                .seting {
+                    width: 240px;
+                    height: 360px;
+                    border: 1px solid #ccc;
+                    background: #ffffff;
+                    position: absolute;
+                    top: 0;
+                    right: -242px;
+                    .content {
+                        display: block;
+                        width: 90%;
+                        margin:20px;
+                        .title {
+                            margin-bottom: 18px;
+                            margin-top: 10px;
+                            border-left: 2px solid blue;
+                            padding-left: 5px;
+                            font-size: 14px;
+                        }
+                        .param-item, .set-item {
+                            font-size: 12px;
+                            margin-bottom: 10px;
+                            display: grid;
+                            grid-template-columns: 50px 130px;
+                            label {
+                                padding-left: 5px;
+                            }
+                        }
+                        .style {
+                            .tit {
+                                margin: 10px 5px;
+                            }
+                            .set {
+                                margin-left: 15px;
+                            }
+                        }
+                        
+                        .set-item {
+                            
+                        }
+                    }
+                }
             }
        
             &.page-hidden {
@@ -87,7 +130,22 @@
                     margin-left: 22px;
                     padding: 0px 4px;
                     width: 45px;
-                    border-bottom: 1px solid rgba(200, 205, 208, 0.5);
+                    &:hover {
+                        border-bottom: 1px solid rgba(200, 205, 208, 0.5);
+                    }
+                }
+                .sett {
+                    position: relative;
+                    cursor: pointer;
+                    top: 5px;
+                    right: -11px;
+                    width: 18px;
+                    padding: 2px;
+                    border-radius: 50%;
+                    opacity: 0.01;
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
             }
 
