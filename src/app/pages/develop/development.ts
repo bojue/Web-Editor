@@ -169,8 +169,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');
       if(addCompJson && addCompJson['style']) {
-        addCompJson['style']['left'] = event['x']  ||  addCompJson['style']['left'];
-        addCompJson['style']['top'] = event['y'] || addCompJson['style']['top'];
+        const _PAGE_SIZE = 100;
+        addCompJson['style']['left'] = event['x']  - _PAGE_SIZE ||  addCompJson['style']['left'];
+        addCompJson['style']['top'] = event['y']  - _PAGE_SIZE|| addCompJson['style']['top'];
       }
     }  
 
@@ -463,8 +464,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }else if(state === 'del'){
       delete item['editable'];
     }
-    console.log(item)
-  
   }
 
   
