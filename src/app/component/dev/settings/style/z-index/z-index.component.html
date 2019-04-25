@@ -1,3 +1,10 @@
-<p>
-  z-index works!
-</p>
+<div class="item-set item-set-grid grid-1">
+  <div class="tit">图层</div>
+  <div class="set-val">
+    <ul class="z-index">
+        <li class="item" *ngFor="let zIndex of zIndexS;let i = index;" [ngClass]="{'bd-style':i === 0}">
+          <input type="radio" [(ngModel)]="style['zIndex']" name="zIndex" [value]="zIndex" (ngModelChange)="setStyle('zIndex',zIndex)">{{zIndex}}
+        </li>
+      </ul>
+    </div>
+</div>

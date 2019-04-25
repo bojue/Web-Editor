@@ -1,0 +1,9 @@
+:host /deep/ { 
+    .z-index {
+        display:grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        width: 80%;
+        margin-left: 10% !important;
+        margin-top: 5px;
+    }
+}
