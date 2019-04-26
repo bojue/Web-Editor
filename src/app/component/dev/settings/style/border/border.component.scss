@@ -29,6 +29,22 @@
             border:1px solid #e6e6e6;
         }
     }
+    .style-bg-radius {
+        text-align: right;
+        margin-right: 7px;
+        span {
+            width: 35px;
+            height: 18px;
+            display: inline-block;
+        }
+    }
+
+    .borders-radius {
+        margin-top: 4px;
+        font-size: 12px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
 
 
     .item {
