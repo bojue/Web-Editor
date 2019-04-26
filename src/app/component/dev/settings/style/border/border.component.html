@@ -6,9 +6,17 @@
         <span [ngStyle]="{'background':style['borderColor']}"></span>
     </div>
     <ul class="borders">
-        <li class="item" *ngFor="let bg of borderCol;let i = index;" [ngClass]="{'bd-style':i === 0}">
-          <span class="bg-col" (click)="selBorderCol(bg, i)"  [ngStyle]="{'background':bg}"></span>
-        </li>
-      </ul>
+      <li class="item" *ngFor="let bg of borderCol;let i = index;" [ngClass]="{'bd-style':i === 0}">
+        <span class="bg-col" (click)="selBorderCol(bg, i)"  [ngStyle]="{'background':bg}"></span>
+      </li>
+    </ul>
+    <div class="style-bg-radius">
+        <span class="radio">圆角</span>
     </div>
+    <ul class="borders borders-radius">
+      <li class="item" *ngFor="let radius of borderRadius;let i = index;" [ngClass]="{'bd-style':i === 0}">
+        <input type="radio" [(ngModel)]="style['borderRadius']" name="radius" [value]="radius" (ngModelChange)="setStyle('borderRadius',radius)">{{radius}}
+      </li>
+    </ul>
+  </div>
 </div>

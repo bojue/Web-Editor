@@ -218,7 +218,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     (compInstance).onChildComponentChange.subscribe((e)=> {
     if(e && e.stopPropagation){
         e.stopPropagation();
-        console.log(e.type)
         let eventType = e && e.type;
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
         let changeX = e.clientX - this.dragCompStartX;
@@ -399,7 +398,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   areaCompInit(state ?:string ):void {
     let areaIndex = _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'area'; });
     if(areaIndex === -1 && state === 'add') {
-      console.log(state)
       this.areaComp = this.service.getAreaComp();
       this.testCreateComp.push(this.areaComp)
       let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AreaComponent);
@@ -442,8 +440,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //页面列表 - 文字输入
   inputVal(event, item) {
     if(event['type'] === 'focus') {
-      console.log(event)
- 
+      // #TODO, 选中全部文字
     } else if(event['type'] === 'input') {
       let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
       item['name'] = text;

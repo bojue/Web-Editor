@@ -11,7 +11,6 @@ export class ClickEventComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.event)
   }
 
 }

@@ -20,7 +20,6 @@ export class ZIndexComponent extends StyleBasicComponent implements OnInit {
 
   setStyle(param, val) {
     this.style[param] = val;
-    console.log(this.style)
   }
 
 }

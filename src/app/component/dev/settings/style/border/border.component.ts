@@ -9,6 +9,7 @@ import { StyleBasicComponent } from "src/app/component/basic/style-basic/style-b
 export class BorderComponent extends StyleBasicComponent implements OnInit {
   borderStyles:any[];
   borderCol:any[];
+  borderRadius: any[];
   constructor() { 
     super()
   }
@@ -26,6 +27,14 @@ export class BorderComponent extends StyleBasicComponent implements OnInit {
       '#1296db',
       '#13227a',
     ];
+    this.borderRadius = [
+      '1px',
+      '5px',
+      '10px',
+      '1%',
+      '5%',
+      '50%'
+    ]
     this.borderStyles = [
       {
         name:'无',
@@ -51,6 +60,10 @@ export class BorderComponent extends StyleBasicComponent implements OnInit {
     this.style['borderWidth'] = colIndex === 0 ? 0 : 1;
     this.style['borderStyle'] = colIndex === 0 ? null : 'solid';
 
+  }
+
+  setStyle(param, val) {
+    this.style[param] = val;
   }
 
 }
