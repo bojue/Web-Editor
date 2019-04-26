@@ -12,8 +12,6 @@ export class StyleBasicComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-    console.log(this.style)
     
   }
 }
