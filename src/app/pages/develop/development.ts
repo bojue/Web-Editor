@@ -12,6 +12,7 @@ import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/a
 import { CompEmitService } from 'src/app/providers/comp-emit.service';
 import { EventManager } from '@angular/platform-browser';
 import { AreaComponent } from '../../component/dev/comps/tool/area/area.component';
+import { SettingPage } from 'src/app/module/setting-page.module';
 
 @Component({
   selector: 'app-development',
@@ -46,38 +47,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     up: false
   }; //鼠标事件记录，用于选中组件
   showPageList: boolean = false;
-  pageList:any[] = [
-    {
-      name:'页面1',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面2',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面3',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面4',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    },
-    {
-      name:'页面5',
-      defaultName:'页面',
-      data:[],
-      style:[],
-    }
-  ]
+  pageList: SettingPage[];// 页面管理 - 列表
+  selectPageInfo: SettingPage; //页面管理-详情
 
   eventEmitter:any;
   constructor(
@@ -91,6 +62,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private eventManager: EventManager
   ) {
       this.activeSettingState('default');
+      this.pageList = this.service.getPages();
   }
 
   ngOnInit() {
@@ -111,7 +83,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
           this.copyCompEvet($event);
         }
-      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 ){
+      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 && this.activeCompSettingObject ){
         this.arrowEvent($event.code);
       }
 
@@ -132,6 +104,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
+
   }
 
   initData() {
@@ -169,8 +142,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');
       if(addCompJson && addCompJson['style']) {
-        addCompJson['style']['left'] = event['x']  ||  addCompJson['style']['left'];
-        addCompJson['style']['top'] = event['y'] || addCompJson['style']['top'];
+        const _PAGE_SIZE = 100;
+        addCompJson['style']['left'] = event['x']  - _PAGE_SIZE ||  addCompJson['style']['left'];
+        addCompJson['style']['top'] = event['y']  - _PAGE_SIZE|| addCompJson['style']['top'];
       }
     }  
 
@@ -319,9 +293,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //运行
   preView() {
-    let auxiIndex =  _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'auxi'; });
-    let compList = auxiIndex > -1 ?  this.testCreateComp.slice(0, auxiIndex) : this.testCreateComp;
-    this.router.navigate(['/preview', { queryParams: JSON.stringify(compList)}]);
+    this.auxiCompInit();
+    this.router.navigate(['/preview', { queryParams: JSON.stringify(this.testCreateComp)}]);
   }
 
   //键盘事件-删除
@@ -348,9 +321,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   arrowEvent(direction) {
     let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
-    if(!styleObj) {
-      return ;
-    }
     switch(direction) {
       case 'ArrowLeft':
         styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
@@ -446,31 +416,59 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let areaIndex = _.findIndex(this.testCreateComp, function(item) { return item['type'] == 'area'; });
     if(areaIndex > -1) {
       this.testCreateComp.splice(areaIndex, 1);
-      let len = this.currentViewContRef.length;
       this.currentViewContRef.remove(areaIndex);
       this.initViewContRef();
       this.getCompList(this.testCreateComp)
     }
   }
 
+  //页面列表
   showPage() {
     this.showPageList = !this.showPageList;
+    if(!this.showPageList) {
+      this.initPages();
+    }
   }
 
+  //页面列表 - 输入状态
   changeEditable(item, state?:string) {
     if(state === 'editable') {
       item['editable'] = true;
     }else if(state === 'del'){
       delete item['editable'];
     }
-    console.log(item)
-  
   }
 
-  
+  //页面列表 - 文字输入
   inputVal(event, item) {
-    console.log(event)
-    let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
-    item['name'] = text;
+    if(event['type'] === 'focus') {
+      console.log(event)
+ 
+    } else if(event['type'] === 'input') {
+      let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
+      item['name'] = text;
+    }
+  }
+
+  //页面管理 - 详情
+  selectPage(item) {
+    if(item['detailBool']) {
+      this.selectPageInfo = null;
+      delete item['detailBool'];
+    } else {
+      this.initPages();
+      item['detailBool'] = true;
+      this.selectPageInfo = item;
+    }
+  }
+
+  //页面管理 - 详情状态初始化
+  initPages() {
+    _.map(this.pageList, item => {
+      if('detailBool' in item) {
+        delete item['detailBool'];
+      }
+    })
+    this.selectPageInfo = null;
   }
 }

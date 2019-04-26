@@ -18,6 +18,7 @@ import { EquipmentDataInfoComponent } from "src/app/component/dev/comps/custom/e
 import { BulletedComponent } from "src/app/component/dev/comps/custom/bulleted/bulleted.component";
 import { GaugeComponent } from "src/app/component/dev/comps/custom/gauge/gauge.component";
 import { AreaComponent } from "src/app/component/dev/comps/tool/area/area.component";
+import { ThermometerComponent } from "src/app/component/dev/comps/custom/thermometer/thermometer.component";
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -109,6 +110,12 @@ export class DynamicComponentServiceService {
         tempInfo = {
           comp: AreaComponent
         }  
+        break;
+      case 'thermomenter': 
+        tempInfo = {
+          comp: ThermometerComponent
+        }   
+        break;  
       default:
         return;    
     }

@@ -23,6 +23,7 @@ export class BasicInfoConfigService {
                     height:100,
                     width: 100,
                     position: 'absolute',
+                    textAlign:'center',
                     top:400,
                     left:200,
                     border: '',
@@ -168,6 +169,28 @@ export class BasicInfoConfigService {
                 compIndex: 3,
                 name:'图表',
                 type:'gauge',
+                data: {
+            
+                },
+                style: {
+                  height:400,
+                  width: 400,
+                  position: 'absolute',
+                  top:10,
+                  left:400,
+                  border: '',
+                  borderColor: '',
+                  borderWidth: 0,
+                  borderStyle: ''
+                },
+                event: {
+    
+                }
+            },
+            thermomenter: {
+                compIndex: 3,
+                name:'刻度盘',
+                type:'thermomenter',
                 data: {
             
                 },
