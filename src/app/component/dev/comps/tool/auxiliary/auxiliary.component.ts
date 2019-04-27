@@ -79,6 +79,15 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
       }
     }
 
+    if(this.style['padding'] ) {
+      if(['l_t', 'r_t' ].indexOf(direction) > -1) {
+        paramVal = paramVal + 1 * this.style['padding'];
+      }else if(['b_t', 'r_l' ].indexOf(direction) > -1) {
+        paramVal = paramVal + 2 * this.style['padding'];
+      }
+
+    }
+
     return paramVal;
   }
 
