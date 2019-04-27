@@ -17,6 +17,7 @@ import { CompCustomModule } from "../component/dev/comps/custom/comp-custom.modu
 import { CompEventModule } from "../component/dev/settings/event/comp-event.module";
 import { CompTemplateModule } from "../component/dev/comps/template/comp-template.module";
 import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.module";
+import { ViewChildContainRefHostDirective } from "../directive/view-child-contain-ref-host.directive";
 
 @NgModule({
   declarations: [
@@ -27,11 +28,12 @@ import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.mo
     ConfigsComponent,
     CompListComponent,
     CompSettingComponent,
-    ViewContainRefHostDirective
+    ViewContainRefHostDirective,
+    ViewChildContainRefHostDirective
   ],
   imports: [
 
-  FormsModule,
+    FormsModule,
     BrowserModule,
     CompDevModule,
     CompViewModule,
