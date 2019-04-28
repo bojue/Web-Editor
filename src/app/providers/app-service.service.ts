@@ -82,25 +82,28 @@ export class AppServiceService{
         type:'thermomenter',
         iconUrl:'./../assets/icons/thermometer.svg'
       }]
-  },
-  {
+  },{
+    name: '高级',
+    state: 'template',
+    title:"高级组件,由多个基础组成二级目录结构,支持数据绑定和接口绑定,支持定制（测试样式ing）",
+    compList: [{
+        name:'Tabs',
+        type: 'tabs',
+        iconUrl: './../assets/icons/tabs.svg'
+      }, ]
+  },{
     name: '模板',
     state: 'template',
     title:"复杂组件,由多个基础或者高级组件组成,支持数据绑定和接口绑定,支持定制",
     compList: [
-      // {
-      //   name:'Tabs',
-      //   type: 'tabs',
-      //   iconUrl: './../assets/icons/tabs.svg'
-      // }, 
       {
-        name:'房间',
+        name:'登录',
         type: 'tabs',
-        iconUrl: './../assets/icons/home.svg'
+        iconUrl: './../assets/icons/login.svg'
       }, {
-        name:'空调',
+        name:'首页',
         type: 'ariConditioning',
-        iconUrl: './../assets/icons/ariConditioning.svg'
+        iconUrl: './../assets/icons/webhome.svg'
       }]
   }]
 
@@ -204,5 +207,4 @@ export class AppServiceService{
   getComponentModeules() {
     return this.componentModules;
   }
- 
 }
