@@ -19,6 +19,7 @@ import { BulletedComponent } from "src/app/component/dev/comps/custom/bulleted/b
 import { GaugeComponent } from "src/app/component/dev/comps/custom/gauge/gauge.component";
 import { AreaComponent } from "src/app/component/dev/comps/tool/area/area.component";
 import { ThermometerComponent } from "src/app/component/dev/comps/custom/thermometer/thermometer.component";
+import { LineComponent } from '../../component/dev/comps/comp/line/line.component';
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -31,6 +32,11 @@ export class DynamicComponentServiceService {
       comp:null
     };
     switch(type) {
+      case 'line':
+      tempInfo = {
+          comp: LineComponent,
+        }
+        break;
       case 'text':
         tempInfo = {
           comp: TextComponent,
@@ -115,7 +121,7 @@ export class DynamicComponentServiceService {
         tempInfo = {
           comp: ThermometerComponent
         }   
-        break;  
+        break;    
       default:
         return;    
     }

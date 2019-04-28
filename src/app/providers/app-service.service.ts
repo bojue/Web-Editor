@@ -25,6 +25,10 @@ export class AppServiceService{
     compList: [
       {
         name:'文本',
+        type: 'line',
+        iconUrl: './../assets/icons/line.svg'
+      },{
+        name:'文本',
         type: 'text',
         iconUrl: './../assets/icons/text.svg'
       },{

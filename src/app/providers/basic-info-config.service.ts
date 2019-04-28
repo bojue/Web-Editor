@@ -12,6 +12,25 @@ export class BasicInfoConfigService {
 
         // TODO:获取接口写在后端,前端增加视图组件配置页面
         let data = {
+            line: {
+                compIndex: 2,
+                name:'横线',
+                type:'line',
+                data: {
+                },
+                style: {
+                    height:100,
+                    width: 100,
+                    position: 'absolute',
+                    textAlign:'center',
+                    top:400,
+                    left:200,
+                    border: '',
+                    borderColor: '',
+                    borderWidth: 0,
+                    borderStyle: ''
+                }
+            },
             text: {
                 compIndex: 2,
                 name:'文本',
