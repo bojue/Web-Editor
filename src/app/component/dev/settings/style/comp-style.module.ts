@@ -32,7 +32,6 @@ const settingComp = [
   imports: [
     FormsModule,
     BrowserModule,
-
   ],
   exports: [
     [...settingComp]

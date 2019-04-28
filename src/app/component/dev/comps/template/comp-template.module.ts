@@ -14,7 +14,7 @@ const templateComp = [
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    BrowserModule,
   ],
   exports: [
     [...templateComp]

@@ -32,7 +32,6 @@ const dataComp = [
     FormsModule,
     BrowserModule,
     CompSettingBasicModule
-
   ],
   exports: [
     [...dataComp]

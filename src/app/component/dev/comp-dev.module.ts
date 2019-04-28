@@ -31,16 +31,9 @@ import { AreaComponent } from './comps/tool/area/area.component';
 
   ],
   exports: [    
-    FormsModule,
-    BrowserModule,
-    CompStyleModule,
-    CompDataModule,
-    CompCustomModule,
-    CompEventModule,
-    CompTemplateModule,
-    CompSettingBasicModule,
     AuxiliaryComponent,
-    ScaleComponent
+    ScaleComponent,
+    AreaComponent,
   ],
   bootstrap: [
       

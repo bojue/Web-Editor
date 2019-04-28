@@ -29,7 +29,7 @@ const basicComp = [
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    BrowserModule,
   ],
   exports: [
     [...basicComp]

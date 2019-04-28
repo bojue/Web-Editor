@@ -22,7 +22,6 @@ const styleComp = [
     FormsModule,
     BrowserModule,
     CompSettingBasicModule
-
   ],
   exports: [
     [...styleComp]
