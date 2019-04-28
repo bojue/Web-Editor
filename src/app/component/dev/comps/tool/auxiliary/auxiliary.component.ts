@@ -10,6 +10,8 @@ import * as _ from 'lodash';
 })
 export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDestroy, SettingObjComponent{
   startEvent: any;
+  _PAGE_SIZE_X = 80;
+  _PAGE_SIZE_Y = 80;
   constructor() {
     super();
   }
@@ -32,26 +34,32 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   setSettingParam(event, state?:string, eventEndBool?:boolean) {
+    let _clientX = 0;
+    let _clientY = 0;
+    if(event) {
+      _clientX = event['clientX'] - this._PAGE_SIZE_X;
+      _clientY = event['clientY'] - this._PAGE_SIZE_Y;
+    }
     switch (state) {
       case 's':
         this.startEvent = _.cloneDeep(this.style);
         break;
       case 'l':
-        this.style['left'] = event['clientX'];
-        let _w =  this.startEvent['width'] + (this.startEvent['left'] - event['clientX']);
+        this.style['left'] = _clientX;
+        let _w =  this.startEvent['width'] + (this.startEvent['left'] - _clientX);
         this.style['width'] = _w > 20 ? _w : 20;
         break;
       case 'r':
-        let _width = event['clientX'] - this.startEvent['left'];
+        let _width = _clientX - this.startEvent['left'];
         this.style['width'] = _width > 20 ? _width : 20;
         break;
       case 't':
-        let _h =  this.startEvent['height'] + (this.startEvent['top'] - event['clientY']);
-        this.style['top'] = event['clientY'] ;
+        let _h =  this.startEvent['height'] + (this.startEvent['top'] - _clientY);
+        this.style['top'] = _clientY ;
         this.style['height'] = _h > 20 ? _h : 20;
         break;  
       case 'b':
-        let _height = event['clientY'] - this.startEvent['top'];
+        let _height = _clientY - this.startEvent['top'];
         this.style['height'] = _height > 20 ? _height : 20;
         break;    
       default:
