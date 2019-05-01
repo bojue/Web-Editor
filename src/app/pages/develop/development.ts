@@ -77,7 +77,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
-      if($event && $event.code === 'Delete') {
+      console.log($event)
+      let del_window = $event && $event.code === 'Delete';
+      let del_mac = $event && $event.code === 'Backspace' && $event.keyCode === 8;
+      if(del_window || del_mac) {
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
