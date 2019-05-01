@@ -26,7 +26,7 @@ export class LineComponent extends BasicComponent implements OnInit, SettingObjC
     ctx.beginPath();
     ctx.lineWidth=1;
     ctx.lineCap="butt";
-    ctx.moveTo(20,20);
+    ctx.moveTo(0,0);
     ctx.lineTo(200,200);
     ctx.stroke();
   }
