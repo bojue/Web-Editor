@@ -10,7 +10,6 @@ import { ViewContainRefHostDirective } from "../directive/view-contain-ref-host.
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { CompDevModule } from "../component/dev/comp-dev.module";
-import { CompViewModule } from "../component/views/comp-view.module";
 import { CompStyleModule } from "../component/dev/settings/style/comp-style.module";
 import { CompDataModule } from "../component/dev/settings/data/comp-data.module";
 import { CompCustomModule } from "../component/dev/comps/custom/comp-custom.module";
@@ -36,7 +35,6 @@ import { ViewChildContainRefHostDirective } from "../directive/view-child-contai
     FormsModule,
     BrowserModule,
     CompDevModule,
-    CompViewModule,
     CompStyleModule,
     CompDataModule,
     CompCustomModule,

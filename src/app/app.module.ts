@@ -8,7 +8,6 @@ import { CodeModule } from "./code/code.module";
 import { PagesModule } from "./pages/pages.module";
 import { CompSettingBasicModule } from "./component/basic/comp-setting-basic.module";
 import { CompDevModule } from "./component/dev/comp-dev.module";
-import { CompViewModule } from "./component/views/comp-view.module";
 import { CompBasicModule } from "./component/dev/comps/comp/comp.module";
 import { AppServiceService } from "./providers/app-service.service";
 import { BasicInfoConfigService } from "./providers/basic-info-config.service";
@@ -29,7 +28,6 @@ import { TreeModule } from 'angular-tree-component';
     PagesModule,
     CompSettingBasicModule,
     CompDevModule,
-    CompViewModule,
     CompBasicModule,
     TreeModule.forRoot()
   ],
