@@ -72,9 +72,21 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
     let basicNum = (basicHalfBool && this.style[basicParam]) ? this.style[basicParam] / 2 : this.style[basicParam] || 0;
     let secondNum = (secondHalfBool && this.style[secondParam]) ? this.style[secondParam] / 2 : this.style[secondParam] || 0;
     let otherNum = otherNumber || 0;
-    let paramVal = basicNum + secondNum + otherNum;
+    let borerNum = this.style['borderWidth'] ? this.getBorerNumber(direction) : 0;
+    let paramVal = basicNum + secondNum + otherNum + borerNum;
     paramVal = this.hasStretchBorderWidth(paramVal, direction)
     return paramVal + 'px'; 
+  }
+
+  getBorerNumber(direction ?:string){
+    let border = this.style['borderWidth'];
+    let borerNum = 0;
+    if(['r_l', 'b_t'].indexOf(direction) > -1  ) {
+      borerNum = border * 2 + 3;
+    } else if(['l_l', 't_l', 'b_l', 't_t', 'r_t', 'l_t'].indexOf(direction) > -1) {
+      borerNum = 3;
+    } 
+    return borerNum;
   }
 
   //拉伸辅助计算
