@@ -82,9 +82,9 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
     let border = this.style['borderWidth'];
     let borerNum = 0;
     if(['r_l', 'b_t'].indexOf(direction) > -1  ) {
-      borerNum = border * 2 + 3;
+      borerNum = border * 2 - 2;
     } else if(['l_l', 't_l', 'b_l', 't_t', 'r_t', 'l_t'].indexOf(direction) > -1) {
-      borerNum = 3;
+      borerNum = 0;
     } 
     return borerNum;
   }
