@@ -30,7 +30,7 @@ export class BasicComponent implements OnInit {
   
   // 拖拽辅助线边框位置 -1px，因为辅助线宽度1px
   expandUnit(param, other ?: string) {
-    let paramVal = (!other ? this.style[param] : (this.style[param] + this.style[other] - 1)) || 1;  //无边框计算方式
+    let paramVal = !other ? this.style[param] : (this.style[param] + this.style[other]);  //无边框计算方式
     paramVal = this.hasBorderWidth(paramVal, param, other);
     return paramVal + 'px'; 
   }
@@ -39,9 +39,9 @@ export class BasicComponent implements OnInit {
   hasBorderWidth(paramVal, param, other ?: string) {
     let _padd = 0;
     if(other === 'height' || other === 'width') {
-      _padd = this.style['padding'] || 0;
+      _padd = this.style['borderWidth'] * 2 -1|| 0;
     }
-    paramVal = paramVal + this.style['borderWidth'] * 2 + _padd;
+    paramVal = paramVal +  _padd;
     return paramVal;
   }
   
