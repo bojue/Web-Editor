@@ -37,11 +37,13 @@ export class BasicComponent implements OnInit {
 
   //有边框辅助位置计算
   hasBorderWidth(paramVal, param, other ?: string) {
-    let _padd = 0;
+    let _other = 0;
     if(other === 'height' || other === 'width') {
-      _padd = this.style['borderWidth'] * 2 -1|| 0;
+      let _bordWidth = this.style['borderWidth'] * 2 -1|| 0;
+      let _padd = this.style['padding'] * 2 || 0;
+      _other = _bordWidth + _padd;
     }
-    paramVal = paramVal +  _padd;
+    paramVal = paramVal +  _other;
     return paramVal;
   }
   
