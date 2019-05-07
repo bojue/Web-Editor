@@ -470,4 +470,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     })
     this.selectPageInfo = null;
   }
+
+  deletePage(index) {
+    this.pageList.splice(index, 1);
+    this.initPages();
+  }
 }

@@ -8,10 +8,11 @@
         <img class="hidden" (click)="showPage()" title="展示页面列表" [ngClass]="{'curner':showPageList, 'curner-back':!showPageList}"  src="./../../../assets/icons/hidden.svg" alt="">
         <div class="page-content" [ngClass]="{'page-show':showPageList, 'page-hidden':!showPageList}" >
           <ul class="list" *ngIf="pageList ">
-            <li class="item" *ngFor="let item of pageList;"   (dblclick)="changeEditable(item, 'editable')">
+            <li class="item" *ngFor="let item of pageList;let num = index;"   (dblclick)="changeEditable(item, 'editable')">
                 <img class="page-icon" src="./../../../assets/icons/page.svg" >
                 <div class="page-name" [contentEditable]="item['editable'] || false" (focus)="inputVal($event, item)"  (input)="inputVal($event, item)" (blur)="changeEditable(item,'del')">{{item['name']}}</div>
                 <img class="sett" (click)="selectPage(item)" src="./../../../assets/icons/setting.svg" alt="">
+                <img class="del" (click)="deletePage(num)" src="./../../../assets/icons/delete.svg" alt="">
            </li>
            <li class="item addpage" >
              <img src="./../../../assets/icons/add.svg" alt="添加页面">
