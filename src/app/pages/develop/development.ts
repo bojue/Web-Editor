@@ -471,8 +471,22 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.selectPageInfo = null;
   }
 
+  //删除页面
   deletePage(index) {
     this.pageList.splice(index, 1);
+    this.initPages();
+  }
+
+  //添加页面
+  addPage() {
+    let _currentName = "页面 " + this.pageList.length;
+    let item =  {
+      name: _currentName,
+      defaultName:'页面',
+      data:[],
+      style:{}
+    };
+    this.pageList.push(item)
     this.initPages();
   }
 }

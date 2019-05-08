@@ -15,7 +15,7 @@
                 <img class="del" (click)="deletePage(num)" src="./../../../assets/icons/delete.svg" alt="">
            </li>
            <li class="item addpage" >
-             <img src="./../../../assets/icons/add.svg" alt="添加页面">
+             <img src="./../../../assets/icons/add.svg" (click)="addPage()" alt="添加页面">
            </li>
           </ul>
           <div class="seting" *ngIf="selectPageInfo && selectPageInfo['detailBool']">
