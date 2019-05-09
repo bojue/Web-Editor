@@ -17,6 +17,10 @@ import { CompEventModule } from "../component/dev/settings/event/comp-event.modu
 import { CompTemplateModule } from "../component/dev/comps/template/comp-template.module";
 import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.module";
 import { ViewChildContainRefHostDirective } from "../directive/view-child-contain-ref-host.directive";
+import { CompTempComponent } from './develop/comp-temp/comp-temp.component';
+import { CompPageComponent } from './develop/comp-page/comp-page.component';
+import { CompDetailComponent } from './develop/comp-detail/comp-detail.component';
+import { CompMarageComponent } from './develop/comp-marage/comp-marage.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ViewChildContainRefHostDirective } from "../directive/view-child-contai
     CompListComponent,
     CompSettingComponent,
     ViewContainRefHostDirective,
-    ViewChildContainRefHostDirective
+    ViewChildContainRefHostDirective,
+    CompTempComponent,
+    CompPageComponent,
+    CompDetailComponent,
+    CompMarageComponent
   ],
   imports: [
 
