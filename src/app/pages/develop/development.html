@@ -1,4 +1,8 @@
-<div class="body" [ngClass]="{'whole-view':!setingBool}">
+<div class="devBody" [ngClass]="{
+  'width-all':true,
+  'width-no':true,
+  'width-left':true,
+  'width-right':true}">
   <!-- 1.组态管理 -->
   <section class="comp-marage">
     <app-comp-configuration></app-comp-configuration>
@@ -20,24 +24,12 @@
       <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
     </div>    
 
-    <div class="setting border1 h90">
-        <div class="header">
-          <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
-            <span >{{heade['name']}}</span>
-          </div>
-        </div>
-    
-        <app-comp-list *ngIf="settingState === 'default'" 
-          class="modules" 
-          [componentModules]="componentModules"
-          (compDragEvent)="dragCompEnd($event)"></app-comp-list>
-         
-        <app-comp-setting *ngIf= "settingState === 'settings'" 
-          class="settings" 
-          [activeSettingObj]="activeCompSettingObject" 
-          (settingObjChange)="chengeComponent($event)"
-          (deleteComponent)="deleteComponent($event)"></app-comp-setting>
-      </div>
+    <app-comp-setting 
+      class="settings" 
+      [activeSettingObj]="activeCompSettingObject" 
+      (settingObjChange)="chengeComponent($event)"
+      (deleteComponent)="deleteComponent($event)">
+    </app-comp-setting>
   </section>
 
 

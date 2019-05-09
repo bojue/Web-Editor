@@ -9,15 +9,6 @@ export class AppServiceService{
 
   }
 
-  componentsHeaders = [{ 
-    name:'组件',
-    state: 'default',
- 
-  }, {
-    name: '设置',
-    state: 'settings'
-  }]
-
   componentModules = [{ 
     name:'基础',
     title:"基础组件,多为HTML元素组件",
@@ -202,10 +193,6 @@ export class AppServiceService{
 
   getTestCreateComp() {
     return this.testCreateComp;
-  }
-
-  getComponentHeaders() {
-    return this.componentsHeaders;
   }
 
   getComponentModeules() {

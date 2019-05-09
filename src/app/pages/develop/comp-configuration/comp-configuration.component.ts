@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AppServiceService } from 'src/app/providers/app-service.service';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comp-configuration.component.scss']
 })
 export class CompConfigurationComponent implements OnInit {
+  compList:any[];
 
-  constructor() { }
+  constructor(
+    private service: AppServiceService,
+  ) { }
 
   ngOnInit() {
+    this.initData();
+  }
+
+  initData() {
+    this.compList = this.service.getComponentModeules();
   }
 
 }

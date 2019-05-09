@@ -23,8 +23,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
   currentIndex = -1;
-  settingState: string; // default or  customer
-  componentsHeaders: any[];
   componentModules: any[];
   basicComponents: any[];
   testCreateComp: any[];
@@ -58,7 +56,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private emitSerive: CompEmitService, 
     private eventManager: EventManager
   ) {
-      this.activeSettingState('default');
       this.pageList = this.service.getPages();
   }
 
@@ -104,19 +101,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   initData() {
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
-    this.componentsHeaders = this.service.getComponentHeaders();
     this.testCreateComp = this.service.getTestCreateComp(); //获取json数据(组件数据)
     this.getCompList(this.testCreateComp); //json数据生成组件集合
     this.auxiComp = this.service.getAuxiComp();
     this.areaComp = this.service.getAreaComp();
-  }
-
-  /**
-   * 默认设置选择组件 default | settings
-   */
-  
-  activeSettingState(state = 'default') {
-    this.settingState = state;
   }
 
   //拖拽icon图标添加组件

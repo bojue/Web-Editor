@@ -16,8 +16,6 @@ $border-color4: $color-grey-1;
     font: 12px Helvetica,Arial,sans-serif;
     .body {
         position: relative;
-        display: grid;
-        grid-template-columns: 45px auto 210px;
         ul,li {
             list-style: none;
             padding: 0;
@@ -25,9 +23,6 @@ $border-color4: $color-grey-1;
         }
         .disabled-status {
             cursor: not-allowed;
-        }
-        &.whole-view {
-            grid-template-columns: 45px auto;
         }
         grid-column-gap: 3px;
         .h90 {
@@ -144,40 +139,7 @@ $border-color4: $color-grey-1;
 
                 }
 
-                //1.设置组件-组件
-                .lists {
-                    display: grid;
-                    grid-template-columns: 33.3% 33.3% 33.3% ;
-                    padding: 8px;
-                    border-bottom: 1px solid $border-color4;
-                    .item {
-                        cursor: move;
-                        margin-right: -1px;
-                        margin-bottom: -1px;
-                        border: 1px solid #cccccc;
-                        height: 70px;
-                        position: relative;
-                        text-align: center;
-                        &:hover {
-                            border: 1px solid $border-color3;
-                            z-index: 2;
-                        }
-                        img.icon {
-                            width: 30px;
-                            height: 30px;
-                            margin-top: 5px;
-                        }
-                        p.text{
-                            position: absolute;
-                            bottom: 0px;
-                            text-align: center;
-                            width: 100%;
-                            font-size: 14px;
-                            bottom: -6px;
-                        }
-                    }
-                }
-
+              
                 //2.设置组件-组件
                 .settings {
                     position: relative;

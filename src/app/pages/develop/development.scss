@@ -1,7 +1,11 @@
 
 :host /deep/ {
-    .canvas-comp {
-        position: absolute;
+    .devBody {
+        display: grid;
+        grid-template-columns: 175px 40px auto 1750px;
+    }
+    section {
+        position: relative;
     }
     .run-but {
         cursor: pointer;
@@ -17,23 +21,5 @@
                 background:rgba(255,0,0,0.1);
             }
         }
-    }
-    .setting-but {
-        position: absolute;
-        top: 21px;
-        right: -5px;
-        .set-but {
-            top: -62px;
-        }
-    }
-    .set-but {
-        img {
-            width: 24px;
-        }
-    }
-
-    .disabled-opeaticy {
-        opacity: 0.7;
-        cursor: not-allowed;
     }
 }

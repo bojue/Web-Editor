@@ -1,8 +1,60 @@
 
 :host /deep/ {
+    $color-blue-1: #F6F7FB ;
+    $color-blue-2: #eaf6fe;
+    $color-blue-3: #3399ff;
+    $color-grey-1: #cccccc;
+
+    $color-red-1: rgba(255, 0, 0, 0.6);
+
+    $backgroudn-color1: $color-blue-2;
+
+    $border-color1: $color-blue-1;
+    $border-color2: $color-blue-2;
+    $border-color3: $color-red-1;
+    $border-color4: $color-grey-1;
     .info {
         position: absolute;
         left: 75px;
         top: 10px;
     }
+
+    .comp-tit {
+        height: 24px;
+        line-height: 24px;
+    }
+
+    //1.设置组件-组件
+    .lists {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3% ;
+        padding: 8px;
+        .item {
+            cursor: move;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            border: 1px solid #cccccc;
+            height: 55px;
+            position: relative;
+            text-align: center;
+            &:hover {
+                border: 1px solid $border-color3;
+                z-index: 2;
+            }
+            img.icon {
+                width: 30px;
+                height: 30px;
+                margin-top: 5px;
+            }
+            p.text{
+                position: absolute;
+                bottom: 0px;
+                text-align: center;
+                width: 100%;
+                font-size: 12px;
+                bottom: -6px;
+            }
+        }
+    }
+
 }
