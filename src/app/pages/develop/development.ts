@@ -46,7 +46,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     move:false,
     up: false
   }; //鼠标事件记录，用于选中组件
-  showPageList: boolean = false;
   pageList: SettingPage[];// 页面管理 - 列表
   selectPageInfo: SettingPage; //页面管理-详情
 
@@ -111,7 +110,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   initData() {
     this.setingBool = true;
-    this.showPageList = true;
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
     this.componentsHeaders = this.service.getComponentHeaders();
@@ -420,73 +418,5 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initViewContRef();
       this.getCompList(this.testCreateComp)
     }
-  }
-
-  //页面列表
-  showPage() {
-    this.showPageList = !this.showPageList;
-    if(!this.showPageList) {
-      this.initPages();
-    }
-  }
-
-  //页面列表 - 输入状态
-  changeEditable(item, state?:string) {
-    if(state === 'editable') {
-      item['editable'] = true;
-    }else if(state === 'del'){
-      delete item['editable'];
-    }
-  }
-
-  //页面列表 - 文字输入
-  inputVal(event, item) {
-    if(event['type'] === 'focus') {
-      // #TODO, 选中全部文字
-    } else if(event['type'] === 'input') {
-      let text = event.target && event.target.innerHTML && event.target.innerHTML.trim();
-      item['name'] = text;
-    }
-  }
-
-  //页面管理 - 详情
-  selectPage(item) {
-    if(item['detailBool']) {
-      this.selectPageInfo = null;
-      delete item['detailBool'];
-    } else {
-      this.initPages();
-      item['detailBool'] = true;
-      this.selectPageInfo = item;
-    }
-  }
-
-  //页面管理 - 详情状态初始化
-  initPages() {
-    _.map(this.pageList, item => {
-      if('detailBool' in item) {
-        delete item['detailBool'];
-      }
-    })
-    this.selectPageInfo = null;
-  }
-
-  //删除页面
-  deletePage(index) {
-    this.pageList.splice(index, 1);
-    this.initPages();
-  }
-
-  //添加页面
-  addPage() {
-    let _currentName = "页面 " + this.pageList.length;
-    let item =  {
-      name: _currentName,
-      defaultName:'页面',
-      data:[],
-      style:{}
-    };
-    this.pageList.push(item)
-    this.initPages();
   }
 }
