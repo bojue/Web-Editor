@@ -2,7 +2,7 @@
 
   <!-- 组件管理 -->
   <div class="comp-marage">
-    
+
   </div>
 
   <div class="canvas-comp">
@@ -19,11 +19,8 @@
     <div class="run-but" (click)="preView()">
       <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
     </div>    
-    <div class="set-but" (click)="settingHidle()">
-      <img src="./../../../assets/icons/settings.svg" title="组件设置" alt="组件设置">
-    </div>
 
-    <div class="setting border1 h90" *ngIf="setingBool">
+    <div class="setting border1 h90">
         <div class="header">
           <div class="heade" *ngFor="let heade of componentsHeaders"  [ngClass]="{'active': heade['state'] === settingState}" (click)="activeSettingState(heade['state'])">
             <span >{{heade['name']}}</span>
