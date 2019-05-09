@@ -48,171 +48,22 @@ $border-color4: $color-grey-1;
         .border1 {
             border: 1px solid #cccccc;  
         }
+    }
 
-        #componentsBody {
-            position: relative;
-            margin-top: 22px;
-            margin-left: 30px;
-            background-image:
-                linear-gradient(rgba(200, 205, 208, .3) 1px, transparent 0),
-                linear-gradient(90deg, rgba(200, 205, 208, .3), 1px, transparent 0),
-                linear-gradient( #C8CDD0 1px, transparent 0),
-                linear-gradient(90deg, #C8CDD0 1px, transparent 0);
-            background-size: 15px 15px, 15px 15px, 105px 105px, 105px 105px;
-            .comp-item {
-                cursor: move;
-                background: rgba($color:#ffffff , $alpha: 1.0)
-            }
-            .comp-active {
-                box-shadow: $border-color3 0px 0px 3px;
-                z-index: 999;
-            }
-
-            .comp-resize {
-                cursor: e-resize;
-            }
-        }
-        .setting-but {
-            .set-but {
-                position: absolute;
-                right: 20px;
-                cursor: pointer;
-                img {
-                    width: 25px;
-                    &:hover {
-                        color: red;
-                    }
-                }
-            
-            }
-
-            //1.设置组件
-            .setting {
-                width: 200px;
-                position: absolute;
-                top: 0px;
-                right: 10px;
-                background: #ffffff;
-                .header {
-                    display: block;
-                    position: relative;
-                    text-align: left;
-                    margin: 5px 0px 0px ;
-                    border-bottom: 1px solid #aaaaaa;
-
-                    .heade {
-                        display: inline-block;
-                        width: 60px;
-                        text-align: center;
-                        margin-left: 6px;
-                        margin-bottom: 6px;
-                        padding: 3px 4px;
-                        cursor: pointer;
-                        &:hover {
-                            background: #cccccc;
-                            color: #ffffff;
-                        }
-
-                        &.active {
-                            background: deepskyblue;
-                            color: #ffffff;
-                        }
-                    }
-                }
-
-                .comp-tit {
-                    position: relative;
-                    cursor: pointer;
-                    padding: 5px 13px;
-                    .icon-disc {
-                        width: 18px;
-                        height:18px;
-                        background-repeat: no-repeat;
-                    }
-                    .tit {
-                        font-size: 15px;
-                        letter-spacing: 2px;
-                        position: absolute;
-                        top: 8px;
-                        left: 39px;
-                    }
-
-                }
-
-              
-                //2.设置组件-组件
-                .settings {
-                    position: relative;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    font-size: 13px;
-                    text-align: left;
-
-                    .item-discription {
-                        padding: 10px;
-                        font-size: 14px;
-                        font-weight: 600;
-                        letter-spacing:2px;
-                        border-left: 5px solid #108CEE ;
-                    }
-
-                    .item-tit {
-                        padding: 6px 10px;
-                        background:$backgroudn-color1;
-                    }
-
-                    .set-body {
-                        .item-set {
-                            position: relative;
-                            margin-top: 5px 2px;
-                            padding:3px 5px;
-                            &.item-set-grid {
-                                display: grid;
-                                position: relative;
-                                grid-column-gap: 3px;
-                                &.grid-2 {
-                                    grid-template-columns: 48% 48%;
-                                }
-                                &.grid-3 {
-                                    grid-template-columns: 18% 40% 40%;
-                                }
-                                .set-val {
-                                    position: relative;
-                                    padding: 2px;
-                                    .lab {
-                                        position: relative;
-                                        z-index: 100;
-                                        display: inline-block;
-                                        width: 20px;
-                                    }
-                                    .val {
-                                        width:50px;
-                                        padding-left: 6px;
-                                    }
-                                }
-                            }
-                            
-                        }
-                    }
-                }
-            }
-        }
-   
     .data-val {
         position: relative;
-            .tit {
-                margin: 10px;
-            }
-            .val {
-                width: 80%;
-                padding-left: 10px;
-                input {
-                    height: 30px;
-                    padding: 2px 5px;
-                    width: 100%;
-                }
+        .tit {
+            margin: 10px;
+        }
+        .val {
+            width: 80%;
+            padding-left: 10px;
+            input {
+                height: 30px;
+                padding: 2px 5px;
+                width: 100%;
             }
         }
     }
+
 }

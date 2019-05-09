@@ -1,8 +1,11 @@
 
 :host /deep/ {
+
+    $color-red-1: rgba(255, 0, 0, 0.6);
+    $border-color3: $color-red-1;
     .devBody {
         display: grid;
-        grid-template-columns: 175px 40px auto 1750px;
+        grid-template-columns: 175px 40px auto 175px;
     }
     section {
         position: relative;
@@ -21,5 +24,33 @@
                 background:rgba(255,0,0,0.1);
             }
         }
+    }
+
+    #componentsBody {
+        position: relative;
+        margin-top: 20px;
+        margin-left: 0px;
+        background-image:
+            linear-gradient(rgba(200, 205, 208, .3) 1px, transparent 0),
+            linear-gradient(90deg, rgba(200, 205, 208, .3), 1px, transparent 0),
+            linear-gradient( #C8CDD0 1px, transparent 0),
+            linear-gradient(90deg, #C8CDD0 1px, transparent 0);
+        background-size: 15px 15px, 15px 15px, 105px 105px, 105px 105px;
+        .comp-item {
+            cursor: move;
+            background: rgba($color:#ffffff , $alpha: 1.0)
+        }
+        .comp-active {
+            box-shadow: $border-color3 0px 0px 3px;
+            z-index: 999;
+        }
+
+        .comp-resize {
+            cursor: e-resize;
+        }
+    }
+    .setting-but {
+        z-index: 1000;
+        background: #ffffff;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AppServiceService } from 'src/app/providers/app-service.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { AppServiceService } from 'src/app/providers/app-service.service';
   styleUrls: ['./comp-configuration.component.scss']
 })
 export class CompConfigurationComponent implements OnInit {
+  @Output() compDragEvent = new EventEmitter<any>();
   compList:any[];
 
   constructor(
@@ -19,6 +20,10 @@ export class CompConfigurationComponent implements OnInit {
 
   initData() {
     this.compList = this.service.getComponentModeules();
+  }
+
+  dragCompEnd(event){
+    this.compDragEvent.emit(event);
   }
 
 }
