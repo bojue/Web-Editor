@@ -22,7 +22,6 @@ import { SettingPage } from 'src/app/module/setting-page.module';
 export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
-  setingBool: boolean;
   currentIndex = -1;
   settingState: string; // default or  customer
   componentsHeaders: any[];
@@ -31,7 +30,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   testCreateComp: any[];
   auxiComp: any = {};
   areaComp: any = {};
-
   components: any[];
   cmpRef: any[];
   currentViewContRef: any; //当前组件实例
@@ -95,21 +93,15 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.eventEmitter.unsubscribe();
   }
 
-  settingHidle() {
-    this.setingBool = !this.setingBool;
-  }
-
   ngAfterViewInit() {
     let compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
     compBodyDom.addEventListener('click', this.clickListernerHandle.bind(this));
     compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
-
   }
 
   initData() {
-    this.setingBool = true;
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.componentModules = this.service.getComponentModeules();
     this.componentsHeaders = this.service.getComponentHeaders();

@@ -20,7 +20,7 @@ import { ViewChildContainRefHostDirective } from "../directive/view-child-contai
 import { CompTempComponent } from './develop/comp-temp/comp-temp.component';
 import { CompPageComponent } from './develop/comp-page/comp-page.component';
 import { CompDetailComponent } from './develop/comp-detail/comp-detail.component';
-import { CompMarageComponent } from './develop/comp-marage/comp-marage.component';
+import { CompConfigurationComponent } from './develop/comp-configuration/comp-configuration.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +36,9 @@ import { CompMarageComponent } from './develop/comp-marage/comp-marage.component
     CompTempComponent,
     CompPageComponent,
     CompDetailComponent,
-    CompMarageComponent
+    CompConfigurationComponent
   ],
   imports: [
-
     FormsModule,
     BrowserModule,
     CompDevModule,

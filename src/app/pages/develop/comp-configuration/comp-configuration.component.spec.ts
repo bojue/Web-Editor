@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompMarageComponent } from './comp-marage.component';
+import { CompConfigurationComponent } from './comp-configuration.component';
 
-describe('CompMarageComponent', () => {
-  let component: CompMarageComponent;
-  let fixture: ComponentFixture<CompMarageComponent>;
+describe('CompConfigurationComponent', () => {
+  let component: CompConfigurationComponent;
+  let fixture: ComponentFixture<CompConfigurationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompMarageComponent ]
+      declarations: [ CompConfigurationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompMarageComponent);
+    fixture = TestBed.createComponent(CompConfigurationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
