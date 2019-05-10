@@ -4,11 +4,8 @@
     $color-blue-2: #eaf6fe;
     $color-blue-3: #3399ff;
     $color-grey-1: #cccccc;
-
     $color-red-1: rgba(255, 0, 0, 0.6);
-
     $backgroudn-color1: $color-blue-2;
-
     $border-color1: $color-blue-1;
     $border-color2: $color-blue-2;
     $border-color3: $color-red-1;
@@ -19,39 +16,45 @@
         top: 10px;
     }
 
-    .comp-tit {
+    .comp-tit{
+        cursor: pointer;
+        position: relative;
         height: 24px;
         line-height: 24px;
+        background:rgb(242, 242, 242);
+        columns: #444444;
+        .icon {
+            position: absolute;
+            width: 14px;
+            height:14px;
+            right: 20px;
+            top:5px;
+        }
+        .tit {
+            margin-left: 8px;
+        }
     }
 
-    //1.设置组件-组件
     .lists {
+        position: relative;
         display: grid;
         grid-template-columns: 33.3% 33.3% 33.3% ;
-        padding: 8px;
-        .item {
-            cursor: move;
-            margin-right: -1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        .content-item {
+            border: 1px solid rgba(200, 205, 208, 0.3);
+            height: 60px;
+            margin-left: -1px;
             margin-bottom: -1px;
-            border: 1px solid #cccccc;
-            height: 55px;
-            position: relative;
             text-align: center;
-            &:hover {
-                border: 1px solid $border-color3;
-                z-index: 2;
-            }
-            img.icon {
-                width: 30px;
+            cursor: pointer;
+            img {
+                display: block;
+                width: 28px;
                 height: 30px;
-                margin-top: 5px;
-            }
-            p.text{
-                position: absolute;
-                text-align: center;
-                width: 100%;
-                font-size: 12px;
-                bottom: -11px;
+                margin-left: 13px;
+                margin-top: 4px;
             }
         }
     }
