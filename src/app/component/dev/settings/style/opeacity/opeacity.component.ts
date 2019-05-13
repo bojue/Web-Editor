@@ -13,7 +13,7 @@ export class OpeacityComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.style['opacity'] = this.style['opacity'] || 1;
+    this.style['opeacity'] = this.style['opeacity'] || 1;
   }
 
 }

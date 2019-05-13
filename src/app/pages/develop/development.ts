@@ -100,7 +100,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   initData() {
     this.currentViewContRef = this.viewContRef.viewContainerRef;
-    this.componentModules = this.service.getComponentModeules();
     this.testCreateComp = this.service.getTestCreateComp(); //获取json数据(组件数据)
     this.getCompList(this.testCreateComp); //json数据生成组件集合
     this.auxiComp = this.service.getAuxiComp();
