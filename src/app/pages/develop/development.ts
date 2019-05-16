@@ -200,6 +200,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let compFactory  = this.componentFactoryResolver.resolveComponentFactory(currentComponent.compType);
     let compRef = this.currentViewContRef.createComponent(compFactory);
     let compInstance = compRef.instance;
+    console.log(currentComponent);
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
     if(e && e.stopPropagation){

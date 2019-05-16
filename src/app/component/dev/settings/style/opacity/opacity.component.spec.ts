@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpeacityComponent } from './opeacity.component';
+import { OpacityComponent } from './opacity.component';
 
-describe('OpeacityComponent', () => {
-  let component: OpeacityComponent;
-  let fixture: ComponentFixture<OpeacityComponent>;
+describe('OpacityComponent', () => {
+  let component: OpacityComponent;
+  let fixture: ComponentFixture<OpacityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpeacityComponent ]
+      declarations: [ OpacityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OpeacityComponent);
+    fixture = TestBed.createComponent(OpacityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
