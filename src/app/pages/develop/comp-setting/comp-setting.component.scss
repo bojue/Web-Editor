@@ -17,4 +17,10 @@
             margin-left: 8px;
         }
    }
+
+   .grid-2 {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
 }

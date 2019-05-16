@@ -44,6 +44,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }; //鼠标事件记录，用于选中组件
   pageList: SettingPage[];// 页面管理 - 列表
   selectPageInfo: SettingPage; //页面管理-详情
+  contentLeft:number;
 
   eventEmitter:any;
   constructor(
@@ -98,7 +99,13 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
   }
 
+  getContentLeft() {
+    let compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
+    this.contentLeft = compBodyDom.offsetLeft;
+  }
+
   initData() {
+    this.getContentLeft();
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.testCreateComp = this.service.getTestCreateComp(); //获取json数据(组件数据)
     this.getCompList(this.testCreateComp); //json数据生成组件集合
@@ -141,7 +148,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //父类容器监听事件
   clickListernerHandle(e) {
-    
+    this.getContentLeft();
     //1.更新文本编辑状态
     let currentComp = this.testCreateComp[this.currentIndex];
     if(currentComp && currentComp['type'] === 'text') {
