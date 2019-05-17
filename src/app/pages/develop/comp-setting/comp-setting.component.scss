@@ -1,6 +1,16 @@
 
 :host /deep/ {
-   .comp-tit {
+    .item-discription {
+        height: 30px;
+        line-height: 30px;
+        border-left: 4px solid red;
+        background: rgba(255,0,0,0.05);
+        .title {
+            padding-left: 20px;
+            font-size: 13px;
+        }
+    }
+    .comp-tit {
         cursor: pointer;
         position: relative;
         height: 24px;
@@ -16,34 +26,83 @@
         .tit {
             margin-left: 8px;
         }
-   }
+    }
 
-   .grid-2 {
+    .set-item {
+        position: relative;
+        display: block;
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 5px;
+    }
+
+    .grid-2 {
         display: grid;
         grid-template-columns: 50% 50%;
+    }
+    .grid-1 {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    .item-set-grid {
+        .tit {
+            height: 24px;
+            line-height: 24px;
+            margin-left: 5px;
+        }
     }
     .set-val {
         position: relative;
         text-align: center;
-        height: 26px;
         margin: 5px;
+        height: 100%;
+        &.val-grid-2 {
+            display: grid;
+            grid-template-columns: 20% 80%;
+        }
+        
         label {
             position: absolute;
             left: 0px;
-            top: 1px;
+            top: 0px;
             background: #eee;
             padding: 2px 5px;
             width: 13px;
-            height: 19px;
+            height: 20px;
             line-height: 19px;
         }
-        input {
+        input.val {
             width: 43px;
             padding: 2px 3px;
             border: 1px solid #eee;
-            position: absolute;
-            left: 23px;
+            position: relative;
+            left: 10px;
             height: 18px;
+        }
+        input[type='radio'] {
+            margin: 3px 3px;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 5px;
+            list-style: none;
+            text-align: left;
+        }
+    }
+    .del {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+        .del-btn {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            padding: 4px;
+            border-radius: 50%;
+            box-shadow: 0 0 3px #eeeeee;
+            &:hover {
+                box-shadow: 0 0 3px red;
+            }
         }
     }
 

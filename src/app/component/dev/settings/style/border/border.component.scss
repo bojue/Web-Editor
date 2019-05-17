@@ -1,54 +1,18 @@
 :host /deep/ { 
-    .grid-1 {
-        grid-template-columns: 100%;
-        .tit {
-            margin: 3px 0px;
-        }
-        .set-val {
-            display: grid;
-            grid-template-columns: 30% 69%;
-            .lab {
-                width: 50px !important;
-                padding-left: 15px;
-            }
-            .val {
-                width: 100px !important;
-            }
-            select.val {
-                width: 111px !important;
-                padding:3px 6px;
-            }
-        }
-    }
+
     .style-bg-color {
         span {
             width: 19px;
             height: 18px;
-            margin-left: 24px;
             display: inline-block;
             border:1px solid #e6e6e6;
         }
-    }
-    .style-bg-radius {
-        text-align: right;
-        margin-right: 7px;
-        span {
-            width: 35px;
-            height: 18px;
-            display: inline-block;
-        }
-    }
-
-    .borders-radius {
-        margin-top: 4px;
-        font-size: 12px;
-        display: grid;
-        grid-template-columns: auto auto auto;
     }
 
 
     .item {
         display:inline-block;
+        min-width: 25px;
         .bg-col {
             width: 20px;
             height:20px;
@@ -57,6 +21,7 @@
             cursor: pointer;
         }
     }
+  
     .bd-style{
         .bg-col {
             border:1px solid rgba($color: #e6e6e6, $alpha: 0.8);

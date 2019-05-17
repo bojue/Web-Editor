@@ -1,21 +1,22 @@
 <div class="comp-item" *ngIf="activeSettingObj">
-    <div class="item-discription">{{activeSettingObj['name']}}</div>
-    <div class="item-tit" >
-     
+    <div class="item-discription">
+      <div class="title">{{activeSettingObj['name']}}</div>
     </div>
+    
     <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
       <img class="icon" src="./../../../../assets/icons/downicon.svg" alt="">
       <div class="tit"> 基本属性</div>
     </div>
+
     <div class="set-body">
       <div class="set-list">
         <app-size [style]="activeSettingObj['style']"></app-size>
-        <app-position [style]="activeSettingObj['style']"></app-position>
-        <app-fonts [style]="activeSettingObj['style']"></app-fonts>
-        <app-border-component [style]="activeSettingObj['style']"></app-border-component>
-        <app-background [style]="activeSettingObj['style']"></app-background>
-        <app-opacity [style]="activeSettingObj['style']"></app-opacity>
-        <app-z-index  [style]="activeSettingObj['style']" ></app-z-index>
+        <app-position class="set-item" [style]="activeSettingObj['style']"></app-position>
+        <app-opacity class="set-item" [style]="activeSettingObj['style']"></app-opacity>
+        <app-fonts class="set-item" [style]="activeSettingObj['style']"></app-fonts>
+        <app-border-component class="set-item" [style]="activeSettingObj['style']"></app-border-component>
+        <app-background class="set-item" [style]="activeSettingObj['style']"></app-background>
+        <app-z-index class="set-item" [style]="activeSettingObj['style']" ></app-z-index>
       </div>
     </div>
     
@@ -47,9 +48,11 @@
 
     <!-- 组件删除 -->
     <div class="del">
-      <img (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
+      <img class='del-btn' (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
     </div>
-  </div>
-  <div class="comp-item disabled-opeaticy " disabled *ngIf="!activeSettingObj">
-      <div class="item-discription">请选择组件</div>
-  </div>
+</div>
+
+<div class="comp-item" *ngIf="!activeSettingObj">
+  <div class="item-discription">
+    <div class="title">{{'请选择组件'}}</div>
+</div>

@@ -1,15 +1,9 @@
 :host /deep/ { 
     .grid-1 {
         grid-template-columns: 100%;
-        .tit {
-            margin: 3px 0px;
-        }
         .set-val {
-            display: grid;
-            grid-template-columns: 30% 69%;
             .lab {
                 width: 50px !important;
-                padding-left: 15px;
             }
             .val {
                 width: 100px !important;
@@ -20,7 +14,6 @@
         span {
             width: 19px;
             height: 18px;
-            margin-left: 24px;
             display: inline-block;
             border:1px solid #e6e6e6;
         }
@@ -29,6 +22,7 @@
 
     .item {
         display:inline-block;
+        min-width: 25px;
         .bg-col {
             width: 20px;
             height:20px;
