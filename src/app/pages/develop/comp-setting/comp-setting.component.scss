@@ -22,5 +22,29 @@
         display: grid;
         grid-template-columns: 50% 50%;
     }
+    .set-val {
+        position: relative;
+        text-align: center;
+        height: 26px;
+        margin: 5px;
+        label {
+            position: absolute;
+            left: 0px;
+            top: 1px;
+            background: #eee;
+            padding: 2px 5px;
+            width: 13px;
+            height: 19px;
+            line-height: 19px;
+        }
+        input {
+            width: 43px;
+            padding: 2px 3px;
+            border: 1px solid #eee;
+            position: absolute;
+            left: 23px;
+            height: 18px;
+        }
+    }
 
 }
