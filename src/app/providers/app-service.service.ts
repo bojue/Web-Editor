@@ -65,17 +65,9 @@ export class AppServiceService{
         type: 'list',
         iconUrl: './../assets/icons/list.svg'
       },{
-        name:'设备数据',
-        type:'equipment',
-        iconUrl:'./../assets/icons/equipment-info.svg'
-      },{
         name: '仪表盘',
         type:'gauge',
         iconUrl:'./../assets/icons/gauge.svg'
-      },{
-        name: '刻度盘',
-        type:'thermomenter',
-        iconUrl:'./../assets/icons/thermometer.svg'
       }]
   },{
     name: '高级',

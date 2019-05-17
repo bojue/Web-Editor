@@ -72,8 +72,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
-      let del_window = $event && $event.code === 'Delete';
-      let del_mac = $event && $event.code === 'Backspace' && $event.keyCode === 8;
+      let del_window = this.isWindows && $event && $event.code === 'Delete';
+      let del_mac = this.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8;
       if(del_window || del_mac) {
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
@@ -96,6 +96,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
+    document.addEventListener("keydown", function(e) {
+      console.log(e)
+    }); 
   }
 
   getContentLeft() {
@@ -405,4 +408,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.getCompList(this.testCreateComp)
     }
   }
+
+  isMac = function() { 
+    return /macintosh|mac os x/i.test(navigator.userAgent); 
+  }();
+
+  isWindows = function() { 
+    return /windows|win32/i.test(navigator.userAgent);
+  }(); 
 }
