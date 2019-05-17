@@ -95,10 +95,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     compBodyDom.addEventListener('click', this.clickListernerHandle.bind(this));
     compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
     compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
-    compBodyDom.addEventListener('mouseup', this.selectArea.bind(this));
-    document.addEventListener("keydown", function(e) {
-      console.log(e)
-    }); 
+    compBodyDom.addEventListener('mouseup', this.selectArea.bind(this)); 
   }
 
   getContentLeft() {
@@ -131,8 +128,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       if(addCompJson && addCompJson['style']) {
         const _PAGE_SIZE_LEFT = this.contentLeft || 200;
         const _PAGE_SIZE_TOP = 100;
-        addCompJson['style']['left'] = event['x']  - _PAGE_SIZE_LEFT ||  addCompJson['style']['left'];
-        addCompJson['style']['top'] = event['y']  - _PAGE_SIZE_TOP || addCompJson['style']['top'];
+        let _top = event['y']  - _PAGE_SIZE_TOP || addCompJson['style']['top'];
+        let _left = event['x']  - _PAGE_SIZE_LEFT ||  addCompJson['style']['left'];
+        addCompJson['style']['top'] = _top >= 0 ? _top : 0;
+        addCompJson['style']['left'] = _left >= 0 ? _left : 0;
       }
     }  
 
