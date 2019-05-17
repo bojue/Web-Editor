@@ -12,6 +12,12 @@ export class CompSettingComponent implements OnInit{
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
 
+  showObj = {
+    style:true,
+    event:true,
+    value:true
+  }
+
   styles: SettingStyle;
 
   constructor() { 
@@ -34,4 +40,7 @@ export class CompSettingComponent implements OnInit{
     this.settingObjChange.emit(this.activeSettingObj)
   }
 
+  showState(state) {
+    this.showObj[state] = !this.showObj[state];
+  }
 }

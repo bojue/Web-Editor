@@ -3,13 +3,13 @@
       <div class="title">{{activeSettingObj['name']}}</div>
     </div>
     
-    <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
-      <img class="icon" src="./../../../../assets/icons/downicon.svg" alt="">
+    <div class="comp-tit" (click)="showState('style')">
+      <img class="icon" src="./../../../../assets/icons/downicon.svg" [ngClass]="{'icon-showmore':showObj['style'],'icon-showlitter':!showObj['style']}" alt="">
       <div class="tit"> 基本属性</div>
     </div>
 
     <div class="set-body">
-      <div class="set-list">
+      <div class="set-list" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
         <app-size [style]="activeSettingObj['style']"></app-size>
         <app-position class="set-item" [style]="activeSettingObj['style']"></app-position>
         <app-opacity class="set-item" [style]="activeSettingObj['style']"></app-opacity>
@@ -20,12 +20,12 @@
       </div>
     </div>
     
-    <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
-      <img class="icon" src="./../../../../assets/icons/downicon.svg" alt="">
+    <div class="comp-tit" (click)="showState('value')">
+      <img class="icon" src="./../../../../assets/icons/downicon.svg" [ngClass]="{'icon-showmore':showObj['value'],'icon-showlitter':!showObj['value']}" alt="" >
       <div class="tit"> 赋值</div>
     </div>
     <div class="set-body">
-      <div class="set-list">
+      <div class="set-list" [ngClass]="{'showmore':showObj['value'],'showlitter':!showObj['value']}">
         <app-img-val [data]="activeSettingObj['data']"></app-img-val>
         <app-button-val [data]="activeSettingObj['data']"></app-button-val>
         <app-input-val [data]="activeSettingObj['data']"></app-input-val>
@@ -36,12 +36,12 @@
         <app-audio-val [data]="activeSettingObj['data']"></app-audio-val>
       </div>
     </div>
-    <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
-      <img class="icon" src="./../../../../assets/icons/downicon.svg" alt="">
+    <div class="comp-tit"  (click)="showState('event')">
+      <img class="icon" src="./../../../../assets/icons/downicon.svg" [ngClass]="{'icon-showmore':showObj['event'],'icon-showlitter':!showObj['event']}" alt="">
       <div class="tit"> 事件</div>
     </div>
     <div class="set-body">
-      <div class="set-list">
+      <div class="set-list" [ngClass]="{'showmore':showObj['event'],'showlitter':!showObj['event']}">
         <app-route-event [event]="activeSettingObj['event']"></app-route-event>
       </div>
     </div>

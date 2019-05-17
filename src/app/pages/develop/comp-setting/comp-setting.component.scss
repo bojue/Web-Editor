@@ -1,5 +1,24 @@
 
 :host /deep/ {
+    @keyframes trans-lett
+    {
+        0% {
+            transform:rotate(0deg);
+        }
+        100% {
+            transform:rotate(90deg);
+        }
+    }
+    @keyframes trans-more
+    {
+        0% {
+            transform:rotate(90deg);
+        }
+        100% {
+            transform:rotate(0deg);
+        }
+    }
+
     .item-discription {
         height: 30px;
         line-height: 30px;
@@ -22,12 +41,27 @@
             height: 14px;
             right: 20px;
             top: 5px;
+            &.icon-showmore {
+                animation: trans-more 1s ease-in-out 0s;
+            }
+            &.icon-showlitter {
+                animation: trans-lett 1s ease-in-out 0s;
+            }
         }
         .tit {
             margin-left: 8px;
         }
     }
-
+ 
+    .set-list {
+        &.showlitter  {
+           overflow: hidden;
+           height: 3px;
+        }
+        &.showmore {
+            height: 100%;
+        }
+    }
     .set-item {
         position: relative;
         display: block;
