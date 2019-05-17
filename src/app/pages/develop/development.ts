@@ -128,9 +128,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');
       if(addCompJson && addCompJson['style']) {
-        const _PAGE_SIZE = 100;
-        addCompJson['style']['left'] = event['x']  - _PAGE_SIZE ||  addCompJson['style']['left'];
-        addCompJson['style']['top'] = event['y']  - _PAGE_SIZE|| addCompJson['style']['top'];
+        const _PAGE_SIZE_LEFT = this.contentLeft || 200;
+        const _PAGE_SIZE_TOP = 100;
+        addCompJson['style']['left'] = event['x']  - _PAGE_SIZE_LEFT ||  addCompJson['style']['left'];
+        addCompJson['style']['top'] = event['y']  - _PAGE_SIZE_TOP || addCompJson['style']['top'];
       }
     }  
 
@@ -200,12 +201,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let compFactory  = this.componentFactoryResolver.resolveComponentFactory(currentComponent.compType);
     let compRef = this.currentViewContRef.createComponent(compFactory);
     let compInstance = compRef.instance;
-    console.log(currentComponent);
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
     if(e && e.stopPropagation){
         e.stopPropagation();
         let eventType = e && e.type;
+        console.log(eventType)
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
         let changeX = e.clientX - this.dragCompStartX;
         let changeY = e.clientY - this.dragCompStartY;
