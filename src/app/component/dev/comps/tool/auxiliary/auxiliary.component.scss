@@ -3,17 +3,17 @@
     #auxi-comp {
         .line-item  {
             position: absolute;
-            background:  repeating-linear-gradient(-45deg, red, red 5px, white 0.2px, white 10px);
+            background:  repeating-linear-gradient(-45deg, rgba(255, 0, 0, 0.3) , rgba(255, 0, 0, 0.3)  5px, white 0.2px, white 10px);
             display: block;
         }
         .line-view-w {
-            height: 0.5px;
+            height: 1px;
             width: 100%;
         }
 
         .line-view-h {
-            width: 0.5px;
-            height: 100%;
+            width: 1px;
+            height: 800px
         }
 
         .w-h {
