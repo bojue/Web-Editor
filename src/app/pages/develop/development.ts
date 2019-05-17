@@ -83,7 +83,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 && this.activeCompSettingObject ){
         this.arrowEvent($event.code);
       }
-
     });
   }
 
@@ -123,7 +122,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   addComponent(compType ?:any, event ?:any, addComp?: any) {
     let compDefinInfo = this.dynamicService.createComponent(compType, this.infoService.getCompDefaultConfig(compType));
     let addCompJson = addComp || compDefinInfo && compDefinInfo['data'];
-
     if(compType && event){
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');

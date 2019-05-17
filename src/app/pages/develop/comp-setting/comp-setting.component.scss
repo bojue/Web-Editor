@@ -106,4 +106,12 @@
         }
     }
 
+    .bd-style.item {
+        .bg-col {
+            border:1px solid rgba($color: #e6e6e6, $alpha: 0.8);
+            height: 18px;
+            width: 18px;                   ;
+        }
+    }
+
 }
