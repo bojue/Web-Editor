@@ -3,7 +3,7 @@
       <img class="icon" src="./../../../../assets/icons/downicon.svg" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}" alt="">
       <div class="tit" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}"> {{module['name']}}</div>
     </div>
-    <div class="comp-list lists" >
+    <div class="comp-list lists scrollY" >
       <ng-container *ngIf="!module['hiddenBool']">
           <ng-container *ngFor="let comp of module['compList'];" >
               <div class="content-item" draggable="true" (dragend)="dragCompEnd($event, comp['type'])" >

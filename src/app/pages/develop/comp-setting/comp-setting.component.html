@@ -9,7 +9,7 @@
     </div>
 
     <div class="set-body">
-      <div class="set-list" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
+      <div class="set-list scrollY" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
         <app-size [style]="activeSettingObj['style']"></app-size>
         <app-position class="set-item" [style]="activeSettingObj['style']"></app-position>
         <app-opacity class="set-item" [style]="activeSettingObj['style']"></app-opacity>
@@ -25,7 +25,7 @@
       <div class="tit"> 赋值</div>
     </div>
     <div class="set-body">
-      <div class="set-list" [ngClass]="{'showmore':showObj['value'],'showlitter':!showObj['value']}">
+      <div class="set-list scrollY" [ngClass]="{'showmore':showObj['value'],'showlitter':!showObj['value']}">
         <app-img-val [data]="activeSettingObj['data']"></app-img-val>
         <app-button-val [data]="activeSettingObj['data']"></app-button-val>
         <app-input-val [data]="activeSettingObj['data']"></app-input-val>
@@ -41,7 +41,7 @@
       <div class="tit"> 事件</div>
     </div>
     <div class="set-body">
-      <div class="set-list" [ngClass]="{'showmore':showObj['event'],'showlitter':!showObj['event']}">
+      <div class="set-list scrollY" [ngClass]="{'showmore':showObj['event'],'showlitter':!showObj['event']}">
         <app-route-event [event]="activeSettingObj['event']"></app-route-event>
       </div>
     </div>
