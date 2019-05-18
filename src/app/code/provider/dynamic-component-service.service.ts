@@ -14,11 +14,8 @@ import { SettingObjComponent } from "src/app/module/setting-object.component";
 import 'core-js/es7/reflect';
 import { VideoComponent } from "src/app/component/dev/comps/comp/video/video.component";
 import { AudioComponent } from '../../component/dev/comps/comp/audio/audio.component';
-import { EquipmentDataInfoComponent } from "src/app/component/dev/comps/custom/equipment-data-info/equipment-data-info.component";
-import { BulletedComponent } from "src/app/component/dev/comps/custom/bulleted/bulleted.component";
 import { GaugeComponent } from "src/app/component/dev/comps/custom/gauge/gauge.component";
 import { AreaComponent } from "src/app/component/dev/comps/tool/area/area.component";
-import { ThermometerComponent } from "src/app/component/dev/comps/custom/thermometer/thermometer.component";
 import { LineComponent } from '../../component/dev/comps/comp/line/line.component';
 
 @Injectable({providedIn: 'root'})
@@ -97,16 +94,6 @@ export class DynamicComponentServiceService {
           comp: AudioComponent
         }  
         break;
-      case 'equipment':
-        tempInfo = {
-          comp: EquipmentDataInfoComponent
-        }  
-        break;
-      case 'bulleted':
-        tempInfo = {
-          comp: BulletedComponent
-        }  
-        break;
       case 'gauge':
         tempInfo = {
           comp: GaugeComponent
@@ -117,11 +104,6 @@ export class DynamicComponentServiceService {
           comp: AreaComponent
         }  
         break;
-      case 'thermomenter': 
-        tempInfo = {
-          comp: ThermometerComponent
-        }   
-        break;    
       default:
         return;    
     }

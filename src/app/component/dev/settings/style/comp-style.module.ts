@@ -1,7 +1,6 @@
 import { ColorComponent } from "./color/color.component";
 import { SizeComponent } from "./size/size.component";
 import { BackgroundComponent } from "./background/background.component";
-import { RoundComponent } from "../../comps/comp/round/round.component";
 import { PositionComponent } from "./position/position.component";
 import { TextsComponent } from "./texts/texts.component";
 import { BorderComponent } from "./border/border.component";
@@ -16,7 +15,6 @@ const settingComp = [
     ColorComponent,
     SizeComponent,
     BackgroundComponent,
-    RoundComponent,
     PositionComponent,
     TextsComponent,
     BorderComponent,
