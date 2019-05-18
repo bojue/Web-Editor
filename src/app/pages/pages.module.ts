@@ -19,7 +19,6 @@ import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.mo
 import { ViewChildContainRefHostDirective } from "../directive/view-child-contain-ref-host.directive";
 import { CompTempComponent } from './develop/comp-temp/comp-temp.component';
 import { CompPageComponent } from './develop/comp-page/comp-page.component';
-import { CompDetailComponent } from './develop/comp-detail/comp-detail.component';
 import { CompConfigurationComponent } from './develop/comp-configuration/comp-configuration.component';
 
 @NgModule({
@@ -35,7 +34,6 @@ import { CompConfigurationComponent } from './develop/comp-configuration/comp-co
     ViewChildContainRefHostDirective,
     CompTempComponent,
     CompPageComponent,
-    CompDetailComponent,
     CompConfigurationComponent
   ],
   imports: [

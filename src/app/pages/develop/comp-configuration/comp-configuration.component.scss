@@ -1,5 +1,20 @@
 
 :host /deep/ {
+    .comp-config {
+        border-right: 4px solid #ffffff;
+        margin-right: 1px;
+    }
+    .right-border {
+        right: -1px;
+    }
+    .div-border {
+        position: absolute;
+        width: 4px;
+        height: 800px;
+        background: #eeeeee;
+        border:1px solid #cccccc;
+        top: 0px;
+    }
     @keyframes trans-lett
     {
         0% {

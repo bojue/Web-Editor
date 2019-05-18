@@ -1,5 +1,18 @@
 
 :host /deep/ {
+    .comp-item {
+        border-left: 4px solid #ffffff;
+        margin-left: 1px;
+    }
+    .left-border {
+        position: absolute;
+        width: 4px;
+        height: 800px;
+        background: #eeeeee;
+        border:1px solid #cccccc;
+        left: -1px;
+        top: 0px;
+    }
     .item-discription {
         height: 30px;
         line-height: 30px;
