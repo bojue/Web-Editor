@@ -1,0 +1,53 @@
+
+:host /deep/ {
+    @keyframes trans-lett
+    {
+        0% {
+            transform:rotate(0deg);
+        }
+        100% {
+            transform:rotate(90deg);
+        }
+    }
+    @keyframes trans-more
+    {
+        0% {
+            transform:rotate(90deg);
+        }
+        100% {
+            transform:rotate(0deg);
+        }
+    }
+
+    .item-discription {
+        height: 30px;
+        line-height: 30px;
+        border-left: 4px solid rgb(18, 150, 219);
+        background: rgba(18, 150, 219,0.05);
+        .title {
+            padding-left: 20px;
+            font-size: 13px;
+        }
+    }
+    .comp-tit {
+        cursor: pointer;
+        position: relative;
+        height: 24px;
+        line-height: 24px;
+        background: #f2f2f2;
+        .icon {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            right: 20px;
+            top: 5px;
+            &.icon-showmore {
+                animation: trans-more 0.3s ease-in-out 0s;
+            }
+            &.icon-showlitter {
+                animation: trans-lett 0.3s ease-in-out 0s;
+                transform:rotate(90deg);
+            }
+        }
+    }
+}

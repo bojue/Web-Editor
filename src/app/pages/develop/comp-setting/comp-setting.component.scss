@@ -1,24 +1,5 @@
 
 :host /deep/ {
-    @keyframes trans-lett
-    {
-        0% {
-            transform:rotate(0deg);
-        }
-        100% {
-            transform:rotate(90deg);
-        }
-    }
-    @keyframes trans-more
-    {
-        0% {
-            transform:rotate(90deg);
-        }
-        100% {
-            transform:rotate(0deg);
-        }
-    }
-
     .item-discription {
         height: 30px;
         line-height: 30px;
@@ -42,10 +23,11 @@
             right: 20px;
             top: 5px;
             &.icon-showmore {
-                animation: trans-more 1s ease-in-out 0s;
+                animation: trans-more 0.3s ease-in-out 0s;
             }
             &.icon-showlitter {
-                animation: trans-lett 1s ease-in-out 0s;
+                animation: trans-lett 0.3s ease-in-out 0s;
+                transform:rotate(90deg);
             }
         }
         .tit {
