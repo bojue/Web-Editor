@@ -5,6 +5,10 @@
         line-height: 30px;
         border-left: 4px solid rgb(18, 150, 219);
         background: rgba(18, 150, 219,0.05);
+        &.noComp {
+            cursor: pointer;
+            opacity: 0.4;
+        }
         .title {
             padding-left: 20px;
             font-size: 13px;
@@ -127,10 +131,6 @@
             height: 18px;
             width: 18px;                   ;
         }
-    }
-    .scrollY {
-        max-height: 240px !important;
-        overflow-y:auto;
     }
 
 }
