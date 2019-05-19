@@ -145,5 +145,9 @@
             width: 18px;                   ;
         }
     }
+    .scrollY {
+        max-height: 240px !important;
+        overflow-y:auto;
+    }
 
 }

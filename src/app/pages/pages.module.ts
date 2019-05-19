@@ -9,6 +9,10 @@ import { CompSettingComponent } from "./develop/comp-setting/comp-setting.compon
 import { ViewContainRefHostDirective } from "../directive/view-contain-ref-host.directive";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { ViewChildContainRefHostDirective } from "../directive/view-child-contain-ref-host.directive";
+import { CompTempComponent } from './develop/comp-temp/comp-temp.component';
+import { CompPageComponent } from './develop/comp-page/comp-page.component';
+import { CompConfigurationComponent } from './develop/comp-configuration/comp-configuration.component';
 import { CompDevModule } from "../component/dev/comp-dev.module";
 import { CompStyleModule } from "../component/dev/settings/style/comp-style.module";
 import { CompDataModule } from "../component/dev/settings/data/comp-data.module";
@@ -16,10 +20,6 @@ import { CompCustomModule } from "../component/dev/comps/custom/comp-custom.modu
 import { CompEventModule } from "../component/dev/settings/event/comp-event.module";
 import { CompTemplateModule } from "../component/dev/comps/template/comp-template.module";
 import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.module";
-import { ViewChildContainRefHostDirective } from "../directive/view-child-contain-ref-host.directive";
-import { CompTempComponent } from './develop/comp-temp/comp-temp.component';
-import { CompPageComponent } from './develop/comp-page/comp-page.component';
-import { CompConfigurationComponent } from './develop/comp-configuration/comp-configuration.component';
 
 @NgModule({
   declarations: [
