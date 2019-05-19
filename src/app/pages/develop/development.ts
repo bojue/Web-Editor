@@ -75,7 +75,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
       let del_window = this.isWindows && $event && $event.code === 'Delete';
       let del_mac = this.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8;
-      if(del_window || del_mac) {
+      let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
+      if(del_window || (del_mac && !activeEleBool)){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){

@@ -20,7 +20,7 @@ export class TreesComponent extends CustomBasicComponent implements OnInit, OnDe
       ]
     },
     {
-      id: 4,
+      id: 2,
       name: 'root2',
       children: [
         { id: 5, name: 'child2.1' },

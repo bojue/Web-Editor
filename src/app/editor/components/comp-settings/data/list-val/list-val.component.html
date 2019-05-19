@@ -5,24 +5,5 @@
       <span class="lab">标题</span>
       <input type="text" [(ngModel)]="data['list_val']['list_tit_val']">
     </div>
-    <!-- list_cols_number_val -->
-    <!-- <div class="set-grid">
-        <span class="lab">列数</span>
-        <input type="number" min="1" [(ngModel)]="data['list_val']['list_cols_number_val']">
-      </div> -->
-    <div class="set-grid">
-        <span class="lab">Grid</span>
-        <select class="val disabled-status" disabled [(ngModel)]="data['list_val']['list_style_grid_bool']">
-            <option [value]="item.value" *ngFor="let item of list_grid_list;">{{item.name}}</option>
-        </select>
-      </div>
-    <div class="set-grid">
-      <span class="lab">列标题</span>
-      <span>
-        <span class="item" *ngFor="let col of data['list_val']['list_cols_number_val'];">
-          <input type="text">
-        </span>
-      </span>
-    </div>  
   </div>
 </div>
