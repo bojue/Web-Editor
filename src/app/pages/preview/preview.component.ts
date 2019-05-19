@@ -1,7 +1,7 @@
-import { SettingObjComponent } from './../../module/setting-object.component';
+import { SettingObjComponent } from '../../editor/module/setting-object.component';
 import{ RouterLink } from '@angular/router';
-import { ViewContainRefHostDirective } from './../../directive/view-contain-ref-host.directive';
-import { DynamicComponentServiceService } from './../../code/provider/dynamic-component-service.service';
+import { ViewContainRefHostDirective } from '../../editor/directive/view-contain-ref-host.directive';
+import { DynamicComponentServiceService } from '../../editor/provider/dynamic-component-service.service';
 import { Component, OnInit, ElementRef, AfterContentInit, OnDestroy, ComponentFactoryResolver, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';   

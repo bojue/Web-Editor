@@ -1,0 +1,21 @@
+<div class="item-set item-set-grid grid-1">
+    <div class="tit">边框</div>
+  <!-- 简化用户操作 -->
+  <div class="set-val val-grid-2 ">
+    <div class="style-bg-color">
+        <span [ngStyle]="{'background':style['borderColor']}"></span>
+    </div>
+    <ul class="borders">
+      <li class="item" *ngFor="let bg of borderCol;let i = index;" [ngClass]="{'bd-style':i === 0}">
+        <span class="bg-col" (click)="selBorderCol(bg, i)"  [ngStyle]="{'background':bg}"></span>
+      </li>
+    </ul>
+    <div class="style-bg-radius">
+        <div class="lab">{{style['borderRadius'] || 0}} %</div>
+    </div>
+    <div class="borders borders-radius">
+        <input class="borderRadius" name="borderRadius" step="1" type="range" in="0" max="50"  [(ngModel)]="style['borderRadius']"  placeholder="圆角" >
+    </div>
+ 
+  </div>
+</div>

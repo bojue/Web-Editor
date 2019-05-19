@@ -6,20 +6,20 @@ import { DetailComponent } from "./detail/detail.component";
 import { ConfigsComponent } from "./configs/configs.component";
 import { CompListComponent } from "./develop/comp-list/comp-list.component";
 import { CompSettingComponent } from "./develop/comp-setting/comp-setting.component";
-import { ViewContainRefHostDirective } from "../directive/view-contain-ref-host.directive";
+import { ViewContainRefHostDirective } from "../editor/directive/view-contain-ref-host.directive";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { ViewChildContainRefHostDirective } from "../directive/view-child-contain-ref-host.directive";
+import { ViewChildContainRefHostDirective } from "../editor/directive/view-child-contain-ref-host.directive";
 import { CompTempComponent } from './develop/comp-temp/comp-temp.component';
 import { CompPageComponent } from './develop/comp-page/comp-page.component';
 import { CompConfigurationComponent } from './develop/comp-configuration/comp-configuration.component';
-import { CompDevModule } from "../component/dev/comp-dev.module";
-import { CompStyleModule } from "../component/dev/settings/style/comp-style.module";
-import { CompDataModule } from "../component/dev/settings/data/comp-data.module";
-import { CompCustomModule } from "../component/dev/comps/custom/comp-custom.module";
-import { CompEventModule } from "../component/dev/settings/event/comp-event.module";
-import { CompTemplateModule } from "../component/dev/comps/template/comp-template.module";
-import { CompSettingBasicModule } from "../component/basic/comp-setting-basic.module";
+import { CompDevModule } from "../editor/components/comp-dev.module";
+import { CompStyleModule } from "../editor/components/comp-settings/style/comp-style.module";
+import { CompDataModule } from "../editor/components/comp-settings/data/comp-data.module";
+import { CompCustomModule } from "../editor/components/comp-lib/business/comp-custom.module";
+import { CompEventModule } from "../editor/components/comp-settings/event/comp-event.module";
+import { CompSettingBasicModule } from "../editor/components/comp-basic/comp-setting-basic.module";
+import { CompTemplateModule } from "../editor/components/comp-lib/advanced/comp-template.module";
 
 @NgModule({
   declarations: [

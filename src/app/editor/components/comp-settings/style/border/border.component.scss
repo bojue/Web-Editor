@@ -1,0 +1,29 @@
+:host /deep/ { 
+    .style-bg-color {
+        span {
+            width: 19px;
+            height: 18px;
+            display: inline-block;
+            border:1px solid #e6e6e6;
+        }
+    }
+
+
+    .item {
+        display:inline-block;
+        min-width: 23px;
+        .bg-col {
+            width: 20px;
+            height:20px;
+            padding: 0 1px;
+            display:inline-block;
+            cursor: pointer;
+        }
+    }
+    .borders {
+        display: block;
+        min-height: 30px;
+        text-align: left;
+    }
+
+}

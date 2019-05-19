@@ -65,5 +65,8 @@ $border-color4: $color-grey-1;
             }
         }
     }
+    input[type="range"] {
+        width: 100px;
+    }
 
 }

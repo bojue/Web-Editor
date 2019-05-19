@@ -1,18 +1,19 @@
 
 import * as _ from 'lodash';    
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ComponentFactoryResolver, OnDestroy } from '@angular/core';
-import { ViewContainRefHostDirective } from 'src/app/directive/view-contain-ref-host.directive';
-import { SettingObject } from 'src/app/module/setting-object.module';
-import { SettingPage } from 'src/app/module/setting-page.module';
+import { ViewContainRefHostDirective } from 'src/app/editor/directive/view-contain-ref-host.directive';
+import { SettingObject } from 'src/app/editor/module/setting-object.module';
+import { SettingPage } from 'src/app/editor/module/setting-page.module';
 import { AppServiceService } from 'src/app/providers/app-service.service';
 import { BasicInfoConfigService } from 'src/app/providers/basic-info-config.service';
-import { DynamicComponentServiceService } from 'src/app/code/provider/dynamic-component-service.service';
+import { DynamicComponentServiceService } from 'src/app/editor/provider/dynamic-component-service.service';
 import { Router } from '@angular/router';
 import { CompEmitService } from 'src/app/providers/comp-emit.service';
 import { EventManager } from '@angular/platform-browser';
-import { SettingObjComponent } from 'src/app/module/setting-object.component';
-import { AuxiliaryComponent } from 'src/app/component/dev/comps/tool/auxiliary/auxiliary.component';
-import { AreaComponent } from 'src/app/component/dev/comps/tool/area/area.component';
+import { SettingObjComponent } from 'src/app/editor/module/setting-object.component';
+import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component';
+import { AreaComponent } from 'src/app/editor/components/comp-lib/tool/area/area.component';
+
 
 @Component({
   selector: 'app-development',

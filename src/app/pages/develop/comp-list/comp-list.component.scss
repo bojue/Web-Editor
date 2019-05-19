@@ -43,12 +43,17 @@
         margin-bottom: 1px;
 
         .content-item {
-            border: 1px solid rgba(200, 205, 208, 0.3);
+            cursor: pointer;
+            border: 1px solid #F5F5F5;
             height: 60px;
             margin-left: -1px;
             margin-bottom: -1px;
             text-align: center;
-            cursor: pointer;
+            opacity: 0.8;
+            &:hover {
+                background: rgba(18, 150, 219, 0.2);
+                opacity: 1;
+            }
             img {
                 display: block;
                 width: 28px;
