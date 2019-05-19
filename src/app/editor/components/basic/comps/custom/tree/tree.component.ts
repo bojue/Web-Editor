@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { CustomBasicComponent } from "../../../comp-basic/custom-basic/custom-basic.component";
+import { CustomBasicComponent } from "src/app/editor/components/comp-basic/custom-basic/custom-basic.component";
 import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
 import { CompEmitService } from "src/app/providers/comp-emit.service";
 
@@ -8,7 +8,7 @@ import { CompEmitService } from "src/app/providers/comp-emit.service";
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss',]
 })
-export class TreesComponent extends CustomBasicComponent implements OnInit, OnDestroy, SettingObjComponent  {
+export class TreeComponent extends CustomBasicComponent implements OnInit, OnDestroy, SettingObjComponent  {
 
   treeNodes:any[] = [
     {

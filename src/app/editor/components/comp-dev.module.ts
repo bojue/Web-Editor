@@ -6,7 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { CompStyleModule } from "./comp-settings/style/comp-style.module";
 import { CompDataModule } from "./comp-settings/data/comp-data.module";
-import { CompCustomModule } from "./comp-lib/business/comp-custom.module";
+import { CompBusinessModule } from "./comp-lib/business/comp-business.module";
 import { CompEventModule } from "./comp-settings/event/comp-event.module";
 import { CompTemplateModule } from "./comp-lib/advanced/comp-template.module";
 import { CompSettingBasicModule } from "./comp-basic/comp-setting-basic.module";
@@ -22,7 +22,7 @@ import { CompSettingBasicModule } from "./comp-basic/comp-setting-basic.module";
     BrowserModule,
     CompStyleModule,
     CompDataModule,
-    CompCustomModule,
+    CompBusinessModule,
     CompEventModule,
     CompTemplateModule,
     CompSettingBasicModule

@@ -16,7 +16,7 @@ import { CompConfigurationComponent } from './develop/comp-configuration/comp-co
 import { CompDevModule } from "../editor/components/comp-dev.module";
 import { CompStyleModule } from "../editor/components/comp-settings/style/comp-style.module";
 import { CompDataModule } from "../editor/components/comp-settings/data/comp-data.module";
-import { CompCustomModule } from "../editor/components/comp-lib/business/comp-custom.module";
+import { CompBusinessModule } from "../editor/components/comp-lib/business/comp-business.module";
 import { CompEventModule } from "../editor/components/comp-settings/event/comp-event.module";
 import { CompSettingBasicModule } from "../editor/components/comp-basic/comp-setting-basic.module";
 import { CompTemplateModule } from "../editor/components/comp-lib/advanced/comp-template.module";
@@ -42,7 +42,7 @@ import { CompTemplateModule } from "../editor/components/comp-lib/advanced/comp-
     CompDevModule,
     CompStyleModule,
     CompDataModule,
-    CompCustomModule,
+    CompBusinessModule,
     CompEventModule,
     CompTemplateModule,
     CompSettingBasicModule

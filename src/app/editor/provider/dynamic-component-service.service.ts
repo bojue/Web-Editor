@@ -7,7 +7,6 @@ import { InputComponent } from "src/app/editor/components/comp-lib/basic/input/i
 import { TextareaComponent } from "src/app/editor/components/comp-lib/basic/textarea/textarea.component";
 import { ButtonComponent } from "src/app/editor/components/comp-lib/basic/button/button.component";
 import { AuxiliaryComponent } from "src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component";
-import { TreeComponent } from "angular-tree-component";
 import { ListComponent } from "src/app/editor/components/comp-lib/business/list/list.component";
 import { VideoComponent } from "src/app/editor/components/comp-lib/basic/video/video.component";
 import { AudioComponent } from "src/app/editor/components/comp-lib/basic/audio/audio.component";
@@ -16,6 +15,7 @@ import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area
 import { ComponentItem } from "src/app/editor/module/component-item";
 import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
 import { TabsTempComponent } from "../components/comp-lib/advanced/tabs-temp/tabs-temp.component";
+import { TreesComponent } from "../components/comp-lib/business/tree/tree.component";
 
 
 @Injectable({providedIn: 'root'})
@@ -71,7 +71,7 @@ export class DynamicComponentServiceService {
         break;
       case 'tree':
         tempInfo = {
-          comp : TreeComponent
+          comp : TreesComponent
         }  
         break;
       case 'list': 
