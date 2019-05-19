@@ -5,9 +5,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxEchartsModule } from "ngx-echarts";
+import { GaugeComponent } from "./gauge/gauge.component";
 import { CompSettingBasicModule } from "src/app/component/basic/comp-setting-basic.module";
 import { TreeModule } from "angular-tree-component";
-import { GaugeComponent } from './gauge/gauge.component';
 
 const customComp = [
     ChartComponent,

@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef, ComponentFactoryResolver, Inject, forwardRef, AfterContentInit } from "@angular/core";
+import * as _ from "lodash";
 import { TempBasicComponent } from "src/app/component/basic/temp-basic/temp-basic.component";
 import { ViewContainRefHostDirective } from "src/app/directive/view-contain-ref-host.directive";
-import { ActivatedRoute, Router } from "@angular/router";
-import * as _ from "lodash";
-import { renderComponent } from "@angular/core/src/render3";
-import { SettingObjComponent } from "src/app/module/setting-object.component";
-import { DynamicComponentServiceService } from "src/app/code/provider/dynamic-component-service.service";
 import { ViewChildContainRefHostDirective } from "src/app/directive/view-child-contain-ref-host.directive";
+import { DynamicComponentServiceService } from "src/app/code/provider/dynamic-component-service.service";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CompEmitService } from "src/app/providers/comp-emit.service";
+
 
 @Component({
   selector: 'app-tabs-temp',

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BasicComponent } from "src/app/component/basic/basic/basic.component";
-import { SettingObjComponent } from "src/app/module/setting-object.component";
 import * as _ from 'lodash';    
+import { BasicComponent } from 'src/app/component/basic/basic/basic.component';
+import { SettingObjComponent } from 'src/app/module/setting-object.component';
 
 @Component({
   selector: 'app-auxiliary',

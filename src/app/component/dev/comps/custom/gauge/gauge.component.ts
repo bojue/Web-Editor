@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomBasicComponent } from 'src/app/component/basic/custom-basic/custom-basic.component';
-import { SettingObjComponent } from 'src/app/module/setting-object.component';
-import { CompEmitService } from '../../../../../providers/comp-emit.service';
+import { CompEmitService } from 'src/app/providers/comp-emit.service';
 
 @Component({
   selector: 'app-gauge',

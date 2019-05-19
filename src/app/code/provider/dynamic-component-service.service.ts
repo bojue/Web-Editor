@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { LineComponent } from "src/app/component/dev/comps/comp/line/line.component";
 import { TextComponent } from "src/app/component/dev/comps/comp/text/text.component";
 import { ImgComponent } from "src/app/component/dev/comps/comp/img/img.component";
 import { ChartComponent } from "src/app/component/dev/comps/custom/chart/chart.component";
@@ -6,17 +7,16 @@ import { InputComponent } from "src/app/component/dev/comps/comp/input/input.com
 import { TextareaComponent } from "src/app/component/dev/comps/comp/textarea/textarea.component";
 import { ButtonComponent } from "src/app/component/dev/comps/comp/button/button.component";
 import { AuxiliaryComponent } from "src/app/component/dev/comps/tool/auxiliary/auxiliary.component";
-import { TreeComponent } from "src/app/component/dev/comps/custom/tree/tree.component";
+import { TreeComponent } from "angular-tree-component";
 import { ListComponent } from "src/app/component/dev/comps/custom/list/list.component";
 import { TabsTempComponent } from "src/app/component/dev/comps/template/tabs-temp/tabs-temp.component";
-import { ComponentItem } from "src/app/module/component-item";
-import { SettingObjComponent } from "src/app/module/setting-object.component";
-import 'core-js/es7/reflect';
 import { VideoComponent } from "src/app/component/dev/comps/comp/video/video.component";
-import { AudioComponent } from '../../component/dev/comps/comp/audio/audio.component';
+import { AudioComponent } from "src/app/component/dev/comps/comp/audio/audio.component";
 import { GaugeComponent } from "src/app/component/dev/comps/custom/gauge/gauge.component";
 import { AreaComponent } from "src/app/component/dev/comps/tool/area/area.component";
-import { LineComponent } from '../../component/dev/comps/comp/line/line.component';
+import { ComponentItem } from "src/app/module/component-item";
+import { SettingObjComponent } from "src/app/module/setting-object.component";
+
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {

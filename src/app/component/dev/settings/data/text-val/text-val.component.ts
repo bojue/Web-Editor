@@ -8,7 +8,6 @@ import { DataBasicComponent } from "src/app/component/basic/data-basic/data-basi
 })
 export class TextValComponent extends DataBasicComponent implements OnInit {
   data_type = 'text_val';
-
   constructor() { 
     super()
   }
