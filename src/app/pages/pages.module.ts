@@ -3,7 +3,6 @@ import { PreviewComponent } from "./preview/preview.component";
 import { DevelopmentPageComponent } from "./develop/development";
 import { HomeComponent } from "./home/home.component";
 import { DetailComponent } from "./detail/detail.component";
-import { ConfigsComponent } from "./configs/configs.component";
 import { CompListComponent } from "./develop/comp-list/comp-list.component";
 import { CompSettingComponent } from "./develop/comp-setting/comp-setting.component";
 import { ViewContainRefHostDirective } from "../editor/directive/view-contain-ref-host.directive";
@@ -27,7 +26,6 @@ import { CompTemplateModule } from "../editor/components/comp-lib/advanced/comp-
     DevelopmentPageComponent,
     HomeComponent,
     DetailComponent,
-    ConfigsComponent,
     CompListComponent,
     CompSettingComponent,
     ViewContainRefHostDirective,

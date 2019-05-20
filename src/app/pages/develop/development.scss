@@ -8,7 +8,11 @@
         grid-template-columns: 175px 40px auto 175px;
     }
     section {
-        position: relative;
+        &.settings, &.content, &.comp-marage ,&.canvas-comp{
+            position: relative;
+            display: block;
+            height: -webkit-fill-available;
+        }
     }
     .run-but {
         cursor: pointer;
