@@ -10,8 +10,7 @@ export class MenuBreadCrumbService {
     initData() {
         this.menu = [
             { name: '首页',path: './home', children:[]},
-            { name: '开发',path: './develope', children:[]},
-            { name: '设置',path: './config', children:[]},
+            { name: '开发',path: './develope', children:[]}
         ]
     }
 
