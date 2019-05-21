@@ -11,14 +11,14 @@
         &.settings, &.content, &.comp-marage ,&.canvas-comp{
             position: relative;
             display: block;
-            height: -webkit-fill-available;
+            height: 800px;
         }
     }
     .run-but {
         cursor: pointer;
         right: 60px;
         position: absolute;
-        top: -62px;
+        top: 14px;
         border-radius: 50%;
         img {
             width: 28px;
