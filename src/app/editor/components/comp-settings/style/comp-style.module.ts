@@ -2,7 +2,6 @@ import { ColorComponent } from "./color/color.component";
 import { SizeComponent } from "./size/size.component";
 import { BackgroundComponent } from "./background/background.component";
 import { PositionComponent } from "./position/position.component";
-import { TextsComponent } from "./texts/texts.component";
 import { BorderComponent } from "./border/border.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -16,7 +15,6 @@ const settingComp = [
     SizeComponent,
     BackgroundComponent,
     PositionComponent,
-    TextsComponent,
     BorderComponent,
     ZIndexComponent,
     OpacityComponent,

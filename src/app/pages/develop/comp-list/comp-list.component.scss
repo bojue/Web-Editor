@@ -38,6 +38,8 @@
     .lists {
         position: relative;
         display: grid;
+        width: 96%;
+        margin-left: 2%;
         grid-template-columns: 33.3% 33.3% 33.3% ;
         margin-top: 2px;
         margin-bottom: 1px;

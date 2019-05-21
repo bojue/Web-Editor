@@ -167,4 +167,19 @@
             background-color:#1296db;
         }
     }
+    .data-val {
+        .tit {
+            height: 24px;
+            line-height: 24px;
+            margin-left: 5px;
+            color: #aaa;
+        }
+        .val {
+            height: 30px;
+            margin: 5px;
+            input {
+                height: 18px;
+            }
+        }
+    }
 }
