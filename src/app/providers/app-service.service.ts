@@ -78,21 +78,8 @@ export class AppServiceService{
         type: 'tabs',
         iconUrl: './../assets/icons/tabs.svg'
       }, ]
-  },{
-    name: '模板',
-    state: 'template',
-    title:"复杂组件,由多个基础或者高级组件组成,支持数据绑定和接口绑定,支持定制",
-    compList: [
-      {
-        name:'登录',
-        type: 'tabs',
-        iconUrl: './../assets/icons/login.svg'
-      }, {
-        name:'首页',
-        type: 'ariConditioning',
-        iconUrl: './../assets/icons/webhome.svg'
-      }]
-  }]
+  }
+]
 
 
   //后台测试数据

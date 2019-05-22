@@ -4,6 +4,34 @@
         border-right: 4px solid #ffffff;
         margin-right: 1px;
     }
+    .marage-btn {
+        position: relative;
+        display: block;
+        height: 26px;
+        padding-top: 6px;
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        img {
+            display: inline-block;
+            cursor: pointer;
+            width: 13px;
+            height: 13px;
+            padding: 5px;
+            margin: 0px 5px;
+            border-radius: 5px;
+            &:hover {
+                border-radius: 50%;
+                box-shadow: 0 0 3px#cccccc inset;
+            }
+            &.file {
+                margin-left: 30px
+            }
+            &.file {
+                width: 15px;
+            }
+          
+        }
+    }
     .right-border {
         right: -1px;
     }
