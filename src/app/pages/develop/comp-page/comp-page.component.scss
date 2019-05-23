@@ -10,5 +10,10 @@
 
     tree-internal ul {
         padding: 3px 0 3px 13px;
+        .node-value {
+            cursor: pointer;
+        }
     }
+
+
 }

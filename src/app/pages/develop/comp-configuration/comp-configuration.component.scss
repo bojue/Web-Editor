@@ -9,7 +9,6 @@
         display: block;
         height: 26px;
         padding-top: 6px;
-        border-top: 1px solid #cccccc;
         border-bottom: 1px solid #cccccc;
         img {
             display: inline-block;
@@ -29,7 +28,6 @@
             &.file {
                 width: 15px;
             }
-          
         }
     }
     .right-border {
@@ -38,9 +36,9 @@
     .div-border {
         position: absolute;
         width: 4px;
-        height: 800px;
+        height: 819px;
         background: #eeeeee;
-        border:1px solid #cccccc;
+        border:1px solid #eeeeee;
         top: 0px;
     }
     @keyframes trans-lett

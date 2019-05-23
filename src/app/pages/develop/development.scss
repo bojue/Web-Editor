@@ -6,12 +6,23 @@
     .devBody {
         display: grid;
         grid-template-columns: 175px 40px auto 175px;
+        margin:0 2px;
     }
     section {
         &.settings, &.content, &.comp-marage ,&.canvas-comp{
             position: relative;
             display: block;
             height: 800px;
+        }
+        &.canvas-comp {
+            left: 10px;
+        }
+        &.comp-marage {
+            border: 1px solid #ccc;
+            height: 820px;
+        }
+        &.setting-but {
+            border: 1px solid #ccc;
         }
     }
     .run-but {
@@ -32,8 +43,9 @@
 
     #componentsBody {
         position: relative;
-        margin-top: 20px;
-        margin-left: 0px;
+        margin: 20px 10px 0 10px;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
         background-image:
             linear-gradient(rgba(200, 205, 208, .3) 1px, transparent 0),
             linear-gradient(90deg, rgba(200, 205, 208, .3), 1px, transparent 0),
