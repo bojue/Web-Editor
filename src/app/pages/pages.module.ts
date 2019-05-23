@@ -19,6 +19,7 @@ import { CompBusinessModule } from "../editor/components/comp-lib/business/comp-
 import { CompEventModule } from "../editor/components/comp-settings/event/comp-event.module";
 import { CompSettingBasicModule } from "../editor/components/comp-basic/comp-setting-basic.module";
 import { CompTemplateModule } from "../editor/components/comp-lib/advanced/comp-template.module";
+import { TreeModule } from 'ng2-tree';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CompTemplateModule } from "../editor/components/comp-lib/advanced/comp-
     CompBusinessModule,
     CompEventModule,
     CompTemplateModule,
-    CompSettingBasicModule
+    CompSettingBasicModule,
+    TreeModule
   ],
   providers: [
 

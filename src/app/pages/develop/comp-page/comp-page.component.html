@@ -1,3 +1,7 @@
-<div class="comp-page">
+<div class="comp-page scrollY">
 
+    <tree 
+      [tree]="trees"
+      [settings]="treeSettings" 
+      (nodeSelected)="selectNodeEvent($event)"></tree>
 </div>

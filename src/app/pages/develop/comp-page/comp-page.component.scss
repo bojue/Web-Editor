@@ -1,0 +1,14 @@
+:host /deep/ {
+    .scrollY {
+        height: 200px;
+    }
+    .fa, .far {
+        opacity: 0.8;
+        padding-right: 6px;
+        color: #555;
+    }
+
+    tree-internal ul {
+        padding: 3px 0 3px 13px;
+    }
+}
