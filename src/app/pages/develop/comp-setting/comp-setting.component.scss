@@ -13,6 +13,25 @@
         border:1px solid #eeeeee;
         left: -6px;
         top: 0px;
+        .set-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 385px;
+            width: 6px;
+            height: 30px;
+            background: rgba(18, 150, 219, 0.5);
+            right: -1px;
+            &:hover {
+                background:rgba(18, 150, 219, 0.8);
+            }
+            img {
+                width: 6px;
+                height: 30px;
+                &:hover {
+                    width: 7px;
+                }
+            }
+        }
     }
     .item-discription {
         height: 30px;

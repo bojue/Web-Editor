@@ -19,6 +19,9 @@
 
   <!-- 4.边框设置 -->
   <div class="div-border right-border">
-  
+    <div class="set-btn" (click)="changeShowBool(showBool)">
+      <img src="./../../../../assets/icons/right.svg" alt="" *ngIf="!showBool">
+      <img src="./../../../../assets/icons/left.svg" alt="" *ngIf="showBool"> 
+    </div>
   </div>
 </div>

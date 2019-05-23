@@ -9,6 +9,7 @@ import { AppServiceService } from 'src/app/providers/app-service.service';
 export class CompConfigurationComponent implements OnInit {
   @Output() compDragEvent = new EventEmitter<any>();
   compList:any[];
+  showBool:boolean;
 
   constructor(
     private service: AppServiceService,
@@ -19,11 +20,16 @@ export class CompConfigurationComponent implements OnInit {
   }
 
   initData() {
+    this.showBool = true;
     this.compList = this.service.getComponentModeules();
   }
 
   dragCompEnd(event){
     this.compDragEvent.emit(event);
+  }
+
+  changeShowBool(showState) {
+    this.showBool = !showState;
   }
 
 }
