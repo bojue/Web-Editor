@@ -46,7 +46,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   pageList: SettingPage[];// 页面管理 - 列表
   selectPageInfo: SettingPage; //页面管理-详情
   contentLeft:number;
-
+  pageGridSetting = {
+    showLeft: true,
+    showRight: true
+  }
   eventEmitter:any;
   constructor(
     private elementRef:ElementRef,

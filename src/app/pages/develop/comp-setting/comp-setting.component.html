@@ -1,13 +1,13 @@
 <div class="comp-item">
 
     <!-- 没有选择组价 -->
-    <ng-container  *ngIf="!activeSettingObj">
+    <ng-container  *ngIf="!activeSettingObj && pageGridSetting['showRight']">
       <div class="item-discription noComp">
         <div class="title" title="请选择组件">{{'组件名称'}}</div>
       </div>
     </ng-container>
     <!-- 属性设置 -->
-    <ng-container *ngIf="activeSettingObj">
+    <ng-container *ngIf="activeSettingObj && pageGridSetting['showRight']">
       <div class="item-discription">
         <div class="title">{{activeSettingObj['name']}}</div>
       </div>
@@ -56,16 +56,17 @@
       </div>
   
       <!-- 组件删除 -->
-      <div class="del">
+      <div class="del" >
         <img class='del-btn' (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
       </div>
 
-  </ng-container>
+    </ng-container>
     
     <!-- 边框设置 -->
     <div class="div-border left-border">
-        <div class="set-btn">
-            <img src="./../../../../assets/icons/right.svg" alt="">
+        <div class="set-btn" (click)="changeShowBool()">
+            <img src="./../../../../assets/icons/right.svg" alt="" *ngIf="pageGridSetting['showRight']">
+            <img src="./../../../../assets/icons/left.svg" alt="" *ngIf="!pageGridSetting['showRight']"> 
           </div>
     </div>
 </div>

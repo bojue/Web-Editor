@@ -7,6 +7,7 @@ import { AppServiceService } from 'src/app/providers/app-service.service';
   styleUrls: ['./comp-configuration.component.scss']
 })
 export class CompConfigurationComponent implements OnInit {
+  @Input() pageGridSetting;
   @Output() compDragEvent = new EventEmitter<any>();
   compList:any[];
   showBool:boolean;
@@ -17,6 +18,7 @@ export class CompConfigurationComponent implements OnInit {
 
   ngOnInit() {
     this.initData();
+    console.log(this.pageGridSetting)
   }
 
   initData() {
@@ -29,7 +31,7 @@ export class CompConfigurationComponent implements OnInit {
   }
 
   changeShowBool(showState) {
-    this.showBool = !showState;
+    this.pageGridSetting['showLeft'] = !this.pageGridSetting['showLeft'];
   }
 
 }

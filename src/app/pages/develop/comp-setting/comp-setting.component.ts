@@ -10,14 +10,9 @@ import { SettingStyle } from "src/app/editor/module/setting-style.module";
 })
 export class CompSettingComponent implements OnInit{
   @Input() activeSettingObj: SettingObject;
+  @Input() pageGridSetting;
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
-
-  showObj = {
-    style:true,
-    event:true,
-    value:true
-  }
 
   styles: SettingStyle;
 
@@ -30,7 +25,8 @@ export class CompSettingComponent implements OnInit{
   }
 
   initData() {
-   this.styles = this.activeSettingObj && this.activeSettingObj['style']
+   this.styles = this.activeSettingObj && this.activeSettingObj['style'];
+
   }
 
   deleteComp(event){
@@ -41,7 +37,7 @@ export class CompSettingComponent implements OnInit{
     this.settingObjChange.emit(this.activeSettingObj)
   }
 
-  showState(state) {
-    this.showObj[state] = !this.showObj[state];
+  changeShowBool() {
+    this.pageGridSetting['showRight'] = !this.pageGridSetting['showRight'];
   }
 }

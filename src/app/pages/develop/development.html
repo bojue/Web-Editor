@@ -1,11 +1,12 @@
 <div class="devBody" [ngClass]="{
-  'width-all':true,
-  'width-no':true,
-  'width-left':true,
-  'width-right':true}">
+  'width-all':pageGridSetting['showLeft'] && pageGridSetting['showRight'],
+  'width-no':!pageGridSetting['showLeft'] && !pageGridSetting['showRight'],
+  'width-left':pageGridSetting['showLeft'] && !pageGridSetting['showRight'],
+  'width-right':!pageGridSetting['showLeft'] && pageGridSetting['showRight']}">
   <!-- 1.组态管理 -->
   <section class="comp-marage">
     <app-comp-configuration
+      [pageGridSetting]="pageGridSetting"
       (compDragEvent)="dragCompEnd($event)">
     </app-comp-configuration>
   </section>
@@ -28,9 +29,12 @@
 
     <app-comp-setting 
       class="settings" 
+      [pageGridSetting]="pageGridSetting"
       [activeSettingObj]="activeCompSettingObject" 
       (settingObjChange)="chengeComponent($event)"
       (deleteComponent)="deleteComponent($event)">
     </app-comp-setting>
   </section>
+
+
 </div>

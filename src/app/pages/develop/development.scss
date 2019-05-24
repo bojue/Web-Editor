@@ -7,6 +7,18 @@
         display: grid;
         grid-template-columns: 175px 40px auto 175px;
         margin:0 2px;
+        &.width-all {
+            grid-template-columns: 175px 40px auto 175px;
+        }
+        &.width-no {
+            grid-template-columns: 10px 40px auto 10px;
+        }
+        &.width-left {
+            grid-template-columns: 175px 40px auto 10px;
+        }
+        &.width-right {
+            grid-template-columns: 10px 40px auto 175px;
+        }
     }
     section {
         &.settings, &.content, &.comp-marage ,&.canvas-comp{
