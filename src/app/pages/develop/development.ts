@@ -61,7 +61,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private emitSerive: CompEmitService, 
     private eventManager: EventManager
   ) {
-      this.pageList = this.service.getPages();
+
   }
 
   ngOnInit() {
