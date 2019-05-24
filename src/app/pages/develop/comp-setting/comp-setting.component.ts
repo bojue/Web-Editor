@@ -13,8 +13,12 @@ export class CompSettingComponent implements OnInit{
   @Input() pageGridSetting;
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
-
   styles: SettingStyle;
+  showObj = {	
+    style:true,	
+    event:true,	
+    value:true	
+  }
 
   constructor() { 
     this.initData()
