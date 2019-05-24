@@ -1,17 +1,5 @@
 :host /deep/ {
     .data-val {
         position: relative;
-        .tit {
-            margin: 10px;
-        }
-        .val {
-            width: 80%;
-            padding-left: 10px;
-            input {
-                height: 30px;
-                padding: 2px 5px;
-                width: 100%;
-            }
-        }
     }
 }

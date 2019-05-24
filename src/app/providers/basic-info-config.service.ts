@@ -120,15 +120,16 @@ export class BasicInfoConfigService {
                     button_val:'确认'
                 },
                 style: {
-                  height:28,
-                  width: 40,
+                  height:30,
+                  width: 80,
                   position: 'absolute',
                   top:10,
                   left:400,
                   border: '',
+                  background: 'rgb(230, 230, 230)',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '4'
                 },
                 event:{
                     clickBool: false,
