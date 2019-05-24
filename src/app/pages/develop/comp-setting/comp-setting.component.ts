@@ -30,7 +30,6 @@ export class CompSettingComponent implements OnInit{
 
   initData() {
    this.styles = this.activeSettingObj && this.activeSettingObj['style'];
-
   }
 
   deleteComp(event){

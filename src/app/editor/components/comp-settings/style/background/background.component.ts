@@ -14,17 +14,16 @@ export class BackgroundComponent extends StyleBasicComponent implements OnInit {
 
   ngOnInit() {
     this.backgroundArr = [
+      'transparent',
       '#ffffff',
       '#e6e6e6',
       '#cdcdcd',
       '#707070',
       '#2c2c2c',
-
       '#d81e06',
       '#f4ea2a',
       '#1afa29',
       '#1296db',
-      '#13227a',
     ]
   }
 
