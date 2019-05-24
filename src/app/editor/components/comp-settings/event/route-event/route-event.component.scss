@@ -3,18 +3,21 @@
     .route-event {
         display: block;
         position: relative;
-        margin: 10px;
         .value-set {
-            display: grid;
-            margin-left: 15px;
-            margin-top: 10px;
-            grid-template-columns: 40px 110px;
-            .lab {
-                
+            width: 100%;
+            span {
+                display: inline-block;
+                width: 33px;
+                text-align: center;
+                color: #777777;
             }
-            .val{
-                padding: 4px 6px;
+            input {
+                height: 20px;
+                line-height: 20px;
+                width: 100px;
+                padding: 1px 3px;
             }
+            
         }
     }
 }
