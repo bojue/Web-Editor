@@ -14,6 +14,7 @@ export class CompSettingComponent implements OnInit{
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
   styles: SettingStyle;
+  showBool:boolean = true;
   showObj = {	
     style:true,	
     event:true,	
@@ -40,7 +41,11 @@ export class CompSettingComponent implements OnInit{
     this.settingObjChange.emit(this.activeSettingObj)
   }
 
-  changeShowBool() {
+  showGrigFun() {
     this.pageGridSetting['showRight'] = !this.pageGridSetting['showRight'];
+  }
+
+  showState(state) {	  
+    this.showObj[state] = !this.showObj[state]; 
   }
 }

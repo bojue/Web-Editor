@@ -107,8 +107,8 @@ export class BasicInfoConfigService {
                     top:200,
                     left:100,
                     border: '',
-                    borderColor: 'red',
-                    borderWidth: 1,
+                    borderColor: '',
+                    borderWidth: 0,
                     borderStyle: 'dotted'
                 }
             } ,    

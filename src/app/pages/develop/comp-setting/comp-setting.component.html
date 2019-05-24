@@ -18,7 +18,7 @@
       </div>
   
       <div class="set-body">
-        <div class="set-list scrollY" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
+        <div class="set-list scrollY styles" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
           <app-size [style]="activeSettingObj['style']"></app-size>
           <app-position class="set-item" [style]="activeSettingObj['style']"></app-position>
           <app-opacity class="set-item" [style]="activeSettingObj['style']"></app-opacity>
@@ -64,7 +64,7 @@
     
     <!-- 边框设置 -->
     <div class="div-border left-border">
-        <div class="set-btn" (click)="changeShowBool()">
+        <div class="set-btn" (click)="showGrigFun()">
             <img src="./../../../../assets/icons/right.svg" alt="" *ngIf="pageGridSetting['showRight']">
             <img src="./../../../../assets/icons/left.svg" alt="" *ngIf="!pageGridSetting['showRight']"> 
           </div>

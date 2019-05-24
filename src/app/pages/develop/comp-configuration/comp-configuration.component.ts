@@ -18,7 +18,6 @@ export class CompConfigurationComponent implements OnInit {
 
   ngOnInit() {
     this.initData();
-    console.log(this.pageGridSetting)
   }
 
   initData() {
@@ -30,7 +29,7 @@ export class CompConfigurationComponent implements OnInit {
     this.compDragEvent.emit(event);
   }
 
-  changeShowBool(showState) {
+  showGrigFun() {
     this.pageGridSetting['showLeft'] = !this.pageGridSetting['showLeft'];
   }
 

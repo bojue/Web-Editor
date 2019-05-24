@@ -170,6 +170,9 @@
     .scrollY {
         cursor: pointer;
         max-height: 300px !important;
+        &.styles {
+            max-height: 400px !important; 
+        }
         overflow-y:auto;
         &::-webkit-scrollbar {
             width: 5px;
