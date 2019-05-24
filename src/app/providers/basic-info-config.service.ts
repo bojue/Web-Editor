@@ -194,8 +194,8 @@ export class BasicInfoConfigService {
             
                 },
                 style: {
-                  height:400,
-                  width: 400,
+                  height:300,
+                  width: 300,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -239,7 +239,7 @@ export class BasicInfoConfigService {
                 },
                 style: {
                   height:180,
-                  width: 500,
+                  width: 300,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -260,8 +260,8 @@ export class BasicInfoConfigService {
                     api_val:'http://10.169.43.4:8100/api/dutys'
                 },
                 style: {
-                  height:700,
-                  width: 300,
+                  height:300,
+                  width: 120,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -310,8 +310,8 @@ export class BasicInfoConfigService {
                     }
                 },
                 style: {
-                  height:700,
-                  width: 500,
+                  height:300,
+                  width: 180,
                   position: 'absolute',
                   top:10,
                   left:400,
