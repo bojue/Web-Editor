@@ -13,6 +13,7 @@ export class BackgroundComponent extends StyleBasicComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.initParentData();
     this.backgroundArr = [
       'transparent',
       '#ffffff',

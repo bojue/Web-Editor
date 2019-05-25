@@ -13,6 +13,7 @@ export class ZIndexComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initParentData();
     this.zIndexS = [
       1,2,3,4,5,6,7,8,9,10
     ]

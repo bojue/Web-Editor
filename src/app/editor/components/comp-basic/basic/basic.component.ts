@@ -16,6 +16,8 @@ export class BasicComponent implements OnInit {
   data: SettingDate;
   chartOption: EChartOption;
   ngStyle: any = {};
+  showMoreBool: boolean;
+  iconUrl: string;
   constructor() {
   }
 
@@ -66,4 +68,18 @@ export class BasicComponent implements OnInit {
     return val + '%';
   }
 
+  
+  initParentData() {
+    this.showMoreBool = true; 
+    this.initIcon();
+  }
+
+  showMoreFun() {
+    this.showMoreBool = !this.showMoreBool;
+    this.initIcon();
+  }
+
+  initIcon() {
+    this.iconUrl = this.showMoreBool ? './../../../../../../assets/icons/up.svg' :  './../../../../../../assets/icons/down.svg' ;
+  }
 }
