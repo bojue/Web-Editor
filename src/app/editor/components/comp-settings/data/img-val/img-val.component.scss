@@ -1,9 +1,9 @@
 :host /deep/ {
-    .img-val {
-        margin-top: 10px;
-        .tit {
-            margin: 10px;
-        }
+    .img-val {   
+        .title {
+            height: 30px;
+            line-height: 30px;
+        } 
         .file-val {
             display:grid;
             grid-template-columns: 50% 50%;

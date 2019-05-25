@@ -96,7 +96,8 @@
         display: grid;
         grid-template-columns: 100%;
     }
-    .item-set-grid {
+    .item-set-grid , .setting-valus{
+        position: relative;
         .tit {
             height: 24px;
             line-height: 24px;
@@ -185,6 +186,9 @@
     .scrollY {
         cursor: pointer;
         max-height: 300px !important;
+        &.showmore {
+            min-height: 100px !important; 
+        }
         &.styles {
             max-height: 400px !important; 
             &.showmore {
@@ -209,6 +213,7 @@
         }
     }
     .data-val, .setting-valus, .setting-events {
+    
         .tit {
             height: 24px;
             line-height: 24px;
