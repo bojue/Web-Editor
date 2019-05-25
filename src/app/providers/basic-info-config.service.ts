@@ -330,8 +330,8 @@ export class BasicInfoConfigService {
                    'name':'tabs'
                 },
                 style: {
-                  height:700,
-                  width: 500,
+                  height:300,
+                  width: 200,
                   position: 'absolute',
                   top:10,
                   left:400,
