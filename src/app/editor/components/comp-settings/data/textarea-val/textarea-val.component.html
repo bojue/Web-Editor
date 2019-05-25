@@ -1,6 +1,11 @@
 <div *ngIf="showBoolHeader()" class="data-val">
-    <div class="tit">文本框</div>
-    <div class="val">
+    <div class="title">
+      <span class="tit">文本框</span> 
+      <span class="icon" (click)="showMoreFun()">
+        <img src="{{iconUrl}}" alt="">
+      </span>
+    </div>
+    <div class="val" *ngIf="showMoreBool">
       <input  #textarea_val="ngModel" [(ngModel)]="data['textarea_val']">
     </div>
   </div>
