@@ -1,6 +1,11 @@
 <div class="img-val" *ngIf="showBoolHeader()">
-    <div class="tit">图片选择</div>
-    <div class="file-val">
+    <div class="title">
+      <span class="tit">图片选择</span> 
+      <span class="icon" (click)="showMoreFun()">
+        <img src="{{iconUrl}}" alt="">
+      </span>
+    </div>
+    <div class="file-val" *ngIf="showMoreBool">
       <div class="img-item" *ngFor="let img of imgs">
         <img src="{{img['url']}}" alt="" (click)="selectImg(img)">
       </div> 

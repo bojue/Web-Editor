@@ -12,5 +12,7 @@ export class TextValComponent extends DataBasicComponent implements OnInit {
     super()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initParentData();
+  }
 }

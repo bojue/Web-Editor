@@ -7,8 +7,10 @@ import { AppServiceService } from 'src/app/providers/app-service.service';
   styleUrls: ['./comp-configuration.component.scss']
 })
 export class CompConfigurationComponent implements OnInit {
+  @Input() pageGridSetting;
   @Output() compDragEvent = new EventEmitter<any>();
   compList:any[];
+  showBool:boolean;
 
   constructor(
     private service: AppServiceService,
@@ -19,11 +21,16 @@ export class CompConfigurationComponent implements OnInit {
   }
 
   initData() {
+    this.showBool = true;
     this.compList = this.service.getComponentModeules();
   }
 
   dragCompEnd(event){
     this.compDragEvent.emit(event);
+  }
+
+  showGrigFun() {
+    this.pageGridSetting['showLeft'] = !this.pageGridSetting['showLeft'];
   }
 
 }

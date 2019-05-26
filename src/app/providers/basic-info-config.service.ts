@@ -107,8 +107,8 @@ export class BasicInfoConfigService {
                     top:200,
                     left:100,
                     border: '',
-                    borderColor: 'red',
-                    borderWidth: 1,
+                    borderColor: '',
+                    borderWidth: 0,
                     borderStyle: 'dotted'
                 }
             } ,    
@@ -120,15 +120,16 @@ export class BasicInfoConfigService {
                     button_val:'确认'
                 },
                 style: {
-                  height:28,
-                  width: 40,
+                  height:30,
+                  width: 80,
                   position: 'absolute',
                   top:10,
                   left:400,
                   border: '',
+                  background: 'rgb(230, 230, 230)',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '4'
                 },
                 event:{
                     clickBool: false,
@@ -194,8 +195,8 @@ export class BasicInfoConfigService {
             
                 },
                 style: {
-                  height:400,
-                  width: 400,
+                  height:300,
+                  width: 300,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -239,7 +240,7 @@ export class BasicInfoConfigService {
                 },
                 style: {
                   height:180,
-                  width: 500,
+                  width: 300,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -260,8 +261,8 @@ export class BasicInfoConfigService {
                     api_val:'http://10.169.43.4:8100/api/dutys'
                 },
                 style: {
-                  height:700,
-                  width: 300,
+                  height:300,
+                  width: 120,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -310,8 +311,8 @@ export class BasicInfoConfigService {
                     }
                 },
                 style: {
-                  height:700,
-                  width: 500,
+                  height:300,
+                  width: 180,
                   position: 'absolute',
                   top:10,
                   left:400,
@@ -329,8 +330,8 @@ export class BasicInfoConfigService {
                    'name':'tabs'
                 },
                 style: {
-                  height:700,
-                  width: 500,
+                  height:300,
+                  width: 200,
                   position: 'absolute',
                   top:10,
                   left:400,

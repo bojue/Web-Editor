@@ -1,13 +1,13 @@
 <div class="comp-item">
 
     <!-- 没有选择组价 -->
-    <ng-container  *ngIf="!activeSettingObj">
+    <ng-container  *ngIf="!activeSettingObj && pageGridSetting['showRight']">
       <div class="item-discription noComp">
         <div class="title" title="请选择组件">{{'组件名称'}}</div>
       </div>
     </ng-container>
     <!-- 属性设置 -->
-    <ng-container *ngIf="activeSettingObj">
+    <ng-container *ngIf="activeSettingObj && pageGridSetting['showRight']">
       <div class="item-discription">
         <div class="title">{{activeSettingObj['name']}}</div>
       </div>
@@ -18,7 +18,7 @@
       </div>
   
       <div class="set-body">
-        <div class="set-list scrollY" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
+        <div class="set-list scrollY styles" [ngClass]="{'showmore':showObj['style'],'showlitter':!showObj['style']}">
           <app-size [style]="activeSettingObj['style']"></app-size>
           <app-position class="set-item" [style]="activeSettingObj['style']"></app-position>
           <app-opacity class="set-item" [style]="activeSettingObj['style']"></app-opacity>
@@ -34,7 +34,7 @@
         <div class="tit"> 赋值</div>
       </div>
       <div class="set-body">
-        <div class="set-list scrollY" [ngClass]="{'showmore':showObj['value'],'showlitter':!showObj['value']}">
+        <div class="set-list scrollY  setting-valus" [ngClass]="{'showmore':showObj['value'],'showlitter':!showObj['value']}">
           <app-img-val [data]="activeSettingObj['data']"></app-img-val>
           <app-button-val [data]="activeSettingObj['data']"></app-button-val>
           <app-input-val [data]="activeSettingObj['data']"></app-input-val>
@@ -50,20 +50,23 @@
         <div class="tit"> 事件</div>
       </div>
       <div class="set-body">
-        <div class="set-list scrollY" [ngClass]="{'showmore':showObj['event'],'showlitter':!showObj['event']}">
+        <div class="set-list scrollY setting-events" [ngClass]="{'showmore':showObj['event'],'showlitter':!showObj['event']}">
           <app-route-event [event]="activeSettingObj['event']"></app-route-event>
         </div>
       </div>
   
       <!-- 组件删除 -->
-      <div class="del">
+      <div class="del" >
         <img class='del-btn' (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
       </div>
 
-  </ng-container>
+    </ng-container>
     
     <!-- 边框设置 -->
     <div class="div-border left-border">
-
+        <div class="set-btn" (click)="showGrigFun()">
+            <img src="./../../../../assets/icons/right.svg" alt="" *ngIf="pageGridSetting['showRight']">
+            <img src="./../../../../assets/icons/left.svg" alt="" *ngIf="!pageGridSetting['showRight']"> 
+          </div>
     </div>
 </div>

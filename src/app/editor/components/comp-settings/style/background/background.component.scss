@@ -24,8 +24,9 @@
         display:inline-block;
         min-width: 23px;
         .bg-col {
-            width: 20px;
-            height:20px;
+            border:1px solid rgba($color: #e6e6e6, $alpha: 0.8);
+            width: 18px;
+            height:18px;
             padding: 0 1px;
             display:inline-block;
             cursor: pointer;

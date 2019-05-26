@@ -13,5 +13,7 @@ export class InputValComponent extends DataBasicComponent implements OnInit {
     super()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initParentData();
+  }
 }

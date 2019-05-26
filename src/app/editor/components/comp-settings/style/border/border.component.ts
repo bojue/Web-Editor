@@ -15,6 +15,7 @@ export class BorderComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initParentData();
     this.borderCol = [
       '#ffffff',
       '#e6e6e6',

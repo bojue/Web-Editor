@@ -13,6 +13,7 @@ export class OpacityComponent extends StyleBasicComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.initParentData();
   }
 
 }
