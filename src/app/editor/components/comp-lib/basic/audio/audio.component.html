@@ -1,26 +1,29 @@
-
-  <audio controls="controls"  class="comp-item active-border" 
-  draggable="true" 
-  (dragstart)="compEvent($event)"
-  (dragover)="compEvent($event)"
-  (dragend)="compEvent($event)"
-  (click)="compEvent($event)" 
-  (mousedown)="compEvent($event)"
-  [ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
-  [ngStyle]="{
-      'position':style['position'],
-      'top':expandUnit('top'),
-      'left':expandUnit('left'),
-      'width':expandUnit('width'),
-      'height':expandUnit('height'),
-      'background':style['background'],
-      'border-width':expandUnit('borderWidth'),
-      'border-style':style['borderStyle'],
-      'border-color':style['borderColor'],
-      'opacity':style['opacity'],
-      'z-index':style['zIndex'],
-      'border-radius':getBorderRadius(style['borderRadius'])
-  }">
+<div class="comp-item active-border" 
+draggable="true" 
+(dragstart)="compEvent($event)"
+(dragover)="compEvent($event)"
+(dragend)="compEvent($event)"
+(click)="compEvent($event)" 
+(mousedown)="compEvent($event)"
+[ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
+[ngStyle]="{
+    'position':style['position'],
+    'top':expandUnit('top'),
+    'left':expandUnit('left'),
+    'width':expandUnit('width'),
+    'height':expandUnit('height'),
+    'background':style['background'],
+    'border-width':expandUnit('borderWidth'),
+    'border-style':style['borderStyle'],
+    'border-color':style['borderColor'],
+    'opacity':style['opacity'],
+    'z-index':style['zIndex'],
+    'border-radius':getBorderRadius(style['borderRadius'])
+}"> 
+  <audio class="controls" controls="controls">
     <source src="{{data['audio_val']}}" type="audio/mp3" />
     Your browser does not support this audio format.
   </audio>
+</div>
+  
+ 
