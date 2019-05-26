@@ -1,6 +1,11 @@
 <div class="item-set item-set-grid grid-1">
-  <div class="tit">透明度</div>
-  <div class="set-val val-grid-2">
+  <div class="title">
+    <span class="tit">透明度</span> 
+    <span class="icon" (click)="showMoreFun()">
+      <img src="{{iconUrl}}" alt="">
+    </span>
+  </div>
+  <div class="set-val val-grid-2" *ngIf="showMoreBool">
       <div class="lab">{{style['opacity'] || 1}}</div>
       <input class="opacity" name="opeacity" step="0.05" type="range"min="0.4" max="1"  [(ngModel)]="style['opacity']" placeholder="透明度" >
   </div>

@@ -32,6 +32,25 @@
     }
     .right-border {
         right: -1px;
+        .set-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 385px;
+            width: 6px;
+            height: 30px;
+            background:rgba(18, 150, 219, 0.5);
+            left: 2px;
+            &:hover {
+                background:rgba(18, 150, 219, 0.8);
+            }
+            img {
+                width: 6px;
+                height: 30px;
+                &:hover {
+                    width: 7px;
+                }
+            }
+        }
     }
     .div-border {
         position: absolute;

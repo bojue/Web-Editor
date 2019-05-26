@@ -1,6 +1,17 @@
 :host /deep/ {
+    .tit {
+        display: block;
+        height: 24px;
+        line-height: 24px;
+        text-align: left;
+        border-bottom: 1px solid #cccccc;
+        padding-left: 10px;
+        font-size: 13px;
+        -webkit-user-select: none;
+        user-select: none;
+    }
     .scrollY {
-        height: 200px;
+        height: 240px;
     }
     .fa, .far {
         opacity: 0.8;

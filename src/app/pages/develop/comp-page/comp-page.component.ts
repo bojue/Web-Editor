@@ -9,7 +9,7 @@ import { NodeMenuItemAction, TreeModel, Ng2TreeSettings } from 'ng2-tree';
 export class CompPageComponent implements OnInit {
   trees: TreeModel;
   treeSettings: Ng2TreeSettings = {
-    rootIsVisible: false
+    rootIsVisible: true
   };
   options = {};
 
@@ -17,7 +17,6 @@ export class CompPageComponent implements OnInit {
     'static': false,
     'rightMenu': false,
     'leftMenu': false,
-    rootIsVisible: true,
     menuItems: [
       { action: NodeMenuItemAction.Rename, name: '', cssClass: 'fa fa-pencil fa-fw' },
       { action: NodeMenuItemAction.Remove, name: '', cssClass: 'fa fa-trash-o fa-fw' }
@@ -39,7 +38,7 @@ export class CompPageComponent implements OnInit {
 
   ngOnInit() {
     this.trees = {
-      value: "文件夹",
+      value: "页面列表",
       id:0,
       settings: this.TREE_SETTING_DEFAULT,
       children: [

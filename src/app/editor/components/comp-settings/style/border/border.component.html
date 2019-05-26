@@ -1,7 +1,12 @@
 <div class="item-set item-set-grid grid-1">
-    <div class="tit">边框</div>
+  <div class="title">
+      <span class="tit">边框</span> 
+      <span class="icon" (click)="showMoreFun()">
+          <img src="{{iconUrl}}" alt="">
+      </span>
+  </div>
   <!-- 简化用户操作 -->
-  <div class="set-val val-grid-2 ">
+  <div class="set-val val-grid-2 " *ngIf="showMoreBool">
     <div class="style-bg-color">
         <span [ngStyle]="{'background':style['borderColor']}"></span>
     </div>

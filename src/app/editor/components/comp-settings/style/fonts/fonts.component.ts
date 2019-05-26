@@ -13,6 +13,7 @@ export class FontsComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initParentData();
     this.fontAlign = [
       {
         name:"左",

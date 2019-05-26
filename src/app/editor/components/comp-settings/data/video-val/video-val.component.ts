@@ -13,5 +13,7 @@ export class VideoValComponent  extends DataBasicComponent implements OnInit {
     super()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initParentData();
+  }
 }

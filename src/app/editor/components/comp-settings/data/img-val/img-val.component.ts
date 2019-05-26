@@ -14,6 +14,7 @@ export class ImgValComponent extends DataBasicComponent implements OnInit {
     }
   
     ngOnInit() {
+      this.initParentData();
       this.imgs = [{
         name:"you",
         url: './../assets/imgs/you.jpg',
