@@ -5,10 +5,12 @@
     <img class="floder" src="./../../../../assets/icons/m-add-floder.svg" alt="增加文件夹">
     <img class="file" src="./../../../../assets/icons/m-add-file.svg" alt="增加文本">
     <img class="editor" src="./../../../../assets/icons/m-editor.svg" alt="编辑">
+    <img class="editor" src="./../../../../assets/icons/save.svg" alt="保存">
     <img class="delete" src="./../../../../assets/icons/m-del.svg" alt="删除">
   </div>
   <!-- 2.页面管理 -->
-  <app-comp-page *ngIf="pageGridSetting['showLeft']"></app-comp-page>
+  <app-comp-page *ngIf="pageGridSetting['showLeft']" 
+  [treeNodes]="treeNodes"></app-comp-page>
   
   <!-- 3.组件列表 -->
   <app-comp-list
