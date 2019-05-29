@@ -302,6 +302,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initCopyState();
       let currComp = this.testCreateComp[this.currentIndex];
       this.copyComp = _.cloneDeep(currComp);
+      this.copyComp['active'] = false;
       this.getAuxiliaryComponent(null , 'addComponent');
     } else if(event['key'] === 'v' && this.copyComp) {
       ++this.copyNum;
