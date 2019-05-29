@@ -9,9 +9,9 @@
     <img class="delete" src="./../../../../assets/icons/m-del.svg" alt="删除">
   </div>
   <!-- 2.页面管理 -->
+
   <app-comp-page *ngIf="pageGridSetting['showLeft']" 
   [treeNodes]="treeNodes"></app-comp-page>
-  
   <!-- 3.组件列表 -->
   <app-comp-list
     *ngIf="pageGridSetting['showLeft']"

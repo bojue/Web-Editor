@@ -32,6 +32,7 @@ export class CompConfigurationComponent implements OnInit {
         children: [{ value: '列表' }, { value: '详情' }]
       }
     ]
+
     this.showBool = true;
     this.compList = this.service.getComponentModeules();
     
