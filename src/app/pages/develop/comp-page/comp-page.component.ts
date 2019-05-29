@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NodeMenuItemAction, TreeModel, Ng2TreeSettings } from 'ng2-tree';
 
 @Component({
@@ -7,6 +7,7 @@ import { NodeMenuItemAction, TreeModel, Ng2TreeSettings } from 'ng2-tree';
   styleUrls: ['./comp-page.component.scss']
 })
 export class CompPageComponent implements OnInit {
+  @Input() treeNodes;
   trees: TreeModel;
   treeSettings: Ng2TreeSettings = {
     rootIsVisible: true
@@ -34,24 +35,18 @@ export class CompPageComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
     this.trees = {
       value: "页面列表",
       id:0,
       settings: this.TREE_SETTING_DEFAULT,
-      children: [
-        {
-          value: '登录',
-          children: [{ value: '登录' }, { value: '注册' }]
-        },
-        {
-          value: '商品',
-          children: [{ value: '列表' }, { value: '详情' }]
-        }
-      ]
-    };
+      children: this.treeNodes
+    }
+    console.log(this.treeNodes)
   }
 
   selectNodeEvent(event) {

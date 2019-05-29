@@ -16,14 +16,11 @@
             width: 14px;
             height: 14px;        
             padding: 5px;
-            margin: 0px 5px;
+            margin: 0px 4px;
             border-radius: 5px;
             &:hover {
                 border-radius: 50%;
                 box-shadow: 0 0 3px#cccccc inset;
-            }
-            &.file {
-                margin-left: 30px
             }
             &.file {
                 width: 15px;

@@ -9,6 +9,7 @@ import { AppServiceService } from 'src/app/providers/app-service.service';
 export class CompConfigurationComponent implements OnInit {
   @Input() pageGridSetting;
   @Output() compDragEvent = new EventEmitter<any>();
+  treeNodes: any[];
   compList:any[];
   showBool:boolean;
 
@@ -21,8 +22,20 @@ export class CompConfigurationComponent implements OnInit {
   }
 
   initData() {
+    this.treeNodes = [
+      {
+        value: '登录',
+        children: [{ value: '登录' }, { value: '注册' }]
+      },
+      {
+        value: '商品',
+        children: [{ value: '列表' }, { value: '详情' }]
+      }
+    ]
+
     this.showBool = true;
     this.compList = this.service.getComponentModeules();
+    
   }
 
   dragCompEnd(event){
