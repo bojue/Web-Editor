@@ -34,7 +34,6 @@ export class CompConfigurationComponent implements OnInit {
     ]
     this.showBool = true;
     this.compList = this.service.getComponentModeules();
-    
   }
 
   dragCompEnd(event){
