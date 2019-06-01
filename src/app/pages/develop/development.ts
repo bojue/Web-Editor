@@ -14,7 +14,6 @@ import { SettingObjComponent } from 'src/app/editor/module/setting-object.compon
 import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component';
 import { AreaComponent } from 'src/app/editor/components/comp-lib/tool/area/area.component';
 
-
 @Component({
   selector: 'app-development',
   templateUrl: './development.html',
