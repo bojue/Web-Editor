@@ -212,22 +212,24 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     if(e && e.stopPropagation){
         e.stopPropagation();
         let eventType = e && e.type;
-        console.log(eventType)
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
         let changeX = e.clientX - this.dragCompStartX;
         let changeY = e.clientY - this.dragCompStartY;
+        console.log(changeY)
         if(eventType === 'dragstart') {
           this.dragCompStartX = e.clientX;
           this.dragCompStartY = e.clientY;
+
         }else if(eventType === 'dragend'){
           if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
-            style['left'] = style['left'] + changeX;
+            style['left'] = style['left'] + changeX - 30;
           }else{
             style['left'] = 0;
           } 
+    
           
           if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
-            style['top'] = style['top'] + style['height'] + changeY < 800 ?  style['top'] + changeY : 800 -  style['height'];
+            style['top'] = style['top'] + changeY + 60 ;
           }else {
             style['top'] = 0;
           }
