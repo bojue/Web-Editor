@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabsTempComponent } from './tabs-temp.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async } from 'q';
 
 describe('TabsTempComponent', () => {
   let component: TabsTempComponent;
