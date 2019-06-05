@@ -1,8 +1,8 @@
 import { DynamicComponentServiceService } from '../../../provider/dynamic-component-service.service';
-import { TabsTempComponent } from "./tabs-temp/tabs-temp.component";
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "./node_modules/src/app/editor/components/comp-lib/adv/node_modules/src/app/editor/components/comp-lib/avd/node_modules/@angular/coree
-import { FormsModule } from "./node_modules/src/app/editor/components/comp-lib/adv/node_modules/src/app/editor/components/comp-lib/avd/node_modules/@angular/formss
-import { BrowserModule } from "./node_modules/src/app/editor/components/comp-lib/adv/node_modules/src/app/editor/components/comp-lib/avd/node_modules/@angular/platform-browserr
+import { TabsTempComponent } from '../advanced/tabs-temp/tabs-temp.component';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 const templateComp = [
     TabsTempComponent,

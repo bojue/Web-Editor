@@ -1,4 +1,4 @@
-import { DynamicComponentServiceService } from '../../../code/provider/dynamic-component-service.service
+
 import { TabsTempComponent } from "./tabs-temp/tabs-temp.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";

@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, ComponentFactoryResolver, Inject, forwardRef, AfterContentInit } from "./node_modules/src/app/editor/components/comp-lib/adv/tabs-temp/node_modules/src/app/editor/components/comp-lib/avd/tabs-temp/node_modules/@angular/coree
-import * as _ from "./node_modules/src/app/editor/components/comp-lib/adv/tabs-temp/node_modules/src/app/editor/components/comp-lib/avd/tabs-temp/node_modules/lodashh
-import { TempBasicComponent } from "./node_modules/src/app/editor/components/comp-basic/temp-basic/temp-basic.component";
-import { ViewContainRefHostDirective } from "./node_modules/src/app/editor/directive/view-contain-ref-host.directive";
-import { ViewChildContainRefHostDirective } from "./node_modules/src/app/editor/directive/view-child-contain-ref-host.directive";
-import { DynamicComponentServiceService } from "./node_modules/src/app/editor/provider/dynamic-component-service.service";
-import { ActivatedRoute, Router } from "./node_modules/src/app/editor/components/comp-lib/adv/tabs-temp/node_modules/src/app/editor/components/comp-lib/avd/tabs-temp/node_modules/@angular/routerr
-import { CompEmitService } from "./node_modules/src/app/providers/comp-emit.service";
+import { Component, OnInit, AfterContentInit, ViewChild, Inject, forwardRef, ElementRef, ComponentFactoryResolver } from "@angular/core";
+import { TempBasicComponent } from "../../../comp-basic/temp-basic/temp-basic.component";
+import { ViewContainRefHostDirective } from "src/app/editor/directive/view-contain-ref-host.directive";
+import { ViewChildContainRefHostDirective } from "src/app/editor/directive/view-child-contain-ref-host.directive";
+import { DynamicComponentServiceService } from "src/app/editor/provider/dynamic-component-service.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { CompEmitService } from "src/app/providers/comp-emit.service";
 
 
 @Component({

@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, ComponentFactoryResolver, Inject, forwardRef, AfterContentInit } from "@angular/core";
-import { TempBasicComponent } from "./node_modules/src/app/component/dev/basic/temp-basic/temp-basic.component";
-import { ViewContainRefHostDirective } from "./node_modules/src/app/directive/view-contain-ref-host.directive";
-import { ActivatedRoute, Router } from "@angular/router";
+
 import * as _ from "lodash";
-import { renderComponent } from "@angular/core/src/render3";
-import { SettingObjComponent } from "./node_modules/src/app/module/setting-object.component";
-import { DynamicComponentServiceService } from "./node_modules/src/app/code/provider/dynamic-component-service.service";
-import { ViewChildContainRefHostDirective } from "./node_modules/src/app/directive/view-child-contain-ref-host.directive";
-import { CompEmitService } from "./node_modules/src/app/providers/comp-emit.service";
+import { renderComponent, ComponentFactoryResolver } from "@angular/core/src/render3";
+import { Component, OnInit, AfterContentInit, ViewChild, Inject, forwardRef, ElementRef } from "@angular/core";
+import { TempBasicComponent } from "src/app/editor/components/comp-basic/temp-basic/temp-basic.component";
+import { ViewContainRefHostDirective } from "src/app/editor/directive/view-contain-ref-host.directive";
+import { ViewChildContainRefHostDirective } from "src/app/editor/directive/view-child-contain-ref-host.directive";
+import { DynamicComponentServiceService } from "src/app/editor/provider/dynamic-component-service.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { CompEmitService } from "src/app/providers/comp-emit.service";
 
 @Component({
   selector: 'app-tabs-temp',

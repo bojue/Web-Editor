@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StyleBasicComponent } from './node_modules/src/app/component/dev/basic/style-basic/style-basic.component';
+import { StyleBasicComponent } from 'src/app/editor/components/comp-basic/style-basic/style-basic.component';
 
 @Component({
   selector: 'app-z-index',
