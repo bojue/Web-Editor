@@ -38,11 +38,13 @@ export class AppServiceService{
         name:'图片',
         type: 'img',
         iconUrl: './../assets/icons/image.svg'
-      },{
-        name:'音频',
-        type: 'audio',
-        iconUrl: './../assets/icons/audio.svg'
-      },{
+      },
+      // {
+      //   name:'音频',
+      //   type: 'audio',
+      //   iconUrl: './../assets/icons/audio.svg'
+      // },
+      {
         name:'视频',
         type: 'video',
         iconUrl: './../assets/icons/video.svg'
