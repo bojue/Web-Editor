@@ -13,9 +13,9 @@
 ## 下载
 
 ```
-  git clone https://github.com/bojue/ngx-DynamicComponent.git
+  git clone https://github.com/bojue/H5-Editor.git
 
-  cd ngx-DynamicComponent
+  cd H5-Editor
 
   npm install
 ```
