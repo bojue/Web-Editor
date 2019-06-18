@@ -59,10 +59,6 @@ export class AppServiceService{
         type: 'chart',
         iconUrl: './../assets/icons/zhexian.svg'
       },{
-        name:'结构树',
-        type: 'tree',
-        iconUrl: './../assets/icons/tree.svg'
-      },{
         name:'列表',
         type: 'list',
         iconUrl: './../assets/icons/list.svg'
@@ -71,15 +67,6 @@ export class AppServiceService{
         type:'gauge',
         iconUrl:'./../assets/icons/gauge.svg'
       }]
-  },{
-    name: '高级',
-    state: 'template',
-    title:"高级组件,由多个基础组成二级目录结构,支持数据绑定和接口绑定,支持定制（测试样式ing）",
-    compList: [{
-        name:'Tabs',
-        type: 'tabs',
-        iconUrl: './../assets/icons/tabs.svg'
-      }, ]
   }
 ]
 

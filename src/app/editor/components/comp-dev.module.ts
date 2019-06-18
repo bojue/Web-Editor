@@ -8,7 +8,6 @@ import { CompStyleModule } from "./comp-settings/style/comp-style.module";
 import { CompDataModule } from "./comp-settings/data/comp-data.module";
 import { CompBusinessModule } from "./comp-lib/business/comp-business.module";
 import { CompEventModule } from "./comp-settings/event/comp-event.module";
-import { CompTemplateModule } from "./comp-lib/advanced/comp-template.module";
 import { CompSettingBasicModule } from "./comp-basic/comp-setting-basic.module";
 
 @NgModule({
@@ -24,7 +23,6 @@ import { CompSettingBasicModule } from "./comp-basic/comp-setting-basic.module";
     CompDataModule,
     CompBusinessModule,
     CompEventModule,
-    CompTemplateModule,
     CompSettingBasicModule
   ],
   providers: [

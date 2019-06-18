@@ -7,11 +7,9 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxEchartsModule } from "ngx-echarts";
 import { CompSettingBasicModule } from "../../comp-basic/comp-setting-basic.module";
-import { TreesComponent } from "./tree/tree.component";
 
 const customComp = [
     ChartComponent,
-    TreesComponent,
     ListComponent,
     GaugeComponent,
 ]

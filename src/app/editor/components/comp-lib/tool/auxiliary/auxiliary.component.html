@@ -13,8 +13,8 @@
     <div class="circle-item circle-view-left col" 
       draggable="true" 
       (dragstart)="compEvent($event, 's')"
-      (drag)="compEvent($event, 'l') && $event.stopPropagation"
-      (dragend)="compEvent($event, 'l', true) && $event.stopPropagation"
+      (drag)="compEvent($event, 'l') "
+      (dragend)="compEvent($event, 'l', true)"
       [ngStyle]="{
         'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'l_t', false, 'height', true, -3),

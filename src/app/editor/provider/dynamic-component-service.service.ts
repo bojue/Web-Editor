@@ -14,9 +14,6 @@ import { GaugeComponent } from "src/app/editor/components/comp-lib/business/gaug
 import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area.component";
 import { ComponentItem } from "src/app/editor/module/component-item";
 import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
-import { TabsTempComponent } from "../components/comp-lib/advanced/tabs-temp/tabs-temp.component";
-import { TreesComponent } from "../components/comp-lib/business/tree/tree.component";
-
 
 @Injectable({providedIn: 'root'})
 export class DynamicComponentServiceService {
@@ -69,19 +66,9 @@ export class DynamicComponentServiceService {
           comp : AuxiliaryComponent
         }
         break;
-      case 'tree':
-        tempInfo = {
-          comp : TreesComponent
-        }  
-        break;
       case 'list': 
         tempInfo = {
           comp : ListComponent
-        }  
-        break;
-      case 'tabs':
-        tempInfo = {
-          comp: TabsTempComponent
         }  
         break;
       case 'video':

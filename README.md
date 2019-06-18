@@ -13,20 +13,23 @@
 ## 下载
 
 ```
-  git clone https://github.com/bojue/ngx-DynamicComponent.git
+  git clone https://github.com/bojue/H5-Editor.git
 
-  cd ngx-DynamicComponent
+  cd H5-Editor
 
   npm install
 ```
 
 ## 启动
 
->  npm run start
+> npm run start
 
 ## 构建
 
-> ng build
+> npm run build
+
+## AOT优化
+> npm run build:aot
 
 ## 展示
 <img src="./src/assets/imgs/index.png" width="1000px" height="480px">
