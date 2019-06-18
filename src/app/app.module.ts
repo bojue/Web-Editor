@@ -13,7 +13,6 @@ import { CompBasicModule } from "./editor/components/comp-lib/basic/comp.module"
 import { AppServiceService } from "./providers/app-service.service";
 import { BasicInfoConfigService } from "./providers/basic-info-config.service";
 import { CompEmitService } from "./providers/comp-emit.service";
-import { TabsTempComponent } from "./editor/components/comp-lib/advanced/tabs-temp/tabs-temp.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +37,7 @@ import { TabsTempComponent } from "./editor/components/comp-lib/advanced/tabs-te
   ],
   bootstrap: [AppComponent],
   entryComponents:[
-   TabsTempComponent
+    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
