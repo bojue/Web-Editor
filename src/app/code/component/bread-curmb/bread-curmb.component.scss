@@ -5,19 +5,30 @@
         padding: 0;
         margin: 0;
     }
-    a {
-        text-decoration: none;
-    }
+
     .bc-ul {
         display: block;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         margin-bottom: 5px;
         border-bottom: 1px solid #cccccc;
         .bc-item {
             display: inline-block;
-            padding-left: 40px;
-            padding-right: 40px;
+            cursor: pointer;
+            width:100px;
+            text-align: center;
+            font-size: 14px;
+            a {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                display: inline-block;
+                text-decoration: none;
+                &.active {
+                    background: rgba(18, 150, 219, 0.8);
+                    color:#ffffff;
+                }
+            }
         }
     }
 }
