@@ -24,7 +24,7 @@
                 text-align: center;
                 display: inline-block;
                 text-decoration: none;
-                &.active {
+                &.active ,&:hover{
                     background: rgba(18, 150, 219, 0.8);
                     color:#ffffff;
                 }

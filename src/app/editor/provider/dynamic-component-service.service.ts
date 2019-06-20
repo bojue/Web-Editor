@@ -9,7 +9,6 @@ import { ButtonComponent } from "src/app/editor/components/comp-lib/basic/button
 import { AuxiliaryComponent } from "src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component";
 import { ListComponent } from "src/app/editor/components/comp-lib/business/list/list.component";
 import { VideoComponent } from "src/app/editor/components/comp-lib/basic/video/video.component";
-import { AudioComponent } from "src/app/editor/components/comp-lib/basic/audio/audio.component";
 import { GaugeComponent } from "src/app/editor/components/comp-lib/business/gauge/gauge.component";
 import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area.component";
 import { ComponentItem } from "src/app/editor/module/component-item";
@@ -82,11 +81,6 @@ export class DynamicComponentServiceService {
         tempInfo = {
           comp: VideoComponent,
         }   
-        break;
-      case 'audio':
-        tempInfo = {
-          comp: AudioComponent
-        }  
         break;
       case 'gauge':
         tempInfo = {
