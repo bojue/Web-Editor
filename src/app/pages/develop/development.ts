@@ -1,4 +1,3 @@
-
 import * as _ from 'lodash';    
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ComponentFactoryResolver, OnDestroy } from '@angular/core';
 import { ViewContainRefHostDirective } from 'src/app/editor/directive/view-contain-ref-host.directive';
@@ -76,9 +75,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
       let del_window = this.isWindows && $event && $event.code === 'Delete';
-      let del_mac = this.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8;
+      let del_mac = this.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
-      if(del_window || (del_mac && !activeEleBool)){
+      if(del_window || (del_mac && !activeEleBool) || (del_mac && $event.ctrlKey && !!this.activeCompSettingObject)){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
@@ -216,7 +215,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
         let changeX = e.clientX - this.dragCompStartX;
         let changeY = e.clientY - this.dragCompStartY;
-        console.log(changeY)
         if(eventType === 'dragstart') {
           this.dragCompStartX = e.clientX;
           this.dragCompStartY = e.clientY;
