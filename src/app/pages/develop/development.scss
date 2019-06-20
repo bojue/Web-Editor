@@ -41,14 +41,16 @@
         cursor: pointer;
         right: 60px;
         position: absolute;
-        top: 14px;
+        top: 7px;
         border-radius: 50%;
         img {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            padding: 2px;
             border-radius: 50%;
             &:hover {
-                background:rgba(255,0,0,0.1);
+                background:rgba(18, 150, 219, 0.2);
             }
         }
     }
