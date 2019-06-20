@@ -153,6 +153,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //父类容器监听事件
   clickListernerHandle(e) {
+    this.activeCompSettingObject = null;//初始化当前选中对象（清空）
     this.getContentLeft();
     //1.更新文本编辑状态
     let currentComp = this.testCreateComp[this.currentIndex];
