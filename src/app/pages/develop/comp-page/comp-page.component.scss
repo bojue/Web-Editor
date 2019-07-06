@@ -20,10 +20,29 @@
     }
 
     tree-internal ul {
-        padding: 3px 0 3px 13px;
+        padding: 3px 0 3px 6px;
         .node-value {
             cursor: pointer;
+            padding:2px 10px;
+            &::after {
+                border:none;
+                background-color:transparent;
+            }
+            &.node-selected{
+                font-size: 14px;
+                color: dodgerblue;
+                border-radius: 5px;
+                border:1px solid dodgerblue;
+                background: rgba(18, 150, 219, 0.1);
+                .far {
+                    color:dodgerblue;
+                }
+            }
+            &:hover{
+                color: dodgerblue;
+            }
         }
+        
     }
 
 

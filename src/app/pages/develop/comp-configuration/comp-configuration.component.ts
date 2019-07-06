@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AppServiceService } from 'src/app/providers/app-service.service';
+import { Component, OnInit, Input, Output ,EventEmitter} from "@angular/core";
+import { AppService } from "src/app/providers/app.service";
 
 @Component({
   selector: 'app-comp-configuration',
@@ -14,7 +14,7 @@ export class CompConfigurationComponent implements OnInit {
   showBool:boolean;
 
   constructor(
-    private service: AppServiceService,
+    private service: AppService,
   ) { }
 
   ngOnInit() {
@@ -22,16 +22,7 @@ export class CompConfigurationComponent implements OnInit {
   }
 
   initData() {
-    this.treeNodes = [
-      {
-        value: '登录',
-        children: [{ value: '登录' }, { value: '注册' }]
-      },
-      {
-        value: '商品',
-        children: [{ value: '列表' }, { value: '详情' }]
-      }
-    ]
+    this.treeNodes = this.service.getPages();
 
     this.showBool = true;
     this.compList = this.service.getComponentModeules();

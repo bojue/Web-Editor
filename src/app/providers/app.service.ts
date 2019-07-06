@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AppServiceService{
+export class AppService{
   
   constructor() {
 
@@ -15,10 +15,6 @@ export class AppServiceService{
     state: 'default',
     compList: [
       {
-      //   name:'文本',
-      //   type: 'line',
-      //   iconUrl: './../assets/icons/line.svg'
-      // },{
         name:'文本',
         type: 'text',
         iconUrl: './../assets/icons/text.svg'
@@ -69,8 +65,8 @@ export class AppServiceService{
 ]
 
 
-  //后台测试数据
-  testCreateComp = [];
+  //当前页面组件列表
+  currentPageComp = [];
 
   auxiComp = {
     compIndex: 999,
@@ -112,6 +108,39 @@ export class AppServiceService{
     }
   }
 
+  pages = [
+    {
+      id:1,
+      value: '注册登录',
+      children: [{ 
+        id:1,
+        parnentId:1,
+        value: '登录', 
+        componentList:[]
+      }, { 
+        id:2,
+        parnentId:2,
+        value: '注册',
+        componentList:[] 
+      }]
+    },
+    {
+      id:2,
+      value: '商品页面',
+      children: [{ 
+        id:1,
+        parnentId:2,
+        value: '列表' ,
+        componentList:[]
+      },{ 
+          id:1,
+          parnentId:2,
+          value: '详情',
+          componentList:[]
+        }]
+    }
+  ]
+
   getAuxiComp() {
     return this.auxiComp;
   }
@@ -121,8 +150,12 @@ export class AppServiceService{
   }
 
 
-  getTestCreateComp() {
-    return this.testCreateComp;
+  getCurrentPageComp() {
+    return this.currentPageComp;
+  }
+
+  getPages() {
+    return this.pages;
   }
 
   getComponentModeules() {

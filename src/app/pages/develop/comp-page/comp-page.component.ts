@@ -10,7 +10,7 @@ export class CompPageComponent implements OnInit {
   @Input() treeNodes;
   trees: TreeModel;
   treeSettings: Ng2TreeSettings = {
-    rootIsVisible: true
+    rootIsVisible: false
   };
   options = {};
 
@@ -46,7 +46,6 @@ export class CompPageComponent implements OnInit {
       settings: this.TREE_SETTING_DEFAULT,
       children: this.treeNodes
     }
-    console.log(this.treeNodes)
   }
 
   selectNodeEvent(event) {
