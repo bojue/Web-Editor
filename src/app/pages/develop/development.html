@@ -7,7 +7,9 @@
   <section class="comp-marage">
     <app-comp-configuration
       [pageGridSetting]="pageGridSetting"
-      (compDragEvent)="dragCompEnd($event)">
+      (compDragEvent)="dragCompEnd($event)"
+      (selCurrentPage)="getCurrentPage($event)"
+      (currentPageEvents)="currentPageEvents($event)">
     </app-comp-configuration>
   </section>
 
@@ -18,15 +20,14 @@
 
   <!-- 3.视图 -->
   <section id='componentsBody' class="border-r border-b m-l-5 h90 content">
+      <div class="run-but" (click)="preView()">
+        <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
+      </div>    
     <ng-template view-contain-ref #contentComp ></ng-template>
   </section>
 
   <!-- 4.设置-->
   <section class="setting-but">
-    <div class="run-but" (click)="preView()">
-      <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
-    </div>    
-
     <app-comp-setting 
       class="settings" 
       [pageGridSetting]="pageGridSetting"

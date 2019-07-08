@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NodeMenuItemAction, TreeModel, Ng2TreeSettings } from 'ng2-tree';
 
 @Component({
@@ -8,6 +8,7 @@ import { NodeMenuItemAction, TreeModel, Ng2TreeSettings } from 'ng2-tree';
 })
 export class CompPageComponent implements OnInit {
   @Input() treeNodes;
+  @Output() selCurrentPage = new EventEmitter<any>()
   trees: TreeModel;
   treeSettings: Ng2TreeSettings = {
     rootIsVisible: false
@@ -48,8 +49,10 @@ export class CompPageComponent implements OnInit {
     }
   }
 
+  //选择当前可编辑页面，传递页面组件列表当父类容器渲染
   selectNodeEvent(event) {
-    console.log(event)
+    let currenPage = event && event['node'] && event['node']['node'] || {};
+    this.selCurrentPage.emit(currenPage);
   }
 
 }
