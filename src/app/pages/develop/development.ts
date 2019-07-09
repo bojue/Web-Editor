@@ -167,7 +167,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.getAuxiliaryComponent(null, 'parentListerner');
   }
 
-  // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑
+  // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑,多页面操作切换
   initViewContRef(){
     let len = this.components.length;
     for(let i=0; i < len;i++){
@@ -257,6 +257,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //选择当前页面组件列表
   getCurrentPage(page) {
+    this.initViewContRef();
     let comps = page && page['componentList'] || [];
     this.currnetPageComps = comps;
     this.getCompList(comps);
