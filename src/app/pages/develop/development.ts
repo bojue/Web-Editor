@@ -74,10 +74,14 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
+      if(!this.activeCompSettingObject) {
+        return;
+      }
       let del_window = this.isWindows && $event && $event.code === 'Delete';
       let del_mac = this.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
-      if(del_window || (del_mac && !activeEleBool) || (del_mac && $event.ctrlKey && !!this.activeCompSettingObject)){
+      let del_comp_by_group = ['text'].indexOf(this.activeCompSettingObject['type']) > -1;
+      if((del_window || (del_mac && !activeEleBool) || (del_mac && $event.ctrlKey && this.activeCompSettingObject)) && !del_comp_by_group || ( (del_window || del_mac) && $event.ctrlKey && del_comp_by_group )){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){

@@ -32,7 +32,7 @@
 
 > npm run build:aot
 
-## 展示	## 展示
+## 展示	
 <img src="./src/assets/imgs/index.png" width="1000px" height="480px">
 
 ## 更新历史
