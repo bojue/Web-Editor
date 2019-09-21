@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
-    "build:aot":"ng build --aot=true",
+    "build:aot": "ng build --aot=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -26,6 +26,7 @@
     "loadsh": "0.0.4",
     "ng2-tree": "^2.0.0-rc.11",
     "ngx-echarts": "^4.1.0",
+    "node-sass": "^4.12.0",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.4.0",
     "zone.js": "~0.8.26"
