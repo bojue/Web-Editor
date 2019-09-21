@@ -1,4 +1,5 @@
 import { Injectable, OnInit ,EventEmitter} from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,22 +9,11 @@ export class CompEmitService {
 
   constructor() {}
 
-  emitEvent(event) {
-    this.eventEmitter.emit(event)
+  setEmitEvent(event) {
+    this.eventEmitter.next(event)
   }
   
   getEmitEvent() {
-    return this.eventEmitter;
-  }
-
-  setChildComp(comp) {
-    this.eventEmitter.emit({
-      type:'child-comp',
-      data: comp
-    })
-  }
-
-  getEmitter() {
-    return this.eventEmitter
+    return this.eventEmitter.subscribe();
   }
 }
