@@ -48,7 +48,7 @@ export class TreesComponent extends CustomBasicComponent implements OnInit, OnDe
   }
 
   initData() {
-    this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
+    this.eventEmitter = this.emitService.getEmitEventSub().subscribe(event => {
     })
 
    
@@ -62,7 +62,7 @@ export class TreesComponent extends CustomBasicComponent implements OnInit, OnDe
     let data = event && event['node'] && event['node']['data'];
     if(data) {
        event['data'] = data;
-       this.emitService.emitEvent(event)
+       this.emitService.setEmitEventSub(event);
     }
   }
 

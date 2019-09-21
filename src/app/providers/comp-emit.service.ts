@@ -9,11 +9,11 @@ export class CompEmitService {
 
   constructor() {}
 
-  setEmitEvent(event) {
+  setEmitEventSub(event) {
     this.eventEmitter.next(event)
   }
   
-  getEmitEvent() {
-    return this.eventEmitter.subscribe();
+  getEmitEventSub() {
+    return this.eventEmitter;
   }
 }

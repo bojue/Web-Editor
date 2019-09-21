@@ -32,7 +32,7 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
     this.compList = JSON.parse(compString);
 
     let parentCompList = _.cloneDeep(this.compList);
-    this.eventEmitter = this.emitSerive.getEmitEvent().subscribe(res => {
+    this.eventEmitter = this.emitSerive.getEmitEventSub().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
         let data = res['data']
         let currentList = _.concat(parentCompList, data);

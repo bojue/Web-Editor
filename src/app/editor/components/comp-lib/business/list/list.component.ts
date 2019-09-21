@@ -26,7 +26,7 @@ export class ListComponent extends CustomBasicComponent  implements OnInit, OnDe
 
   initData() {
     this.lists = [];
-    this.eventEmitter = this.emitService.getEmitEvent().subscribe(event => {
+    this.eventEmitter = this.emitService.getEmitEventSub().subscribe(event => {
       this.getData(event)
     })
   }
