@@ -11,9 +11,9 @@ import { ListComponent } from "src/app/editor/components/comp-lib/business/list/
 import { VideoComponent } from "src/app/editor/components/comp-lib/basic/video/video.component";
 import { GaugeComponent } from "src/app/editor/components/comp-lib/business/gauge/gauge.component";
 import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area.component";
-import { ComponentItem } from "src/app/editor/module/component-item";
 import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
 import { TreesComponent } from "../components/comp-lib/business/tree/tree.component";
+import { SettingItem } from "../module/setting-item.module";
 
 
 @Injectable({providedIn: 'root'})
@@ -106,7 +106,7 @@ export class DynamicComponentServiceService {
       let _type = settingItem && settingItem['type'];
       let compInfo = this.createComponent(_type)
       let settingData = settingItem || compInfo['data']
-      let createComp = new ComponentItem(compInfo['comp'], settingData);
+      let createComp = new SettingItem(compInfo['comp'], settingData);
       compList.push(createComp)
     })
     return compList;
