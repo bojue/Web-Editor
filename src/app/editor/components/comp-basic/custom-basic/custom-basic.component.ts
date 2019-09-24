@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BasicComponent } from '../basic/basic.component';
-import { CompEmitService } from 'src/app/providers/comp-emit.service';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({
   selector: 'app-custom-basic',
@@ -11,7 +11,7 @@ import { CompEmitService } from 'src/app/providers/comp-emit.service';
 export class CustomBasicComponent extends BasicComponent implements OnInit {
 
   constructor(
-    private compEmitService: CompEmitService
+    private compEmitService: EmitSubService
   ) { 
     super()
   }

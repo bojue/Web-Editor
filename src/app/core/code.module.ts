@@ -4,7 +4,7 @@ import { MenuBreadCrumbService } from '../menu.breadcrumb.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { DynamicComponentServiceService } from '../editor/provider/dynamic-component-service.service';
+import { CompDynamicCreateService } from '../editor/provider/comp-dynamic-create.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { DynamicComponentServiceService } from '../editor/provider/dynamic-compo
     BreadCurmbComponent
   ],
   providers: [
-    DynamicComponentServiceService,
+    CompDynamicCreateService,
     MenuBreadCrumbService
   ]
 })

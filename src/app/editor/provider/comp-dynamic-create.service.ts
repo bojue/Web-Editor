@@ -17,7 +17,7 @@ import { SettingItem } from "../module/setting-item.module";
 
 
 @Injectable({providedIn: 'root'})
-export class DynamicComponentServiceService {
+export class CompDynamicCreateService {
 
   constructor() { }
 

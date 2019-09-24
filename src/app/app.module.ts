@@ -10,8 +10,8 @@ import { CompSettingBasicModule } from "./editor/components/comp-basic/comp-sett
 import { CompDevModule } from "./editor/components/comp-dev.module";
 import { CompBasicModule } from "./editor/components/comp-lib/basic/comp.module";
 import { AppService } from "./providers/app.service";
-import { BasicInfoConfigService } from "./providers/basic-info-config.service";
-import { CompEmitService } from "./providers/comp-emit.service";
+import { CompConfigService } from "./editor/provider/comp-config.service";
+import { EmitSubService } from "./providers/emit-sub.service";
 import { CodeModule } from "./core/code.module";
 
 @NgModule({
@@ -32,8 +32,8 @@ import { CodeModule } from "./core/code.module";
   ],
   providers: [
     AppService,
-    BasicInfoConfigService,
-    CompEmitService,
+    CompConfigService,
+    EmitSubService,
   ],
   bootstrap: [AppComponent],
   entryComponents:[

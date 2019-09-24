@@ -3,10 +3,10 @@ import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, Compone
 import { ViewContainRefHostDirective } from 'src/app/editor/directive/view-contain-ref-host.directive';
 import { SettingObject } from 'src/app/editor/module/setting-object.module';
 import { SettingPage } from 'src/app/editor/module/setting-page.module';
-import { BasicInfoConfigService } from 'src/app/providers/basic-info-config.service';
-import { DynamicComponentServiceService } from 'src/app/editor/provider/dynamic-component-service.service';
+import { CompConfigService } from 'src/app/editor/provider/comp-config.service';
+import { CompDynamicCreateService } from 'src/app/editor/provider/comp-dynamic-create.service';
 import { Router } from '@angular/router';
-import { CompEmitService } from 'src/app/providers/comp-emit.service';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
 import { EventManager } from '@angular/platform-browser';
 import { SettingObjComponent } from 'src/app/editor/module/setting-object.component';
 import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component';
@@ -50,13 +50,13 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
   eventEmitter:any;
   constructor(
+    public emitSerice: EmitSubService, 
     private elementRef:ElementRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private service: AppService,
-    private infoService: BasicInfoConfigService,
-    private dynamicService: DynamicComponentServiceService,
+    private infoService: CompConfigService,
+    private dynamicService: CompDynamicCreateService,
     private router: Router ,
-    private emitSerive: CompEmitService, 
     private eventManager: EventManager
   ) {
 
@@ -65,7 +65,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   ngOnInit() {
     this.initData();
     let parentCompList = _.cloneDeep(this.currnetPageComps);
-    this.eventEmitter = this.emitSerive.getEmitEventSub().subscribe(res => {
+    this.eventEmitter = this.emitSerice.getEmitEventSub().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
         let data = res['data'];
         let currentList = _.concat(parentCompList, data)

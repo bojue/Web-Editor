@@ -1,11 +1,11 @@
 import { SettingObjComponent } from '../../editor/module/setting-object.component';
 import{ RouterLink } from '@angular/router';
 import { ViewContainRefHostDirective } from '../../editor/directive/view-contain-ref-host.directive';
-import { DynamicComponentServiceService } from '../../editor/provider/dynamic-component-service.service';
+import { CompDynamicCreateService } from '../../editor/provider/comp-dynamic-create.service';
 import { Component, OnInit, ElementRef, AfterContentInit, OnDestroy, ComponentFactoryResolver, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';   
-import { CompEmitService } from 'src/app/providers/comp-emit.service';
+import { EmitSubService } from '../../providers/emit-sub.service';
 
 @Component({
   selector: 'app-preview',
@@ -19,12 +19,13 @@ export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
   eventEmitter:any;
   components: any[];
   constructor(
+    public emitSerive: EmitSubService, 
     private elementRef: ElementRef,
-    private dynamicService: DynamicComponentServiceService,
+    private dynamicService: CompDynamicCreateService,
     private activatedRoute: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver,
     private route: Router,
-    private emitSerive: CompEmitService, 
+
   ) { }
 
   ngOnInit() {

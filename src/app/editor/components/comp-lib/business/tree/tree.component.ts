@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CustomBasicComponent } from "../../../comp-basic/custom-basic/custom-basic.component";
 import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
-import { CompEmitService } from "src/app/providers/comp-emit.service";
+import { EmitSubService } from "src/app/providers/emit-sub.service";
 
 @Component({
   selector: 'app-tree',
@@ -37,7 +37,7 @@ export class TreesComponent extends CustomBasicComponent implements OnInit, OnDe
   options:any;
   eventEmitter:any;
   constructor(
-    private emitService: CompEmitService,
+    private emitService: EmitSubService,
   ) {
     super(emitService)
   }

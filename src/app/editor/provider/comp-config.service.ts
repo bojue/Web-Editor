@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class BasicInfoConfigService {
+export class CompConfigService {
       
     constructor() {}
 

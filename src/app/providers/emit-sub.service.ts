@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CompEmitService {
+export class EmitSubService {
   eventEmitter: EventEmitter<any> = new EventEmitter();
 
   constructor() {}

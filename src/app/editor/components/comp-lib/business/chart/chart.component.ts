@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { CustomBasicComponent } from "../../../comp-basic/custom-basic/custom-basic.component";
-import { CompEmitService } from "src/app/providers/comp-emit.service";
+import { EmitSubService} from "src/app/providers/emit-sub.service";
 
 @Component({
   selector: 'app-chart',
@@ -10,7 +10,7 @@ import { CompEmitService } from "src/app/providers/comp-emit.service";
 export class ChartComponent extends CustomBasicComponent  {
   chartOption: any;
   constructor(
-    private eventService: CompEmitService,
+    private eventService: EmitSubService,
   ) {
     super(eventService)
   }

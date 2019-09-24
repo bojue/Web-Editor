@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
-import { CompEmitService } from 'src/app/providers/comp-emit.service';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({
   selector: 'app-gauge',
@@ -9,7 +9,7 @@ import { CompEmitService } from 'src/app/providers/comp-emit.service';
 })
 export class GaugeComponent extends CustomBasicComponent implements OnInit {
   chartOption:any;
-  constructor(private emitService: CompEmitService) {
+  constructor(private emitService: EmitSubService) {
     super(emitService)
    }
 
