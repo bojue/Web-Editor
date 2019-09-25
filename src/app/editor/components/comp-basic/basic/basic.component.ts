@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
-import { SettingObject } from 'src/app/editor/module/setting-object.module';
-import { SettingStyle } from 'src/app/editor/module/setting-style.module';
-import { SettingDate } from 'src/app/editor/module/setting-data.module';
+import { SettingObject } from 'src/app/editor/model/setting-object.module';
+import { SettingStyle } from 'src/app/editor/model/setting-style.model';
+import { SettingDate } from 'src/app/editor/model/setting-data.model';
 import { EChartOption } from 'echarts';
 
 @Component({

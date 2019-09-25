@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { BasicComponent } from "../../../comp-basic/basic/basic.component";
-import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
+import { SettingObjComponent } from "src/app/editor/model/setting-object.model";
 
 @Component({
   selector: 'app-text',

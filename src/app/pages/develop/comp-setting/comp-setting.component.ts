@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { SettingObject } from "src/app/editor/module/setting-object.module";
+import { SettingObject } from "src/app/editor/model/setting-object.module";
 
-import { SettingStyle } from "src/app/editor/module/setting-style.module";
+import { SettingStyle } from "src/app/editor/model/setting-style.model";
 
 @Component({
   selector: 'app-comp-setting',

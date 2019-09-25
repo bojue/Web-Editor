@@ -11,9 +11,9 @@ import { ListComponent } from "src/app/editor/components/comp-lib/business/list/
 import { VideoComponent } from "src/app/editor/components/comp-lib/basic/video/video.component";
 import { GaugeComponent } from "src/app/editor/components/comp-lib/business/gauge/gauge.component";
 import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area.component";
-import { SettingObjComponent } from "src/app/editor/module/setting-object.component";
+import { SettingObjComponent } from "src/app/editor/model/setting-object.model";
 import { TreesComponent } from "../components/comp-lib/business/tree/tree.component";
-import { SettingItem } from "../module/setting-item.module";
+import { SettingItem } from "../model/setting-item.model";
 
 
 @Injectable({providedIn: 'root'})

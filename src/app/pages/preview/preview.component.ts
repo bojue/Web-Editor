@@ -1,4 +1,4 @@
-import { SettingObjComponent } from '../../editor/module/setting-object.component';
+import { SettingObjComponent } from '../../editor/model/setting-object.model';
 import{ RouterLink } from '@angular/router';
 import { ViewContainRefHostDirective } from '../../editor/directive/view-contain-ref-host.directive';
 import { CompDynamicCreateService } from '../../editor/provider/comp-dynamic-create.service';
