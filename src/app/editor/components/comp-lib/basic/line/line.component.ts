@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { BasicComponent } from "../../../comp-basic/basic/basic.component";
-import { SettingObjComponent } from "src/app/editor/model/setting-object.model";
+import { SettingObjComponent } from "src/app/editor/model/setting-object.interface";
 
 @Component({
   selector: 'app-line',

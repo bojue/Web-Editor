@@ -1,7 +1,7 @@
 import * as _ from 'lodash'; 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
-import { SettingObjComponent } from 'src/app/editor/model/setting-object.model';
+import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({

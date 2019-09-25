@@ -8,7 +8,7 @@ import { CompDynamicCreateService } from 'src/app/editor/provider/comp-dynamic-c
 import { Router } from '@angular/router';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
 import { EventManager } from '@angular/platform-browser';
-import { SettingObjComponent } from 'src/app/editor/model/setting-object.model';
+import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
 import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component';
 import { AreaComponent } from 'src/app/editor/components/comp-lib/tool/area/area.component';
 import { AppService } from 'src/app/providers/app.service';
