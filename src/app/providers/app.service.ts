@@ -68,45 +68,7 @@ export class AppService{
   //当前页面组件列表
   currentPageComp = [];
 
-  auxiComp = {
-    compIndex: 999,
-    name:'辅助线',
-    type:'auxi',
-    data: {
-      title: '辅助线'
-    },
-    style: {
-      height:220,
-      width: 300,
-      position: 'absolute',
-      top:120,
-      left:600,
-      border: '',
-      borderColor: '',
-      borderWidth: 0,
-      borderStyle: ''
-    }
-  }
-
-  areaComp = {
-    compIndex: 999,
-    name:'区域选中',
-    type:'area',
-    data: {
-      title: '区域选中'
-    },
-    style: {
-      height:0,
-      width: 0,
-      position: 'absolute',
-      top:120,
-      left:600,
-      border: '1',
-      borderColor: 'red',
-      borderWidth: 1,
-      borderStyle: 'solid'
-    }
-  }
+  
 
   pages = [
     {
@@ -125,14 +87,6 @@ export class AppService{
         }]
     }
   ]
-
-  getAuxiComp() {
-    return this.auxiComp;
-  }
-
-  getAreaComp() {
-    return this.areaComp;
-  }
 
 
   getCurrentPageComp() {

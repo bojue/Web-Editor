@@ -12,7 +12,6 @@ import { VideoComponent } from "src/app/editor/components/comp-lib/basic/video/v
 import { GaugeComponent } from "src/app/editor/components/comp-lib/bisiness/gauge/gauge.component";
 import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area.component";
 import { SettingObjComponent } from "src/app/editor/model/setting-object.interface";
-import { TreesComponent } from "../components/comp-lib/bisiness/tree/tree.component";
 import { SettingItem } from "../model/setting-item.model";
 
 
@@ -66,11 +65,6 @@ export class CompDynamicCreateService {
         tempInfo = {
           comp : AuxiliaryComponent
         }
-        break;
-      case 'tree':
-        tempInfo = {
-          comp : TreesComponent
-        }  
         break;
       case 'list': 
         tempInfo = {

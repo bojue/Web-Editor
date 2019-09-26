@@ -253,25 +253,6 @@ export class CompConfigService {
 
                 }
             },
-            tree:{
-                compIndex: 3,
-                name:'结构树',
-                type:'tree',
-                data: {
-                    api_val:'http://10.169.43.4:8100/api/dutys'
-                },
-                style: {
-                  height:300,
-                  width: 120,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: ''
-                }
-            },
             equipment: {
                 compIndex: 3,
                 name:'设备数据管理',
@@ -325,6 +306,54 @@ export class CompConfigService {
            
         }
         return data[style]  ? data[style] : {} 
+    }
+
+    auxiComp = {
+        compIndex: 999,
+        name:'辅助线',
+        type:'auxi',
+        data: {
+            title: '辅助线'
+        },
+        style: {
+            height:220,
+            width: 300,
+            position: 'absolute',
+            top:120,
+            left:600,
+            border: '',
+            borderColor: '',
+            borderWidth: 0,
+            borderStyle: ''
+        }
+    }
+
+    areaComp = {
+        compIndex: 999,
+        name:'区域选中',
+        type:'area',
+        data: {
+            title: '区域选中'
+        },
+        style: {
+            height:0,
+            width: 0,
+            position: 'absolute',
+            top:120,
+            left:600,
+            border: '1',
+            borderColor: 'red',
+            borderWidth: 1,
+            borderStyle: 'solid'
+        }
+    }
+
+    getAuxiComp() {
+        return this.auxiComp;
+    }
+
+    getAreaComp() {
+        return this.areaComp;
     }
 
 }

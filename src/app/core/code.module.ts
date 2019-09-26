@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CompDynamicCreateService } from '../editor/provider/comp-dynamic-create.service';
+import { UserAgentService } from './tool/user-agent.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CompDynamicCreateService } from '../editor/provider/comp-dynamic-create
   ],
   providers: [
     CompDynamicCreateService,
-    MenuBreadCrumbService
+    MenuBreadCrumbService,
+    UserAgentService
   ]
 })
 export class CodeModule { }

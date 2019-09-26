@@ -12,6 +12,7 @@ import { SettingObjComponent } from 'src/app/editor/model/setting-object.interfa
 import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component';
 import { AreaComponent } from 'src/app/editor/components/comp-lib/tool/area/area.component';
 import { AppService } from 'src/app/providers/app.service';
+import { UserAgentService } from 'src/app/core/tool/user-agent.service';
 
 @Component({
   selector: 'app-development',
@@ -57,6 +58,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private infoService: CompConfigService,
     private dynamicService: CompDynamicCreateService,
     private router: Router ,
+    private userAgentService: UserAgentService,
     private eventManager: EventManager
   ) {
 
@@ -77,8 +79,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       if(!this.activeCompSettingObject) {
         return;
       }
-      let del_window = this.isWindows && $event && $event.code === 'Delete';
-      let del_mac = this.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
+      let del_window = this.userAgentService.isWindows && $event && $event.code === 'Delete';
+      let del_mac = this.userAgentService.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
       let del_comp_by_group = ['text'].indexOf(this.activeCompSettingObject['type']) > -1;
       if((del_window || (del_mac && !activeEleBool) || (del_mac && $event.ctrlKey && this.activeCompSettingObject)) && !del_comp_by_group || ( (del_window || del_mac) && $event.ctrlKey && del_comp_by_group )){
@@ -115,8 +117,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.currnetPageComps = this.service.getCurrentPageComp(); //获取json数据(组件数据)
     this.getCompList(this.currnetPageComps); //json数据生成组件集合
-    this.auxiComp = this.service.getAuxiComp();
-    this.areaComp = this.service.getAreaComp();
+    this.auxiComp = this.infoService.getAuxiComp();
+    this.areaComp = this.infoService.getAreaComp();
   }
 
   //拖拽icon图标添加组件
@@ -410,7 +412,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   areaCompInit(state ?:string ):void {
     let areaIndex = _.findIndex(this.currnetPageComps, function(item) { return item['type'] == 'area'; });
     if(areaIndex === -1 && state === 'add') {
-      this.areaComp = this.service.getAreaComp();
+      this.areaComp = this.infoService.getAreaComp();
       this.currnetPageComps.push(this.areaComp)
       let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AreaComponent);
       let compRef = this.currentViewContRef.createComponent(compFactory);
@@ -432,11 +434,5 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  isMac = function() { 
-    return /macintosh|mac os x/i.test(navigator.userAgent); 
-  }();
 
-  isWindows = function() { 
-    return /windows|win32/i.test(navigator.userAgent);
-  }(); 
 }
