@@ -1,9 +1,7 @@
 import { Injectable, OnInit ,EventEmitter} from '@angular/core';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmitSubService {
   eventEmitter: EventEmitter<any> = new EventEmitter();
 
