@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BasicComponent } from '../basic/basic.component';
-import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { EmitSubService } from '../../../../providers/emit-sub.service';
 
 @Component({
   selector: 'app-custom-basic',

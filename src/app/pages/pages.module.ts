@@ -13,7 +13,7 @@ import { CompConfigurationComponent } from './develop/comp-configuration/comp-co
 import { CompDevModule } from "../editor/components/comp-dev.module";
 import { CompStyleModule } from "../editor/components/comp-settings/style/comp-style.module";
 import { CompDataModule } from "../editor/components/comp-settings/data/comp-data.module";
-import { CompBusinessModule } from "../editor/components/comp-lib/business/comp-business.module";
+import { CompBusinessModule } from "../editor/components/comp-lib/bisiness/comp-business.module";
 import { CompEventModule } from "../editor/components/comp-settings/event/comp-event.module";
 import { CompSettingBasicModule } from "../editor/components/comp-basic/comp-setting-basic.module";
 import { TreeModule } from 'ng2-tree';

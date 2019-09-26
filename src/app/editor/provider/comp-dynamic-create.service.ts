@@ -2,17 +2,17 @@ import { Injectable } from "@angular/core";
 import { LineComponent } from "src/app/editor/components/comp-lib/basic/line/line.component";
 import { TextComponent } from "src/app/editor/components/comp-lib/basic/text/text.component";
 import { ImgComponent } from "src/app/editor/components/comp-lib/basic/img/img.component";
-import { ChartComponent } from "src/app/editor/components/comp-lib/business/chart/chart.component";
+import { ChartComponent } from "src/app/editor/components/comp-lib/bisiness/chart/chart.component";
 import { InputComponent } from "src/app/editor/components/comp-lib/basic/input/input.component";
 import { TextareaComponent } from "src/app/editor/components/comp-lib/basic/textarea/textarea.component";
 import { ButtonComponent } from "src/app/editor/components/comp-lib/basic/button/button.component";
 import { AuxiliaryComponent } from "src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component";
-import { ListComponent } from "src/app/editor/components/comp-lib/business/list/list.component";
+import { ListComponent } from "src/app/editor/components/comp-lib/bisiness/list/list.component";
 import { VideoComponent } from "src/app/editor/components/comp-lib/basic/video/video.component";
-import { GaugeComponent } from "src/app/editor/components/comp-lib/business/gauge/gauge.component";
+import { GaugeComponent } from "src/app/editor/components/comp-lib/bisiness/gauge/gauge.component";
 import { AreaComponent } from "src/app/editor/components/comp-lib/tool/area/area.component";
 import { SettingObjComponent } from "src/app/editor/model/setting-object.interface";
-import { TreesComponent } from "../components/comp-lib/business/tree/tree.component";
+import { TreesComponent } from "../components/comp-lib/bisiness/tree/tree.component";
 import { SettingItem } from "../model/setting-item.model";
 
 
