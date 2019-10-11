@@ -2,6 +2,8 @@
 
 > 项目基于angular2 (版本号 7.0.2)开发,使用ng-cli构建完成，主要实现:
 
+<img src="./src/assets/imgs/index.png" width="1000px" height="480px">
+
 1. 动态组件创建
 2. 属性绑定
 3. 拖拽组件
@@ -31,9 +33,6 @@
 ## AOT优化
 
 > npm run build:aot
-
-## 展示	
-<img src="./src/assets/imgs/index.png" width="1000px" height="480px">
 
 ## 更新历史
 
