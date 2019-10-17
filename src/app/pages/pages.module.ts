@@ -5,18 +5,17 @@ import { HomeComponent } from "./home/home.component";
 import { CompListComponent } from "./develop/comp-list/comp-list.component";
 import { CompSettingComponent } from "./develop/comp-setting/comp-setting.component";
 import { ViewContainRefHostDirective } from "../editor/directive/view-contain-ref-host.directive";
+import { ViewChildContainRefHostDirective } from "../editor/directive/view-child-contain-ref-host.directive";
+import { CompPageComponent } from "./develop/comp-page/comp-page.component";
+import { CompConfigurationComponent } from "./develop/comp-configuration/comp-configuration.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { ViewChildContainRefHostDirective } from "../editor/directive/view-child-contain-ref-host.directive";
-import { CompPageComponent } from './develop/comp-page/comp-page.component';
-import { CompConfigurationComponent } from './develop/comp-configuration/comp-configuration.component';
 import { CompDevModule } from "../editor/components/comp-dev.module";
 import { CompStyleModule } from "../editor/components/comp-settings/style/comp-style.module";
 import { CompDataModule } from "../editor/components/comp-settings/data/comp-data.module";
-import { CompBusinessModule } from "../editor/components/comp-lib/bisiness/comp-business.module";
+import { CompBusinessModule } from "../editor/components/comp-lib/business/comp-business.module";
 import { CompEventModule } from "../editor/components/comp-settings/event/comp-event.module";
 import { CompSettingBasicModule } from "../editor/components/comp-basic/comp-setting-basic.module";
-import { TreeModule } from 'ng2-tree';
 
 @NgModule({
   declarations: [
@@ -38,8 +37,7 @@ import { TreeModule } from 'ng2-tree';
     CompDataModule,
     CompBusinessModule,
     CompEventModule,
-    CompSettingBasicModule,
-    TreeModule
+    CompSettingBasicModule
   ],
   providers: [
 

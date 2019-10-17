@@ -49,14 +49,6 @@ export class AppService{
         type: 'chart',
         iconUrl: './../assets/icons/zhexian.svg'
       },{
-        name:'结构树',
-        type: 'tree',
-        iconUrl: './../assets/icons/tree.svg'
-      },{
-        name:'列表',
-        type: 'list',
-        iconUrl: './../assets/icons/list.svg'
-      },{
         name: '仪表盘',
         type:'gauge',
         iconUrl:'./../assets/icons/gauge.svg'
@@ -64,11 +56,8 @@ export class AppService{
   }
 ]
 
-
   //当前页面组件列表
   currentPageComp = [];
-
-  
 
   pages = [
     {
@@ -78,12 +67,12 @@ export class AppService{
         id:1,
         parnentId:2,
         value: '列表' ,
-        componentList:[{"compIndex":3,"name":"列表","type":"list","data":{"api_val":"http://10.169.43.4:8100/api/dutys","list_val":{"list_tit_val":"列表","list_cols_number_val":4,"list_cols_width":[],"list_style_grid_bool":true,"list_cols":[{"tit":"标题","width":10,"prefix":"","suffix":""}]}},"style":{"height":300,"width":180,"position":"absolute","top":128,"left":142,"border":"","borderColor":"","borderWidth":0,"borderStyle":""},"active":true},{"compIndex":3,"name":"结构树","type":"tree","data":{"api_val":"http://10.169.43.4:8100/api/dutys"},"style":{"height":300,"width":120,"position":"absolute","top":83,"left":17,"border":"","borderColor":"","borderWidth":0,"borderStyle":""},"active":false}]
+        componentList:[]
       },{ 
           id:2,
           parnentId:2,
           value: '详情',
-          componentList:[{"compIndex":2,"name":"图片","type":"img","data":{"img_url":"./../assets/imgs/es.jpeg"},"style":{"height":100,"width":100,"position":"absolute","top":76,"left":61,"border":"","borderColor":"","borderWidth":0,"borderStyle":"dotted"}}]
+          componentList:[]
         }]
     }
   ]

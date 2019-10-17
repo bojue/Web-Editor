@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/ng2-tree/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },

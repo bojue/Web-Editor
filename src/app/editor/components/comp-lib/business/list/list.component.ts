@@ -1,8 +1,8 @@
 import * as _ from 'lodash'; 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
-import { EmitSubService } from '../../../../../providers/emit-sub.service';
 import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({
   selector: 'app-list',

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { CustomBasicComponent } from "../../../comp-basic/custom-basic/custom-basic.component";
-import { EmitSubService } from '../../../../../providers/emit-sub.service';
+import { EmitSubService} from "src/app/providers/emit-sub.service";
 
 @Component({
   selector: 'app-chart',

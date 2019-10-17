@@ -1,7 +1,15 @@
 <div class="comp-page scrollY">
     <!-- <div class="tit">页面列表</div> -->
-    <tree 
-      [tree]="trees"
-      [settings]="treeSettings" 
-      (nodeSelected)="selectNodeEvent($event)"></tree>
+  <ul class="tree">
+    <li class="node-item" *ngFor="let node of trees;">
+      <img src="./../../../../assets/icons/folders.svg" alt="" class="icon">
+      <span class="name">{{node['value']}}</span>
+      <ul class="subChild">
+        <li class="sub-item" *ngFor="let sub of node['children'];">
+          <img src="./../../../../assets/icons/page.svg" alt="" class="icon">
+          <span class="sub-name">{{sub['value']}}</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>

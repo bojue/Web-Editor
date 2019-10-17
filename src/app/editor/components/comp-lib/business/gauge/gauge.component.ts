@@ -1,7 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomBasicComponent } from "../../../comp-basic/custom-basic/custom-basic.component";
-import { EmitSubService } from "src/app/providers/emit-sub.service";
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({
   selector: 'app-gauge',
