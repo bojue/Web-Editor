@@ -1,14 +1,14 @@
 <div class="comp-page scrollY">
     <!-- <div class="tit">页面列表</div> -->
   <ul class="tree">
-    <li class="node-item item" *ngFor="let node of trees;" (click)="node['hideBool']=!node['hideBool']"> 
+    <li class="node-item item" *ngFor="let node of trees;"> 
       <img *ngIf="node['hideBool']" src="./../../../../assets/icons/folder-close.svg" alt="" class="icon">
       <img *ngIf="!node['hideBool']" src="./../../../../assets/icons/folders.svg" alt="" class="icon">
-      <span class="name">{{node['value']}}</span>
+      <span  class="name" (click)="node['hideBool']=!node['hideBool']">{{node['value']}}</span>
       <ul class="subChild" *ngIf="!node['hideBool']">
         <li class="item sub-item" *ngFor="let sub of node['children'];">
           <img src="./../../../../assets/icons/page.svg" alt="" class="icon">
-          <span class="sub-name">{{sub['value']}}</span>
+          <span class="sub-name" (click)="changeComponent(sub)">{{sub['value']}}</span>
         </li>
       </ul>
     </li>
