@@ -37,14 +37,19 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   copyNum:number; //单个组件拷贝次数
   dragCompStartX:any; //组件拖拽记录开始坐标X
   dragCompStartY:any; //组件拖拽记录开始坐标Y
+  PAGE_SIZE:number;
   mouseState = {
     down: false,
     move:false,
     up: false
   }; //鼠标事件记录，用于选中组件
+  compBodyDom:any;
   pageList: SettingPage[];// 页面管理 - 列表
   selectPageInfo: SettingPage; //页面管理-详情
-  contentLeft:number;
+  pageSize = {
+    left:60,
+    top:60
+  }
   pageGridSetting = {
     showLeft: true,
     showRight: true
@@ -100,20 +105,20 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   ngAfterViewInit() {
-    let compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
-    compBodyDom.addEventListener('click', this.clickListernerHandle.bind(this));
-    compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
-    compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
-    compBodyDom.addEventListener('mouseup', this.selectArea.bind(this)); 
+    this.compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
+    this.compBodyDom.addEventListener('click', this.clickListernerHandle.bind(this));
+    this.compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
+    this.compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
+    this.compBodyDom.addEventListener('mouseup', this.selectArea.bind(this)); 
+    this.getPageSize();
   }
 
-  getContentLeft() {
-    let compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
-    this.contentLeft = compBodyDom.offsetLeft;
+  getPageSize() {
+    this.pageSize.left = this.compBodyDom.offsetLeft;
+    this.pageSize.top = this.compBodyDom.offsetTop;
   }
 
   initData() {
-    this.getContentLeft();
     this.currentViewContRef = this.viewContRef.viewContainerRef;
     this.currnetPageComps = this.service.getCurrentPageComp(); //获取json数据(组件数据)
     this.getCompList(this.currnetPageComps); //json数据生成组件集合
@@ -135,8 +140,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');
       if(addCompJson && addCompJson['style']) {
-        const _PAGE_SIZE_LEFT = this.contentLeft || 200;
-        const _PAGE_SIZE_TOP = 100;
+        const _PAGE_SIZE_LEFT = this.pageSize.left;
+        const _PAGE_SIZE_TOP = this.pageSize.top;
         let _top = event['y']  - _PAGE_SIZE_TOP || addCompJson['style']['top'];
         let _left = event['x']  - _PAGE_SIZE_LEFT ||  addCompJson['style']['left'];
         addCompJson['style']['top'] = _top >= 0 ? _top : 0;
@@ -159,7 +164,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //父类容器监听事件
   clickListernerHandle(e) {
     this.activeCompSettingObject = null;//初始化当前选中对象（清空）
-    this.getContentLeft();
+    this.getPageSize();
     //1.更新文本编辑状态
     let currentComp = this.currnetPageComps[this.currentIndex];
     if(currentComp && currentComp['type'] === 'text') {
@@ -357,7 +362,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   selectArea(event) {
-    const PAGE_SIZE = 80;
     let state = event && event['type'];
     let _left = this.areaComp['style']['left'];
     let _top = this.areaComp['style']['top'];
@@ -367,8 +371,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.mouseState['up'] = false;
       this.mouseState['move'] = false;
       if(this.areaComp && this.areaComp['style']) {
-        this.areaComp['style']['left'] = event.x - PAGE_SIZE;
-        this.areaComp['style']['top'] = event.y - PAGE_SIZE;
+        this.areaComp['style']['left'] = event.x - this.pageSize.left;
+        this.areaComp['style']['top'] = event.y - this.pageSize.top;
       }
       break;
       case 'mousemove':
@@ -377,15 +381,15 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         this.mouseState['up'] = false;
         this.areaCompInit('add');
       }else if(this.mouseState['down']) {
-        let _w = event.x - _left - PAGE_SIZE;
-        let _h =  event.y - _top - PAGE_SIZE;
+        let _w = event.x - _left - this.pageSize.left;
+        let _h =  event.y - _top - this.pageSize.top;
 
         if(_w > 1) {
           this.areaComp['style']['right'] = null;
           this.areaComp['style']['width'] = _w;
         } else {
           this.areaComp['style']['right'] = this.areaComp['style']['right'] || _left;
-          this.areaComp['style']['left'] = event.x - PAGE_SIZE;
+          this.areaComp['style']['left'] = event.x - this.pageSize.left;
           this.areaComp['style']['width'] = this.areaComp['style']['right'] - _left;
         }
 
@@ -394,7 +398,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           this.areaComp['style']['height'] = _h;
         } else {
           this.areaComp['style']['bottom'] = this.areaComp['style']['bottom'] || _top;
-          this.areaComp['style']['top'] = event.y - PAGE_SIZE;
+          this.areaComp['style']['top'] = event.y - this.pageSize.top;
           this.areaComp['style']['height'] = this.areaComp['style']['bottom'] - _top;
         }
 

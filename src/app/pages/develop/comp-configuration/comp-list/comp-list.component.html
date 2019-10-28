@@ -1,12 +1,12 @@
-<div class="item-module " *ngFor="let module of componentModules ">
+<div class="item-module " *ngFor="let module of componentModules ; let mIndex = index;">
     <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
       <img class="icon" src="./../../../../assets/icons/downicon.svg" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}" alt="">
       <div class="tit" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}"> {{module['name']}}</div>
     </div>
-    <div class="comp-list lists scrollY" >
+    <div class="comp-list lists scrollY" id="compList">
       <ng-container *ngIf="!module['hiddenBool']">
-          <ng-container *ngFor="let comp of module['compList'];" >
-              <div class="content-item" draggable="true" (dragend)="dragCompEnd($event, comp['type'])" >
+          <ng-container *ngFor="let comp of module['compList'];let cIndex = index;" >
+              <div class="content-item" id="{{'id_'+mIndex+cIndex}}" draggable="true" (dragend)="dragCompEnd($event, comp['type'], ''+mIndex+cIndex)" >
                 <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
                 <span class="text">{{comp['name']}}</span>
               </div>

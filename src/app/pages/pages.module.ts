@@ -2,11 +2,11 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { PreviewComponent } from "./preview/preview.component";
 import { DevelopmentPageComponent } from "./develop/development";
 import { HomeComponent } from "./home/home.component";
-import { CompListComponent } from "./develop/comp-list/comp-list.component";
+import { CompListComponent } from "./develop/comp-configuration/comp-list/comp-list.component";
 import { CompSettingComponent } from "./develop/comp-setting/comp-setting.component";
 import { ViewContainRefHostDirective } from "../editor/directive/view-contain-ref-host.directive";
 import { ViewChildContainRefHostDirective } from "../editor/directive/view-child-contain-ref-host.directive";
-import { CompPageComponent } from "./develop/comp-page/comp-page.component";
+import { CompPageListComp } from "./develop/comp-configuration/comp-page-list/comp-page-list.component";
 import { CompConfigurationComponent } from "./develop/comp-configuration/comp-configuration.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -26,7 +26,7 @@ import { CompSettingBasicModule } from "../editor/components/comp-basic/comp-set
     CompSettingComponent,
     ViewContainRefHostDirective,
     ViewChildContainRefHostDirective,
-    CompPageComponent,
+    CompPageListComp,
     CompConfigurationComponent
   ],
   imports: [

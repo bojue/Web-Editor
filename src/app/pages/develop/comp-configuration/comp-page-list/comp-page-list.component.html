@@ -1,0 +1,18 @@
+<div class="comp-page scrollY">
+    <!-- <div class="tit">页面列表</div> -->
+  <ul class="tree">
+    <li class="node-item item" *ngFor="let subPages of pages;"> 
+      <img *ngIf="subPages['hideBool']" src="./../../../../assets/icons/folder-close.svg" alt="" class="icon">
+      <img *ngIf="!subPages['hideBool']" src="./../../../../assets/icons/folders.svg" alt="" class="icon">
+      <span class="pages-name" (click)="subPages['hideBool']=!subPages['hideBool']">{{subPages['value']}}</span>
+      <ul class="subChild" *ngIf="!subPages['hideBool']">
+        <ng-container  *ngFor="let page of subPages['children'];">
+            <li class="item pages-item" [ngClass]="{actived: page['actived']}">
+              <img src="./../../../../assets/icons/page.svg" alt="" class="icon">
+              <span class="page-name" (click)="changeComponent(page)">{{page['value']}}</span>
+            </li>
+        </ng-container>
+      </ul>
+    </li>
+  </ul>
+</div>

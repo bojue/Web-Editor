@@ -2,6 +2,7 @@
     ul,li{
         list-style: none;
         padding:0px;
+        margin: 0;
     }
     .tit {
         display: block;
@@ -24,37 +25,54 @@
     }
 
     .tree {
+        color:#222;
         padding: 3px 0 3px 6px;
+        position: relative;
         img.icon {
-            width: 12px;
-            padding:2px 4px;
+            position: relative;
+            width: 14px;
+            top: 4px;
+            left: 3px;
         }
         .node-item {
             position: relative;
             display: inline-block;
             cursor: pointer;
-            padding: 3px 5px;
-            line-height: 20px;
-            height: 20px;
-            .name {
+            line-height: 26px;
+            height: 26px;
+            width: 145px;
+            .pages-name {
                 position: absolute;
                 width: 100px;
-                margin-left: 2px;
+                left: 21px;
+                top: 1px;
             }
             .item {
                 cursor: pointer;
             }
-            .sub-item {
+            .pages-item {
                 position: relative;
-          
-                padding: 3px 5px 3px 10px;
-                line-height: 16px;
-                height: 16px;
+                height: 22px;
+                line-height: 22px;
+                margin-left: 15px;
+                width: 130px;
+                user-select: none;
+                &.actived {
+                    background: rgba(18, 150, 219, 0.5);
+                    font-size: 13px;
+                }
                
-                .sub-name {
+                .sub-page {
                     position: absolute;
                     display: inline-block;
                     width: 100px;
+                }
+
+                .page-name {
+                    display: inline-block;
+                    position: absolute;
+                    left: 19px;
+                    top: 1px;
                 }
             }
         }

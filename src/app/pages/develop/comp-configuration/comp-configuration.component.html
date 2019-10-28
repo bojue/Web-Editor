@@ -1,6 +1,6 @@
 <div class="comp-config">
   
-  <!-- 1.页面管理 -->
+  <!-- 1.操作管理 -->
   <div class="marage-btn" *ngIf="pageGridSetting['showLeft']">
     <img class="floder" src="./../../../../assets/icons/m-add-floder.svg" alt="增加文件夹">
     <img class="file" src="./../../../../assets/icons/m-add-file.svg" alt="增加文本">
@@ -8,11 +8,14 @@
     <img class="editor" (click)="currentPageEvent('save')" src="./../../../../assets/icons/save.svg" alt="保存">
     <img class="delete" src="./../../../../assets/icons/m-del.svg" alt="删除">
   </div>
+  
   <!-- 2.页面管理 -->
 
-  <app-comp-page *ngIf="pageGridSetting['showLeft']" 
+  <app-comp-page-list *ngIf="pageGridSetting['showLeft']" 
   [treeNodes]="treeNodes"
-  (selCurrentPage)="seledCurrentPage($event)"></app-comp-page>
+  (selCurrentPage)="seledCurrentPage($event)">
+  </app-comp-page-list>
+
   <!-- 3.组件列表 -->
   <app-comp-list
     *ngIf="pageGridSetting['showLeft']"

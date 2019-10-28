@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-comp-list',
@@ -9,14 +9,18 @@ export class CompListComponent implements OnInit {
   @Input() componentModules:any;
   @Output() compDragEvent = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(
+    private elementRef:ElementRef,
+  ) { }
 
   ngOnInit() {
   }
 
-  dragCompEnd(event, data){
+  dragCompEnd(event, data, idVal){
     event['compType'] = data;
     this.compDragEvent.emit(event);
+
+    // TODO 拖拽优化
   }
 
 
