@@ -3,18 +3,23 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MenuBreadCrumbService {
     private menu: any;
+    designPath:string;
     constructor() {
         this.initData();
     }
 
     initData() {
+        this.designPath = '/workspace';
         this.menu = [
-            { name: '首页',path: './home', children:[]},
-            { name: '设计',path: './develope', children:[]}
+            { name: 'TEMPO',path: './home', children:[]}
         ]
     }
 
     getMenuBreadCrumbs() {
         return this.menu;
+    }
+
+    getDesignPath() {
+        return this.designPath;
     }
 }

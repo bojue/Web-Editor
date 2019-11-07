@@ -1,19 +1,22 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { HomeComponent } from "./home/home.component";
-import { CodeModule } from "../core/code.module";
+import { WorkspaceComponent } from "./workspace.component";
+import { CodeModule } from "src/app/core/code.module";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { WorkspaceModule } from "./workspace/workspace.module";
-import { CompConfigService } from "../editor/provider/comp-config.service";
+import { CompConfigService } from "src/app/editor/provider/comp-config.service";
+import { DevelopModule } from "./develop/developmonet.module";
+import { PreviewComponent } from "./preview/preview.component";
+
 @NgModule({
   declarations: [
-    HomeComponent
+    WorkspaceComponent,
+    PreviewComponent,
   ],
   imports: [
     CodeModule,
     FormsModule,
     BrowserModule,
-    WorkspaceModule
+    DevelopModule
   ],
   providers: [
     CompConfigService,
@@ -27,4 +30,5 @@ import { CompConfigService } from "../editor/provider/comp-config.service";
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class PagesModule { }
+
+export class WorkspaceModule { }

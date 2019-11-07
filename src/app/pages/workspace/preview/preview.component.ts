@@ -1,11 +1,11 @@
-import { SettingObjComponent } from '../../editor/model/setting-object.interface';
+import { SettingObjComponent } from '../../../editor/model/setting-object.interface';
 import{ RouterLink } from '@angular/router';
-import { ViewContainRefHostDirective } from '../../editor/directive/view-contain-ref-host.directive';
-import { CompDynamicCreateService } from '../../editor/provider/comp-dynamic-create.service';
+import { ViewContainRefHostDirective } from '../../../editor/directive/view-contain-ref-host.directive';
+import { CompDynamicCreateService } from '../../../editor/provider/comp-dynamic-create.service';
 import { Component, OnInit, ElementRef, AfterContentInit, OnDestroy, ComponentFactoryResolver, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';   
-import { EmitSubService } from '../../providers/emit-sub.service';
+import { EmitSubService } from '../../../providers/emit-sub.service';
 
 @Component({
   selector: 'app-preview',

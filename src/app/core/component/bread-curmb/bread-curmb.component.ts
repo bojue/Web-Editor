@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from "@angular/router";
-import { MenuBreadCrumbService } from '../../../menu.breadcrumb.service';
+import { MenuBreadCrumbService } from 'src/app/providers/menu.breadcrumb.service';
 
 @Component({
   selector: 'app-bread-curmb',
@@ -9,6 +9,7 @@ import { MenuBreadCrumbService } from '../../../menu.breadcrumb.service';
 })
 export class BreadCurmbComponent implements OnInit {
   breadcurms: Promise<Node>;
+  designPath:string;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -23,6 +24,7 @@ export class BreadCurmbComponent implements OnInit {
 
   initData() {
     this.breadcurms = this.menuBreadCurmsService.getMenuBreadCrumbs();
+    this.designPath = this.menuBreadCurmsService.getDesignPath();
   }
 
  

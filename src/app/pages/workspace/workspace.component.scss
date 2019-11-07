@@ -1,0 +1,128 @@
+:host /deep/{
+    .workspace-body {
+        position: relative;
+        .projects {
+            position: relative;
+            margin: 20px;
+            .tit {
+                margin:15px;
+                font-size: 16px;
+                .title {
+                    display: inline-block;
+                    height: 40px;
+                    line-height: 40px;
+                    border-left: 5px solid rgba(255,0,0, 0.9);
+                    padding-left: 15px;
+                    color:rgba($color: #444444, $alpha: 0.5)
+                }
+                .description {
+                    position: absolute;
+                    right: 10px;
+                    font-size: 12px;
+                    .item {
+                        width: 80px;
+                        img {
+                            width: 20px;
+                            position: relative;
+                            top: 5px;
+                        }
+                        .val {
+                            display: inline-block;
+                            width: 50px;
+                            text-align: center;
+                        }
+                    }
+                }
+                border-bottom: 1px dashed #dddddd;
+            }
+            .list {
+                margin-top: 10px;
+                .project {
+                    cursor: pointer;
+                    display: inline-block;
+                    text-align: center;
+                    position: relative;
+                    width: 150px;
+                    height: 200px;
+                    border: 1px solid #eeeeee;
+                    margin: 15px;
+                    &:hover {
+                        border-color:rgba(255,0,0, 0.4)
+                    }
+                    .state {
+                        position: absolute;
+                        top: 3px;
+                        left: 3px;
+                        img {
+                            height: 20px;
+                            width: 20px;
+                        }
+                    }
+                    .name{
+                        font-size: 13px;
+                        padding: 10px;
+                        height: 40px;
+                        line-height: 40px;
+                        columns: #555555;
+                    }
+                    .detail {
+                        text-align: left;
+                        padding: 10px;
+                        cursor: pointer;
+                        position: relative;
+                        margin-top: 10px;
+                        color: #888888;
+                        display: inline-block;
+                        height: 69px;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+        
+                    }
+                    .operating {
+                        position: relative;
+                        height: 40px;
+                        border-top: 1px dotted #eeeeee;
+                        user-select: none;
+                        cursor: pointer;
+                        .item {
+                            display: inline-block;
+                            width: 50%;
+                            height: 40px;
+                            line-height: 53px;
+                            opacity: 0.4;
+                            &:hover {
+                                opacity: 1;
+                                background: #eee;
+                            }
+                            img{
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                        
+                    }
+                 
+                }
+                .add-pro {
+                    position: absolute;
+                    opacity: 0.5;
+                    &:hover {
+                        opacity: 1;
+                    }
+                    .item-add {
+                        width: 150px;
+                        height: 200px;
+                        line-height: 200px;
+                        .add {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+ 
+    }
+}

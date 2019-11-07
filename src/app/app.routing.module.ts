@@ -1,14 +1,12 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { DevelopmentPageComponent } from './pages/develop/development';
-import { PreviewComponent } from './pages/preview/preview.component';
+import { WorkspaceComponent } from './pages/workspace/workspace.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
-  { path: 'develope', component: DevelopmentPageComponent},
-  { path: 'preview', component: PreviewComponent}
+  { path: 'workspace', component: WorkspaceComponent},
 ]
 
 @NgModule({
