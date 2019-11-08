@@ -6,10 +6,9 @@ import { InputComponent } from "./input/input.component";
 import { TextareaComponent } from "./textarea/textarea.component";
 import { LineComponent } from "./line/line.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { VideoComponent } from './video/video.component';
 import { SwiperComponent } from "./swiper/swiper.component";
+import { CodeModule } from '../../../../core/code.module';
 
 const basicComp = [
     ButtonComponent,
@@ -28,8 +27,7 @@ const basicComp = [
       [...basicComp]
   ],
   imports: [
-    FormsModule,
-    BrowserModule,
+    CodeModule,
   ],
   exports: [
     [...basicComp]

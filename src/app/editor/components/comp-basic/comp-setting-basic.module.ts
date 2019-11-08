@@ -4,8 +4,6 @@ import { CustomBasicComponent } from "./custom-basic/custom-basic.component";
 import { DataBasicComponent } from "./data-basic/data-basic.component";
 import { EventBasicComponent } from "./event-basic/event-basic.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { TempBasicComponent } from "./temp-basic/temp-basic.component";
 
 const settingBasic = [
@@ -23,9 +21,6 @@ const settingBasic = [
   ],
   imports: [
 
-
-  FormsModule,
-    BrowserModule,
   ],
   providers: [
 

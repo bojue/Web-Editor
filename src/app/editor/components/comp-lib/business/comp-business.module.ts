@@ -2,10 +2,12 @@ import { ChartComponent } from "./chart/chart.component";
 import { ListComponent } from "./list/list.component";
 import { GaugeComponent } from "./gauge/gauge.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
+
 import { NgxEchartsModule } from "ngx-echarts";
 import { CompSettingBasicModule } from "../../comp-basic/comp-setting-basic.module";
+import { CodeModule } from '../../../../core/code.module';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const customComp = [
     ChartComponent,
@@ -18,8 +20,9 @@ const customComp = [
       [...customComp]
   ],
   imports: [
+    CodeModule,
     FormsModule,
-    BrowserModule,
+    CommonModule,
     NgxEchartsModule,
     CompSettingBasicModule
   ],

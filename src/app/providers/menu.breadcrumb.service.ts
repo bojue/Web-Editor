@@ -9,7 +9,7 @@ export class MenuBreadCrumbService {
     }
 
     initData() {
-        this.designPath = '/workspace';
+        this.designPath = './workspace';
         this.menu = [
             { name: 'TEMPO',path: './home', children:[]}
         ]

@@ -1,8 +1,9 @@
 import { RouteEventComponent } from "./route-event/route-event.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { CompSettingBasicModule } from "../../comp-basic/comp-setting-basic.module";
+import { CodeModule } from "src/app/core/code.module";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 const styleComp = [
     RouteEventComponent,
@@ -13,8 +14,9 @@ const styleComp = [
       [...styleComp]
   ],
   imports: [
+    CodeModule,
     FormsModule,
-    BrowserModule,
+    CommonModule,
     CompSettingBasicModule
   ],
   exports: [

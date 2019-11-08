@@ -1,7 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { CodeModule } from "src/app/core/code.module";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { CompConfigService } from "src/app/editor/provider/comp-config.service";
 import { CompDevModule } from "src/app/editor/components/comp-dev.module";
 import { CompStyleModule } from "src/app/editor/components/comp-settings/style/comp-style.module";
@@ -15,6 +13,8 @@ import { ViewContainRefHostDirective } from "src/app/editor/directive/view-conta
 import { ViewChildContainRefHostDirective } from "src/app/editor/directive/view-child-contain-ref-host.directive";
 import { CompPageListComp } from "./comp-configuration/comp-page-list/comp-page-list.component";
 import { CompConfigurationComponent } from "./comp-configuration/comp-configuration.component";
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { CompConfigurationComponent } from "./comp-configuration/comp-configurat
   ],
   imports: [
     CodeModule,
+    CommonModule,
     FormsModule,
-    BrowserModule,
     CompDevModule,
     CompStyleModule,
     CompDataModule,

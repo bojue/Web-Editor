@@ -14,16 +14,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pageList = [{
-      name:"首页",
-      route:"home"
-    }, {
-      name: "开发页面",
-      route:"develope"
-    },{
-      name: "详情",
-      route:"detail"
-    }]
+
   }
 
   route(route = 'home') {
