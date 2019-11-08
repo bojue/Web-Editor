@@ -1,16 +1,16 @@
-import { SettingObjComponent } from '../../../editor/model/setting-object.interface';
-import{ RouterLink } from '@angular/router';
-import { ViewContainRefHostDirective } from '../../../editor/directive/view-contain-ref-host.directive';
-import { CompDynamicCreateService } from '../../../editor/provider/comp-dynamic-create.service';
-import { Component, OnInit, ElementRef, AfterContentInit, OnDestroy, ComponentFactoryResolver, ViewChild} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import * as _ from 'lodash';   
-import { EmitSubService } from '../../../providers/emit-sub.service';
+import { SettingObjComponent } from '../model/setting-object.interface';
+import{ RouterLink, ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, AfterContentInit, OnDestroy, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
+import { ViewContainRefHostDirective } from '../directive/view-contain-ref-host.directive';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { CompDynamicCreateService } from '../provider/comp-dynamic-create.service';
+import * as _ from 'lodash';
+
 
 @Component({
-  selector: 'app-preview',
-  templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.scss'],
+  selector: 'app-view',
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.scss'],
 })
 export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;

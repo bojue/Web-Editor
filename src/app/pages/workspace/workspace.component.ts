@@ -34,10 +34,6 @@ export class WorkspaceComponent implements OnInit {
     {
       src:'./../../../assets/icons/state_pre.svg',
       val:"待发布"
-    },
-    {
-      src:'./../../../assets/icons/state_default.svg',
-      val:"设计中"
     }
   ]
 

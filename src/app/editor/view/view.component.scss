@@ -1,12 +1,12 @@
 :host /deep/ { 
-    .preview {
+    .view {
         position: relative;
         display: block;
-        .preview-icon {
+        .view-icon {
             position: absolute;
             right: 30px;
             top:-43px;
-            img.preview {
+            img.view {
                 padding: 5px;
                 border-radius: 50%;
                 width: 30px;

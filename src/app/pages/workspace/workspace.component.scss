@@ -49,6 +49,15 @@
                     &:hover {
                         border-color:rgba(255,0,0, 0.4)
                     }
+                    .more {
+                        img.more {
+                            position: absolute;
+                            top: 3px;
+                            right: 3px;
+                            width: 30px;
+                            height: 15px;
+                        }
+                    }
                     .state {
                         position: absolute;
                         top: 3px;
@@ -60,17 +69,17 @@
                     }
                     .name{
                         font-size: 13px;
-                        padding: 10px;
-                        height: 40px;
-                        line-height: 40px;
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                        height: 30px;
+                        line-height: 30px;
                         columns: #555555;
                     }
                     .detail {
                         text-align: left;
-                        padding: 10px;
+                        padding: 15px 10px;
                         cursor: pointer;
                         position: relative;
-                        margin-top: 10px;
                         color: #888888;
                         display: inline-block;
                         height: 69px;
@@ -79,6 +88,33 @@
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
         
+                        .operating-append {
+                            opacity: 0;
+                            position: absolute;
+                            top: 0px;
+                            height: 100px;
+                            width: 100%;
+                            background: yellow;
+                            left: 0;
+                            text-align: center;
+                            background: #fff;
+                            .item {
+                                margin-top: 10px;
+                                border:1px solid rgba(255, 0, 0,0.2);
+                                width: 100px;
+                                height: 32px;
+                                line-height: 32px;
+                                display: inline-block;
+                                color: rgba(255, 0, 0,0.2);
+                                &:hover {
+                                    border:1px solid rgba(255, 0, 0,0.6);
+                                    color:rgba(255, 0, 0,0.6);  
+                                }
+                            }
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
                     }
                     .operating {
                         position: relative;

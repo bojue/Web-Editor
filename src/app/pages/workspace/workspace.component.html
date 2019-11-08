@@ -15,13 +15,24 @@
     <div class="list" >
       <ng-container *ngFor="let item of projectArr;">
         <div class="project">
-          <span class="state" *ngIf="['official', 'pre'].indexOf(item['state']) > -1;"><img src="./../../../assets/icons/state_{{item['state']}}.svg" alt=""></span>
+          <div class="more">
+            <span class="state" *ngIf="['official', 'pre'].indexOf(item['state']) > -1;"><img src="./../../../assets/icons/state_{{item['state']}}.svg" alt=""></span>
+            <img class="more" src="./../../../assets/icons/more.svg" alt="">
+          </div>
+        
           <div class="name" >
             <span>{{item['name']}}</span>
           </div>
-          <div class="detail" title="点击进入编辑">
-              简介:
-              {{item['desciption'] || '无'}}
+          <div class="detail">
+             <div class="description">
+                简介:
+                {{item['desciption'] || '无'}}
+             </div>
+             <div class="operating-append">
+               <div class="item edit">编辑项目</div>
+               <div class="item info">详情</div>
+             </div>
+
           </div>
           <div class="operating">
             <div class="item del" title="删除"><img src="./../../../assets/icons/del.svg" alt="删除"></div>
