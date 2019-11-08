@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CodeModule } from "src/app/core/code.module";
 import { CompConfigService } from "src/app/editor/provider/comp-config.service";
 import { CompDevModule } from "src/app/editor/components/comp-dev.module";
@@ -15,9 +15,16 @@ import { CompPageListComp } from "./comp-configuration/comp-page-list/comp-page-
 import { CompConfigurationComponent } from "./comp-configuration/comp-configuration.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import { DevelopmentPageComponent } from './development';
+import { RouterModule } from '@angular/router';
+
+const routes = [
+  { path:"",component: DevelopmentPageComponent }
+]
 
 @NgModule({
   declarations: [
+    DevelopmentPageComponent,
     CompListComponent,
     CompSettingComponent,
     ViewContainRefHostDirective,
@@ -34,7 +41,8 @@ import { CommonModule } from "@angular/common";
     CompDataModule,
     CompBusinessModule,
     CompEventModule,
-    CompSettingBasicModule
+    CompSettingBasicModule,
+    RouterModule.forChild(routes)
   ],
   providers: [
     CompConfigService,
@@ -44,7 +52,7 @@ import { CommonModule } from "@angular/common";
 
   ],
   exports: [
-
+    RouterModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

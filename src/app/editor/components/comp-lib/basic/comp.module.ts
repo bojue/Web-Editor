@@ -9,6 +9,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { VideoComponent } from './video/video.component';
 import { SwiperComponent } from "./swiper/swiper.component";
 import { CodeModule } from '../../../../core/code.module';
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 const basicComp = [
     ButtonComponent,
@@ -28,6 +30,8 @@ const basicComp = [
   ],
   imports: [
     CodeModule,
+    FormsModule,
+    CommonModule,
   ],
   exports: [
     [...basicComp]

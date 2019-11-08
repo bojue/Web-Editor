@@ -10,6 +10,7 @@ import { CompSettingBasicModule } from "./comp-basic/comp-setting-basic.module";
 import { CodeModule } from "src/app/core/code.module";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
+import { CompBasicModule } from "./comp-lib/basic/comp.module";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     CodeModule,
     CompStyleModule,
     CompDataModule,
+    CompBasicModule,
     CompBusinessModule,
     CompEventModule,
     CommonModule,

@@ -1,23 +1,27 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA  } from "@angular/core";
-import { WorkspaceComponent } from "./workspace.component";
 import { PreviewComponent } from "../../editor/view/view.component";
 import { CodeModule } from "src/app/core/code.module";
-import { DevelopModule } from "src/app/editor/develop/developmonet.module";
 import { CompConfigService } from "src/app/editor/provider/comp-config.service";
 import { WorkspaceRoutingModule } from "./workspace.routing.module";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import { ListComponent } from './project-list/list.component';
+import { DetailComponent } from './project-detail/detail.component';
+
+const comps = [
+  ListComponent,
+  PreviewComponent,
+  DetailComponent
+]
 
 @NgModule({
   declarations: [
-    WorkspaceComponent,
-    PreviewComponent,
+    ...comps
   ],
   imports: [
     CodeModule,
     CommonModule,
     FormsModule,
-    DevelopModule,
     WorkspaceRoutingModule
   ],
   providers: [
