@@ -22,7 +22,7 @@
         height: 24px;
         line-height: 24px;
         background:rgb(242, 242, 242);
-        columns: #444444;
+        color: #444444;
         .icon {
             position: absolute;
             width: 14px;
@@ -53,7 +53,7 @@
             text-align: center;
             opacity: 0.8;
             &:hover {
-                background: rgba(18, 150, 219, 0.2);
+                background: rgba(255,0,0, 0.1);
                 opacity: 1;
             }
             img {
