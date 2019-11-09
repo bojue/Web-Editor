@@ -98,7 +98,6 @@ export class CompDynamicCreateService {
     let compList = [];
     objList.forEach(settingItem =>{
       let _type = settingItem && settingItem['type'];
-      console.log(_type)
       let compInfo = this.createComponent(_type)
       let settingData = settingItem || compInfo['data']
       let createComp = new SettingItem(compInfo['comp'], settingData);

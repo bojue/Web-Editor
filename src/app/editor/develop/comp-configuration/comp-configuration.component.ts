@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output ,EventEmitter} from "@angular/core";
 import { AppService } from "src/app/providers/app.service";
+import { CompListService } from "../../provider/comp-list.service";
 
 @Component({
   selector: 'app-comp-configuration',
@@ -18,6 +19,7 @@ export class CompConfigurationComponent implements OnInit {
 
   constructor(
     private service: AppService,
+    private compListService: CompListService,
   ) { }
 
   ngOnInit() {
@@ -27,7 +29,7 @@ export class CompConfigurationComponent implements OnInit {
   initData() {
     this.treeNodes = this.service.getPages();
     this.showBool = true;
-    this.compList = this.service.getComponentModeules();
+    this.compList = this.compListService.getCompList();
   }
 
   dragCompEnd(event){

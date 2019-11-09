@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { SettingObject } from "src/app/editor/model/setting-object.module";
-
+import * as _ from "loadsh";
 import { SettingStyle } from "src/app/editor/model/setting-style.model";
 
 @Component({
@@ -15,22 +15,35 @@ export class CompSettingComponent implements OnInit{
   @Output() deleteComponent = new EventEmitter<any>();
   styles: SettingStyle;
   showBool:boolean = true;
-  showObj = {	
-    style:true,	
-    event:true,	
-    value:true	
-  }
+  states = [
+    {
+      state:'style',
+      name:"样式",
+      active:true
+    },
+    {
+      state:"data",
+      name:'数据',
+      active:false
+    },{
+      state:"event",
+      name:"事件",
+      active:false
+    }
+  ];
+  stateObj:string;
 
   constructor() { 
     this.initData()
   }
 
   ngOnInit() {
-
+  
   }
 
   initData() {
-   this.styles = this.activeSettingObj && this.activeSettingObj['style'];
+    this.stateObj = 'style';
+    this.styles = this.activeSettingObj && this.activeSettingObj['style'];
   }
 
   deleteComp(event){
@@ -45,7 +58,13 @@ export class CompSettingComponent implements OnInit{
     this.pageGridSetting['showRight'] = !this.pageGridSetting['showRight'];
   }
 
-  showState(state) {	  
-    this.showObj[state] = !this.showObj[state]; 
+  activeState(tab) {
+    if(!tab || tab && tab['active']) return ;
+    _.map(this.states, item => {
+      item['active'] = false;
+    });
+    tab['active'] = true;
+    this.stateObj = tab['state'];
   }
+
 }

@@ -87,6 +87,22 @@
         border-bottom: 1px solid #eeeeee;
         margin-bottom: 5px;
     }
+    .set-tabs {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap:2px;
+        text-align: center;
+        margin-top: 10px;
+        .tab {
+            cursor: pointer;
+            padding: 2px 0px;
+            height: 20px;
+            &:hover, &.active {
+                color:rgba(255, 0, 0, 0.5);
+                border-bottom:2px solid red;
+            }
+        }
+    }
 
     .grid-2 {
         display: grid;
@@ -185,16 +201,7 @@
     }
     .scrollY {
         cursor: pointer;
-        max-height: 300px !important;
-        &.showmore {
-            min-height: 60px !important; 
-        }
-        &.styles {
-            max-height: 400px !important; 
-            &.showmore {
-                min-height: 300px !important; 
-            }
-        }
+        max-height: 700px !important;
         overflow-y:auto;
         &::-webkit-scrollbar {
             width: 5px;

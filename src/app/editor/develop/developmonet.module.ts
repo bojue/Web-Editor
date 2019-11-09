@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
 import { DevelopmentPageComponent } from './development';
 import { RouterModule } from '@angular/router';
+import { CompListService } from '../provider/comp-list.service';
 
 const routes = [
   { path:"",component: DevelopmentPageComponent }
@@ -46,6 +47,7 @@ const routes = [
   ],
   providers: [
     CompConfigService,
+    CompListService,
   ],
   bootstrap: [],
   entryComponents:[
