@@ -10,8 +10,6 @@ import { SettingObjComponent } from 'src/app/editor/model/setting-object.interfa
 })
 export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDestroy, SettingObjComponent{
   startEvent: any;
-  _PAGE_SIZE_X = 80;
-  _PAGE_SIZE_Y = 80;
   constructor() {
     super();
   }
@@ -37,8 +35,8 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
     let _clientX = 0;
     let _clientY = 0;
     if(event) {
-      _clientX = event['clientX'] - this._PAGE_SIZE_X;
-      _clientY = event['clientY'] - this._PAGE_SIZE_Y;
+      _clientX = event['clientX'] - this.contentPageSize['left'];
+      _clientY = event['clientY'] - this.contentPageSize['top'];
     }
     switch (state) {
       case 's':

@@ -13,6 +13,7 @@ import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxi
 import { AreaComponent } from 'src/app/editor/components/comp-lib/tool/area/area.component';
 import { AppService } from 'src/app/providers/app.service';
 import { UserAgentService } from 'src/app/core/tool/user-agent.service';
+import { ContentPageSize } from '../model/setting-content-page-size.model';
 
 @Component({
   selector: 'app-development',
@@ -46,10 +47,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   compBodyDom:any;
   pageList: SettingPage[];// 页面管理 - 列表
   selectPageInfo: SettingPage; //页面管理-详情
-  pageSize = {
-    left:60,
-    top:60
-  }
+  contentPageSize:ContentPageSize;
   pageGridSetting = {
     showLeft: true,
     showRight: true
@@ -105,7 +103,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   ngAfterViewInit() {
-    this.compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody')
+    this.compBodyDom = this.elementRef.nativeElement.querySelector('#componentsBody');
     this.compBodyDom.addEventListener('click', this.clickListernerHandle.bind(this));
     this.compBodyDom.addEventListener('mousedown', this.selectArea.bind(this ));
     this.compBodyDom.addEventListener('mousemove', this.selectArea.bind(this ));
@@ -114,8 +112,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   getPageSize() {
-    this.pageSize.left = this.compBodyDom.offsetLeft;
-    this.pageSize.top = this.compBodyDom.offsetTop;
+    let contetDom = this.elementRef.nativeElement.querySelector('#componentsBody');
+    this.contentPageSize['left'] = contetDom.offsetLeft;
+    this.contentPageSize['top'] = contetDom.offsetTop;
   }
 
   initData() {
@@ -124,6 +123,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.getCompList(this.currnetPageComps); //json数据生成组件集合
     this.auxiComp = this.infoService.getAuxiComp();
     this.areaComp = this.infoService.getAreaComp();
+    this.contentPageSize = {
+      top:0,
+      left:0,
+      rigth:0,
+      bottom:0
+    }
   }
 
   //拖拽icon图标添加组件
@@ -140,12 +145,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');
       if(addCompJson && addCompJson['style']) {
-        const _PAGE_SIZE_LEFT = this.pageSize.left;
-        const _PAGE_SIZE_TOP = this.pageSize.top;
-        let _top = event['y']  - _PAGE_SIZE_TOP || addCompJson['style']['top'];
-        let _left = event['x']  - _PAGE_SIZE_LEFT ||  addCompJson['style']['left'];
+        let _top = event['y']  - this.contentPageSize.top || addCompJson['style']['top'];
+        let _left = event['x']  - this.contentPageSize.left||  addCompJson['style']['left'];
         addCompJson['style']['top'] = _top >= 0 ? _top : 0;
         addCompJson['style']['left'] = _left >= 0 ? _left : 0;
+        addCompJson['contentPageSize'] = this.contentPageSize;
+        addCompJson['active'] = true;
       }
     }  
 
@@ -232,14 +237,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
         }else if(eventType === 'dragend'){
           if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
-            style['left'] = style['left'] + changeX - 30;
+            style['left'] = style['left'] + changeX ;
           }else{
             style['left'] = 0;
           } 
-    
-          
           if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
-            style['top'] = style['top'] + changeY + 60 ;
+            style['top'] = style['top'] + changeY  ;
           }else {
             style['top'] = 0;
           }
@@ -275,7 +278,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   currentPageEvents(state){
-    console.log("---> \n",state)
+    console.info("---> \n",state)
   }
 
   //辅助组件处理 
@@ -371,8 +374,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.mouseState['up'] = false;
       this.mouseState['move'] = false;
       if(this.areaComp && this.areaComp['style']) {
-        this.areaComp['style']['left'] = event.x - this.pageSize.left;
-        this.areaComp['style']['top'] = event.y - this.pageSize.top;
+        this.areaComp['style']['left'] = event.x - this.contentPageSize.left;
+        this.areaComp['style']['top'] = event.y - this.contentPageSize.top;
       }
       break;
       case 'mousemove':
@@ -381,15 +384,15 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         this.mouseState['up'] = false;
         this.areaCompInit('add');
       }else if(this.mouseState['down']) {
-        let _w = event.x - _left - this.pageSize.left;
-        let _h =  event.y - _top - this.pageSize.top;
+        let _w = event.x - _left - this.contentPageSize.left;
+        let _h =  event.y - _top - this.contentPageSize.top;
 
         if(_w > 1) {
           this.areaComp['style']['right'] = null;
           this.areaComp['style']['width'] = _w;
         } else {
           this.areaComp['style']['right'] = this.areaComp['style']['right'] || _left;
-          this.areaComp['style']['left'] = event.x - this.pageSize.left;
+          this.areaComp['style']['left'] = event.x - this.contentPageSize.left;
           this.areaComp['style']['width'] = this.areaComp['style']['right'] - _left;
         }
 
@@ -398,7 +401,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           this.areaComp['style']['height'] = _h;
         } else {
           this.areaComp['style']['bottom'] = this.areaComp['style']['bottom'] || _top;
-          this.areaComp['style']['top'] = event.y - this.pageSize.top;
+          this.areaComp['style']['top'] = event.y - this.contentPageSize.top;
           this.areaComp['style']['height'] = this.areaComp['style']['bottom'] - _top;
         }
 

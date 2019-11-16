@@ -3,6 +3,7 @@ import { SettingObject } from 'src/app/editor/model/setting-object.module';
 import { SettingStyle } from 'src/app/editor/model/setting-style.model';
 import { SettingDate } from 'src/app/editor/model/setting-data.model';
 import { EChartOption } from 'echarts';
+import { ContentPageSize } from '../../../model/setting-content-page-size.model';
 
 @Component({
   selector: 'app-basic',
@@ -14,6 +15,7 @@ export class BasicComponent implements OnInit {
   @Output() onChildComponentChange = new EventEmitter<any>();
   style: SettingStyle;
   data: SettingDate;
+  contentPageSize:ContentPageSize;
   chartOption: EChartOption;
   ngStyle: any = {};
   showMoreBool: boolean;
@@ -26,8 +28,9 @@ export class BasicComponent implements OnInit {
   }
 
   initData() {
-    this.style = this.settingObj['style']
-    this.data =  this.settingObj['data']
+    this.style = this.settingObj['style'];
+    this.data =  this.settingObj['data'];
+    this.contentPageSize = this.settingObj['contentPageSize'];
   }
   
   // 拖拽辅助线边框位置 -1px，因为辅助线宽度1px
