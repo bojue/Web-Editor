@@ -20,7 +20,6 @@ export class BaseHttpService {
   get(params:any, url?:string) {
     let _paramsIsObjectBool = _.isObject(params);
     let _url = url || this.baseURL;
-    
     return this.https.get(url);
   }
 

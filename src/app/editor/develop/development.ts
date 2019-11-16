@@ -199,6 +199,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.currentIndex = -1;
       this.currnetPageComps.splice(_delComp, 1);
       this.initViewContRef();
+      this.activeCompSettingObject = null;
       this.getCompList(this.currnetPageComps);
     }
   }
