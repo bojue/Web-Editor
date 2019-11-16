@@ -10,12 +10,14 @@ import { OpacityComponent } from './opacity/opacity.component';
 import { CodeModule } from '../../../../core/code.module';
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import { PaddingComponent } from "./padding/padding.component";
 
 const settingComp = [
     ColorComponent,
     SizeComponent,
     BackgroundComponent,
     PositionComponent,
+    PaddingComponent,
     BorderComponent,
     ZIndexComponent,
     OpacityComponent,

@@ -16,7 +16,11 @@
     'border-width':expandUnit('borderWidth'),
     'border-style':style['borderStyle'],
     'border-color':style['borderColor'],
-    'border-radius':getBorderRadius(style['borderRadius'])
+    'border-radius':getBorderRadius(style['borderRadius']),
+    'padding-top':expandUnit('paddingTopBottom'),
+    'padding-bottom':expandUnit('paddingTopBottom'),
+    'padding-left':expandUnit('paddingLeftRight'),
+    'padding-right':expandUnit('paddingLeftRight')
   }" >
   <div class="list-cont">
     <div class="tit"> {{data['list_val']['list_tit_val'] ||"设置列表标题"}} </div>

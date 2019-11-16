@@ -19,5 +19,9 @@
       'border-color':style['borderColor'],
       'opacity':style['opacity'],
       'z-index':style['zIndex'],
-      'border-radius':getBorderRadius(style['borderRadius'])
+      'border-radius':getBorderRadius(style['borderRadius']),
+      'padding-top':expandUnit('paddingTopBottom'),
+      'padding-bottom':expandUnit('paddingTopBottom'),
+      'padding-left':expandUnit('paddingLeftRight'),
+      'padding-right':expandUnit('paddingLeftRight')
   }" >{{data['button_val']}}</button>

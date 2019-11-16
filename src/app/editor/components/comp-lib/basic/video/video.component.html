@@ -17,7 +17,11 @@
     'border-style':style['borderStyle'],
     'border-color':style['borderColor'],
     'border-radius':style['borderRadius'],
-    'z-index':style['zIndex']
+    'z-index':style['zIndex'],
+    'padding-top':expandUnit('paddingTopBottom'),
+    'padding-bottom':expandUnit('paddingTopBottom'),
+    'padding-left':expandUnit('paddingLeftRight'),
+    'padding-right':expandUnit('paddingLeftRight')
 }">
     <video controls [ngStyle]="{
       'width':expandUnit('width'),

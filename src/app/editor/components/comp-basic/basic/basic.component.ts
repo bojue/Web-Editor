@@ -20,6 +20,7 @@ export class BasicComponent implements OnInit {
   ngStyle: any = {};
   showMoreBool: boolean;
   iconUrl: string;
+  ignoreParams:any[];
   constructor() {
   }
 
@@ -31,9 +32,10 @@ export class BasicComponent implements OnInit {
     this.style = this.settingObj['style'];
     this.data =  this.settingObj['data'];
     this.contentPageSize = this.settingObj['contentPageSize'];
+    this.ignoreParams = ['paddingTopBottom', 'paddingLeftRight']
   }
   
-  // 拖拽辅助线边框位置 -1px，因为辅助线宽度1px
+  // 拖拽辅助线边框
   expandUnit(param, other ?: string) {
     let paramVal = !other ? this.style[param] : (this.style[param] + this.style[other]);  //无边框计算方式
     paramVal = this.hasBorderWidth(paramVal, param, other);
@@ -43,9 +45,13 @@ export class BasicComponent implements OnInit {
   //有边框辅助位置计算
   hasBorderWidth(paramVal, param, other ?: string) {
     let _other = 0;
-    if(other === 'height' || other === 'width') {
-      let _bordWidth = this.style['borderWidth'] * 2 -1|| 0;
-      let _padd = this.style['padding'] * 2 || 0;
+    if(other === 'height'){
+      let _bordWidth = this.style['borderWidth'] * 2 || 0;
+      let _padd = this.style['paddingTopBottom'] * 2 > 0 ? this.style['paddingTopBottom'] * 2 || 0 : 0;
+      _other = _bordWidth + _padd;
+    }else if(other === 'width') {
+      let _bordWidth = this.style['borderWidth'] * 2 || 0;
+      let _padd = this.style['paddingLeftRight'] > 0 ? this.style['paddingLeftRight'] * 2 || 0 : 0;
       _other = _bordWidth + _padd;
     }
     paramVal = paramVal +  _other;

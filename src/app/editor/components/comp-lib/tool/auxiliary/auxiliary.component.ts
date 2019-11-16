@@ -49,7 +49,8 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
         break;
       case 'r':
         let _width = _clientX - this.startEvent['left'];
-        this.style['width'] = _width > 20 ? _width : 20;
+        _width = _width > 20 ? _width : 20;
+        this.style['width'] = _width - 2* this.style['paddingTopBottom'];
         break;
       case 't':
         let _h =  this.startEvent['height'] + (this.startEvent['top'] - _clientY);
@@ -58,7 +59,8 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
         break;  
       case 'b':
         let _height = _clientY - this.startEvent['top'];
-        this.style['height'] = _height > 20 ? _height : 20;
+        _height = _height > 20 ? _height : 20;
+        this.style['height'] = _height - 2* this.style['paddingTopBottom'];
         break;    
       default:
         break;    
@@ -97,13 +99,25 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
       }
     }
 
-    if(this.style['padding'] ) {
-      if(['l_t', 'r_t' ].indexOf(direction) > -1) {
-        paramVal = paramVal + 1 * this.style['padding'];
-      }else if(['b_t', 'r_l' ].indexOf(direction) > -1) {
-        paramVal = paramVal + 2 * this.style['padding'];
-      }
-
+    switch(direction) {
+      case 'l_t':
+        paramVal = paramVal + 1 * this.style['paddingTopBottom'];
+        break;
+      case 'r_t':
+        paramVal = paramVal + 1 * this.style['paddingTopBottom'];
+        break;
+      case 'b_t':
+        paramVal = paramVal + 2 * this.style['paddingTopBottom'];
+        break;
+      case 'r_l':
+        paramVal = paramVal + 2 * this.style['paddingLeftRight'];
+        break;
+      case 't_l':  
+        paramVal = paramVal + 1 * this.style['paddingLeftRight'];
+        break;
+      case 'b_l':  
+        paramVal = paramVal + 1 * this.style['paddingLeftRight'];
+        break;  
     }
 
     return paramVal;

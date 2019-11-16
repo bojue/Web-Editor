@@ -28,7 +28,9 @@ export class CompConfigService {
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
-                    borderStyle: ''
+                    borderStyle: '',
+                    paddingTopBottom:0,
+                    paddingLeftRight:0
                 }
             },
             text: {
@@ -48,7 +50,9 @@ export class CompConfigService {
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
-                    borderStyle: ''
+                    borderStyle: '',
+                    paddingTopBottom:0,
+                    paddingLeftRight:0
                 }
             },
             input: {
@@ -69,7 +73,9 @@ export class CompConfigService {
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
-                    borderStyle: ''
+                    borderStyle: '',
+                    paddingTopBottom:0,
+                    paddingLeftRight:0
                 }
             },
             textarea: {
@@ -90,7 +96,9 @@ export class CompConfigService {
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
-                    borderStyle: ''
+                    borderStyle: '',
+                    paddingTopBottom:0,
+                    paddingLeftRight:0
                 }
             },
             img:  {
@@ -109,7 +117,9 @@ export class CompConfigService {
                     border: '',
                     borderColor: '',
                     borderWidth: 0,
-                    borderStyle: 'dotted'
+                    borderStyle: 'dotted',
+                    paddingTopBottom:0,
+                    paddingLeftRight:0
                 }
             } ,    
             button:{
@@ -129,7 +139,9 @@ export class CompConfigService {
                   background: 'rgb(230, 230, 230)',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: '4'
+                  borderStyle: '4',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 },
                 event:{
                     clickBool: false,
@@ -159,7 +171,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 },
                 event:{
             
@@ -181,7 +195,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 },
                 event:{
             
@@ -203,7 +219,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 },
                 event: {
     
@@ -225,7 +243,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 },
                 event: {
     
@@ -247,7 +267,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 },
                 event: {
 
@@ -269,7 +291,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '#666',
                   borderWidth: 1,
-                  borderStyle: 'solid'
+                  borderStyle: 'solid',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 }
             },
             list: {
@@ -300,7 +324,9 @@ export class CompConfigService {
                   border: '',
                   borderColor: '',
                   borderWidth: 0,
-                  borderStyle: ''
+                  borderStyle: '',
+                  paddingTopBottom:0,
+                  paddingLeftRight:0
                 }
             },
            
