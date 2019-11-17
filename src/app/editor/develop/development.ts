@@ -241,28 +241,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           changeY = this.dragCompStartY - style['top'];
         }else if(eventType === 'drag') {
           if(e.clientY  === 0 && e.clientY === 0) return;
-          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
-            style['left'] =  e.clientX - changeX;
-          }else{
-            style['left'] = 0;
-          } 
-          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
-            style['top'] = e.clientY - changeY;
-          }else {
-            style['top'] = 0
-          }
+          style['left'] = (e.clientX - changeX) >= 0 ? (e.clientX - changeX): 0;
+          style['top'] = (e.clientY - changeY) >= 0 ? (e.clientY - changeY ): 0;
         } if(eventType === 'dragend'){
-          console.log(style['left'], style['top'])
-          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
-            style['left'] =  style['left']
-          }else{
-            style['left'] = 0;
-          } 
-          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
-            style['top'] = style['top'];
-          }else {
-            style['top'] = 0;
-          }
+          style['left'] = style['left'] >= 0 ? style['left'] : 0;
+          style['top'] = style['top'] >= 0 ? style['top'] : 0;
         }
         this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
         this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e);

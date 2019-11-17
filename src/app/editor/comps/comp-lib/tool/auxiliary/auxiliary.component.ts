@@ -10,6 +10,8 @@ import { SettingObjComponent } from 'src/app/editor/model/setting-object.interfa
 })
 export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDestroy, SettingObjComponent{
   startEvent: any;
+  _clientX = 0;
+  _clientY = 0;
   constructor() {
     super();
   }
@@ -24,11 +26,12 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   compEvent(event, state?:string, eventEndBool?:boolean) {
+    event.stopPropagation();
     this.setSettingParam(event, state, eventEndBool);
     if(eventEndBool) {
       this.startEvent = null;
     }
-    event.stopPropagation();
+ 
   }
   expandUnitCustom(param, other) {
     if(['width', 'height'].indexOf(param) === -1) return;
@@ -44,35 +47,29 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
 
 
   setSettingParam(event, state?:string, eventEndBool?:boolean) {
-    let _clientX = 0;
-    let _clientY = 0;
+    if(event['clientX'] === 0 || event['clientY'] === 0) return;
     if(event) {
-      _clientX = event['clientX'] - this.contentPageSize['left'];
-      _clientY = event['clientY'] - this.contentPageSize['top'];
+      this._clientX = event['clientX'] - this.contentPageSize['left'];
+      this._clientY = event['clientY'] - this.contentPageSize['top'];
     }
     switch (state) {
       case 's':
         this.startEvent = _.cloneDeep(this.style);
         break;
       case 'l':
-        this.style['left'] = _clientX;
-        let _w =  this.startEvent['width'] + (this.startEvent['left'] - _clientX);
-        this.style['width'] = _w > 20 ? _w : 20;
+        this.style['left'] = this._clientX ;
+        this.style['width'] =  this.startEvent['width'] + (this.startEvent['left'] - this._clientX );
         break;
       case 'r':
-        let _width = _clientX - this.startEvent['left'];
-        _width = _width > 20 ? _width : 20;
+        let _width = this._clientX  - this.startEvent['left'];
         this.style['width'] = _width - 2* this.style['paddingTopBottom'];
         break;
       case 't':
-        let _h =  this.startEvent['height'] + (this.startEvent['top'] - _clientY);
-        this.style['top'] = _clientY ;
-        this.style['height'] = _h > 20 ? _h : 20;
+        this.style['top'] = this._clientY ;
+        this.style['height'] =  this.startEvent['height'] + (this.startEvent['top'] - this._clientY);
         break;  
       case 'b':
-        let _height = _clientY - this.startEvent['top'];
-        _height = _height > 20 ? _height : 20;
-        this.style['height'] = _height - 2* this.style['paddingTopBottom'];
+        this.style['height'] = this._clientY - this.startEvent['top'] - 2* this.style['paddingTopBottom'];
         break;    
       default:
         break;    
