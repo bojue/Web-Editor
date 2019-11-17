@@ -4,11 +4,11 @@
   [(ngModel)]="data['input_val']"
   [placeholder]="data['placeholder']"
   (dragstart)="compEvent($event)"
-  (dragover)="compEvent($event)"
+  (drag)="compEvent($event)"
   (dragend)="compEvent($event)"
   (click)="compEvent($event)" 
-  (dblclick)="inputState($event)"
   (mousedown)="compEvent($event)"
+  (dblclick)="inputState($event)"
   [ngClass]="{'comp-active': settingObj['active']}"  
   [ngStyle]="{
     'position':style['position'],

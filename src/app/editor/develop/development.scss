@@ -72,8 +72,8 @@
             background: rgba($color:#ffffff , $alpha: 1.0)
         }
         .comp-active {
-            border:1px solid red;
-            z-index: 999;
+            border:1px solid red !important;
+            z-index: 999 !important;
         }
 
         .comp-resize {
