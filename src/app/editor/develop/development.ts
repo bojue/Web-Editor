@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
 import { EventManager } from '@angular/platform-browser';
 import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
-import { AuxiliaryComponent } from 'src/app/editor/components/comp-lib/tool/auxiliary/auxiliary.component';
-import { AreaComponent } from 'src/app/editor/components/comp-lib/tool/area/area.component';
+import { AuxiliaryComponent } from 'src/app/editor/comps/comp-lib/tool/auxiliary/auxiliary.component';
+import { AreaComponent } from 'src/app/editor/comps/comp-lib/tool/area/area.component';
 import { AppService } from 'src/app/providers/app.service';
 import { UserAgentService } from 'src/app/core/tool/user-agent.service';
 import { ContentPageSize } from '../model/setting-content-page-size.model';
@@ -84,8 +84,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
       let del_window = this.userAgentService.isWindows && $event && $event.code === 'Delete';
       let del_mac = this.userAgentService.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
+ 
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
       let del_comp_by_group = ['text'].indexOf(this.activeCompSettingObject['type']) > -1;
+      console.log(del_mac, $event.ctrlKey ,del_comp_by_group )
       if((del_window || (del_mac && !activeEleBool) || (del_mac && $event.ctrlKey && this.activeCompSettingObject)) && !del_comp_by_group || ( (del_window || del_mac) && $event.ctrlKey && del_comp_by_group )){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {

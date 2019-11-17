@@ -30,6 +30,18 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
     }
     event.stopPropagation();
   }
+  expandUnitCustom(param, other) {
+    if(['width', 'height'].indexOf(param) === -1) return;
+    let val = 0;
+    if(other === 'paddingLeftRight') {
+      val = this.style[param] +  this.style['paddingLeftRight'] * 2;
+    }else {
+      val = this.style[param] + this.style['paddingTopBottom'] * 2;
+    }
+    return  val + 'px';
+  }
+
+
 
   setSettingParam(event, state?:string, eventEndBool?:boolean) {
     let _clientX = 0;
