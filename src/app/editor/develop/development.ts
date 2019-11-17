@@ -226,26 +226,40 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let compFactory  = this.componentFactoryResolver.resolveComponentFactory(currentComponent.compType);
     let compRef = this.currentViewContRef.createComponent(compFactory);
     let compInstance = compRef.instance;
+    let changeX = 0;
+    let changeY = 0;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
     if(e && e.stopPropagation){
         e.stopPropagation();
         let eventType = e && e.type;
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
-        let changeX = e.clientX - this.dragCompStartX;
-        let changeY = e.clientY - this.dragCompStartY;
         if(eventType === 'dragstart') {
           this.dragCompStartX = e.clientX;
           this.dragCompStartY = e.clientY;
-
-        }else if(eventType === 'dragend'){
+          changeX = this.dragCompStartX -  style['left'];
+          changeY = this.dragCompStartY - style['top'];
+        }else if(eventType === 'drag') {
+          if(e.clientY  === 0 && e.clientY === 0) return;
           if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
-            style['left'] = style['left'] + changeX ;
+            style['left'] =  e.clientX - changeX;
           }else{
             style['left'] = 0;
           } 
           if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
-            style['top'] = style['top'] + changeY  ;
+            style['top'] = e.clientY - changeY;
+          }else {
+            style['top'] = 0
+          }
+        } if(eventType === 'dragend'){
+          console.log(style['left'], style['top'])
+          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 'l')) {
+            style['left'] =  style['left']
+          }else{
+            style['left'] = 0;
+          } 
+          if(!this.dynamicService.getboundaryBool(changeX, changeY, style, 't')) {
+            style['top'] = style['top'];
           }else {
             style['top'] = 0;
           }

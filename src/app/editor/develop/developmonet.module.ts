@@ -19,7 +19,6 @@ import { RouterModule } from "@angular/router";
 import { CompConfigService } from "../provider/comp-config.service";
 import { CompListService } from "../provider/comp-list.service";
 
-
 const routes = [
   { path:"",component: DevelopmentPageComponent }
 ]

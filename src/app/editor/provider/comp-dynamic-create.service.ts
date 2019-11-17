@@ -36,6 +36,7 @@ export class CompDynamicCreateService {
       auxi:AuxiliaryComponent,
       list:ListComponent,
       area:AreaComponent,
+      video:VideoComponent,
       gauge:GaugeComponent
     }
    

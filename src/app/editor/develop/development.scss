@@ -72,7 +72,7 @@
             background: rgba($color:#ffffff , $alpha: 1.0)
         }
         .comp-active {
-            box-shadow: $border-color3 0px 0px 3px;
+            border:1px solid red;
             z-index: 999;
         }
 
