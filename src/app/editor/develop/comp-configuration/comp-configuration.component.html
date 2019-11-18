@@ -3,13 +3,12 @@
   <!-- 1.操作管理 -->
   <div class="marage-btn" *ngIf="pageGridSetting['showLeft']">
     <img class="file" src="./../../../../assets/icons/m-add-file.svg" alt="增加文本">
-    <img class="editor" (click)="currentPageEvent('save')" src="./../../../../assets/icons/save.svg" alt="保存">
   </div>
   
   <!-- 2.页面管理 -->
 
   <app-comp-page-list *ngIf="pageGridSetting['showLeft']" 
-  [treeNodes]="treeNodes"
+  [pages]="pages"
   (selCurrentPage)="seledCurrentPage($event)">
   </app-comp-page-list>
 

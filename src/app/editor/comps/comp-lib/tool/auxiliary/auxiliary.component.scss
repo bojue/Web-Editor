@@ -46,6 +46,7 @@
             border-radius: 50%;
             background: #ffffff;
             pointer-events:auto;
+            z-index: 1000;
             &.col {
                 cursor: ew-resize;
             }

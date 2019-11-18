@@ -13,23 +13,22 @@ export class AppService{
   //当前页面组件列表
   currentPageComp = [];
 
-  pages = [
-    {
-      id:2,
-      value: '商品页面',
-      children: [{ 
-        id:1,
+  pages = {
+    id:1,
+    name:"页面列表",
+    project:"012",
+    children: [{ 
+      id:1,
+      parnentId:2,
+      value: '列表' ,
+      componentList:[]
+    },{ 
+        id:2,
         parnentId:2,
-        value: '列表' ,
+        value: '详情',
         componentList:[]
-      },{ 
-          id:2,
-          parnentId:2,
-          value: '详情',
-          componentList:[]
-        }]
-    }
-  ]
+      }]
+  }
 
 
   getCurrentPageComp() {

@@ -4,80 +4,31 @@
         padding:0px;
         margin: 0;
     }
-    .tit {
-        display: block;
-        height: 24px;
-        line-height: 24px;
-        text-align: left;
-        border-bottom: 1px solid #cccccc;
-        padding-left: 10px;
-        font-size: 13px;
-        -webkit-user-select: none;
-        user-select: none;
-    }
-    .scrollY {
-        height: 180px;
-    }
-    .fa, .far {
-        opacity: 0.8;
-        padding-right: 6px;
-        color: #555;
-    }
-
-    .tree {
-        color:#222;
-        padding: 3px 0 3px 6px;
+    .pages {
         position: relative;
-        img.icon {
+        font-weight: 400;
+        font-size: 12px;
+        .page-item {
             position: relative;
-            width: 14px;
-            top: 4px;
-            left: 3px;
-        }
-        .node-item {
-            position: relative;
-            display: inline-block;
+            height: 24px;
+            line-height: 24px;
             cursor: pointer;
-            line-height: 26px;
-            height: 26px;
-            width: 145px;
-            .pages-name {
+            &:active ,&:hover, &.actived{
+                background: rgba(255,0,0,0.1);
+            }
+            &.actived {
+                color:red;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .icon {
+                padding:3px;
                 position: absolute;
-                width: 100px;
-                left: 21px;
-                top: 1px;
             }
-            .item {
-                cursor: pointer;
-            }
-            .pages-item {
-                position: relative;
-                height: 22px;
-                line-height: 22px;
-                margin-left: 15px;
-                width: 130px;
-                user-select: none;
-                &.actived {
-                    background:rgba(255,0,0, 0.1);
-                    font-size: 13px;
-                }
-               
-                .sub-page {
-                    position: absolute;
-                    display: inline-block;
-                    width: 100px;
-                }
-
-                .page-name {
-                    display: inline-block;
-                    position: absolute;
-                    left: 19px;
-                    top: 1px;
-                }
+            .page-name {
+                margin-left: 26px;
             }
         }
-    
     }
-
 
 }

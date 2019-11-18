@@ -73,7 +73,7 @@
         }
         .comp-active {
             border:1px solid red !important;
-            z-index: 999 !important;
+            z-index: 11 !important;
         }
 
         .comp-resize {
@@ -81,7 +81,7 @@
         }
     }
     .setting-but {
-        z-index: 1000;
+        z-index: 11;
         background: #ffffff;
     }
 }

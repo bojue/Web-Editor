@@ -13,7 +13,7 @@ export class CompConfigurationComponent implements OnInit {
   @Output() selCurrentPage = new EventEmitter<any>();
   @Output() currentPageEvents = new EventEmitter<any>();
 
-  treeNodes: any[];
+  pages: any;
   compList:any[];
   showBool:boolean;
 
@@ -27,7 +27,7 @@ export class CompConfigurationComponent implements OnInit {
   }
 
   initData() {
-    this.treeNodes = this.service.getPages();
+    this.pages = this.service.getPages();
     this.showBool = true;
     this.compList = this.compListService.getCompList();
   }
