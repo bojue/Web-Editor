@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
 })
 export class CompListComponent implements OnInit {
   @Input() componentModules:any;
+  @Input() currnetPageComps:any;
   @Output() compDragEvent = new EventEmitter<any>();
 
   constructor(
@@ -17,9 +18,10 @@ export class CompListComponent implements OnInit {
   }
 
   dragCompEnd(event, data, idVal){
-    event['compType'] = data;
-    this.compDragEvent.emit(event);
-
+    if(!!this.currnetPageComps) {
+      event['compType'] = data;
+      this.compDragEvent.emit(event);
+    }
     // TODO 拖拽优化
   }
 

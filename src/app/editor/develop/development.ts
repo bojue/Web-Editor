@@ -14,6 +14,7 @@ import { AreaComponent } from 'src/app/editor/comps/comp-lib/tool/area/area.comp
 import { AppService } from 'src/app/providers/app.service';
 import { UserAgentService } from 'src/app/core/tool/user-agent.service';
 import { ContentPageSize } from '../model/setting-content-page-size.model';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-development',
@@ -121,8 +122,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   initData() {
     this.currentViewContRef = this.viewContRef.viewContainerRef;
-    this.currnetPageComps = this.service.getCurrentPageComp(); //获取json数据(组件数据)
-    this.getCompList(this.currnetPageComps); //json数据生成组件集合
+    // this.currnetPageComps = this.service.getCurrentPageComp(); //获取json数据(组件数据)
+    // this.getCompList(this.currnetPageComps); //json数据生成组件集合
+    this.currnetPageComps = null;
     this.auxiComp = this.infoService.getAuxiComp();
     this.areaComp = this.infoService.getAreaComp();
     this.contentPageSize = {
@@ -170,6 +172,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //父类容器监听事件
   clickListernerHandle(e) {
+    if(!this.currnetPageComps) return;
     this.activeCompSettingObject = null;//初始化当前选中对象（清空）
     this.getPageSize();
     //1.更新文本编辑状态
@@ -187,6 +190,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑,多页面操作切换
   initViewContRef(){
+    if(!this.components) return;
     let len = this.components.length;
     for(let i=0; i < len;i++){
       this.currentViewContRef.clear(i)
@@ -342,20 +346,33 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   arrowEvent(direction) {
     let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
-    switch(direction) {
-      case 'ArrowLeft':
-        styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
-        break;
-      case 'ArrowRight':
-        styleObj['left'] = styleObj['left'] + 1;
-        break;
-      case 'ArrowDown':
-        styleObj['top'] = styleObj['top'] + 1;  
-        break;  
-      case 'ArrowUp':
-        styleObj['top'] = styleObj['top'] > 0 ? styleObj['top'] - 1 : 0;
-        break;    
+    if(['ArrowDown','ArrowUp'].indexOf(direction) > -1 && $("input:focus")['length'] > 0 && $("input:focus")[0]['id'] === "setTopVal") {
+      switch(direction) {
+        case 'ArrowDown':
+          styleObj['top'] = styleObj['top'] + 1;  
+          break;  
+        case 'ArrowDown':
+          styleObj['top'] = styleObj['top'] > 0 ? styleObj['top'] - 1 : 0;
+          break;    
+      }
+    } else {
+      console.log(direction)
+      switch(direction) {
+        case 'ArrowLeft':
+          styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
+          break;
+        case 'ArrowRight':
+          styleObj['left'] = styleObj['left'] + 1;
+          break;
+        case 'ArrowDown':
+          styleObj['top'] = styleObj['top'] + 1;  
+          break;  
+        case 'ArrowUp':
+          styleObj['top'] = styleObj['top'] > 0 ? styleObj['top'] - 1 : 0;
+          break;    
+      }
     }
+    
 
   }
 

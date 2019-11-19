@@ -9,6 +9,7 @@ import { CompListService } from "../../provider/comp-list.service";
 })
 export class CompConfigurationComponent implements OnInit {
   @Input() pageGridSetting;
+  @Input() currnetPageComps;
   @Output() compDragEvent = new EventEmitter<any>();
   @Output() selCurrentPage = new EventEmitter<any>();
   @Output() currentPageEvents = new EventEmitter<any>();

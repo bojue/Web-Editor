@@ -15,6 +15,7 @@
         left: 75px;
         top: 10px;
     }
+ 
 
     .comp-tit{
         cursor: pointer;
@@ -52,6 +53,10 @@
             margin-bottom: -1px;
             text-align: center;
             opacity: 0.8;
+            &.noPage {
+                opacity: 0.5;
+                cursor: no-drop;
+            }
             &:hover {
                 background: rgba(255,0,0, 0.1);
                 opacity: 1;

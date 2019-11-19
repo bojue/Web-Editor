@@ -37,6 +37,31 @@
             border: 1px solid #ccc;
         }
     }
+    .hasPage {
+        opacity: 0.9;
+        .selectPagePrompt {
+            height: 100%;
+            width: 100%;
+  
+            text-align: center;
+            button {
+                cursor: pointer;
+                position: relative;
+                color: red;
+                background: #ffffff;
+                border: 1px solid rgba(255,0,0,0.5);
+                width: 150px;
+                height: 30px;
+                top: 200px;
+                opacity: 0.7;
+                &:hover {
+                    opacity: 1;
+                    border: 1px solid rgba(255,0,0,1);
+                }
+            }
+  
+        }
+    }
     .page-config {
         position: fixed;
         top: 6px;

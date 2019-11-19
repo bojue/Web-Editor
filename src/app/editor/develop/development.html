@@ -6,6 +6,7 @@
   <!-- 1.组态管理 -->
   <section class="comp-marage">
     <app-comp-configuration
+      [currnetPageComps]="currnetPageComps"
       [pageGridSetting]="pageGridSetting"
       (compDragEvent)="dragCompEnd($event)"
       (selCurrentPage)="getCurrentPage($event)"
@@ -17,15 +18,17 @@
   <section class="canvas-comp">
     <app-scale></app-scale>
   </section>
-
   <!-- 3.视图 -->
-  <section id='componentsBody' class="border-r border-b m-l-5 h90 content">
+  <section id='componentsBody' [ngClass]="{hasPage:!currnetPageComps}" class="border-r border-b m-l-5 h90 content">
 
     <div class="page-config" *ngIf="false">
       <div class="run-but" (click)="preView()">
         <img src="./../../../assets/icons/run.svg" title="运行" alt="运行">
       </div>   
     </div> 
+    <div class="selectPagePrompt" *ngIf="!currnetPageComps">
+      <button>请选择页面</button>
+    </div>
     <ng-template view-contain-ref #contentComp ></ng-template>
   </section>
 

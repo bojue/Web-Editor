@@ -13,8 +13,10 @@
             height: 24px;
             line-height: 24px;
             cursor: pointer;
+            border:1px solid #fff;
             &:active ,&:hover, &.actived{
                 background: rgba(255,0,0,0.05);
+                border-bottom:1px solid rgba(255,0,0,0.3);
             }
             .icon {
                 padding:3px;

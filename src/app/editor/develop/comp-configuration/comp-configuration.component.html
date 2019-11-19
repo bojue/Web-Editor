@@ -27,6 +27,7 @@
     *ngIf="pageGridSetting['showLeft']"
     class="modules" 
     [componentModules]="compList"
+    [currnetPageComps]="currnetPageComps"
     (compDragEvent)="dragCompEnd($event)">
   </app-comp-list>
 
