@@ -16,6 +16,7 @@ export class CompConfigurationComponent implements OnInit {
   pages: any;
   compList:any[];
   showBool:boolean;
+  currentTab:string;
 
   constructor(
     private service: AppService,
@@ -30,6 +31,7 @@ export class CompConfigurationComponent implements OnInit {
     this.pages = this.service.getPages();
     this.showBool = true;
     this.compList = this.compListService.getCompList();
+    this.selectTabs();
   }
 
   dragCompEnd(event){
@@ -40,9 +42,12 @@ export class CompConfigurationComponent implements OnInit {
     this.pageGridSetting['showLeft'] = !this.pageGridSetting['showLeft'];
   }
 
+  selectTabs(tab:string = 'tabList') {
+    this.currentTab = tab;
+  }
+
   //选择当前页面的组件列表
   seledCurrentPage(page) {
-    console.log("page",page)
     this.selCurrentPage.emit(page);
   }
 

@@ -8,11 +8,13 @@ import { CompSettingBasicModule } from "../../comp-basic/comp-setting-basic.modu
 import { CodeModule } from '../../../../core/code.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ChartPieComponent } from './chart-pie/chart-pie.component';
 
 const customComp = [
     ChartComponent,
     ListComponent,
     GaugeComponent,
+    ChartPieComponent
 ]
 
 @NgModule({

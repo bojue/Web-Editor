@@ -7,25 +7,37 @@
     .marage-btn {
         position: relative;
         display: block;
-        height: 26px;
-        padding-top: 6px;
-        border-bottom: 1px solid #cccccc;
-        img {
-            display: inline-block;
-            cursor: pointer;
-            width: 14px;
-            height: 14px;        
-            padding: 5px;
-            margin: 0px 4px;
-            border-radius: 5px;
-            &:hover {
-                border-radius: 50%;
-                box-shadow: 0 0 3px#cccccc inset;
-            }
-            &.file {
-                width: 15px;
+        .tabs {
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            .tab {
+                display: inline-block;
+                cursor: pointer;
+                border-right: 1px solid #eeeeee;
+                border-bottom: 1px solid #cccccc;
+                width: 50px;
+                height: 30px;
+                line-height: 30px;
+                &.add {
+                    width: 28px;
+                    border-right: none;
+                }
+                &.active {
+                    width: 88px;
+                    font-size: 14px;
+                }
+                &.active,&:hover {
+                    // background: rgba(255, 0, 0, 0.05);
+                    color: red;
+                    border-bottom-color:rgba(255, 0, 0, 1);
+                }
             }
         }
+    }
+    .pages {
+        min-height: 250px;
+        padding: 3px;
     }
     .right-border {
         right: -1px;

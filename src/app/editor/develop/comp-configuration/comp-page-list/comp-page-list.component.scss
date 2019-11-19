@@ -14,12 +14,7 @@
             line-height: 24px;
             cursor: pointer;
             &:active ,&:hover, &.actived{
-                background: rgba(255,0,0,0.1);
-            }
-            &.actived {
-                color:red;
-                font-size: 14px;
-                font-weight: 600;
+                background: rgba(255,0,0,0.05);
             }
             .icon {
                 padding:3px;
