@@ -21,6 +21,7 @@ export class BasicComponent implements OnInit {
   showMoreBool: boolean;
   iconUrl: string;
   ignoreParams:any[];
+  eventSubObj:any;
   constructor() {
   }
 
@@ -59,9 +60,12 @@ export class BasicComponent implements OnInit {
   }
   
   compEvent(event) {
-    event['dynamicData'] = this.settingObj;
-    this.onChildComponentChange.emit(event);
-    event.stopPropagation();
+    if(!(this.eventSubObj && this.eventSubObj['clientX'] === event['clientX'] && 
+      this.eventSubObj['clientY'] === event['clentY'])) {
+        event['dynamicData'] = this.settingObj;
+        this.onChildComponentChange.emit(event);
+      } 
+      event.stopPropagation();
   }
 
   inputVal(event) {

@@ -57,19 +57,25 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
         this.startEvent = _.cloneDeep(this.style);
         break;
       case 'l':
-        this.style['left'] = this._clientX ;
-        this.style['width'] =  this.startEvent['width'] + (this.startEvent['left'] - this._clientX );
+        let _x = this._clientX >= 0 ? this._clientX : 0 ;
+        this.style['left'] = _x;
+        let _lx =  this.startEvent['width'] + (this.startEvent['left'] - _x );
+        this.style['width'] = _lx >= 5 ? _lx: 5;
         break;
       case 'r':
         let _width = this._clientX  - this.startEvent['left'];
-        this.style['width'] = _width - 2* this.style['paddingTopBottom'];
+        let _rw= _width - 2* this.style['paddingTopBottom'];
+        this.style['width'] = _rw >= 5 ? _rw: 5;
         break;
       case 't':
-        this.style['top'] = this._clientY ;
-        this.style['height'] =  this.startEvent['height'] + (this.startEvent['top'] - this._clientY);
+        let _y = this._clientY >= 0 ? this._clientY : 0;
+        let _th = this.startEvent['height'] + (this.startEvent['top'] - _y);
+        this.style['top'] = _y;
+        this.style['height'] = _th >= 5 ? _th : 5;
         break;  
       case 'b':
-        this.style['height'] = this._clientY - this.startEvent['top'] - 2* this.style['paddingTopBottom'];
+        let _bh = this._clientY - this.startEvent['top'] - 2* this.style['paddingTopBottom'];
+        this.style['height'] =  _bh >= 5 ? _bh : 5;
         break;    
       default:
         break;    

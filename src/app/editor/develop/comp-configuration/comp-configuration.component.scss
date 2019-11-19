@@ -16,7 +16,7 @@
                 cursor: pointer;
                 border-right: 1px solid #eeeeee;
                 border-bottom: 1px solid #cccccc;
-                width: 50px;
+                width: 69px;
                 height: 30px;
                 line-height: 30px;
                 &.add {
@@ -24,7 +24,7 @@
                     border-right: none;
                 }
                 &.active {
-                    width: 88px;
+                    width: 69px;
                     font-size: 14px;
                 }
                 &.active,&:hover {
@@ -37,7 +37,7 @@
     }
     .pages {
         min-height: 250px;
-        padding: 3px;
+        padding: 5px;
     }
     .right-border {
         right: -1px;

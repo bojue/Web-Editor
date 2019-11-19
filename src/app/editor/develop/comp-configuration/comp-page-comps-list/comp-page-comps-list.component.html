@@ -1,3 +1,11 @@
-<p>
-  comp-page-comps-list works!
-</p>
+<div class="comp-page-comps-list scrollY">
+  <!-- <div class="tit">页面列表</div> -->
+  <div class="comps" *ngIf="!pages['hideBool']">
+    <ng-container  *ngFor="let page of pages['children'];">
+        <div class="item page-item" [ngClass]="{actived: page['actived']}" (click)="changeComponent(page)">
+          <img src="./../../../../assets/icons/page.svg" alt="" class="icon">
+          <span class="page-name" >{{page['value']}}</span>
+        </div>
+    </ng-container>
+  </div>
+</div>
