@@ -110,7 +110,7 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
       if(['b_l'].indexOf(direction) > -1) {
         paramVal += this.style['borderWidth'];
       }else if(['r_l', 'b_t'].indexOf(direction) > -1){
-        paramVal += this.style['borderWidth'] * 2;
+        paramVal += this.style['borderWidth'] * 2 - 2;
       }
     }
 

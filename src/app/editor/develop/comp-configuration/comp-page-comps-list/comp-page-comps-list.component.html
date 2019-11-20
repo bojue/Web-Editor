@@ -7,5 +7,8 @@
           <span class="comp-name" >{{comp['name']}}</span>
         </div>
     </ng-container>
+    <ng-container *ngIf="!pageComps || pageComps.length ===0">
+      <span class="no-val">当前页面没有元素</span>
+    </ng-container>
   </div>
 </div>

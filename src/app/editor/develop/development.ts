@@ -298,10 +298,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     })
   }
 
-  currentPageEvents(state){
-    console.info("---> \n",state)
-  }
-
   //辅助组件处理 
   getAuxiliaryComponent( selectStyle?: any, eventType ?: string) {
     /**
