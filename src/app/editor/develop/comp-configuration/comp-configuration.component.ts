@@ -13,6 +13,7 @@ export class CompConfigurationComponent implements OnInit {
   @Output() compDragEvent = new EventEmitter<any>();
   @Output() selCurrentPage = new EventEmitter<any>();
   @Output() currentPageEvents = new EventEmitter<any>();
+  @Output() activeCompFun = new EventEmitter<any>();
 
   pages: any;
   compList:any[];
@@ -50,6 +51,10 @@ export class CompConfigurationComponent implements OnInit {
   //选择当前页面的组件列表
   seledCurrentPage(page) {
     this.selCurrentPage.emit(page);
+  }
+
+  activeComp(comp) {
+    this.activeCompFun.emit(comp);
   }
 
   currentPageEvent(state) {

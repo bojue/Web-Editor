@@ -1,10 +1,10 @@
 <div class="comp-page-comps-list scrollY">
   <!-- <div class="tit">页面列表</div> -->
-  <div class="comps" *ngIf="!pages['hideBool']">
-    <ng-container  *ngFor="let page of pages['children'];">
-        <div class="item page-item" [ngClass]="{actived: page['actived']}" (click)="changeComponent(page)">
-          <img src="./../../../../assets/icons/page.svg" alt="" class="icon">
-          <span class="page-name" >{{page['value']}}</span>
+  <div class="comps" >
+    <ng-container  *ngFor="let comp of pageComps;let i = index;" >
+        <div class="item comp-item" *ngIf="comp['type'] !== 'auxi'" [ngClass]="{actived: comp['actived']}" (click)="selectComp(comp)">
+          <span class="index">{{i+1}}</span>
+          <span class="comp-name" >{{comp['name']}}</span>
         </div>
     </ng-container>
   </div>

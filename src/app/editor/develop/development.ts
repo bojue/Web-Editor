@@ -160,7 +160,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
     this.currnetPageComps.push(addCompJson);
     this.initViewContRef()
-    this.getCompList(this.currnetPageComps);
+    _.map(this.currnetPageComps, item => item['active'] = false);
+    this.getCompList(this.currnetPageComps); 
   }
   
   //修改组件
@@ -270,7 +271,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }else {
       return (<SettingObjComponent> compInstance).settingObj = settingObj;
     }
-
   }
 
   //选择当前页面组件列表
@@ -279,6 +279,23 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let comps = page && page['componentList'] || [];
     this.currnetPageComps = comps;
     this.getCompList(comps);
+  }
+
+  //通过元素列表选择组态
+  activeComp(comp) {
+    this.initPageCompState();
+    this.clickListernerHandle(null)
+    this.activeCompSettingObject = comp;
+    this.activeCompSettingObject['active'] = false;
+    this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent');
+  }
+
+  initPageCompState() {
+    _.map(this.currnetPageComps, item => {
+      if(['area', 'auxi'].indexOf(item['type']) > -1) {
+        item['active'] = false;
+      }
+    })
   }
 
   currentPageEvents(state){
@@ -356,7 +373,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           break;    
       }
     } else {
-      console.log(direction)
       switch(direction) {
         case 'ArrowLeft':
           styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;

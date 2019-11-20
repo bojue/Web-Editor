@@ -18,8 +18,8 @@
   
   <!-- 元素管理 -->
   <app-comp-page-comps-list *ngIf="pageGridSetting['showLeft'] && currentTab === 'tabComps'" 
-  [pages]="pages"
-  (selCurrentPage)="seledCurrentPage($event)">
+  [pageComps]="currnetPageComps"
+  (activeComp)="activeComp($event)">
   </app-comp-page-comps-list>
 
   <!-- 组件列表 -->
