@@ -12,7 +12,7 @@ export class CompConfigService {
 
         // TODO:获取接口写在后端,前端增加视图组件配置页面
         let data = {
-            line: {
+            "line": {
                 compIndex: 2,
                 name:'横线',
                 type:'line',
@@ -20,7 +20,7 @@ export class CompConfigService {
                 },
                 style: this._defCompStyle(),
             },
-            text: {
+            "text": {
                 compIndex: 2,
                 name:'文本',
                 type:'text',
@@ -32,7 +32,7 @@ export class CompConfigService {
                     height:30
                 }),
             },
-            input: {
+            "input": {
                 compIndex: 2,
                 name:'输入框',
                 type:'input',
@@ -45,7 +45,7 @@ export class CompConfigService {
                     height:30
                 }),
             },
-            textarea: {
+            "textarea": {
                 compIndex: 2,
                 name:'多行输入',
                 type:'textarea',
@@ -58,7 +58,7 @@ export class CompConfigService {
                     height:60
                 }),
             },
-            img:  {
+            "img":  {
                 compIndex: 2,
                 name:'图片',
                 type:'img',
@@ -70,7 +70,7 @@ export class CompConfigService {
                     height:80
                 }),
             } ,    
-            button:{
+            "button":{
                 compIndex: 3,
                 name:'按钮',
                 type:'button',
@@ -93,7 +93,7 @@ export class CompConfigService {
                     }
                 }
             },  
-            video:{
+            "video":{
                 compIndex: 3,
                 name:'视频',
                 type:'video',
@@ -108,7 +108,7 @@ export class CompConfigService {
             
                 }
             },
-            chart_polyline:{
+            "chart_polyline":{
                 compIndex: 3,
                 name:'折线',
                 type:'chart_polyline',
@@ -117,13 +117,13 @@ export class CompConfigService {
                 },
                 style: this._defCompStyle({
                     width:300,
-                    height:180
+                    height:300
                 }),
                 event: {
 
                 }
             },
-            chart_gauge:{
+            "chart_gauge":{
                 compIndex: 3,
                 name:'仪表盘',
                 type:'chart_gauge',
@@ -132,13 +132,44 @@ export class CompConfigService {
                 },
                 style: this._defCompStyle({
                     width:300,
-                    height:180
+                    height:300
+                }),
+                event: {
+    
+                }
+            },     
+            "chart_pie": {
+                compIndex: 3,
+                name:'饼图',
+                type:'chart_pie',
+                data: {
+            
+                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:300
+                }),
+                event: {
+    
+                }
+            },
+            "chart_radar":{
+                compIndex: 3,
+                name:'雷达图',
+                type:'chart_radar',
+                data: {
+            
+                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:300
                 }),
                 event: {
     
                 }
             },     
         }
+        console.log(style, data['style'])
         return data[style]  ? data[style] : {} 
     }
 

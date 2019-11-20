@@ -1,15 +1,52 @@
 import { Component, OnInit } from '@angular/core';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
 
 @Component({
   selector: 'app-chart-pie',
   templateUrl: './chart-pie.component.html',
   styleUrls: ['./chart-pie.component.scss']
 })
-export class ChartPieComponent implements OnInit {
+export class ChartPieComponent extends CustomBasicComponent implements OnInit {
 
-  constructor() { }
+  chartOption:any;
+  constructor(private emitService: EmitSubService) {
+    super(emitService)
+   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.initBasicData();
+    this.initData();
   }
 
+  initData() {
+    this.chartOption = {
+
+      legend: {
+          orient: 'vertical',
+          left: 'left',
+          data: ['直接访问','邮件营销','联盟广告']
+      },
+      series : [
+          {
+              name: '访问来源',
+              type: 'pie',
+              radius : '55%',
+              center: ['50%', '60%'],
+              data:[
+                  {value:335, name:'直接访问'},
+                  {value:310, name:'邮件营销'},
+                  {value:234, name:'联盟广告'},
+              ],
+              itemStyle: {
+                  emphasis: {
+                      shadowBlur: 10,
+                      shadowOffsetX: 0,
+                      shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  }
+              }
+          }
+      ]
+    };
+  }  
 }

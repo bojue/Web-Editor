@@ -12,6 +12,8 @@ import { SettingObjComponent } from "src/app/editor/model/setting-object.interfa
 import { SettingItem } from "../model/setting-item.model";
 import { ChartGuageComponent } from "../comps/comp-lib/business/chart-guage/chart-guage.component";
 import { ChartPolylineComponent } from "../comps/comp-lib/business/chart-polyline/chart-polyline.component";
+import { ChartPieComponent } from '../comps/comp-lib/business/chart-pie/chart-pie.component';
+import { ChartRadarComponent } from '../comps/comp-lib/business/chart-radar/chart-radar.component';
 
 
 @Injectable({providedIn: 'root'})
@@ -25,22 +27,24 @@ export class CompDynamicCreateService {
       comp:null
     };
     let comps = {
-      text:TextComponent,
-      img:ImgComponent,
-      input:InputComponent,
-      textarea:TextareaComponent,
-      button:ButtonComponent,
-      video:VideoComponent,
+      'text': TextComponent,
+      'img': ImgComponent,
+      'input': InputComponent,
+      'textarea': TextareaComponent,
+      'button': ButtonComponent,
+      'video': VideoComponent,
       
       //业务
 
       //业务-Chart
-      chart_polyline:ChartPolylineComponent,
-      chart_gauge:ChartGuageComponent,
+      'chart_polyline': ChartPolylineComponent,
+      'chart_gauge': ChartGuageComponent,
+      'chart_pie': ChartPieComponent,
+      "chart_radar": ChartRadarComponent,
 
       //工具
-      auxi:AuxiliaryComponent,
-      area:AreaComponent, 
+      'auxi': AuxiliaryComponent,
+      'area': AreaComponent, 
     }
    
     try {

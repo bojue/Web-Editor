@@ -42,7 +42,11 @@ export class CompListService {
         name: '业务',
         state: 'module',
         title:"高级组件,支持数据绑定和接口绑定,支持定制",
-        compList: [
+        compList: [{
+            name:"饼图",
+            type:"chart_pie",
+            iconUrl: './../assets/icons/bingtu.svg'
+        },
         {
             name:'折线',
             type: 'chart_polyline',
@@ -51,6 +55,10 @@ export class CompListService {
             name: '仪表盘',
             type:'chart_gauge',
             iconUrl:'./../assets/icons/gauge.svg'
+        },{
+            name: "雷达图",
+            type:"chart_radar",
+            iconUrl:'./../assets/icons/leidatu.svg'
         }]
     }]
 

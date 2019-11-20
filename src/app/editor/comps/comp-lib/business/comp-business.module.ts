@@ -1,5 +1,4 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-
 import { NgxEchartsModule } from "ngx-echarts";
 import { CompSettingBasicModule } from "../../comp-basic/comp-setting-basic.module";
 import { CodeModule } from '../../../../core/code.module';
@@ -8,11 +7,13 @@ import { CommonModule } from '@angular/common';
 import { ChartPieComponent } from './chart-pie/chart-pie.component';
 import { ChartGuageComponent } from './chart-guage/chart-guage.component';
 import { ChartPolylineComponent } from './chart-polyline/chart-polyline.component';
+import { ChartRadarComponent } from './chart-radar/chart-radar.component';
 
 const customComp = [
     ChartPieComponent,
     ChartGuageComponent,
-    ChartPolylineComponent
+    ChartPolylineComponent,
+    ChartRadarComponent
 ]
 
 @NgModule({
