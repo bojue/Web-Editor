@@ -44,7 +44,8 @@
             width: 100%;
   
             text-align: center;
-            button {
+            .info {
+                display: inline-block;
                 cursor: pointer;
                 position: relative;
                 color: #fff;
@@ -53,15 +54,8 @@
                 width: 150px;
                 height: 30px;
                 top: 200px;
-                opacity: 0.7;
-                width: 150px;
-                height: 30px;
-                top: 200px;
-                opacity: 0.7;
-                &:hover {
-                    opacity: 1;
-                    border: 1px solid rgba(255,0,0,1);
-                }
+                font-size: 16px;
+                line-height: 30px;
             }
   
         }
