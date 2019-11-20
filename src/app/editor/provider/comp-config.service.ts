@@ -18,20 +18,7 @@ export class CompConfigService {
                 type:'line',
                 data: {
                 },
-                style: {
-                    height:100,
-                    width: 100,
-                    position: 'absolute',
-                    textAlign:'center',
-                    top:400,
-                    left:200,
-                    border: '',
-                    borderColor: '',
-                    borderWidth: 0,
-                    borderStyle: '',
-                    paddingTopBottom:0,
-                    paddingLeftRight:0
-                }
+                style: this._defCompStyle(),
             },
             text: {
                 compIndex: 2,
@@ -40,20 +27,10 @@ export class CompConfigService {
                 data: {
                     text_val:'双击修改文本',
                 },
-                style: {
-                    height:100,
-                    width: 100,
-                    position: 'absolute',
-                    textAlign:'center',
-                    top:400,
-                    left:200,
-                    border: '',
-                    borderColor: '',
-                    borderWidth: 0,
-                    borderStyle: '',
-                    paddingTopBottom:0,
-                    paddingLeftRight:0
-                }
+                style: this._defCompStyle({
+                    width:120,
+                    height:30
+                }),
             },
             input: {
                 compIndex: 2,
@@ -63,20 +40,10 @@ export class CompConfigService {
                     input_val:'',
                     placeholder:"输入"
                 },
-                style: {
-                    height:20,
-                    width: 190,
-                    position: 'absolute',
-                    top:100,
-                    left:500,
-                    padding: 10,
-                    border: '',
-                    borderColor: '',
-                    borderWidth: 0,
-                    borderStyle: '',
-                    paddingTopBottom:0,
-                    paddingLeftRight:0
-                }
+                style: this._defCompStyle({
+                    width:220,
+                    height:30
+                }),
             },
             textarea: {
                 compIndex: 2,
@@ -86,20 +53,10 @@ export class CompConfigService {
                     textarea_val:'',
                     placeholder:"文本输入"
                 },
-                style: {
-                    height:80,
-                    width: 120,
-                    position: 'absolute',
-                    top:200,
-                    padding:10,
-                    left:500,
-                    border: '',
-                    borderColor: '',
-                    borderWidth: 0,
-                    borderStyle: '',
-                    paddingTopBottom:0,
-                    paddingLeftRight:0
-                }
+                style: this._defCompStyle({
+                    width:220,
+                    height:60
+                }),
             },
             img:  {
                 compIndex: 2,
@@ -108,19 +65,10 @@ export class CompConfigService {
                 data: {
                     img_url:'./../assets/imgs/es.jpeg',
                 },
-                style: {
-                    height:100,
-                    width: 100,
-                    position: 'absolute',
-                    top:200,
-                    left:100,
-                    border: '',
-                    borderColor: '',
-                    borderWidth: 0,
-                    borderStyle: 'dotted',
-                    paddingTopBottom:0,
-                    paddingLeftRight:0
-                }
+                style: this._defCompStyle({
+                    width:120,
+                    height:80
+                }),
             } ,    
             button:{
                 compIndex: 3,
@@ -129,20 +77,10 @@ export class CompConfigService {
                 data: {
                     button_val:'确认'
                 },
-                style: {
-                  height:30,
-                  width: 80,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  background: 'rgb(230, 230, 230)',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '4',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                },
+                style: this._defCompStyle({
+                    width:80,
+                    height:30
+                }),
                 event:{
                     clickBool: false,
                     click: {
@@ -155,30 +93,6 @@ export class CompConfigService {
                     }
                 }
             },  
-            audio:{
-                compIndex: 1,
-                name:'音频',
-                type:'audio',
-                data: {
-                    audio_val:'https://www.w3schools.com/html/horse.mp3'
-                },
-                style: {
-                  height:50,
-                  width: 320,
-                  position: 'absolute',
-                  top:100,
-                  left:100,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                },
-                event:{
-            
-                }
-            },  
             video:{
                 compIndex: 3,
                 name:'视频',
@@ -186,19 +100,10 @@ export class CompConfigService {
                 data: {
                     video_val:'http://www.w3school.com.cn/i/horse.mp3'
                 },
-                style: {
-                  height:220,
-                  width: 400,
-                  position: 'absolute',
-                  top:100,
-                  left:400,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:180
+                }),
                 event:{
             
                 }
@@ -210,19 +115,10 @@ export class CompConfigService {
                 data: {
             
                 },
-                style: {
-                  height:300,
-                  width: 300,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:180
+                }),
                 event: {
     
                 }
@@ -234,19 +130,10 @@ export class CompConfigService {
                 data: {
             
                 },
-                style: {
-                  height:400,
-                  width: 400,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:180
+                }),
                 event: {
     
                 }
@@ -258,78 +145,14 @@ export class CompConfigService {
                 data: {
             
                 },
-                style: {
-                  height:180,
-                  width: 300,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:180
+                }),
                 event: {
 
                 }
-            },
-            equipment: {
-                compIndex: 3,
-                name:'设备数据管理',
-                type:'equipment',
-                data: {
-                    api_val:'http://10.169.43.4:8100/api/dutys',
-                },
-                style: {
-                  height:200,
-                  width: 300,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  borderColor: '#666',
-                  borderWidth: 1,
-                  borderStyle: 'solid',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                }
-            },
-            list: {
-                compIndex: 3,
-                name:'列表',
-                type:'list',
-                data: {
-                    api_val:'http://10.169.43.4:8100/api/dutys',
-                    list_val:{
-                        list_tit_val:'列表',
-                        list_cols_number_val:4,
-                        list_cols_width:[],
-                        list_style_grid_bool:true,
-                        list_cols:[{
-                            tit:"标题",
-                            width:10,
-                            prefix:"",
-                            suffix:""
-                        }]
-                    }
-                },
-                style: {
-                  height:300,
-                  width: 180,
-                  position: 'absolute',
-                  top:10,
-                  left:400,
-                  border: '',
-                  borderColor: '',
-                  borderWidth: 0,
-                  borderStyle: '',
-                  paddingTopBottom:0,
-                  paddingLeftRight:0
-                }
-            },
-           
+            }         
         }
         return data[style]  ? data[style] : {} 
     }
@@ -341,17 +164,7 @@ export class CompConfigService {
         data: {
             title: '辅助线'
         },
-        style: {
-            height:220,
-            width: 300,
-            position: 'absolute',
-            top:120,
-            left:600,
-            border: '',
-            borderColor: '',
-            borderWidth: 0,
-            borderStyle: ''
-        }
+        style: this._defCompStyle()
     }
 
     areaComp = {
@@ -361,17 +174,27 @@ export class CompConfigService {
         data: {
             title: '区域选中'
         },
-        style: {
-            height:0,
-            width: 0,
+        style: this._defCompStyle()
+    }
+    _defCompStyle(customStyle ?:any) {
+        let styleJson = {
+            height:100,
+            width: 100,
             position: 'absolute',
-            top:120,
-            left:600,
-            border: '1',
+            textAlign:'center',
+            top:400,
+            left:200,
+            border: 1,
             borderColor: 'red',
             borderWidth: 1,
-            borderStyle: 'solid'
+            borderStyle: 'solid',
+            paddingTopBottom:0,
+            paddingLeftRight:0
         }
+        for(let key in customStyle) {
+            styleJson[key] = customStyle[key];
+        }
+        return styleJson;
     }
 
     getAuxiComp() {
