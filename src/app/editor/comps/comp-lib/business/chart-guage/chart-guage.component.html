@@ -1,5 +1,4 @@
-<div 
-  class=" comp-item custom-comp-item list-comp"
+<div class=" comp-item custom-comp-item chart-guage"
   [ngClass]="{'comp-active': settingObj['active'] }"  
   draggable="true" 
   (dragstart)="compEvent($event)"
@@ -12,6 +11,7 @@
     'top':expandUnit('top'),
     'left':expandUnit('left'),
     'width':expandUnit('width'),
+    'background':style['background'],
     'height':expandUnit('height'),
     'border-width':expandUnit('borderWidth'),
     'border-style':style['borderStyle'],
@@ -21,23 +21,8 @@
     'padding-bottom':expandUnit('paddingTopBottom'),
     'padding-left':expandUnit('paddingLeftRight'),
     'padding-right':expandUnit('paddingLeftRight')
-  }" >
-  <div class="list-cont">
-    <div class="tit"> {{data['list_val']['list_tit_val'] ||"设置列表标题"}} </div>
-    <div class="list-body">
-      <ul>
-        <!-- <li class="item" [ngStyle]="{
-          'grid-template-columns': getGrid()
-        }">
-          <span class=""  *ngFor="let item of data['list_val']['list_cols'];">
-            {{item['tit']}}
-          </span>
-        </li> -->
-        <li class="item" *ngIf="lists.length === 0">没有数据</li>
-        <li class="item" *ngFor="let item of lists;">
-          {{item['name']}}
-        </li>
-      </ul>
-    </div>
-  </div>
+  }"
+
+  echarts 
+  [options]="chartOption">
 </div>

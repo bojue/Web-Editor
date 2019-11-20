@@ -45,25 +45,11 @@ export class CompListService {
         compList: [
         {
             name:'折线',
-            type: 'chart',
+            type: 'chart_polyline',
             iconUrl: './../assets/icons/zhexian.svg'
         },{
             name: '仪表盘',
-            type:'gauge',
-            iconUrl:'./../assets/icons/gauge.svg'
-        }]
-    },{
-        name: 'Chart',
-        state: 'chart',
-        title:"高级组件,支持数据绑定和接口绑定,支持定制",
-        compList: [
-        {
-            name:'折线',
-            type: 'chart',
-            iconUrl: './../assets/icons/zhexian.svg'
-        },{
-            name: '仪表盘',
-            type:'gauge',
+            type:'chart_gauge',
             iconUrl:'./../assets/icons/gauge.svg'
         }]
     }]

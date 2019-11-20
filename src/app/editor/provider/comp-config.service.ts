@@ -108,40 +108,10 @@ export class CompConfigService {
             
                 }
             },
-            gauge:{
+            chart_polyline:{
                 compIndex: 3,
-                name:'图表',
-                type:'gauge',
-                data: {
-            
-                },
-                style: this._defCompStyle({
-                    width:300,
-                    height:180
-                }),
-                event: {
-    
-                }
-            },
-            thermomenter: {
-                compIndex: 3,
-                name:'刻度盘',
-                type:'thermomenter',
-                data: {
-            
-                },
-                style: this._defCompStyle({
-                    width:300,
-                    height:180
-                }),
-                event: {
-    
-                }
-            },
-            chart:{
-                compIndex: 3,
-                name:'图表',
-                type:'chart',
+                name:'折线',
+                type:'chart_polyline',
                 data: {
             
                 },
@@ -152,7 +122,22 @@ export class CompConfigService {
                 event: {
 
                 }
-            }         
+            },
+            chart_gauge:{
+                compIndex: 3,
+                name:'仪表盘',
+                type:'chart_gauge',
+                data: {
+            
+                },
+                style: this._defCompStyle({
+                    width:300,
+                    height:180
+                }),
+                event: {
+    
+                }
+            },     
         }
         return data[style]  ? data[style] : {} 
     }

@@ -1,13 +1,13 @@
-import { Component } from "@angular/core";
-import { CustomBasicComponent } from "../../../comp-basic/custom-basic/custom-basic.component";
-import { EmitSubService} from "src/app/providers/emit-sub.service";
+import { Component, OnInit } from '@angular/core';
+import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
+import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  selector: 'app-chart-polyline',
+  templateUrl: './chart-polyline.component.html',
+  styleUrls: ['./chart-polyline.component.scss']
 })
-export class ChartComponent extends CustomBasicComponent  {
+export class ChartPolylineComponent extends CustomBasicComponent  {
   chartOption: any;
   constructor(
     private eventService: EmitSubService,

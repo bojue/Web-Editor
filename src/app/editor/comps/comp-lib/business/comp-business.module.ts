@@ -1,6 +1,3 @@
-import { ChartComponent } from "./chart/chart.component";
-import { ListComponent } from "./list/list.component";
-import { GaugeComponent } from "./gauge/gauge.component";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 import { NgxEchartsModule } from "ngx-echarts";
@@ -9,12 +6,13 @@ import { CodeModule } from '../../../../core/code.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChartPieComponent } from './chart-pie/chart-pie.component';
+import { ChartGuageComponent } from './chart-guage/chart-guage.component';
+import { ChartPolylineComponent } from './chart-polyline/chart-polyline.component';
 
 const customComp = [
-    ChartComponent,
-    ListComponent,
-    GaugeComponent,
-    ChartPieComponent
+    ChartPieComponent,
+    ChartGuageComponent,
+    ChartPolylineComponent
 ]
 
 @NgModule({

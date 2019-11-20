@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
 
 @Component({
-  selector: 'app-gauge',
-  templateUrl: './gauge.component.html',
-  styleUrls: ['./gauge.component.scss']
+  selector: 'app-chart-guage',
+  templateUrl: './chart-guage.component.html',
+  styleUrls: ['./chart-guage.component.scss']
 })
-export class GaugeComponent extends CustomBasicComponent implements OnInit {
+export class ChartGuageComponent extends CustomBasicComponent implements OnInit {
   chartOption:any;
   constructor(private emitService: EmitSubService) {
     super(emitService)

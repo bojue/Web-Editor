@@ -2,17 +2,16 @@ import { Injectable } from "@angular/core";
 import { LineComponent } from "src/app/editor/comps/comp-lib/basic/line/line.component";
 import { TextComponent } from "src/app/editor/comps/comp-lib/basic/text/text.component";
 import { ImgComponent } from "src/app/editor/comps/comp-lib/basic/img/img.component";
-import { ChartComponent } from "src/app/editor/comps/comp-lib/business/chart/chart.component";
 import { InputComponent } from "src/app/editor/comps/comp-lib/basic/input/input.component";
 import { TextareaComponent } from "src/app/editor/comps/comp-lib/basic/textarea/textarea.component";
 import { ButtonComponent } from "src/app/editor/comps/comp-lib/basic/button/button.component";
 import { AuxiliaryComponent } from "src/app/editor/comps/comp-lib/tool/auxiliary/auxiliary.component";
-import { ListComponent } from "src/app/editor/comps/comp-lib/business/list/list.component";
 import { VideoComponent } from "src/app/editor/comps/comp-lib/basic/video/video.component";
-import { GaugeComponent } from "src/app/editor/comps/comp-lib/business/gauge/gauge.component";
 import { AreaComponent } from "src/app/editor/comps/comp-lib/tool/area/area.component";
 import { SettingObjComponent } from "src/app/editor/model/setting-object.interface";
 import { SettingItem } from "../model/setting-item.model";
+import { ChartGuageComponent } from "../comps/comp-lib/business/chart-guage/chart-guage.component";
+import { ChartPolylineComponent } from "../comps/comp-lib/business/chart-polyline/chart-polyline.component";
 
 
 @Injectable({providedIn: 'root'})
@@ -26,18 +25,22 @@ export class CompDynamicCreateService {
       comp:null
     };
     let comps = {
-      line:LineComponent,
       text:TextComponent,
       img:ImgComponent,
-      chart:ChartComponent,
       input:InputComponent,
       textarea:TextareaComponent,
       button:ButtonComponent,
-      auxi:AuxiliaryComponent,
-      list:ListComponent,
-      area:AreaComponent,
       video:VideoComponent,
-      gauge:GaugeComponent
+      
+      //业务
+
+      //业务-Chart
+      chart_polyline:ChartPolylineComponent,
+      chart_gauge:ChartGuageComponent,
+
+      //工具
+      auxi:AuxiliaryComponent,
+      area:AreaComponent, 
     }
    
     try {
