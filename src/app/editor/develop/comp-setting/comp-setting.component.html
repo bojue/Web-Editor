@@ -22,14 +22,15 @@
 
       <div class="set-body" *ngIf="stateObj === 'style'">
         <div class="set-list scrollY styles" >
-          <app-size [style]="activeSettingObj['style']"></app-size>
-          <app-position class="set-item" [style]="activeSettingObj['style']"></app-position>
-          <app-padding class="set-item" [style]="activeSettingObj['style']"></app-padding>
-          <app-opacity class="set-item" [style]="activeSettingObj['style']"></app-opacity>
-          <app-fonts class="set-item" [style]="activeSettingObj['style']"></app-fonts>
-          <app-border-component class="set-item" [style]="activeSettingObj['style']"></app-border-component>
-          <app-background class="set-item" [style]="activeSettingObj['style']"></app-background>
-          <app-z-index class="set-item" [style]="activeSettingObj['style']" ></app-z-index>
+          <app-size [style]="activeSettingObj['style']" class="user-select-node"></app-size>
+          <app-position class="set-item user-select-node " [style]="activeSettingObj['style']"></app-position>
+          <app-padding class="set-item user-select-node " [style]="activeSettingObj['style']"></app-padding>
+          <app-opacity class="set-item user-select-node " [style]="activeSettingObj['style']"></app-opacity>
+          <app-fonts class="set-item user-select-node " [style]="activeSettingObj['style']"></app-fonts>
+          <app-border-component class="set-item user-select-node " [style]="activeSettingObj['style']"></app-border-component>
+          <app-background class="set-item user-select-node " [style]="activeSettingObj['style']"></app-background>
+          <app-z-index class="set-item user-select-node " [style]="activeSettingObj['style']" ></app-z-index>
+          <app-style-copy class="set-item" [style]="activeSettingObj['style']"></app-style-copy>
         </div>
       </div>
       

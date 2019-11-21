@@ -1,0 +1,21 @@
+<div class="item-set  item-set-grid grid-1">
+  <div class="title">
+    <span class="tit">CSS</span> 
+    <span class="icon" (click)="showMoreFun()">
+      <span>{{showMoreBool ? '隐藏': '查看'}}</span>
+    </span>
+  </div>
+  <div class="set-val"  *ngIf="showMoreBool">
+    <code class="style-code" (click)="copyStyle()">
+      <ng-container *ngFor="let code of styleArr;let i = index;">
+          <span class="in-block">
+            <span class="index">
+              {{i+1}}.
+            </span>
+            {{code}}
+          </span>
+      </ng-container>
+    </code>
+  </div>
+
+</div>

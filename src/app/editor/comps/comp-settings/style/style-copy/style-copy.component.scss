@@ -1,0 +1,29 @@
+:host /deep/ {
+    code {
+        background: #eee;
+        display: block;
+        height: 270px;
+        overflow-y: auto;
+        text-align: left;
+        padding: 3px 5px;
+    }
+    .in-block {
+        display: block;
+        height: 18px;
+        line-height: 18px;
+        .index {
+            user-select: none;
+        }
+    }
+    .set-val {
+        margin: 0px;
+        padding: 0;
+        .style-code {
+            position: absolute;
+            bottom: 26px;
+            width: 150px;
+            margin: 5px;
+        }
+    }
+
+}

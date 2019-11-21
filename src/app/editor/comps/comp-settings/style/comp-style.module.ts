@@ -11,6 +11,7 @@ import { CodeModule } from '../../../../core/code.module';
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { PaddingComponent } from "./padding/padding.component";
+import { StyleCopyComponent } from "./style-copy/style-copy.component";
 
 const settingComp = [
     ColorComponent,
@@ -21,7 +22,8 @@ const settingComp = [
     BorderComponent,
     ZIndexComponent,
     OpacityComponent,
-    FontsComponent
+    FontsComponent,
+    StyleCopyComponent
 ]
 
 @NgModule({
