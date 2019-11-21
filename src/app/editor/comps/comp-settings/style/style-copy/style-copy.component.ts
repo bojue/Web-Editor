@@ -11,6 +11,7 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
   styleObj:any;
   compStyle:any;
   styleArr:any[];
+
   constructor() { 
     super()
   }
@@ -34,57 +35,61 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
 
   getStringObj() {
     let _obj = {};
+    let _res = '';
     for(let key in this.style) {
       _obj = this.getParamVal(key,_obj);
     }
-    return JSON.stringify(_obj, null, "\t");
+    for(let key in _obj) {
+      _res += `${key}:${_obj[key]};${this.WARP_CODE}` 
+    }
+    return _res;
     
   }
 
   getParamVal(key, _obj) {
     let val = this.style[key];
     let _val = val;
-    if(['height','width','borderWidth','top','left'].indexOf(key) > -1) {
-      let _val = val + 'px;';
+    if(['height','width','top','left'].indexOf(key) > -1) {
+      let _val = val + 'px';
+      _obj[key] = _val;
       this.styleArr.push(`${key}:${_val}`)
     }else { 
       switch(key) {
         case 'paddingTopBottom': 
-          _val = val + 'px;';
+          _val = val + 'px';
           _obj['padding-top'] = _val;
           _obj['padding-bottom'] = _val ;
           this.styleArr.push(`padding-top:${_val}`)
           this.styleArr.push(`padding-bottom:${_val}`);
           break;
         case 'paddingLeftRight':
-          _val =  val + 'px;';
-          _obj['padding-rigth'] = _val;
+          _val =  val + 'px';
+          _obj['padding-right'] = _val;
           _obj['padding-left'] = _val;
-          this.styleArr.push(`padding-rigth:${_val}`)
+          this.styleArr.push(`padding-right:${_val}`)
           this.styleArr.push(`padding-left:${_val}`)
           break; 
         case 'textAlign':
           _obj['text-align'] = val;
-          this.styleArr.push(`text-align:${val};`)
+          this.styleArr.push(`text-align:${val}`)
           break;
         case 'borderColor':
           _obj['border-color'] = val;
-          this.styleArr.push(`border-color:${val};`)
+          this.styleArr.push(`border-color:${val}`)
           break;
         case 'borderStyle':
           _obj['border-style'] = val;
-          this.styleArr.push(`border-style:${val};`)
+          this.styleArr.push(`border-style:${val}`)
           break;
-        case 'borderColor':
-          _val =  val + 'px;';
+        case 'borderWidth':
+          _val =  val + 'px';
           _obj['border-width'] = _val;
           this.styleArr.push(`border-width:${_val}`)
           break;  
         case 'zIndex':
           _obj['z-index'] = _val;
-          this.styleArr.push(`border-width:${_val}`)
+          this.styleArr.push(`z-index:${_val}`)
           break;    
-        
       }
       
     }
@@ -94,12 +99,11 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
 
   copyStyle() {
     const el = document.createElement('textarea');
-    // el.value = JSON.stringify(this.styleObj, null, "\t") || '无数据'
-    // document.body.appendChild(el);
-    // el.select();
-    // document.execCommand('copy');
-    // document.body.removeChild(el)
-
+    el.value = this.styleObj;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 
 }

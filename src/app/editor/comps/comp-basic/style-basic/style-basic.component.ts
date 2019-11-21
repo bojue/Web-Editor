@@ -12,6 +12,7 @@ export class StyleBasicComponent implements OnInit {
   @Input() style: SettingStyle;
   showMoreBool:boolean;
   iconUrl:string;
+  WARP_CODE = String.fromCharCode(13);//换行
 
   constructor() {}
 

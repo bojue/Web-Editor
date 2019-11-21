@@ -2,10 +2,10 @@
     code {
         background: #eee;
         display: block;
-        height: 270px;
+        height: 250px;
         overflow-y: auto;
         text-align: left;
-        padding: 3px 5px;
+        padding: 10px 10px;
     }
     .in-block {
         display: block;
@@ -21,9 +21,41 @@
         .style-code {
             position: absolute;
             bottom: 26px;
-            width: 150px;
+            width: 140px;
             margin: 5px;
+        }
+    }
+    .item-set-grid .title .icon {
+        opacity: 0.4;
+        img.code {
+            width: 16px;
+            
+        }
+    }
+    .copy {
+        width: 40px;
+        height: 18px;
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 18px;
+        color: #ccc;
+        &:hover {
+            border: 1px solid #999999;
+            color: #999999;
+            border-color:red;
+            border-width:1px;
+            border-style:solid;
+            padding-top:0px;
+            padding-bottom:0px;
+            padding-right:0px;
+            padding-left:0px;
+            text-align:center;
+
         }
     }
 
 }
+
