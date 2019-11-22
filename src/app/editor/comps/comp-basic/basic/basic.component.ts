@@ -15,7 +15,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class BasicComponent implements OnInit {
   @Input() settingObj: SettingObject;
   @Output() onChildComponentChange = new EventEmitter<any>();
-  INTERVAL_TIME = 40;
+  INTERVAL_TIME = 20;
   style: SettingStyle;
   data: SettingDate;
   lastTime:any;
@@ -65,10 +65,7 @@ export class BasicComponent implements OnInit {
   
   compEvent(event) {
     let newTime = new Date().getTime();
-    if(!this.lastTime) {
-      this.lastTime = newTime;
-      this.emitDrapFun(event);
-    }else if(newTime - this.lastTime > this.INTERVAL_TIME) {
+    if(!this.lastTime || newTime - this.lastTime > this.INTERVAL_TIME) {
       this.lastTime = newTime;
       this.emitDrapFun(event);
     }
