@@ -4,6 +4,8 @@ import { SettingStyle } from 'src/app/editor/model/setting-style.model';
 import { SettingDate } from 'src/app/editor/model/setting-data.model';
 import { EChartOption } from 'echarts';
 import { ContentPageSize } from '../../../model/setting-content-page-size.model';
+import * as _ from 'loadsh';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-basic',
@@ -13,8 +15,10 @@ import { ContentPageSize } from '../../../model/setting-content-page-size.model'
 export class BasicComponent implements OnInit {
   @Input() settingObj: SettingObject;
   @Output() onChildComponentChange = new EventEmitter<any>();
+  INTERVAL_TIME = 40;
   style: SettingStyle;
   data: SettingDate;
+  lastTime:any;
   contentPageSize:ContentPageSize;
   chartOption: EChartOption;
   ngStyle: any = {};
@@ -60,6 +64,17 @@ export class BasicComponent implements OnInit {
   }
   
   compEvent(event) {
+    let newTime = new Date().getTime();
+    if(!this.lastTime) {
+      this.lastTime = newTime;
+      this.emitDrapFun(event);
+    }else if(newTime - this.lastTime > this.INTERVAL_TIME) {
+      this.lastTime = newTime;
+      this.emitDrapFun(event);
+    }
+  }
+
+  emitDrapFun(event) {
     if(!(this.eventSubObj && this.eventSubObj['clientX'] === event['clientX'] && 
       this.eventSubObj['clientY'] === event['clentY'])) {
         event['dynamicData'] = this.settingObj;

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { StyleBasicComponent } from "../../../comp-basic/style-basic/style-basic.component";
 
 @Component({
-  selector: 'app-border-component',
+  selector: 'app-border',
   templateUrl: './border.component.html',
   styleUrls: ['./border.component.scss']
 })

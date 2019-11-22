@@ -169,7 +169,6 @@ export class CompConfigService {
                 }
             },     
         }
-        console.log(style, data['style'])
         return data[style]  ? data[style] : {} 
     }
 
@@ -194,18 +193,18 @@ export class CompConfigService {
     }
     _defCompStyle(customStyle ?:any) {
         let styleJson = {
-            height:100,
-            width: 100,
-            position: 'absolute',
-            textAlign:'center',
-            top:400,
+            position: 'absolute', //定位类型|position
+            top:400, //位置|postion
             left:200,
-            border: 1,
-            borderColor: 'red',
+            height:100, //尺寸|size
+            width: 100,
+            borderColor: 'red', //边框|border
             borderWidth: 1,
             borderStyle: 'solid',
-            paddingTopBottom:0,
-            paddingLeftRight:0
+            paddingTopBottom:0, //内边距|padding
+            paddingLeftRight:0,
+            textAlign:'center', //文字水平位置|textAlign
+   
         }
         for(let key in customStyle) {
             styleJson[key] = customStyle[key];

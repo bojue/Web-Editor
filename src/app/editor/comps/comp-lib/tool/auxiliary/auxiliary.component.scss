@@ -38,7 +38,6 @@
 
 
         .circle-item {
-            z-index: 1000;
             position: absolute;
             width: 6px;
             height: 6px;
@@ -46,7 +45,7 @@
             border-radius: 50%;
             background: #ffffff;
             pointer-events:auto;
-            z-index: 1000;
+            z-index:11 !important;
             &.col {
                 cursor: ew-resize;
             }

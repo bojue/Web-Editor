@@ -1,0 +1,19 @@
+<div class="item-set  item-set-grid grid-1">
+  <div class="title">
+    <span class="tit">CSS</span> 
+    <span class="icon" (click)="showMoreFun()" [title]="showMoreBool ? '隐藏' :'显示'">
+      <img class="code" src="./../../../../../../assets/icons/code.svg" alt="">
+    </span>
+  </div>
+  <div class="set-val"  *ngIf="showMoreBool">
+    <code class="style-code" id="copyContent">
+      <ng-container *ngFor="let code of styleArr;let i = index;">
+          <span class="in-block">
+            {{code}}
+          </span>
+      </ng-container>
+      <span class="copy" (click)="copyStyle(styleArr)">复制</span>
+    </code>
+  </div>
+
+</div>

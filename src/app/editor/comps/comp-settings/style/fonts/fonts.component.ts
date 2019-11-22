@@ -25,7 +25,8 @@ export class FontsComponent extends StyleBasicComponent implements OnInit {
         name:'右',
         value:'right'
       }
-    ] 
+    ] ;
+    
   }
 
   changeStyle(param, val) {

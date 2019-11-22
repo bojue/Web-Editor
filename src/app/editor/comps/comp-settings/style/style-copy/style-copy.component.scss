@@ -1,0 +1,50 @@
+:host /deep/ {
+    code {
+        background: #eee;
+        display: block;
+        height: 255px;
+        overflow-y: auto;
+        text-align: left;
+        padding: 10px 6px;
+    }
+    .in-block {
+        display: block;
+        height: 18px;
+        line-height: 18px;
+    }
+    .set-val {
+        margin: 0px;
+        padding: 0;
+        .style-code {
+            position: absolute;
+            bottom: 29px;
+            width: 150px;
+            margin: 3px;
+        }
+    }
+    .item-set-grid .title .icon {
+        opacity: 0.4;
+        img.code {
+            width: 16px;
+            
+        }
+    }
+    .copy {
+        width: 40px;
+        height: 18px;
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 18px;
+        color: #ccc;
+        &:hover {
+            border: 1px solid #999999;
+            color: #999999;
+
+        }
+    }
+
+}
+

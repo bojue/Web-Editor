@@ -24,6 +24,7 @@
     "@types/jquery": "^3.3.31",
     "core-js": "^2.5.4",
     "echarts": "^4.2.1",
+    "jquery": "^3.4.1",
     "loadsh": "0.0.4",
     "ngx-echarts": "^4.1.0",
     "node-sass": "^4.12.0",
