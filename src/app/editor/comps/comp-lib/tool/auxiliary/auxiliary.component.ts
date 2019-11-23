@@ -26,12 +26,15 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   compEvent(event, state?:string, eventEndBool?:boolean) {
-    event.stopPropagation();
-    this.setSettingParam(event, state, eventEndBool);
-    if(eventEndBool) {
-      this.startEvent = null;
+    let newTime = new Date().getTime();
+    if(!this.lastTime || newTime - this.lastTime > this.INTERVAL_TIME) {
+      this.lastTime = newTime;
+      event.stopPropagation();
+      this.setSettingParam(event, state, eventEndBool);
+      if(eventEndBool) {
+        this.startEvent = null;
+      }
     }
- 
   }
   expandUnitCustom(param, other) {
     if(['width', 'height'].indexOf(param) === -1) return;
