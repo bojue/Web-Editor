@@ -57,9 +57,10 @@
                 margin-top: 10px;
             }
             .child {
+                font-size: 12px;
                 position: relative;
-                height: 28px;
-                line-height: 28px;
+                height: 24px;
+                line-height: 24px;
                 &.disabled {
                     color: #ccc;
                 }

@@ -62,6 +62,11 @@ export class HomeComponent implements OnInit {
             description:"正在开发",
           },
           {
+            name:"快捷键",
+            state:true,
+            description:"目前支持组态copy和位置快捷键",
+          },
+          {
             name:"预览",
             state:true,
             description:"支持预览",
