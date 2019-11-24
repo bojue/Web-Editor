@@ -27,24 +27,24 @@ export class HomeComponent implements OnInit {
         name:"页面生成",
         children:[
           {
+            name:"拖拽创建组件",
+            state:true,
+            description:"拖拽布局系统优化了一部分，后续优化自动定位"
+          },
+          {
             name:"样式绑定",
             state:true,
             description:"样式可以动态设置"
           },
           {
-            name:"数据绑定",
+            name:"静态数据绑定",
             state:true,
             description:"目前仅仅支持文本数据绑定"
           },
           {
-            name:"restFul API绑定",
+            name:"动态数据绑定（restful API）",
             state:false,
             description:"目前没做后端，无法绑定RestFul"
-          },
-          {
-            name:"拖拽",
-            state:true,
-            description:"拖拽布局系统优化了一部分，后续优化自动定位"
           },
           {
             name:"事件绑定",
@@ -89,9 +89,14 @@ export class HomeComponent implements OnInit {
         name:"开发模式",
         children:[
           {
-            name:"后台",
+            name:"开源",
+            state:true,
+            description:"前端已经开源"
+          },
+          {
+            name:"服务端支持",
             state:false,
-            description:"计划有一版Tempo编辑器对应的后台项目"
+            description:"计划有一版Tempo编辑器对应的服务端项目"
           },
           {
             name:"在线试用",
