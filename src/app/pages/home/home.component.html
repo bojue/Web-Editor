@@ -1,3 +1,24 @@
 <div class="home">
-    <p>home</p>
+    <div class="body">
+        <div class="val">
+            基于angular2开发的前端页面生成工具
+        </div>
+        <div class="description">
+            <div class="des" *ngFor="let item of desciptions;">
+                <div class="tit">
+                    <span class="name">{{item['name']}}</span>
+                </div>
+                <ng-container *ngFor="let child of item['children'];">
+                    <div class="content">
+                        <div class="child" [ngClass]="{disabled:!child['state']}">
+                            <span class="title">{{child['name']}}</span>
+                            <span class="state">
+                                <img *ngIf="child['state']" src="./../../../assets/imgs/true.svg" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
 </div>
