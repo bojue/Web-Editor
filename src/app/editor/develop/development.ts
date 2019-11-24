@@ -279,6 +279,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let comps = page && page['componentList'] || [];
     this.currnetPageComps = comps;
     this.getCompList(comps);
+    this.activeCurrentComp = null;
+    this.activeCompSettingObject = null;
+    this.getAuxiliaryComponent(null, 'deleteComponent');
   }
 
   //通过元素列表选择组态
