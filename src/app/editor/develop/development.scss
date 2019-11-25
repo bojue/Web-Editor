@@ -3,6 +3,10 @@
 
     $color-red-1: rgba(255, 0, 0, 0.6);
     $border-color3: $color-red-1;
+    input,textarea,button{
+        outline:none;
+    }
+    
     .devBody {
         display: grid;
         grid-template-columns: 175px 40px auto 175px;

@@ -12,6 +12,7 @@ $border-color2: $color-blue-2;
 $border-color3: $color-red-1;
 $border-color4: $color-grey-1;
 
+
 :host /deep/ {
     font: 12px Helvetica,Arial,sans-serif;
     .body {
@@ -21,6 +22,7 @@ $border-color4: $color-grey-1;
             padding: 0;
             margin: 0;
         }
+       
         .disabled-status {
             cursor: not-allowed;
         }
