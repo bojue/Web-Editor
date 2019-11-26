@@ -198,7 +198,7 @@ export class CompConfigService {
             left:200,
             height:100, //尺寸|size
             width: 100,
-            borderColor: 'red', //边框|border
+            borderColor: "#ffffff", //边框|border
             borderWidth: 1,
             borderStyle: 'solid',
             paddingTopBottom:0, //内边距|padding

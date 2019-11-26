@@ -13,7 +13,6 @@
       (drag)="compEvent($event, 'l')"
       (dragend)="compEvent($event, 'l', true) "
       [ngStyle]="{
-        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'l_t', false, 'height', true, -3),
         'left':expandAuxiUnit('left', 'l_l', false, null, false, -3)}">
         <span  *ngIf="style['left'] > 20" class="w-h height">{{style['height']}}</span>
@@ -24,7 +23,6 @@
       (drag)="compEvent($event, 'r')"
       (dragend)="compEvent($event, 'r', true)"
       [ngStyle]="{
-        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'r_t', false, 'height', true, -3),
         'left':expandAuxiUnit('left', 'r_l', false, 'width', false, -3)}">
         <span *ngIf="style['left'] <= 20" class="w-h height height2">{{style['height']}}</span>
@@ -35,7 +33,6 @@
       (drag)="compEvent($event, 't')"
       (dragend)="compEvent($event, 't', true)"
       [ngStyle]="{
-        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 't_t', false, null, false, -3),
         'left':expandAuxiUnit('left', 't_l', false, 'width', true, -3)}">
         <span *ngIf="style['top'] > 20"  class="w-h width">{{style['width']}}</span>
@@ -46,7 +43,6 @@
       (drag)="compEvent($event, 'b')"
       (dragend)="compEvent($event, 'b', true)"
       [ngStyle]="{
-        'border-color':getBorderCol(),
         'top':expandAuxiUnit('top', 'b_t', false, 'height', false, -3),
         'left':expandAuxiUnit('left', 'b_l', false, 'width', true, -3)}">
         <span *ngIf="style['top'] <= 20" class="w-h width width2">{{style['width']}}</span>

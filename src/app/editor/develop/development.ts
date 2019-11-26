@@ -122,8 +122,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   initData() {
     this.currentViewContRef = this.viewContRef.viewContainerRef;
-    // this.currnetPageComps = this.service.getCurrentPageComp(); //获取json数据(组件数据)
-    // this.getCompList(this.currnetPageComps); //json数据生成组件集合
     this.currnetPageComps = null;
     this.auxiComp = this.infoService.getAuxiComp();
     this.areaComp = this.infoService.getAreaComp();
@@ -145,6 +143,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   addComponent(compType ?:any, event ?:any, addComp?: any) {
     let compDefinInfo = this.dynamicService.createComponent(compType, this.infoService.getCompDefaultConfig(compType));
     let addCompJson = addComp || compDefinInfo && compDefinInfo['data'];
+    this.initCompsState();
     if(compType && event){
       this.initCopyState();
       this.getAuxiliaryComponent(null , 'addComponent');
@@ -157,11 +156,20 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         addCompJson['active'] = true;
       }
     }  
-
     this.currnetPageComps.push(addCompJson);
-    this.initViewContRef()
-    _.map(this.currnetPageComps, item => item['active'] = false);
-    this.getCompList(this.currnetPageComps); 
+    this.currentIndex = this.currnetPageComps.length-1 ;
+    let currentComp = this.dynamicService.getComp(addCompJson);
+    this.activeCompSettingObject = addCompJson;
+    this.components.push(currentComp);
+    this.renderComponent(this.currentIndex);
+  }
+
+  initCompsState() {
+    _.map(this.currnetPageComps, item => {
+      if(item['active']) {
+        item['active'] = false;
+      }
+    });
   }
   
   //修改组件
@@ -205,9 +213,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     if(_delComp > -1) {
       this.currentIndex = -1;
       this.currnetPageComps.splice(_delComp, 1);
-      this.initViewContRef();
+      // this.initViewContRef();
       this.activeCompSettingObject = null;
-      this.getCompList(this.currnetPageComps);
+      console.log(_delComp)
+      this.currentViewContRef.remove(_delComp);
+      // this.getCompList(this.currnetPageComps);
     }
   }
 
@@ -262,9 +272,11 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //选择组件
   selectComp(settingObj, compInstance, currentIndex, eventType, event) {
     this.currentIndex = currentIndex;
+    this.initCompsState();
     this.activeCurrentComp = [settingObj, compInstance];
+    console.log(this.activeCurrentComp, compInstance, settingObj)
     this.activeCompSettingObject = settingObj;
-    settingObj['active'] = !settingObj['active'];
+    settingObj['active'] = true;
     this.currnetPageComps[this.currentIndex] = settingObj;
     if(eventType === 'click') {
       this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent');
@@ -288,8 +300,16 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   activeComp(comp) {
     this.initPageCompState();
     this.clickListernerHandle(null)
+    _.map(this.currnetPageComps, comp => {
+      comp['active'] = false;
+    });
+    comp['active'] = true;
     this.activeCompSettingObject = comp;
-    this.activeCompSettingObject['active'] = false;
+    _.map(this.currnetPageComps, (item, k) => {
+      if(item['active']) {
+        this.currentIndex = k;
+      }
+    })
     this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent');
   }
 
@@ -391,6 +411,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   }
 
+  //初始化当前激活组态数据
   initCopyState() {
     this.copyComp = null;
     this.copyNum = null;

@@ -70,6 +70,16 @@ export class CompDynamicCreateService {
     return compList;
   }
 
+
+  //组件映射
+  getComp(settingItem:any){
+    let _type = settingItem && settingItem['type'];
+    let compInfo = this.createComponent(_type)
+    let settingData = settingItem || compInfo['data']
+    let createComp = new SettingItem(compInfo['comp'], settingData);
+    return createComp;
+  }
+
   //拖拽边界处理
   getboundaryBool(changeX,changeY, style, direction) {
     let bool = false;
