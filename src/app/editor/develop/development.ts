@@ -24,19 +24,25 @@ import * as $ from 'jquery';
 export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
-  currentIndex = -1;
+
   componentModules: any[];
   basicComponents: any[];
-  currnetPageComps: any[];
   auxiComp: any = {};
   areaComp: any = {};
-  components: any[];
   cmpRef: any[];
   currentViewContRef: any; //当前组件实例
-  activeCurrentComp: [SettingObject, any ];//当前组件的数据
-  activeCompSettingObject: SettingObject; //当前组件的设置对象
+
+  currnetPageComps: any[]; //页面实例化前的组态列表，保存数据的json
+  components: any[]; //页面实例化后的组态列表
+
+  currentIndex = -1; //激活组件的下标
+  activeCurrentComp: SettingObject; //当前组件的数据
+  activeCompSettingObject: SettingObject; //当前组态设置对象
+
+
   copyComp: any; //拷贝组件
   copyNum:number; //单个组件拷贝次数
+
   dragCompStartX:any; //组件拖拽记录开始坐标X
   dragCompStartY:any; //组件拖拽记录开始坐标Y
   PAGE_SIZE:number;
@@ -80,6 +86,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
+      console.log(this.activeCompSettingObject)
       if(!this.activeCompSettingObject) {
         return;
       }
@@ -88,8 +95,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
  
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
       let del_comp_by_group = ['text'].indexOf(this.activeCompSettingObject['type']) > -1;
-      console.log(del_mac, $event.ctrlKey ,del_comp_by_group )
-      if((del_window || (del_mac && !activeEleBool) || (del_mac && $event.ctrlKey && this.activeCompSettingObject)) && !del_comp_by_group || ( (del_window || del_mac) && $event.ctrlKey && del_comp_by_group )){
+      console.log(del_mac ,!activeEleBool)
+      if((del_window || del_mac && !activeEleBool || (del_mac && $event.ctrlKey && this.activeCompSettingObject)) && !del_comp_by_group || ( (del_window || del_mac) && $event.ctrlKey && del_comp_by_group )){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
@@ -154,7 +161,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
         addCompJson['style']['left'] = _left >= 0 ? _left : 0;
         addCompJson['contentPageSize'] = this.contentPageSize;
         addCompJson['active'] = true;
-      }
+      } 
     }  
     this.currnetPageComps.push(addCompJson);
     this.currentIndex = this.currnetPageComps.length-1 ;
@@ -165,35 +172,33 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   initCompsState() {
-    _.map(this.currnetPageComps, item => {
-      if(item['active']) {
-        item['active'] = false;
-      }
+    this.currentIndex = -1;
+    this.activeCurrentComp = null;
+    this.activeCompSettingObject = null;
+    _.map(this.currnetPageComps, (item,k) => {
+      item['active'] = false;
     });
   }
   
   //修改组件
   chengeComponent(event) {
     let settingObj = event;
-    let compInstance  = this.activeCurrentComp[1];
+    let compInstance  = this.components[this.currentIndex];
     return (<SettingObjComponent> compInstance).settingObj = settingObj;    
   }
 
   //父类容器监听事件
   clickListernerHandle(e) {
     if(!this.currnetPageComps) return;
-    this.activeCompSettingObject = null;//初始化当前选中对象（清空）
+    this.initCompsState();
     this.getPageSize();
     //1.更新文本编辑状态
     let currentComp = this.currnetPageComps[this.currentIndex];
     if(currentComp && currentComp['type'] === 'text') {
       currentComp['editeabled'] = false;
     }
-    this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
-    //2.初始化选中组件标识
-    this.currentIndex = -1;
 
-    //3.处理选中辅助组件
+    //2.处理选中辅助组件
     this.getAuxiliaryComponent(null, 'parentListerner');
   }
 
@@ -210,6 +215,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   deleteComponent(event) {
     let _delComp =  this.currentIndex;
     this.getAuxiliaryComponent(null, 'deleteComponent');
+    console.log(_delComp)
     if(_delComp > -1) {
       this.currentIndex = -1;
       this.currnetPageComps.splice(_delComp, 1);
@@ -236,8 +242,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   //组件渲染
   renderComponent(currentIndex) {
-    let index = currentIndex || 0;
-    let currentComponent = this.components[index];
+    let currentComponent = this.components[currentIndex];
     let compFactory  = this.componentFactoryResolver.resolveComponentFactory(currentComponent.compType);
     let compRef = this.currentViewContRef.createComponent(compFactory);
     let compInstance = compRef.instance;
@@ -262,27 +267,33 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           style['left'] = style['left'] >= 0 ? style['left'] : 0;
           style['top'] = style['top'] >= 0 ? style['top'] : 0;
         }
-        this.dynamicService.beforeSelectComp(this.activeCompSettingObject, this.activeCurrentComp);
-        this.selectComp(currentComponent.settingObj, compInstance, index, eventType, e);
+        this.selectComp(currentComponent.settingObj, eventType)
         this.initCopyState();
       }
     })
   }
 
   //选择组件
-  selectComp(settingObj, compInstance, currentIndex, eventType, event) {
-    this.currentIndex = currentIndex;
-    this.initCompsState();
-    this.activeCurrentComp = [settingObj, compInstance];
-    console.log(this.activeCurrentComp, compInstance, settingObj)
+  selectComp(settingObj, eventType) {
     this.activeCompSettingObject = settingObj;
-    settingObj['active'] = true;
-    this.currnetPageComps[this.currentIndex] = settingObj;
+    this.getActiveComponent(settingObj);
     if(eventType === 'click') {
-      this.getAuxiliaryComponent(this.activeCompSettingObject['style'], 'selectComponent');
-    }else {
-      return (<SettingObjComponent> compInstance).settingObj = settingObj;
+      this.getAuxiliaryComponent(settingObj['style'], 'selectComponent');
     }
+  }
+
+  //选择组件，获取激活状态组件
+  getActiveComponent(settingObj) {
+    this.initCompsState();
+    _.map(this.currnetPageComps, (comp, k) => {
+      if(comp === settingObj) {
+        this.currentIndex = k;
+        comp['active'] = true;
+        this.activeCompSettingObject = settingObj;
+        this.activeCurrentComp = comp;
+      }
+    });
+
   }
 
   //选择当前页面组件列表
@@ -291,7 +302,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let comps = page && page['componentList'] || [];
     this.currnetPageComps = comps;
     this.getCompList(comps);
-    this.activeCurrentComp = null;
     this.activeCompSettingObject = null;
     this.getAuxiliaryComponent(null, 'deleteComponent');
   }
@@ -329,14 +339,17 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
      * 3.addComponent 添加组件
      * 4.deleteComponent 删除组件
      */
+    console.log(this.activeCompSettingObject)
     this.auxiCompInit() 
+    console.log(this.activeCompSettingObject)
 
     if(eventType === 'selectComponent') {
+      this.auxiComp = this.infoService.getAuxiComp();
       this.currnetPageComps.push(this.auxiComp)
       let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AuxiliaryComponent);
       let compRef = this.currentViewContRef.createComponent(compFactory);
       let compInstance = compRef.instance;
-      (<SettingObjComponent> compInstance).settingObj = this.activeCompSettingObject;
+      (<SettingObjComponent> compInstance).settingObj = this.activeCurrentComp;
     }
   }
 
@@ -346,6 +359,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     //计算辅助组件下标
     let auxiIndex =  _.findIndex(this.currnetPageComps, function(item) { return item['type'] == 'auxi'; });
     if(auxiIndex > -1) {
+      this.components.splice(auxiIndex,1)
       this.currnetPageComps.splice(auxiIndex, 1);
       this.currentViewContRef.remove(auxiIndex);
     }

@@ -42,6 +42,7 @@ export class BasicComponent implements OnInit {
   
   // 拖拽辅助线边框
   expandUnit(param, other ?: string) {
+    if(!this.style) return;
     let paramVal = !other ? this.style[param] : (this.style[param] + this.style[other]);  //无边框计算方式
     paramVal = this.hasBorderWidth(paramVal, param, other);
     return paramVal + 'px'; 

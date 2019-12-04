@@ -94,14 +94,4 @@ export class CompDynamicCreateService {
     return bool;
   }
 
-  //选择组件后预先处理逻辑
-  beforeSelectComp(activeCompSettingObject, activeCurrentComp) {
-    activeCompSettingObject = null;
-    if(activeCurrentComp && activeCurrentComp.length > 0) {
-      let beforeActiveCompSettingObj = activeCurrentComp[0];
-      beforeActiveCompSettingObj['active'] = false;
-      let beforeActiveCompInstance = activeCurrentComp[1];
-      return (<SettingObjComponent> beforeActiveCompInstance).settingObj = beforeActiveCompSettingObj;
-    }
-  }
 }

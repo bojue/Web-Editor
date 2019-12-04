@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import * as _ from 'lodash';    
 import { BasicComponent } from '../../../comp-basic/basic/basic.component';
 import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
+import { SettingObject } from 'src/app/editor/model/setting-object.module';
 
 @Component({
   selector: 'app-auxiliary',
@@ -37,6 +38,7 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
     }
   }
   expandUnitCustom(param, other) {
+    if(!this.style) return ;
     if(['width', 'height'].indexOf(param) === -1) return;
     let val = 0;
     if(other === 'paddingLeftRight') {

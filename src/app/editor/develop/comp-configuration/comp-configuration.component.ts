@@ -12,7 +12,6 @@ export class CompConfigurationComponent implements OnInit {
   @Input() currnetPageComps;
   @Output() compDragEvent = new EventEmitter<any>();
   @Output() selCurrentPage = new EventEmitter<any>();
-  @Output() currentPageEvents = new EventEmitter<any>();
   @Output() activeCompFun = new EventEmitter<any>();
 
   pages: any;
@@ -57,7 +56,4 @@ export class CompConfigurationComponent implements OnInit {
     this.activeCompFun.emit(comp);
   }
 
-  currentPageEvent(state) {
-    this.currentPageEvents.emit(event);
-  }
 }
