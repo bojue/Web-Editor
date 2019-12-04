@@ -15,7 +15,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class BasicComponent implements OnInit {
   @Input() settingObj: SettingObject;
   @Output() onChildComponentChange = new EventEmitter<any>();
-  INTERVAL_TIME = 20;
+  INTERVAL_TIME = 30;
   style: SettingStyle;
   data: SettingDate;
   lastTime:any;

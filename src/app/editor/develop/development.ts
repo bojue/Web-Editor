@@ -178,6 +178,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     _.map(this.currnetPageComps, (item,k) => {
       item['active'] = false;
     });
+
+    console.log(this.currnetPageComps, this.componets)
   }
   
   //修改组件
