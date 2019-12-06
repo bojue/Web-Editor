@@ -86,7 +86,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }
     });
     this.eventManager.addGlobalEventListener('window','keydown',($event) => {
-      console.log(this.activeCompSettingObject)
       if(!this.activeCompSettingObject) {
         return;
       }
@@ -177,8 +176,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     _.map(this.currnetPageComps, (item,k) => {
       item['active'] = false;
     });
-
-    console.log(this.currnetPageComps, this.componets)
   }
   
   //修改组件
@@ -338,11 +335,12 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.auxiCompInit() 
     if(eventType === 'selectComponent') {
       this.auxiComp = this.infoService.getAuxiComp();
+      this.auxiComp['style'] = selectStyle;
       this.currnetPageComps.push(this.auxiComp)
       let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AuxiliaryComponent);
       let compRef = this.currentViewContRef.createComponent(compFactory);
       let compInstance = compRef.instance;
-      (<SettingObjComponent> compInstance).settingObj = this.activeCurrentComp;
+      (<SettingObjComponent> compInstance).settingObj = this.auxiComp;
     }
   }
 

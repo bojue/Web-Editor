@@ -8,7 +8,7 @@ import * as _ from 'loadsh';
 })
 export class CompPageCompsListComponent implements OnInit {
   @Input() pageComps:any;
-  @Output() selCurrentPage = new EventEmitter<any>();
+  @Output() activeComp = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
@@ -27,6 +27,6 @@ export class CompPageCompsListComponent implements OnInit {
   selectComp(comp) {
     this.initCompState(comp);
     console.log(comp)
-    this.selCurrentPage.emit(comp);
+    this.activeComp.emit(comp);
   }
 }
