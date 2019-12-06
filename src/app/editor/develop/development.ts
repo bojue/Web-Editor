@@ -334,6 +334,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     if(eventType === 'selectComponent') {
       this.auxiComp = this.infoService.getAuxiComp();
       this.auxiComp['style'] = selectStyle;
+      this.auxiComp['contentPageSize'] = this.contentPageSize;
       this.currnetPageComps.push(this.auxiComp)
       let compFactory  = this.componentFactoryResolver.resolveComponentFactory(AuxiliaryComponent);
       let compRef = this.currentViewContRef.createComponent(compFactory);
