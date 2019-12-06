@@ -294,6 +294,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     this.initViewContRef();
     let comps = page && page['componentList'] || [];
     this.currnetPageComps = comps;
+    this.initPageCompState();
     this.getCompList(comps);
     this.activeCompSettingObject = null;
     this.getAuxiliaryComponent(null, 'deleteComponent');
@@ -302,10 +303,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //通过元素列表选择组态
   activeComp(comp) {
     this.initPageCompState();
-    this.clickListernerHandle(null)
-    _.map(this.currnetPageComps, comp => {
-      comp['active'] = false;
-    });
+    this.clickListernerHandle(null);
     comp['active'] = true;
     this.activeCompSettingObject = comp;
     _.map(this.currnetPageComps, (item, k) => {
@@ -318,7 +316,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   initPageCompState() {
     _.map(this.currnetPageComps, item => {
-      if(['area', 'auxi'].indexOf(item['type']) > -1) {
+      if(['area', 'auxi'].indexOf(item['type']) === -1) {
         item['active'] = false;
       }
     })
