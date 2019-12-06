@@ -183,18 +183,18 @@
         }
     }
     .del {
-        display: block;
-        text-align: center;
-        margin: 10px 0;
+        position: absolute;
+        top: 0px;
+        right: 10px;
         .del-btn {
             cursor: pointer;
             width: 20px;
             height: 20px;
-            padding: 4px;
+            padding: 5px;
             border-radius: 50%;
-            box-shadow: 0 0 3px #eeeeee;
+            opacity: 0.5;
             &:hover {
-                box-shadow: 0 0 3px red;
+                opacity: 0.9;
             }
         }
     }

@@ -27,8 +27,9 @@ export class BasicComponent implements OnInit {
   ignoreParams:any[];
   eventSubObj:any;
   constructor() {
+  
   }
-
+  
   ngOnInit() {
     this.initData()
   }
@@ -47,6 +48,8 @@ export class BasicComponent implements OnInit {
     paramVal = this.hasBorderWidth(paramVal, param, other);
     return paramVal + 'px'; 
   }
+
+  
 
   //有边框辅助位置计算
   hasBorderWidth(paramVal, param, other ?: string) {

@@ -10,6 +10,11 @@
       <div class="item-discription">
         <div class="title">{{activeSettingObj['name']}}</div>
       </div>
+      <!-- 组件删除 -->
+      <div class="del">
+        <img class='del-btn' (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
+      </div>
+  
 
       <div class="set-tabs">
         <ng-container *ngFor="let tab of states;" >
@@ -51,12 +56,6 @@
           <app-route-event [event]="activeSettingObj['event']"></app-route-event>
         </div>
       </div>
-  
-      <!-- 组件删除 -->
-      <div class="del">
-        <img class='del-btn' (click)="deleteComp($event)" src="../../../../assets/icons/delete.svg" title="删除组件" alt="删除组件">
-      </div>
-
     </ng-container>
     
     <!-- 边框设置 -->
