@@ -15,17 +15,18 @@ export class CompPageCompsListComponent implements OnInit {
   }
 
   initCompState(comp?:any) {
-    if(comp['actived']) return;
+    if(comp['active']) return;
     _.map(this.pageComps , item => {
-      item['actived'] = false;
+      item['active'] = false;
     })
     if(comp) {
-      comp['actived'] = true;
+      comp['active'] = true;
     }
   }
 
   selectComp(comp) {
     this.initCompState(comp);
+    console.log(comp)
     this.selCurrentPage.emit(comp);
   }
 }
