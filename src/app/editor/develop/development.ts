@@ -94,9 +94,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       let del_mac = this.userAgentService.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
  
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
-      let del_comp_by_group = ['text'].indexOf(this.activeCompSettingObject['type']) > -1;
       console.log(del_mac ,!activeEleBool)
-      if((del_window || del_mac && !activeEleBool || (del_mac && $event.ctrlKey && this.activeCompSettingObject)) && !del_comp_by_group || ( (del_window || del_mac) && $event.ctrlKey && del_comp_by_group )){
+      if((del_window || del_mac && (!activeEleBool || activeEleBool && !document.activeElement.value)|| (del_mac && $event.ctrlKey && this.activeCompSettingObject)) || ( (del_window || del_mac) && $event.ctrlKey  )){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
