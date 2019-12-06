@@ -26,7 +26,6 @@ export class CompPageCompsListComponent implements OnInit {
 
   selectComp(comp) {
     this.initCompState(comp);
-    console.log(comp)
     this.activeComp.emit(comp);
   }
 }
