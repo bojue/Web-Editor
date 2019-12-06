@@ -25,7 +25,7 @@ export class CompConfigService {
                 name:'文本',
                 type:'text',
                 data: {
-                    text_val:'双击修改文本',
+                    text_val:'左侧绑定文本',
                 },
                 style: this._defCompStyle({
                     width:120,

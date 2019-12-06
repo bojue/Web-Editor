@@ -5,7 +5,6 @@
   (dragend)="compEvent($event)"
   (click)="compEvent($event)" 
   (mousedown)="compEvent($event)"
-  (dblclick)="inputState($event)"
   [ngClass]="{'comp-active': settingObj['active'] }"  
   [ngStyle]="{
     'position':style['position'],
@@ -27,8 +26,5 @@
   }"  
 >
 
-<span *ngIf="!settingObj['editeabled']"> {{data['text_val'] || '文本'}} </span>
-<div *ngIf="settingObj['editeabled']"  contenteditable="true" (input)="inputVal($event)">
-  {{data['text_val']}}
-</div>
+<span> {{data['text_val'] || '左侧输入文本'}} </span>
 </div>

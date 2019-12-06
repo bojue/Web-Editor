@@ -19,9 +19,5 @@ export class TextComponent extends BasicComponent implements SettingObjComponent
     this.initData();
   }
 
-  inputState(event) {
-    this.settingObj['editeabled'] = true;
-  }
-
 
 }
