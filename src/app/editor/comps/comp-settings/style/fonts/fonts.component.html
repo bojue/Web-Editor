@@ -5,6 +5,10 @@
             <img src="{{iconUrl}}" alt="">
         </span>
     </div>
+    <div class="set-val " *ngIf="showMoreBool">
+        <label class="lab">大小</label>
+        <input class="val" type="number" step="1" min="12" max="50" [(ngModel)]="style['fontSize']" placeholder="字体大小">
+    </div>
     <div class="val val-grid" *ngIf="showMoreBool">
         <div class="item" (click)="changeStyle('textAlign', item['value'])" [ngClass]="{'sel': item['value'] === style['textAlign']}" *ngFor='let item of fontAlign;'>{{item['name']}}</div>
     </div>

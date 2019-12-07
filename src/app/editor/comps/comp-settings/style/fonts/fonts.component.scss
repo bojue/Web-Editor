@@ -21,4 +21,15 @@
             }
         }
     }
+    .set-val {
+        label {
+            display: inline-block;
+            width: 46px;
+            left: 12px;
+        }
+        input.val {
+            width: 77px;
+            margin-left: 31px;
+        }
+    }
 }

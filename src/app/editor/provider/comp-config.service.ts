@@ -203,6 +203,7 @@ export class CompConfigService {
             borderStyle: 'solid',
             paddingTopBottom:0, //内边距|padding
             paddingLeftRight:0,
+            fontSize:14,
             textAlign:'center', //文字水平位置|textAlign
    
         }
