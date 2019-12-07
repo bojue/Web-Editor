@@ -386,33 +386,28 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   arrowEvent(direction) {
     let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
-    if(['ArrowDown','ArrowUp'].indexOf(direction) > -1 && $("input:focus")['length'] > 0 && $("input:focus")[0]['id'] === "setTopVal") {
-      switch(direction) {
-        case 'ArrowDown':
-          styleObj['top'] = styleObj['top'] + 1;  
-          break;  
-        case 'ArrowDown':
-          styleObj['top'] = styleObj['top'] > 0 ? styleObj['top'] - 1 : 0;
-          break;    
-      }
-    } else {
-      switch(direction) {
-        case 'ArrowLeft':
-          styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
-          break;
-        case 'ArrowRight':
-          styleObj['left'] = styleObj['left'] + 1;
-          break;
-        case 'ArrowDown':
-          styleObj['top'] = styleObj['top'] + 1;  
-          break;  
-        case 'ArrowUp':
-          styleObj['top'] = styleObj['top'] > 0 ? styleObj['top'] - 1 : 0;
-          break;    
-      }
+    switch(direction) {
+      case 'ArrowLeft':
+        styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
+        break;
+      case 'ArrowRight':
+        styleObj['left'] = styleObj['left'] + 1;
+        break;
+      case 'ArrowDown':
+        if(!$('input:focus')['length']) {
+          styleObj['top'] = styleObj['top'] >= 0 ? styleObj['top']+ 1 :0;   
+        } else if($('input:focus') && $('input:focus')['length'] > 0 && $('input:focus')[0]['id'] === 'setTopVal') {  
+          styleObj['top'] = styleObj['top'] >= 0 ? styleObj['top'] - 1 : 0;  
+        }
+        break;  
+      case 'ArrowUp':
+        if(!$('input:focus')['length']) {
+          styleObj['top'] = styleObj['top'] >= 1 ? styleObj['top'] - 1 :0;   
+        } else if($('input:focus') && $('input:focus')['length'] > 0 && $('input:focus')[0]['id'] === 'setTopVal') {  
+          styleObj['top'] = styleObj['top'] >= 1 ? styleObj['top'] + 1 : 0;  
+        }
+        break;    
     }
-    
-
   }
 
   //初始化当前激活组态数据
