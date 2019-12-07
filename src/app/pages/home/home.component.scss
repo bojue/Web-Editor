@@ -39,6 +39,9 @@
         position: relative;
         display: grid;
         grid-template-columns: auto auto auto;
+        width:900px;
+        left: 50%;
+        margin-left: -450px;
         .des {
             width: 200px;
             display: inline-block;
