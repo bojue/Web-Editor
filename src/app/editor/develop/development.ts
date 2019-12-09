@@ -101,7 +101,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
           this.copyCompEvet($event);
         }
       }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 && this.activeCompSettingObject ){
-        this.arrowEvent($event.code);
+        this.arrowEvent($event.code, $event);
       }
     });
   }
@@ -384,25 +384,30 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  arrowEvent(direction) {
+  arrowEvent(direction, event) {
     let styleObj = this.activeCompSettingObject && this.activeCompSettingObject['style'];
     switch(direction) {
       case 'ArrowLeft':
         styleObj['left'] = styleObj['left'] > 0 ? styleObj['left'] - 1 : 0;
+        this.stopWindowScroll(event);
         break;
       case 'ArrowRight':
         styleObj['left'] = styleObj['left'] + 1;
+        this.stopWindowScroll(event);
         break;
       case 'ArrowDown':
         if(!$('input:focus')['length']) {
           styleObj['top'] = styleObj['top'] >= 0 ? styleObj['top']+ 1 :0;   
+          this.stopWindowScroll(event);
         } else if($('input:focus') && $('input:focus')['length'] > 0 && $('input:focus')[0]['id'] === 'setTopVal') {  
           styleObj['top'] = styleObj['top'] >= 0 ? styleObj['top'] - 1 : 0;  
         }
+  
         break;  
       case 'ArrowUp':
         if(!$('input:focus')['length']) {
           styleObj['top'] = styleObj['top'] >= 1 ? styleObj['top'] - 1 :0;   
+          this.stopWindowScroll(event);
         } else if($('input:focus') && $('input:focus')['length'] > 0 && $('input:focus')[0]['id'] === 'setTopVal') {  
           styleObj['top'] = styleObj['top'] >= 1 ? styleObj['top'] + 1 : 0;  
         }
@@ -410,6 +415,10 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
+  //阻止页面滚蛋  
+  stopWindowScroll(event) {
+    event.preventDefault();  
+  }
   //初始化当前激活组态数据
   initCopyState() {
     this.copyComp = null;
@@ -422,14 +431,14 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     let _top = this.areaComp['style']['top'];
     switch (state) {
       case 'mousedown':
-      this.mouseState['down'] = true;
-      this.mouseState['up'] = false;
-      this.mouseState['move'] = false;
-      if(this.areaComp && this.areaComp['style']) {
-        this.areaComp['style']['left'] = event.x - this.contentPageSize.left;
-        this.areaComp['style']['top'] = event.y - this.contentPageSize.top;
-      }
-      break;
+        this.mouseState['down'] = true;
+        this.mouseState['up'] = false;
+        this.mouseState['move'] = false;
+        if(this.areaComp && this.areaComp['style']) {
+          this.areaComp['style']['left'] = event.x - this.contentPageSize.left;
+          this.areaComp['style']['top'] = event.y - this.contentPageSize.top;
+        }
+        break;
       case 'mousemove':
       if(this.mouseState['down'] && !this.mouseState['move'] && event.ctrlKey) {
         this.mouseState['move'] = true;
@@ -438,7 +447,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       }else if(this.mouseState['down']) {
         let _w = event.x - _left - this.contentPageSize.left;
         let _h =  event.y - _top - this.contentPageSize.top;
-
         if(_w > 1) {
           this.areaComp['style']['right'] = null;
           this.areaComp['style']['width'] = _w;
