@@ -22,7 +22,7 @@ export class ChartGuageComponent extends CustomBasicComponent implements OnInit 
   }
 
   initData() {
-    this.service.get(null,'localhost:3000').subscribe(res => {
+    this.service.get(null,'api/guage').subscribe(res => {
       console.log(res)
     })
     this.chartOption = {
