@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { ChartGuageService } from './chart-guage.service';
 
 @Component({
   selector: 'app-chart-guage',
@@ -9,7 +10,9 @@ import { EmitSubService } from 'src/app/providers/emit-sub.service';
 })
 export class ChartGuageComponent extends CustomBasicComponent implements OnInit {
   chartOption:any;
-  constructor(private emitService: EmitSubService) {
+  constructor(
+    private service:ChartGuageService,
+    private emitService: EmitSubService) {
     super(emitService)
    }
 
@@ -19,6 +22,9 @@ export class ChartGuageComponent extends CustomBasicComponent implements OnInit 
   }
 
   initData() {
+    this.service.get(null,'localhost:3000').subscribe(res => {
+      console.log(res)
+    })
     this.chartOption = {
       tooltip : {
         formatter: "{a} <br/>{b} : {c}%"

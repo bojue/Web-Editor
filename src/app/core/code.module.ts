@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { CompDynamicCreateService } from '../editor/provider/comp-dynamic-create.service';
 import { UserAgentService } from './tool/user-agent.service';
 import { CommonModule } from '@angular/common';
+import { BaseHttpService } from './provider/baseHttp/base-http.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,12 +14,14 @@ import { CommonModule } from '@angular/common';
  ],
   imports: [
     RouterModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
     BreadCurmbComponent,
   ],
   providers: [
+    BaseHttpService,
     CompDynamicCreateService,
     MenuBreadCrumbService,
     UserAgentService
