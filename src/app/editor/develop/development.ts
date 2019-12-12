@@ -218,6 +218,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       this.currnetPageComps.splice(_delComp, 1);
       this.getCompList(this.currnetPageComps);
     }
+    this.initCompsState();
   }
 
   //创建组件列表
