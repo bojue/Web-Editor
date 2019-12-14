@@ -19,6 +19,7 @@ import { RouterModule } from "@angular/router";
 import { CompConfigService } from "../provider/comp-config.service";
 import { CompListService } from "../provider/comp-list.service";
 import { CompPageCompsListComponent } from './comp-configuration/comp-page-comps-list/comp-page-comps-list.component';
+import { CompHelpComponent } from './comp-help/comp-help.component';
 
 const routes = [
   { path:"",component: DevelopmentPageComponent }
@@ -33,7 +34,8 @@ const routes = [
     ViewChildContainRefHostDirective,
     CompPageListComp,
     CompConfigurationComponent,
-    CompPageCompsListComponent
+    CompPageCompsListComponent,
+    CompHelpComponent
   ],
   imports: [
     CodeModule,

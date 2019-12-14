@@ -40,6 +40,12 @@
         &.setting-but {
             border: 1px solid #ccc;
         }
+        &.comp-help {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            z-index: 1000;
+        }
     }
     .hasPage {
         opacity: 0.9;

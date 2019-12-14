@@ -1,0 +1,12 @@
+<div class="help">
+  <div class="title" (click)="showHelp = !showHelp">
+    <span>帮助</span>
+  </div>
+  <div class="body" *ngIf="showHelp"> 
+    <p class="tit">快捷键</p>
+    <img src="./../../../../assets/icons/close.svg" alt="关闭帮助" class="close" (click)="showHelp = !showHelp">
+    <ng-template *ngFor="">
+
+    </ng-template>
+  </div>
+</div>
