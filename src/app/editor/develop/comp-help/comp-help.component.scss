@@ -3,6 +3,7 @@
         position: relative;
         .title {
             cursor: pointer;
+            user-select: none;
             position: relative;
             height: 40px;
             width: 32px;
@@ -16,20 +17,42 @@
             right: 0px;
             top: 46px;
             background: #ffffff;
-            width: 170px;
+            width: 171px;
             height: 820px;
-            border:1px solid #ddd;
             .tit {
-                height: 20px;
-                margin: 5px;
-                color: #ccc;
+                background: rgba(255,0,0, 0.05);
+                left: 0px;
+                .title {
+                    left: 0;
+                    border-left: 5px solid rgba(255,0,0, 0.9);
+                    user-select: none;
+                    height: 30px;
+                    line-height: 30px;
+                    width: 43px;
+                }
             }
+          
             .close {
                 cursor: pointer;
                 position: absolute;
                 right: 6px;
                 width: 16px;
                 top: 7px;
+            }
+
+            .key-item {
+                position: relative;
+                display: grid;
+                grid-template-columns: 30% 70%;
+                height: 40px;
+                line-height: 40px;
+                color: #666666;
+                font-size: 13px;
+                .name {
+                    direction: rtl;
+                    padding-right: 10px;
+                    color:#ccc;
+                }
             }
         }
     }

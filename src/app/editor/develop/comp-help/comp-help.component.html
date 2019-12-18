@@ -3,10 +3,17 @@
     <span>帮助</span>
   </div>
   <div class="body" *ngIf="showHelp"> 
-    <p class="tit">快捷键</p>
-    <img src="./../../../../assets/icons/close.svg" alt="关闭帮助" class="close" (click)="showHelp = !showHelp">
-    <ng-template *ngFor="">
-
-    </ng-template>
+    <div class="tit">
+      <div class="title" title="快捷键">{{'快捷键'}}</div>
+      <img src="./../../../../assets/icons/close.svg" alt="关闭帮助" class="close" (click)="showHelp = !showHelp">
+    </div>
+    <ng-container *ngFor="let item of data;">
+      <div class="key-item">
+        <span class="name">{{item['name']}}</span>
+        <span class="key">{{item['key_same']}}</span>
+      </div>
+    </ng-container>
+    
+  
   </div>
 </div>

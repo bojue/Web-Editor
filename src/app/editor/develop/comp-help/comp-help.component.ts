@@ -18,6 +18,13 @@ export class CompHelpComponent implements OnInit {
         key_same:"Control + c",
         key_mac:"Control + c",
         key_window:"Control + c"
+      },
+      {
+        name:"删除",
+        keySameBool:true,
+        key_same:"delete",
+        key_mac:"delete",
+        key_window:"delete"
       }
     ]
   }
