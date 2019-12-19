@@ -28,7 +28,8 @@
                     user-select: none;
                     height: 30px;
                     line-height: 30px;
-                    width: 43px;
+                    padding-left: 10px;
+                    font-size: 13px;
                 }
             }
           
@@ -38,6 +39,13 @@
                 right: 6px;
                 width: 16px;
                 top: 7px;
+            }
+            .item-title {
+                font-size: 12px;
+                height: 26px;
+                line-height: 26px;
+                margin: 0px 5px;
+                color:#cccccc;
             }
 
             .key-item {
