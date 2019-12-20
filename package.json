@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 8200 --open",
+    "start": "ng serve --port 8000 --open",
     "proxy": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
     "build": "ng build",
     "build:aot": "ng build --aot=true",
-    "github":"ng build --prod --base-href https://bojue.github.io/Web-Editor",
+    "github": "ng build --prod --base-href https://bojue.github.io/Web-Editor",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod && npm run ngsw-config && npm run ngsw-copy"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@types/jquery": "^3.3.31",
+    "angular-cli-ghpages": "^0.6.0",
     "core-js": "^2.5.4",
     "echarts": "^4.2.1",
     "jquery": "^3.4.1",
@@ -35,7 +37,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13.8",
+    "@angular-devkit/build-angular": "^0.12.4",
     "@angular/cli": "^7.0.1",
     "@angular/compiler-cli": "^7.2.14",
     "@angular/language-service": "~7.0.0",
