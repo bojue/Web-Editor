@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
-  { path: 'workspace', loadChildren:'./workspace/workspace.module#WorkspaceModule',},
+  { path: 'workspace', loadChildren:() => import('./workspace/workspace.module').then(m => m.WorkspaceModule),},
 ]
 
 @NgModule({

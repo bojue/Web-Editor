@@ -13,7 +13,7 @@ import * as _ from 'lodash';
   styleUrls: ['./view.component.scss'],
 })
 export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
-  @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
+  @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
   compList: any[];
   currentViewContRef:any;
   eventEmitter:any;

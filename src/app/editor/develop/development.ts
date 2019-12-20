@@ -23,7 +23,7 @@ import * as $ from 'jquery';
 })
 export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() componets: Component[];
-  @ViewChild(ViewContainRefHostDirective) viewContRef: ViewContainRefHostDirective;
+  @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
 
   componentModules: any[];
   basicComponents: any[];

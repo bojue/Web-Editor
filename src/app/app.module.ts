@@ -12,7 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from "@angular/common";
 
 const routes: Routes = [
-  { path: '', loadChildren:"./pages/pages.module#PagesModule"}
+  { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}
 ]
 
 @NgModule({
