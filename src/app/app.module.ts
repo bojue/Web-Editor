@@ -32,10 +32,10 @@ const routes: Routes = [
     AppService,
     CompConfigService,
     EmitSubService,
-    {
-      provide: APP_BASE_HREF,
-      useValue:'/'
-    }
+    // {
+    //   provide: APP_BASE_HREF,
+    //   useValue:'/'
+    // }
   ],
   bootstrap: [AppComponent],
   entryComponents:[
