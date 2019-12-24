@@ -63,7 +63,7 @@ export class CompConfigService {
                 name:'图片',
                 type:'img',
                 data: {
-                    img_url:'./../assets/imgs/es.jpeg',
+                    img_url:'assets/imgs/es.jpeg',
                 },
                 style: this._defCompStyle({
                     width:120,

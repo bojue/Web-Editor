@@ -17,17 +17,17 @@ export class ImgValComponent extends DataBasicComponent implements OnInit {
       this.initParentData();
       this.imgs = [{
         name:"you",
-        url: './../assets/imgs/you.jpg',
+        url: 'assets/imgs/you.jpg',
       },{
         name:"es6",
-        url: './../assets/imgs/es.jpeg',
+        url: 'assets/imgs/es.jpeg',
       },
       {
         name:"es6",
-        url: './../assets/imgs/test1.jpg',
+        url: 'assets/imgs/test1.jpg',
       },{
         name:"es6",
-        url: './../assets/imgs/test2.jpg',
+        url: 'assets/imgs/test2.jpg',
       }]
     }
   

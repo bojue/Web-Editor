@@ -34,7 +34,7 @@ export class DataBasicComponent implements OnInit {
   }
 
   initIcon() {
-    this.iconUrl = this.showMoreBool ? './../../../../../../assets/icons/up.svg' :  './../../../../../../assets/icons/down.svg' ;
+    this.iconUrl = this.showMoreBool ? 'assets/icons/up.svg' :  'assets/icons/down.svg' ;
   }
 
 }

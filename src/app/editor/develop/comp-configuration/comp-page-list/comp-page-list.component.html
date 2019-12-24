@@ -3,7 +3,7 @@
   <div class="pages" *ngIf="!pages['hideBool']">
     <ng-container  *ngFor="let page of pages['children'];">
         <div class="item page-item" [ngClass]="{actived: page['actived']}" (click)="changeComponent(page)">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABgUlEQVRoQ+2ZsUoEMRCGv3sDGwVri2utBK20EnyAqwU7fQj1IbQSfAvByusEKxsFOysFbURfQAZ2YZHLze1cyOS8SbPF7mz+L/NnsskOWPA2WHD9BIB3BiMDtWdgFfhwFrkGfKY0aBbaBe6AsROE9L83rf9ZAc6Bs8IQ0t9pADQWigwY7BcWkkFrq9C/ttABsGWwiIQ8ADeJ2GIWknVCMmVpsr5InZ/UigGsAJsW9cAj8OUNYNSuhhXLgKrE+EAALE0Z3Qe2jTa5B269J/EFcGwEuAROvAHWgaER4AV49wYwalfDogotTRVSvWB8ICwUFkpY5xo4nHDvtfm0lqu0ai3U7h/+njX9AEfNIVYr/gnYAb5T88jjXKgFSPXdFT8CnqcVgdoAeokXsJoAeouvCcAk3gvgCtjobObN4r0AunNyLvHeAHOL9wTIIr4PQO4fHHIQJouUWue1D0GtjMpu6017ieF+FvGzZMCgrWyIloGyagy9BYBh0LKGRAayDqfhZb+8gq0xDpPDpAAAAABJRU5ErkJggg==" alt="" class="icon">
+          <img src="assets/icons/page.svg" alt="" class="icon">
           <span class="page-name" >{{page['value']}}</span>
         </div>
     </ng-container>

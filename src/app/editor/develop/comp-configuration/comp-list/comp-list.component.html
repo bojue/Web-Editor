@@ -1,6 +1,6 @@
 <div class="item-module " *ngFor="let module of componentModules ; let mIndex = index;">
     <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
-      <img class="icon" src="./../../../../assets/icons/downicon.svg" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}" alt="">
+      <img class="icon" src="assets/icons/downicon.svg" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}" alt="">
       <div class="tit" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}"> {{module['name']}}</div>
     </div>
     <div class="comp-list lists scrollY" id="compList">

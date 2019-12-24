@@ -35,11 +35,11 @@ export class ListComponent implements OnInit {
 
   stateArr = [
     {
-      src:'./../../../assets/icons/state_official.svg',
+      src:'assets/icons/state_official.svg',
       val:"已发布"
     },
     {
-      src:'./../../../assets/icons/state_pre.svg',
+      src:'assets/icons/state_pre.svg',
       val:"待发布"
     }
   ]
