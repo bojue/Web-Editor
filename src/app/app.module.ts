@@ -34,7 +34,7 @@ const routes: Routes = [
     EmitSubService,
     {
       provide: APP_BASE_HREF,
-      useValue:'/Web-Editor/'
+      useValue:'/'
     }
   ],
   bootstrap: [AppComponent],
