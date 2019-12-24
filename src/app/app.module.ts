@@ -9,7 +9,7 @@ import { CompConfigService } from "./editor/provider/comp-config.service";
 import { EmitSubService } from "./providers/emit-sub.service";
 import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from "@angular/common";
+import { CommonModule, APP_BASE_HREF } from "@angular/common";
 
 const routes: Routes = [
   { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}
@@ -32,6 +32,10 @@ const routes: Routes = [
     AppService,
     CompConfigService,
     EmitSubService,
+    {
+      provide: APP_BASE_HREF,
+      useValue:'/Web-Editor/'
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents:[
