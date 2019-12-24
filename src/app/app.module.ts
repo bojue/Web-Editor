@@ -31,11 +31,7 @@ const routes: Routes = [
   providers: [
     AppService,
     CompConfigService,
-    EmitSubService,
-    // {
-    //   provide: APP_BASE_HREF,
-    //   useValue:'/Web-Editor/'
-    // }
+    EmitSubService
   ],
   bootstrap: [AppComponent],
   entryComponents:[
