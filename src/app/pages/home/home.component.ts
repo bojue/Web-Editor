@@ -128,7 +128,7 @@ export class HomeComponent implements OnInit {
     ]
   }
 
-  route(route = 'home') {
+  route(route = '/home') {
     this.router.navigate([route])
   }
 
