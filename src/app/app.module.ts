@@ -9,7 +9,7 @@ import { CompConfigService } from "./editor/provider/comp-config.service";
 import { EmitSubService } from "./providers/emit-sub.service";
 import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule, APP_BASE_HREF } from "@angular/common";
+import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 const routes: Routes = [
   { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}
@@ -31,7 +31,11 @@ const routes: Routes = [
   providers: [
     AppService,
     CompConfigService,
-    EmitSubService
+    EmitSubService,
+    {
+      provide:LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents:[
