@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
         children:[
           {
             name:"项目管理",
-            state:false,
+            state:true,
             description:"目前完成了前端项目管理的骨架，需要后端配合"
           },
           {

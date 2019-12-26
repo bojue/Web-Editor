@@ -191,6 +191,7 @@ export class CompConfigService {
         },
         style: this._defCompStyle()
     }
+
     _defCompStyle(customStyle ?:any) {
         let styleJson = {
             position: 'absolute', //定位类型|position
@@ -198,7 +199,7 @@ export class CompConfigService {
             left:200,
             height:100, //尺寸|size
             width: 100,
-            borderColor: "#ffffff", //边框|border
+            borderColor: "#FF0000", //边框|border
             borderWidth: 1,
             borderStyle: 'solid',
             paddingTopBottom:0, //内边距|padding
