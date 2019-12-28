@@ -17,6 +17,7 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
   currentViewContRef:any;
   eventEmitter:any;
   components: any[];
+  pageId:number;
   constructor(
     public emitSerive: EmitSubService, 
     private elementRef: ElementRef,
@@ -28,9 +29,18 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
   ) { }
 
   ngOnInit() {
-    let compString = this.activatedRoute.snapshot.paramMap.get('queryParams');
-    this.compList = JSON.parse(compString);
+    this.getRouteParams();
+  }
 
+  getRouteParams() {
+    this.activatedRoute.queryParams.subscribe(res => {
+      this.pageId = res['pageId'];
+      this.getData(res['pageObj']);
+    })
+  }
+
+  getData(pageObj) {
+    this.compList = JSON.parse(pageObj);
     let parentCompList = _.cloneDeep(this.compList);
     this.eventEmitter = this.emitSerive.getEmitEventSub().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
@@ -99,9 +109,14 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
 
   routerLink(url?:string, params?:any) {
     if(url !== undefined && url !== null)  {
-      this.route.navigate([url, { queryParams: JSON.stringify(params)}]);
+      this.route.navigate([url], {queryParams: {pageObj:JSON.stringify(params)}});
     }
+  }
 
+  returnFun() {
+    this.route.navigate(['/workspace/develop'], {queryParams: {
+      pageId: this.pageId
+    }})
   }
 
 }

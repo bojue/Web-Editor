@@ -44,8 +44,8 @@ export class ListComponent implements OnInit {
     }
   ]
 
-  toDetail(val, path) {
-      this.router.navigate([`${path}/${val}`], { relativeTo: this.route})
+  toDetail(id, path) {
+      this.router.navigate([`${path}/` ], {queryParams: {pageId:id}})
   }
 
 }

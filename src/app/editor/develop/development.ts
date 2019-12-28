@@ -15,6 +15,7 @@ import { AppService } from 'src/app/providers/app.service';
 import { UserAgentService } from 'src/app/core/tool/user-agent.service';
 import { ContentPageSize } from '../model/setting-content-page-size.model';
 import * as $ from 'jquery';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-development',
@@ -30,8 +31,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   auxiComp: any = {};
   areaComp: any = {};
   cmpRef: any[];
+  pageId:number;
   currentViewContRef: any; //当前组件实例
-
   currnetPageComps: any[]; //页面实例化前的组态列表，保存数据的json
   components: any[]; //页面实例化后的组态列表
 
@@ -67,6 +68,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private service: AppService,
     private infoService: CompConfigService,
     private dynamicService: CompDynamicCreateService,
+    private activeRoute: ActivatedRoute,
     private router: Router ,
     private userAgentService: UserAgentService,
     private eventManager: EventManager
@@ -76,34 +78,6 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   ngOnInit() {
     this.initData();
-    let parentCompList = _.cloneDeep(this.currnetPageComps);
-    this.eventEmitter = this.emitSerice.getEmitEventSub().subscribe(res => {
-      if(res && res['type'] === 'child-comp') {
-        let data = res['data'];
-        let currentList = _.concat(parentCompList, data)
-        this.initViewContRef()
-        this.getCompList(currentList);
-      }
-    });
-    this.eventManager.addGlobalEventListener('window','keydown',($event) => {
-      if(!this.activeCompSettingObject) {
-        return;
-      }
-      let del_window = this.userAgentService.isWindows && $event && $event.code === 'Delete';
-      let del_mac = this.userAgentService.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
- 
-      let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
-      let _doc = document.activeElement as unknown as NodeListOf<HTMLElement>; //添加类型断言，TS类型检查导致的异常抛出
-      if((del_window || del_mac && (!activeEleBool || activeEleBool && !_doc['value'])|| (del_mac && $event.ctrlKey && this.activeCompSettingObject)) || ( (del_window || del_mac) && $event.ctrlKey  )){
-        this.delCompEvet($event);
-      }else if($event.ctrlKey && this.currentIndex >= 0) {
-        if($event.code === 'KeyC' || $event.code === 'KeyV'){
-          this.copyCompEvet($event);
-        }
-      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 && this.activeCompSettingObject ){
-        this.arrowEvent($event.code, $event);
-      }
-    });
   }
 
   ngOnDestroy() {
@@ -136,6 +110,49 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
       rigth:0,
       bottom:0
     }
+    this.getRouteParams();
+    this.eventListener();
+    this.eventEmitterSub()
+  }
+
+  getRouteParams() {
+    this.activeRoute.queryParams.subscribe(res => {
+      this.pageId = res['pageId'];
+    })
+  }
+
+  eventEmitterSub() {
+    let parentCompList = _.cloneDeep(this.currnetPageComps);
+    this.eventEmitter = this.emitSerice.getEmitEventSub().subscribe(res => {
+      if(res && res['type'] === 'child-comp') {
+        let data = res['data'];
+        let currentList = _.concat(parentCompList, data)
+        this.initViewContRef()
+        this.getCompList(currentList);
+      }
+    });
+  }
+
+  eventListener() {
+    this.eventManager.addGlobalEventListener('window','keydown',($event) => {
+      if(!this.activeCompSettingObject) {
+        return;
+      }
+      let del_window = this.userAgentService.isWindows && $event && $event.code === 'Delete';
+      let del_mac = this.userAgentService.isMac && $event && $event.code === 'Backspace' && $event.keyCode === 8 ;
+ 
+      let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
+      let _doc = document.activeElement as unknown as NodeListOf<HTMLElement>; //添加类型断言，TS类型检查导致的异常抛出
+      if((del_window || del_mac && (!activeEleBool || activeEleBool && !_doc['value'])|| (del_mac && $event.ctrlKey && this.activeCompSettingObject)) || ( (del_window || del_mac) && $event.ctrlKey  )){
+        this.delCompEvet($event);
+      }else if($event.ctrlKey && this.currentIndex >= 0) {
+        if($event.code === 'KeyC' || $event.code === 'KeyV'){
+          this.copyCompEvet($event);
+        }
+      }else if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf($event.code) > -1 && this.activeCompSettingObject ){
+        this.arrowEvent($event.code, $event);
+      }
+    });
   }
 
   //拖拽icon图标添加组件
@@ -359,7 +376,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //运行
   preView() {
     this.auxiCompInit();
-    this.router.navigate(['/workspace/develop/3/preview', { queryParams: JSON.stringify(this.currnetPageComps)}]);
+    this.router.navigate(['/workspace/develop/preview'] , { queryParams: { pageId: this.pageId, pageObj:JSON.stringify(this.currnetPageComps)} });
   }
 
   //键盘事件-删除

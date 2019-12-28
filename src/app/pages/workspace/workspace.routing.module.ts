@@ -5,8 +5,8 @@ import { DetailComponent } from './project-detail/detail.component';
 
 const routes: Route[] = [
   { path: '', component: ListComponent },
-  { path: 'detail/:id', component: DetailComponent },
-  { path: 'develop/:id', loadChildren: () => import('src/app/editor/develop/developmonet.module').then(m => m.DevelopModule) },
+  { path: 'detail', component: DetailComponent },
+  { path: 'develop', loadChildren: () => import('src/app/editor/develop/developmonet.module').then(m => m.DevelopModule) },
 
 
 ]
