@@ -1,18 +1,17 @@
-import { SettingObjComponent } from '../model/setting-object.interface';
-import{ RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, AfterContentInit, OnDestroy, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
-import { ViewContainRefHostDirective } from '../directive/view-contain-ref-host.directive';
+import { ViewContainRefHostDirective } from '../../directive/view-contain-ref-host.directive';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
-import { CompDynamicCreateService } from '../provider/comp-dynamic-create.service';
+import { CompDynamicCreateService } from '../../provider/comp-dynamic-create.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
-
+import { SettingObjComponent } from '../../model/setting-object.interface';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.scss'],
+  selector: 'app-comp-pre-view',
+  templateUrl: './comp-pre-view.component.html',
+  styleUrls: ['./comp-pre-view.component.scss']
 })
-export class PreviewComponent implements OnInit, AfterContentInit, OnDestroy {
+export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy {
   @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
   compList: any[];
   currentViewContRef:any;

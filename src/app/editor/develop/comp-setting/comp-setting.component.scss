@@ -8,6 +8,29 @@
     .user-select-node {
         user-select: none;
     }
+    .page-config {
+        position: absolute;
+        top: -50px;
+        right: 149px; 
+        height: 48px;
+        display: inline-block;
+        line-height: 50px;
+        .pre-view-button {
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            img {
+                width: 20px;
+                position: relative;
+                margin-top: 15px;
+                cursor: pointer;
+                opacity: 0.8;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
     .left-border {
         position: absolute;
         width: 4px;

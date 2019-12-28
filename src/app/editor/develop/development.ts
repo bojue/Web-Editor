@@ -359,7 +359,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //运行
   preView() {
     this.auxiCompInit();
-    this.router.navigate(['/preview', { queryParams: JSON.stringify(this.currnetPageComps)}]);
+    this.router.navigate(['/workspace/develop/3/preview', { queryParams: JSON.stringify(this.currnetPageComps)}]);
   }
 
   //键盘事件-删除

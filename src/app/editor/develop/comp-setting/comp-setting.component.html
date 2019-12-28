@@ -1,68 +1,80 @@
-<div class="comp-item">
-    <!-- 没有选择组价 -->
-    <ng-container  *ngIf="!activeSettingObj && pageGridSetting['showRight']">
-      <div class="item-discription noComp">
-        <div class="title" title="请选择组件">{{'组件名称'}}</div>
-      </div>
-    </ng-container>
-    <!-- 属性设置 -->
-    <ng-container *ngIf="activeSettingObj && pageGridSetting['showRight']">
-      <div class="item-discription">
-        <div class="title">{{activeSettingObj['name']}}</div>
-      </div>
-      <!-- 组件删除 -->
-      <div class="del">
-        <img class='del-btn' (click)="deleteComp($event)" src="assets/icons/delete.svg" title="删除组件" alt="删除组件">
-      </div>
-  
+<div class="settings">
+  <div class="comp-page">
 
-      <div class="set-tabs">
-        <ng-container *ngFor="let tab of states;" >
-          <div class="item tab" (click)="activeState(tab)" [ngClass]="{'active':tab['active']}">
-            {{tab['name']}}
-          </div>
-        </ng-container>
-      </div>
-
-      <div class="set-body" *ngIf="stateObj === 'style'">
-        <div class="set-list scrollY styles" >
-          <app-size [style]="activeSettingObj['style']" class="user-select-node"></app-size>
-          <app-position class="set-item user-select-node " [style]="activeSettingObj['style']"></app-position>
-          <app-padding class="set-item user-select-node " [style]="activeSettingObj['style']"></app-padding>
-          <app-border class="set-item user-select-node " [style]="activeSettingObj['style']"></app-border>
-          <app-opacity class="set-item user-select-node " [style]="activeSettingObj['style']"></app-opacity>
-          <app-fonts class="set-item user-select-node " [style]="activeSettingObj['style']"></app-fonts>
-          <app-background class="set-item user-select-node " [style]="activeSettingObj['style']"></app-background>
-          <app-z-index class="set-item user-select-node " [style]="activeSettingObj['style']" ></app-z-index>
-          <app-style-copy class="set-item" [style]="activeSettingObj['style']"></app-style-copy>
+    <!-- 预览 -->
+    <div class="page-config" *ngIf="hasPageBool">
+      <div class="pre-view-button" (click)="preView($event)">
+        <img src="assets/icons/yulan.svg" title="预览" alt="预览">
+      </div>   
+    </div> 
+  </div>
+  <div class="comp-item">
+      <!-- 没有选择组价 -->
+      <ng-container  *ngIf="!activeSettingObj && pageGridSetting['showRight']">
+        <div class="item-discription noComp">
+          <div class="title" title="请选择组件">{{'组件名称'}}</div>
         </div>
-      </div>
-      
-      <div class="set-body" *ngIf="stateObj === 'data' ">
-        <div class="set-list scrollY  setting-valus" >
-          <app-img-val [data]="activeSettingObj['data']"></app-img-val>
-          <app-button-val [data]="activeSettingObj['data']"></app-button-val>
-          <app-input-val [data]="activeSettingObj['data']"></app-input-val>
-          <app-textarea-val [data]="activeSettingObj['data']" ></app-textarea-val>
-          <app-text-val [data]="activeSettingObj['data']"></app-text-val>
-          <app-list-val [data]="activeSettingObj['data']"></app-list-val>
-          <app-video-val [data]="activeSettingObj['data']"></app-video-val>
-          <app-audio-val [data]="activeSettingObj['data']"></app-audio-val>
+      </ng-container>
+      <!-- 属性设置 -->
+      <ng-container *ngIf="activeSettingObj && pageGridSetting['showRight']">
+        <div class="item-discription">
+          <div class="title">{{activeSettingObj['name']}}</div>
         </div>
-      </div>
-
-      <div class="set-body" *ngIf="stateObj === 'event' " >
-        <div class="set-list scrollY setting-events">
-          <app-route-event [event]="activeSettingObj['event']"></app-route-event>
+        <!-- 组件删除 -->
+        <div class="del">
+          <img class='del-btn' (click)="deleteComp($event)" src="assets/icons/delete.svg" title="删除组件" alt="删除组件">
         </div>
-      </div>
-    </ng-container>
     
-    <!-- 边框设置 -->
-    <div class="div-border left-border">
-        <div class="set-btn" (click)="showGrigFun()">
-            <img src="assets/icons/right.svg" alt="" *ngIf="pageGridSetting['showRight']">
-            <img src="assets/icons/left.svg" alt="" *ngIf="!pageGridSetting['showRight']"> 
+  
+        <div class="set-tabs">
+          <ng-container *ngFor="let tab of states;" >
+            <div class="item tab" (click)="activeState(tab)" [ngClass]="{'active':tab['active']}">
+              {{tab['name']}}
+            </div>
+          </ng-container>
+        </div>
+  
+        <div class="set-body" *ngIf="stateObj === 'style'">
+          <div class="set-list scrollY styles" >
+            <app-size [style]="activeSettingObj['style']" class="user-select-node"></app-size>
+            <app-position class="set-item user-select-node " [style]="activeSettingObj['style']"></app-position>
+            <app-padding class="set-item user-select-node " [style]="activeSettingObj['style']"></app-padding>
+            <app-border class="set-item user-select-node " [style]="activeSettingObj['style']"></app-border>
+            <app-opacity class="set-item user-select-node " [style]="activeSettingObj['style']"></app-opacity>
+            <app-fonts class="set-item user-select-node " [style]="activeSettingObj['style']"></app-fonts>
+            <app-background class="set-item user-select-node " [style]="activeSettingObj['style']"></app-background>
+            <app-z-index class="set-item user-select-node " [style]="activeSettingObj['style']" ></app-z-index>
+            <app-style-copy class="set-item" [style]="activeSettingObj['style']"></app-style-copy>
           </div>
-    </div>
+        </div>
+        
+        <div class="set-body" *ngIf="stateObj === 'data' ">
+          <div class="set-list scrollY  setting-valus" >
+            <app-img-val [data]="activeSettingObj['data']"></app-img-val>
+            <app-button-val [data]="activeSettingObj['data']"></app-button-val>
+            <app-input-val [data]="activeSettingObj['data']"></app-input-val>
+            <app-textarea-val [data]="activeSettingObj['data']" ></app-textarea-val>
+            <app-text-val [data]="activeSettingObj['data']"></app-text-val>
+            <app-list-val [data]="activeSettingObj['data']"></app-list-val>
+            <app-video-val [data]="activeSettingObj['data']"></app-video-val>
+            <app-audio-val [data]="activeSettingObj['data']"></app-audio-val>
+          </div>
+        </div>
+  
+        <div class="set-body" *ngIf="stateObj === 'event' " >
+          <div class="set-list scrollY setting-events">
+            <app-route-event [event]="activeSettingObj['event']"></app-route-event>
+          </div>
+        </div>
+      </ng-container>
+      
+      <!-- 边框设置 -->
+      <div class="div-border left-border">
+          <div class="set-btn" (click)="showGrigFun()">
+              <img src="assets/icons/right.svg" alt="" *ngIf="pageGridSetting['showRight']">
+              <img src="assets/icons/left.svg" alt="" *ngIf="!pageGridSetting['showRight']"> 
+            </div>
+      </div>
+  </div>
+  
 </div>

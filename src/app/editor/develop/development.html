@@ -4,7 +4,7 @@
   'width-left':pageGridSetting['showLeft'] && !pageGridSetting['showRight'],
   'width-right':!pageGridSetting['showLeft'] && pageGridSetting['showRight']}">
   <!-- 1.组态管理 -->
-  <section class="comp-marage">
+  <div class="comp-marage">
     <app-comp-configuration
       [currnetPageComps]="currnetPageComps"
       [pageGridSetting]="pageGridSetting"
@@ -12,41 +12,41 @@
       (selCurrentPage)="getCurrentPage($event)"
       (activeCompFun)="activeComp($event)">
     </app-comp-configuration>
-  </section>
+  </div>
 
   <!-- 2.卡尺辅助 -->
-  <section class="canvas-comp">
+  <div class="canvas-comp">
     <app-scale></app-scale>
-  </section>
-  <!-- 3.视图 -->
-  <section id='componentsBody' [ngClass]="{hasPage:!currnetPageComps}" class="border-r border-b m-l-5 h90 content">
+  </div>
 
-    <div class="page-config" *ngIf="false">
-      <div class="run-but" (click)="preView()">
-        <img src="assets/icons/run.svg" title="运行" alt="运行">
-      </div>   
-    </div> 
+  <!-- 3.视图 -->
+  <div id='componentsBody' [ngClass]="{hasPage:!currnetPageComps}" class="border-r border-b m-l-5 h90 content">
     <div class="selectPagePrompt" *ngIf="!currnetPageComps">
       <div class="info">请选择页面</div>
     </div>
-    <ng-template view-contain-ref #contentComp ></ng-template>
-  </section>
+    <div class="content">
+      <ng-template view-contain-ref #contentComp ></ng-template>
+    </div>
+
+  </div>
 
   <!-- 4.设置-->
-  <section class="setting-but">
+  <div class="setting-but">
     <app-comp-setting 
       class="settings" 
+      [hasPageBool]="!!currnetPageComps"
       [pageGridSetting]="pageGridSetting"
       [activeSettingObj]="activeCompSettingObject" 
       (settingObjChange)="chengeComponent($event)"
-      (deleteComponent)="deleteComponent($event)">
+      (deleteComponent)="deleteComponent($event)"
+      (preViewComp)="preView($event)">
     </app-comp-setting>
-  </section>
+  </div>
   
   <!-- 5.帮助 -->
-  <section class="comp-help">
+  <div class="comp-help">
     <app-comp-help></app-comp-help>
-  </section>
+  </div>
 
 
 </div>

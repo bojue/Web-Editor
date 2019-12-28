@@ -24,7 +24,7 @@
             grid-template-columns: 10px 40px auto 175px;
         }
     }
-    section {
+    div {
         &.settings, &.content, &.comp-marage ,&.canvas-comp{
             position: relative;
             display: block;
@@ -49,42 +49,26 @@
     }
     .hasPage {
         opacity: 0.9;
-        .selectPagePrompt {
-            height: 100%;
-            width: 100%;
-  
-            text-align: center;
-            .info {
-                display: inline-block;
-                cursor: pointer;
-                position: relative;
-                background: #fff;
-                border: 1px solid rgba(255, 0, 0, 0.5);
-                width: 150px;
-                height: 30px;
-                top: 200px;
-                font-size: 16px;
-                line-height: 30px;
-            }
-  
-        }
+
     }
-    .page-config {
-        position: fixed;
-        top: 6px;
-        right: 50px;
-        .run-but {
-            img {
-                width: 24px;
-                height: 24px;
-                border-radius: 50%;
-                padding: 2px;
-                border-radius: 50%;
-                &:hover {
-                    background:rgba(18, 150, 219, 0.2);
-                }
-            }
+    .selectPagePrompt {
+        height: 100%;
+        width: 100%;
+
+        text-align: center;
+        .info {
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            background: #fff;
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            width: 150px;
+            height: 30px;
+            top: 200px;
+            font-size: 16px;
+            line-height: 30px;
         }
+
     }
    
 

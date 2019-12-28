@@ -1,5 +1,4 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA  } from "@angular/core";
-import { PreviewComponent } from "../../editor/view/view.component";
 import { CodeModule } from "src/app/core/code.module";
 import { CompConfigService } from "src/app/editor/provider/comp-config.service";
 import { WorkspaceRoutingModule } from "./workspace.routing.module";
@@ -10,7 +9,6 @@ import { DetailComponent } from './project-detail/detail.component';
 
 const comps = [
   ListComponent,
-  PreviewComponent,
   DetailComponent
 ]
 

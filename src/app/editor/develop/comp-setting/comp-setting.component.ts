@@ -11,8 +11,11 @@ import { SettingStyle } from "src/app/editor/model/setting-style.model";
 export class CompSettingComponent implements OnInit{
   @Input() activeSettingObj: SettingObject;
   @Input() pageGridSetting;
+  @Input() hasPageBool;
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
+  @Output() preViewComp = new EventEmitter<any>();
+
   styles: SettingStyle;
   showBool:boolean = true;
   states = [
@@ -56,6 +59,10 @@ export class CompSettingComponent implements OnInit{
 
   showGrigFun() {
     this.pageGridSetting['showRight'] = !this.pageGridSetting['showRight'];
+  }
+
+  preView(event) {
+    this.preViewComp.emit(event);
   }
 
   activeState(tab) {

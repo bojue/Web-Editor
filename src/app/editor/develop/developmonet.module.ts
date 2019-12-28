@@ -20,9 +20,11 @@ import { CompConfigService } from "../provider/comp-config.service";
 import { CompListService } from "../provider/comp-list.service";
 import { CompPageCompsListComponent } from './comp-configuration/comp-page-comps-list/comp-page-comps-list.component';
 import { CompHelpComponent } from './comp-help/comp-help.component';
+import { CompPreViewComponent } from './comp-pre-view/comp-pre-view.component';
 
 const routes = [
-  { path:"",component: DevelopmentPageComponent }
+  { path:"",component: DevelopmentPageComponent },
+  { path:"preview", component: CompPreViewComponent}
 ]
 
 @NgModule({
@@ -35,10 +37,12 @@ const routes = [
     CompPageListComp,
     CompConfigurationComponent,
     CompPageCompsListComponent,
-    CompHelpComponent
+    CompHelpComponent,
+    CompPreViewComponent,
+    ViewContainRefHostDirective
   ],
   imports: [
-    CodeModule,
+  CodeModule,
     CommonModule,
     FormsModule,
     CompDevModule,
