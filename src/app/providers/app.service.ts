@@ -21,11 +21,21 @@ export class AppService{
       id:1,
       parnentId:2,
       value: '列表' ,
+      size: {
+        background:'#ffffff',
+        height:1000,
+        width:1600
+      },
       componentList:[]
     },{ 
         id:2,
         parnentId:2,
         value: '详情',
+        size: {
+          background:'#ffffff',
+          height:1000,
+          width:1600
+        },
         componentList:[]
       }]
   }

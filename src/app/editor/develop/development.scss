@@ -77,12 +77,17 @@
         margin: 20px 10px 0 10px;
         border-right: 1px solid #cccccc;
         border-bottom: 1px solid #cccccc;
-        background-image:
+        &.bg-blank {
+            border: 1px solid rgba(200, 205, 208, .3);
+        }
+        &.bg-grid {
+            background-image:
             linear-gradient(rgba(200, 205, 208, .3) 1px, transparent 0),
             linear-gradient(90deg, rgba(200, 205, 208, .3), 1px, transparent 0),
             linear-gradient( #C8CDD0 1px, transparent 0),
             linear-gradient(90deg, #C8CDD0 1px, transparent 0);
-        background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+            background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+        }
         .comp-item {
             cursor: move;
             background: rgba($color:#ffffff , $alpha: 1.0)

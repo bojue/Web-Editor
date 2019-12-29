@@ -20,7 +20,7 @@
   </div>
 
   <!-- 3.视图 -->
-  <div id='componentsBody' [ngClass]="{hasPage:!currnetPageComps}" class="border-r border-b m-l-5 h90 content">
+  <div id='componentsBody' [ngClass]="{hasPage:!currnetPageComps, 'bg-grid':development_setting_bg==='bg-grid', 'bg-blank': development_setting_bg === 'bg-blank'}" class="border-r border-b m-l-5 h90 content">
     <div class="selectPagePrompt" *ngIf="!currnetPageComps">
       <div class="info">请选择页面</div>
     </div>
@@ -39,7 +39,8 @@
       [activeSettingObj]="activeCompSettingObject" 
       (settingObjChange)="chengeComponent($event)"
       (deleteComponent)="deleteComponent($event)"
-      (preViewComp)="preView()">
+      (preViewComp)="preView()"
+      (changeBackground)="changeBg($event)">
     </app-comp-setting>
   </div>
   

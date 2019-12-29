@@ -15,6 +15,7 @@ export class CompSettingComponent implements OnInit{
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
   @Output() preViewComp = new EventEmitter<any>();
+  @Output() changeBackground = new EventEmitter<any>();
 
   styles: SettingStyle;
   showBool:boolean = true;
@@ -63,6 +64,10 @@ export class CompSettingComponent implements OnInit{
 
   preView(event) {
     this.preViewComp.emit(event);
+  }
+
+  changeBg(event) {
+    this.changeBackground.emit(event);
   }
 
   activeState(tab) {

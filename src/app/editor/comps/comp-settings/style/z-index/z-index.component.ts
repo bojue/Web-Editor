@@ -17,7 +17,6 @@ export class ZIndexComponent extends StyleBasicComponent implements OnInit {
     this.zIndexS = [
       1,2,3,4,5,6,7,8,9,10
     ];
-    this.showMoreBool = false;
   }
 
   setStyle(param, val) {

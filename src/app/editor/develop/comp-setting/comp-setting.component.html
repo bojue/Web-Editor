@@ -1,10 +1,15 @@
 <div class="settings">
   <div class="comp-page">
-
     <!-- 预览 -->
-    <div class="page-config" *ngIf="hasPageBool">
-      <div class="pre-view-button" (click)="preView($event)">
-        <img src="assets/icons/yulan.svg" title="预览" alt="预览">
+    <div class="page-config">
+      <div class="pre-view-background">
+        <span class="title">背景:</span>
+        <img class="item-bg" (click)="changeBg('open')" src="assets/icons/grid-open.svg" alt="网格开" title="网格开">
+        <img class="item-bg" (click)="changeBg('close')" src="assets/icons/grid-close.svg" alt="网格关" title="网格关">
+      </div>
+      <div class="pre-view-button" (click)="hasPageBool && preView($event)">
+        <span class="title">预览:</span>
+        <img src="assets/icons/yulan.svg" class="pre-view" [ngClass]="{'display-pre':!hasPageBool}" title="预览" alt="预览">
       </div>   
     </div> 
   </div>

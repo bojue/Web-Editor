@@ -25,7 +25,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
-
+  development_setting_bg:string = 'bg-grid';
   componentModules: any[];
   basicComponents: any[];
   auxiComp: any = {};
@@ -519,5 +519,9 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
+  changeBg(event) {
+    this.development_setting_bg = event === 'open' ? 'bg-grid' : 'bg-blank' || this.development_setting_bg;
+    console.log(this.development_setting_bg)
+  }
 
 }
