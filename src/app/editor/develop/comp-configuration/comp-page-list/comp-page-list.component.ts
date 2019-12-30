@@ -18,16 +18,15 @@ export class CompPageListComp implements OnInit {
 
   ngOnInit() {
     this.pageList = this.pages;
+    this.initPageState();
   }
 
   //初始化组态选择状态
-  initPageState(currentPage){
-    if(!currentPage) return;
+  initPageState(currentPage ?: any){
     if(this.pages && Array.isArray(this.pages['children'])) {
       _.map(this.pages['children'], page => {
         page['actived'] = false;
       })
-      currentPage['actived'] = true;
     }
 
   }
@@ -35,6 +34,7 @@ export class CompPageListComp implements OnInit {
   //选择当前可编辑页面，传递页面组件列表当父类容器渲染
   changeComponent(item) {
     this.initPageState(item);
+    item['actived'] = true;
     this.selCurrentPage.emit(item);
   }
 
