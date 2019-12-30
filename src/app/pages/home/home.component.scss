@@ -83,6 +83,8 @@
         bottom: 10px;
         width: 100px;
         height: 100px;
+        display: block;
+        z-index: 100;
         img {
             position: relative;
             z-index: 1;
