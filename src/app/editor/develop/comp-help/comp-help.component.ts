@@ -25,6 +25,13 @@ export class CompHelpComponent implements OnInit {
         key_same:"delete",
         key_mac:"delete",
         key_window:"delete"
+      },
+      {
+        name:"位置",
+        keySameBool:true,
+        key_same:"上,下,左,右",
+        key_mac:"上下左右键",
+        key_window:"上下左右键"
       }
     ]
   }
