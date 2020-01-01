@@ -14,13 +14,24 @@
     </div> 
   </div>
   <div class="comp-item">
-      <!-- 没有选择组价 -->
-      <ng-container  *ngIf="!activeSettingObj && pageGridSetting['showRight']">
+      <!-- 1.页面选择-->
+      <ng-container  *ngIf="!hasPageBool && !activeSettingObj && pageGridSetting['showRight']">
         <div class="item-discription noComp">
-          <div class="title" title="请选择组件">{{'组件名称'}}</div>
+          <div class="title" title="请选择页面">{{'请选择页面'}}</div>
         </div>
       </ng-container>
-      <!-- 属性设置 -->
+
+      <!-- 2.页面设置 -->
+      <ng-container  *ngIf="currentPage && !activeSettingObj && pageGridSetting['showRight']">
+        <div class="item-discription">
+          <div class="title" title="请选择组件">{{'页面设置'}}</div>
+        </div>
+        <div class="set-body" *ngIf="stateObj === 'style'">
+          <app-page-size [pageStyle]="pageStyle"></app-page-size>
+        </div>
+      </ng-container>
+
+      <!-- 3.组件设置 -->
       <ng-container *ngIf="activeSettingObj && pageGridSetting['showRight']">
         <div class="item-discription">
           <div class="title">{{activeSettingObj['name']}}</div>

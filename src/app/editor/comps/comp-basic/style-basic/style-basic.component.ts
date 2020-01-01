@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { SettingStyle } from "src/app/editor/model/setting-style.model";
 import { BasicComponent } from "../basic/basic.component";
 import { EmitSubService } from "src/app/providers/emit-sub.service";
+import { PageStyle } from '../../../model/setting-page-style.model';
 
 @Component({
   selector: 'app-style-basic',
@@ -10,6 +11,7 @@ import { EmitSubService } from "src/app/providers/emit-sub.service";
 })
 export class StyleBasicComponent implements OnInit {
   @Input() style: SettingStyle;
+  @Input() pageStyle: PageStyle;
   showMoreBool:boolean;
   iconUrl:string;
   WARP_CODE = String.fromCharCode(13);//换行

@@ -32,6 +32,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   areaComp: any = {};
   cmpRef: any[];
   pageId:number;
+  currentPage:any;
   currentViewContRef: any; //当前组件实例
   currnetPageComps: any[]; //页面实例化前的组态列表，保存数据的json
   components: any[]; //页面实例化后的组态列表
@@ -310,6 +311,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   //选择当前页面组件列表
   getCurrentPage(page) {
     this.initViewContRef();
+    this.currentPage = page;
     let comps = page && page['componentList'] || [];
     this.currnetPageComps = comps;
     this.initPageCompState();

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { SettingObject } from "src/app/editor/model/setting-object.module";
 import * as _ from "loadsh";
 import { SettingStyle } from "src/app/editor/model/setting-style.model";
+import { PageStyle } from '../../model/setting-page-style.model';
 
 @Component({
   selector: 'app-comp-setting',
@@ -12,11 +13,13 @@ export class CompSettingComponent implements OnInit{
   @Input() activeSettingObj: SettingObject;
   @Input() pageGridSetting;
   @Input() hasPageBool;
+  @Input() currentPage;
   @Output() settingObjChange = new EventEmitter<any>();
   @Output() deleteComponent = new EventEmitter<any>();
   @Output() preViewComp = new EventEmitter<any>();
   @Output() changeBackground = new EventEmitter<any>();
 
+  pageStyle:PageStyle;
   styles: SettingStyle;
   showBool:boolean = true;
   states = [
@@ -47,6 +50,8 @@ export class CompSettingComponent implements OnInit{
 
   initData() {
     this.stateObj = 'style';
+    console.log(this.currentPage)
+    this.pageStyle = this.currentPage && this.currentPage['pageStyle'];
     this.styles = this.activeSettingObj && this.activeSettingObj['style'];
   }
 

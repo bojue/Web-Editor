@@ -12,6 +12,7 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { PaddingComponent } from "./padding/padding.component";
 import { StyleCopyComponent } from "./style-copy/style-copy.component";
+import { PageSizeComponent } from './page-size/page-size.component';
 
 const settingComp = [
     ColorComponent,
@@ -23,7 +24,8 @@ const settingComp = [
     ZIndexComponent,
     OpacityComponent,
     FontsComponent,
-    StyleCopyComponent
+    StyleCopyComponent,
+    PageSizeComponent
 ]
 
 @NgModule({
