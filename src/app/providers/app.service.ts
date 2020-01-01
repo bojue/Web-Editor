@@ -21,10 +21,6 @@ export class AppService{
       id:1,
       parnentId:2,
       value: '列表' ,
-      pageStyle: {
-        width:1200,
-        height:800
-      },
       style: {
         background:'#ffffff',
         height:1000,
@@ -35,10 +31,6 @@ export class AppService{
         id:2,
         parnentId:2,
         value: '详情',
-        pageStyle: {
-          width:1200,
-          height:800
-        },
         style: {
           background:'#ffffff',
           height:1000,

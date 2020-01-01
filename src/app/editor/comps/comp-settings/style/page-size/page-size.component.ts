@@ -13,7 +13,7 @@ export class PageSizeComponent extends StyleBasicComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+  
   }
 
 }

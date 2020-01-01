@@ -11,7 +11,7 @@ import { PageStyle } from '../../../model/setting-page-style.model';
 })
 export class StyleBasicComponent implements OnInit {
   @Input() style: SettingStyle;
-  @Input() pageStyle: PageStyle;
+  @Input() pageStyles: PageStyle;
   showMoreBool:boolean;
   iconUrl:string;
   WARP_CODE = String.fromCharCode(13);//换行
@@ -19,7 +19,7 @@ export class StyleBasicComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-
+   
   }
 
   initParentData() {

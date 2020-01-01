@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from "@angular/core";
 import { SettingObject } from "src/app/editor/model/setting-object.module";
 import * as _ from "loadsh";
 import { SettingStyle } from "src/app/editor/model/setting-style.model";
@@ -9,7 +9,7 @@ import { PageStyle } from '../../model/setting-page-style.model';
   templateUrl: './comp-setting.component.html',
   styleUrls: ['./comp-setting.component.scss']
 })
-export class CompSettingComponent implements OnInit{
+export class CompSettingComponent implements OnInit, OnChanges{
   @Input() activeSettingObj: SettingObject;
   @Input() pageGridSetting;
   @Input() hasPageBool;
@@ -18,10 +18,15 @@ export class CompSettingComponent implements OnInit{
   @Output() deleteComponent = new EventEmitter<any>();
   @Output() preViewComp = new EventEmitter<any>();
   @Output() changeBackground = new EventEmitter<any>();
-
-  pageStyle:PageStyle;
+  pageName:string;
+  pageStyles:PageStyle;
   styles: SettingStyle;
   showBool:boolean = true;
+  DEFAULT_PAGE = {
+    width:1600,
+    height:820,
+    background:"#fff"
+  }
   states = [
     {
       state:'style',
@@ -41,18 +46,23 @@ export class CompSettingComponent implements OnInit{
   stateObj:string;
 
   constructor() { 
-    this.initData()
+  
   }
 
   ngOnInit() {
-  
+    this.initData()
   }
 
   initData() {
     this.stateObj = 'style';
-    console.log(this.currentPage)
-    this.pageStyle = this.currentPage && this.currentPage['pageStyle'];
     this.styles = this.activeSettingObj && this.activeSettingObj['style'];
+  }
+
+  ngOnChanges() {
+    if(this.currentPage){
+      this.pageName = this.currentPage['value'];
+      this.pageStyles = this.currentPage['style'];
+    }
   }
 
   deleteComp(event){

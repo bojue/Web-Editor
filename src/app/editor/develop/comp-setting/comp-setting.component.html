@@ -24,10 +24,10 @@
       <!-- 2.页面设置 -->
       <ng-container  *ngIf="currentPage && !activeSettingObj && pageGridSetting['showRight']">
         <div class="item-discription">
-          <div class="title" title="请选择组件">{{'页面设置'}}</div>
+          <div class="title" title="请选择组件">{{(pageName || '') + '页面设置'}}</div>
         </div>
-        <div class="set-body" *ngIf="stateObj === 'style'">
-          <app-page-size [pageStyle]="pageStyle"></app-page-size>
+        <div class="set-body">
+          <app-page-size [pageStyles]="pageStyles"></app-page-size>
         </div>
       </ng-container>
 
