@@ -29,6 +29,8 @@
             position: relative;
             display: block;
             height: 800px;
+            width: auto;
+            height: auto;
         }
         &.canvas-comp {
             left: 10px;
@@ -77,6 +79,9 @@
         margin: 20px 10px 0 10px;
         border-right: 1px solid #cccccc;
         border-bottom: 1px solid #cccccc;
+        width: auto;
+        height: 800px;
+        overflow: auto;
         &.bg-blank {
             border: 1px solid #ccc;
         }

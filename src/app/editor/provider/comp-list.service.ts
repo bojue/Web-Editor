@@ -39,9 +39,9 @@ export class CompListService {
             iconUrl: 'assets/icons/video.svg'
         },]
     }, {
-        name: '业务',
+        name: 'Chart',
         state: 'module',
-        title:"高级组件,支持数据绑定和接口绑定,支持定制",
+        title:"Chart组件,支持数据绑定和接口绑定,支持定制",
         compList: [{
             name:"饼图",
             type:"chart_pie",

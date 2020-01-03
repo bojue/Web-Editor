@@ -24,7 +24,7 @@
     <div class="selectPagePrompt" *ngIf="!currnetPageComps">
       <div class="info">请选择页面</div>
     </div>
-    <div class="content">
+    <div class="content" [ngStyle]="{'width':currentPage && currentPage['style'] && currentPage['style']['width']+'px','height':currentPage && currentPage['style'] && currentPage['style']['height'] + 'px'}">
       <ng-template view-contain-ref #contentComp ></ng-template>
     </div>
 
