@@ -1,11 +1,8 @@
 # Tempo
 
-> 项目基于angular2 (版本号 7.0.2)开发,使用ng-cli构建完成
-
-#### Demo
-
-<img src="./src/assets/imgs/newdemo.png" width="1000px" height="480px">
-
+- 项目基于angular2 (版本号 7.0.2)开发
+- 已经升级到V8.0
+- 目前正在支持服务端业务，前端
 
 ## 下载
 
@@ -13,10 +10,17 @@
 git clone https://github.com/bojue/H5-Editor.git
 cd H5-Editor
 npm i
-npm run start
+
+// 1.纯前端静态数据版本：tag  v0.1.0版本
+npm run start // 未添加服务器支持，需要切换到
+
+// 2.服务端支持，doing
+npm run proxy //默认版本，tag v0.1.0之后的版本
 ```
 
 在浏览器打开：`http://localhost:4200`,端口默认使用4200
+
+
 
 ### 文档
 
