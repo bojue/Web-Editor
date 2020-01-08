@@ -18,22 +18,29 @@ export class BaseHttpService {
   }
 
   get(params:any, url?:string) {
-    let _paramsIsObjectBool = _.isObject(params);
-    let _url = url || this.baseURL;
-    console.log(_url)
-    return this.https.get(_url);
+    let _objectBool = _.isObject(params);
+    let _baseUrl = url || this.baseURL;
+    let _url = (!_objectBool && params !== undefined && params !== null) ? `${_baseUrl}/${params}`: _baseUrl;
+    return _objectBool ? 
+      this.https.get(_url, {
+        params: params
+      }) :
+      this.https.get(_url);
   }
 
   getAll(url?:string) {
-    return this.https.get('url');
+    let _url = url || this.baseURL;
+    return this.https.get(_url);
   }
 
   create(params:any, url?:string,  header?:any) {
-    return this.https.put(url, params);
+    let _url = url || this.baseURL;
+    return this.https.post(_url, params);
   }
 
   update(params:any, url?:string, header?:any) {
-    return this.https.post(url, params);
+    let _url = url || this.baseURL;
+    return this.https.put(_url, params);
   }
 
   delete(params?:any, url?:string,header?:any) {

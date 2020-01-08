@@ -24,7 +24,6 @@ export class BreadCurmbComponent implements OnInit {
 
   initData() {
     this.breadcurms = this.menuBreadCurmsService.getMenuBreadCrumbs();
-    this.designPath = this.menuBreadCurmsService.getDesignPath();
   }
 
  

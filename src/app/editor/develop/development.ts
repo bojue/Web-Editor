@@ -16,21 +16,26 @@ import { UserAgentService } from 'src/app/core/tool/user-agent.service';
 import { ContentPageSize } from '../model/setting-content-page-size.model';
 import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
+import { BaseHttpService } from '../../core/provider/baseHttp/base-http.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-development',
   templateUrl: './development.html',
   styleUrls: ['./development.scss']
 })
-export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DevelopmentPageComponent extends BaseHttpService implements OnInit, AfterViewInit, OnDestroy {
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
+  PAGE_URL = 'page';
   development_setting_bg:string = 'bg-grid';
   componentModules: any[];
   basicComponents: any[];
   auxiComp: any = {};
   areaComp: any = {};
   cmpRef: any[];
+  projectId:number;
   pageId:number;
   currentPage:any;
   currentViewContRef: any; //当前组件实例
@@ -64,6 +69,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   eventEmitter:any;
   constructor(
     public emitSerice: EmitSubService, 
+    private http: HttpClient,
     private elementRef:ElementRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private service: AppService,
@@ -74,7 +80,7 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     private userAgentService: UserAgentService,
     private eventManager: EventManager
   ) {
-
+    super(http, '')
   }
 
   ngOnInit() {
@@ -118,7 +124,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
 
   getRouteParams() {
     this.activeRoute.queryParams.subscribe(res => {
-      this.pageId = res['pageId'];
+      this.projectId = res['projectId'];
+      this.pageId = res['project'];//编辑器不处理页面请求，仅仅作为页面编辑容器
     })
   }
 
@@ -312,7 +319,8 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
   getCurrentPage(page) {
     this.initViewContRef();
     this.currentPage = page;
-    let comps = page && page['componentList'] || [];
+    let comps = page && page['componentList'] && JSON.parse(page['componentList'])|| [];
+    console.log(page)
     this.currnetPageComps = comps;
     this.initPageCompState();
     this.getCompList(comps);
@@ -375,10 +383,45 @@ export class DevelopmentPageComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
+  //创建页面
+  addPage(event) {
+    Observable.forkJoin(this.create({}, this.PAGE_URL)).subscribe(res => {
+      console.log(res);
+    })
+  }
+
+  //保存跟新页面
+  savePage() {
+    let page = this.initPageStatus();
+    let comps = this.initPageComponentsStatus();
+    let compString = JSON.stringify(comps);
+    page['componentList'] = compString;
+    Observable.forkJoin([this.update(page, this.PAGE_URL)]).subscribe(res => {
+      let data = res[0];
+    })
+  }
+
+  initPageStatus() {
+    let _page = _.cloneDeep(this.currentPage);
+    delete _page['actived'];
+    return _page;
+  }
+
+  initPageComponentsStatus() {
+    let _comps = _.cloneDeep(this.currnetPageComps);
+    let _auxiIndex =  _.findIndex(_comps, function(item) { return item['type'] == 'auxi'; });
+    if(_auxiIndex > -1) {
+      _comps.splice(_auxiIndex,1)
+    }
+    _.map(_comps, item => {
+      delete item['active'];
+    })
+    return _comps;
+  }
   //运行
   preView() {
     this.auxiCompInit();
-    this.router.navigate(['/workspace/develop/preview'] , { queryParams: { pageId: this.pageId, pageObj:JSON.stringify(this.currnetPageComps)} });
+    this.router.navigate(['/workspace/develop/preview'] , { queryParams: {project:this.projectId, page: this.pageId, pageObj:JSON.stringify(this.currnetPageComps)} });
   }
 
   //键盘事件-删除

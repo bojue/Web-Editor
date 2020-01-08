@@ -1,51 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BaseHttpService } from '../../../core/provider/baseHttp/base-http.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/observable';
+import 'rxjs/add/observable/forkJoin'
 
 @Component({
   selector: 'app-project-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
-
+export class ListComponent extends BaseHttpService implements OnInit {
+  projects:any[];
   constructor(
+      private http: HttpClient,
       private router:Router,
       private route: ActivatedRoute,
-  ) { }
-
-  ngOnInit() {
+  ) { 
+    super(http, "projects")
   }
 
-  projectArr = [{
-    id:1,
-    name:'报表系统',
-    desciption:"",
-    state:'official'
-  }, {
-    id:2,
-    name:'销售Dashboard',
-    desciption:"",
-    state:'pre'
-  },{
-    id:3,
-    name:"双十一销售监控系统",
-    desciption:"监控软件测试Demo,主要展示数据统计报表",
-    state:''
-  }]
+  ngOnInit() {
+    this.getData();
+  }
 
-  stateArr = [
-    {
-      src:'assets/icons/state_official.svg',
-      val:"已发布"
-    },
-    {
-      src:'assets/icons/state_pre.svg',
-      val:"待发布"
-    }
-  ]
+  getData() {
+    Observable.forkJoin([this.getAll()]).subscribe(res=> {
+      let data = res && res[0] && res[0]['data'];
+      this.projects = data;
+    })
+  }
 
-  toDetail(id, path) {
-      this.router.navigate([`${path}/` ], {queryParams: {pageId:id}})
+  toDetail(projectId, path) {
+      this.router.navigate([`${path}/` ], {queryParams: {project: projectId}})
   }
 
 }

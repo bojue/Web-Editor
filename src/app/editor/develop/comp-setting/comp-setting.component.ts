@@ -18,6 +18,7 @@ export class CompSettingComponent implements OnInit, OnChanges{
   @Output() deleteComponent = new EventEmitter<any>();
   @Output() preViewComp = new EventEmitter<any>();
   @Output() changeBackground = new EventEmitter<any>();
+  @Output() updateCurrentPage = new EventEmitter<any>();
   pageName:string;
   pageStyles:PageStyle;
   styles: SettingStyle;
@@ -92,6 +93,11 @@ export class CompSettingComponent implements OnInit, OnChanges{
     });
     tab['active'] = true;
     this.stateObj = tab['state'];
+  }
+
+  // 页面保存
+  updatePage() {
+    this.updateCurrentPage.emit()
   }
 
 }

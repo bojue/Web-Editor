@@ -6,11 +6,13 @@
   <!-- 1.组态管理 -->
   <div class="comp-marage">
     <app-comp-configuration
+      [projectId]="projectId"
       [currnetPageComps]="currnetPageComps"
       [pageGridSetting]="pageGridSetting"
       (compDragEvent)="dragCompEnd($event)"
       (selCurrentPage)="getCurrentPage($event)"
-      (activeCompFun)="activeComp($event)">
+      (activeCompFun)="activeComp($event)"
+      (addPage)="addPage($event)">
     </app-comp-configuration>
   </div>
 
@@ -41,6 +43,7 @@
       (settingObjChange)="chengeComponent($event)"
       (deleteComponent)="deleteComponent($event)"
       (preViewComp)="preView()"
+      (updateCurrentPage)="savePage()"
       (changeBackground)="changeBg($event)">
     </app-comp-setting>
   </div>

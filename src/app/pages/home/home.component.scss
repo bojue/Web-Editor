@@ -6,6 +6,20 @@
     }
     .home {
         position: relative;
+        .design {
+            position: absolute;
+            right: 30px;
+            top: -34px;
+            a {
+                color: #fff;
+                background: rgba(255,0,0,.5);
+                padding: 5px 10px;
+                text-decoration: none;
+                &:hover {
+                    background: rgba(255,0,0,1);  
+                }
+            }
+        }
         .route-list {
             position: relative;
             display: grid;
@@ -49,12 +63,13 @@
             text-align: left;
             margin: 0 auto;
             padding: 10px 30px;
-            border:1px solid #ccc;
+            border:1px solid rgba(255,0,0,0.2);
+            border-radius: 10px;
             .tit {
                 font-size: 16px;
                 font-weight: 600;
                 padding: 10px 10px 10px 0;
-                border-bottom: 1px dashed #aaa;
+                border-bottom: 1px dashed rgba(255,0,0,0.2);;
             }
             .content {
                 margin-top: 10px;

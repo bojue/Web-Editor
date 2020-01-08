@@ -1,43 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseHttpService } from '../../../core/provider/baseHttp/base-http.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-project-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent implements OnInit {
-
-  constructor() { }
+export class DetailComponent extends BaseHttpService implements OnInit {
+  baseUrl = 'project';
+  project: any; //项目
+  constructor(
+    private http: HttpClient
+  ) {
+    super(http, 'project')
+   }
 
   ngOnInit() {
+    this.getData();
   }
 
-  projectArr = [{
-    id:1,
-    name:'报表系统',
-    desciption:"",
-    state:'official'
-  }, {
-    id:2,
-    name:'销售Dashboard',
-    desciption:"",
-    state:'pre'
-  },{
-    id:3,
-    name:"双十一销售监控系统",
-    desciption:"监控软件测试Demo,主要展示数据统计报表",
-    state:''
-  }]
-
-  stateArr = [
-    {
-      src:'assets/icons/state_official.svg',
-      val:"已发布"
-    },
-    {
-      src:'assets/icons/state_pre.svg',
-      val:"待发布"
-    }
-  ]
+  getData() {
+    Observable.forkJoin([this.get(1, this.baseURL)]).subscribe(res => {
+      let data = res && res[0] && res[0]['data'];
+      this.project = data;
+    })
+  }
 
 }

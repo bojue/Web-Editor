@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   pageList: any[];
   desciptions:any[];
+  designPath:string;
 
   constructor(
     private router: Router
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.designPath = '/workspace';
   }
 
   getDate() {

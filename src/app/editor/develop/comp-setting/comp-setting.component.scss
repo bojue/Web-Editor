@@ -11,7 +11,7 @@
     .page-config {
         position: absolute;
         top: -50px;
-        right: 172px;
+        right: 45px;
         min-width: 500px; 
         height: 43px;
         display: inline-block;
@@ -26,7 +26,7 @@
         .pre-view-background {
             display: inline-block;
             position: absolute;
-            right:80px;
+            right:180px;
             height: 44px;
             margin-top: 12px;
             .item-bg {
@@ -40,7 +40,7 @@
             line-height: 40px;
             display: inline-block;
             position: absolute;
-            right: 0px;
+            right: 105px;
             img {
                 width: 20px;
                 position: relative;
@@ -139,6 +139,21 @@
         display: block;
         border-bottom: 1px solid #eeeeee;
         margin-bottom: 5px;
+    }
+    .update {
+        position: absolute;
+        right: 1px;
+        margin-top: 11px;
+        .save {
+            cursor: pointer;
+            border-radius: 3px;
+            color: #ffffff;
+            background: rgba(255, 0, 0, 0.5);
+            padding: 4px 11px;
+            &:hover {
+                background: rgba(255, 0, 0, 1);
+            }
+        }
     }
     .set-tabs {
         user-select: none;

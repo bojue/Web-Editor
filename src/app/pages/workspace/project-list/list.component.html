@@ -13,7 +13,7 @@
             </span>
           </div>
           <div class="list" >
-            <ng-container *ngFor="let item of projectArr;">
+            <ng-container *ngFor="let item of projects;">
               <div class="project">
                 <div class="more">
                   <span class="state" *ngIf="item['state']"><img src="assets/icons/state_{{item['state']}}.svg" alt=""></span>
@@ -26,7 +26,7 @@
                 <div class="detail">
                    <div class="description">
                       简介:
-                      {{item['desciption'] || '无'}}
+                      {{item['description'] || '无'}}
                    </div>
                    <div class="operating-append">
                      <div class="item edit" (click)="toDetail(item['id'], 'develop')">编辑项目</div>

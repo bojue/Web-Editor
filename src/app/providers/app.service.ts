@@ -1,12 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
+import { BaseHttpService } from '../core/provider/baseHttp/base-http.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppService{
+export class AppService extends BaseHttpService{
   
-  constructor() {
-
+  constructor(
+    private http: HttpClient
+  ) {
+    super(http, '')
   }
 
 
@@ -46,7 +50,7 @@ export class AppService{
   }
 
   getPages() {
-    return this.pages;
+    return this.getAll;
   }
 
 }

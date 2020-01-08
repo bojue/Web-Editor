@@ -13,18 +13,17 @@ export class CompPageListComp implements OnInit {
   pageList:any[];
 
   constructor() { 
-
+    console.log(this.pages)
   }
 
   ngOnInit() {
-    this.pageList = this.pages;
     this.initPageState();
   }
 
   //初始化组态选择状态
   initPageState(currentPage ?: any){
-    if(this.pages && Array.isArray(this.pages['children'])) {
-      _.map(this.pages['children'], page => {
+    if(this.pages && Array.isArray(this.pages)) {
+      _.map(this.pages, page => {
         page['actived'] = false;
       })
     }
