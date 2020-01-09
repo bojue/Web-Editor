@@ -39,8 +39,6 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
 
   getData() {
     let comps = this.localStorageService.getPreViceComponent();
-    console.log("comps")
-    console.log(comps)
     this.compList = JSON.parse(comps);
     let parentCompList = _.cloneDeep(this.compList);
     this.eventEmitter = this.emitSerive.getEmitEventSub().subscribe(res => {
@@ -57,6 +55,7 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
      if( this.currentViewContRef) {
        this.currentViewContRef.clear();
      }
+     this.localStorageService.clearPreViceComponent();
   }
   
   ngAfterContentInit() {

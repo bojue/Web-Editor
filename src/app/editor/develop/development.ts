@@ -322,7 +322,6 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     this.initViewContRef();
     this.currentPage = page;
     let comps = page && page['componentList'] && JSON.parse(page['componentList'])|| [];
-    console.log(page)
     this.currnetPageComps = comps;
     this.initPageCompState();
     this.getCompList(comps);
