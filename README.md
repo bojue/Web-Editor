@@ -2,25 +2,19 @@
 
 - 项目基于angular2 (版本号 7.0.2)开发
 - 已经升级到V8.0
-- 目前正在支持服务端业务，前端
+- 目前正在支持服务端业务，[node服务端](https://github.com/bojue/Web-editor-server-node)
 
 ## 下载
 
 ```javascript
-git clone https://github.com/bojue/H5-Editor.git
-cd H5-Editor
-npm i
+git clone https://github.com/bojue/Web-Editor.git
 
-// 1.纯前端静态数据版本：tag  v0.1.0版本
-npm run start // 未添加服务器支持，需要切换到
+//启动：服务端支持，doing
+npm run proxy //默认版本，tag v0.1.0之后的版本，服务端支持。
+//启动：纯前端静态数据版本：tag  v0.1.0版本
+npm run start // 未添加服务器支持，需要切换到 tag v0.1.0版本
 
-// 2.服务端支持，doing
-npm run proxy //默认版本，tag v0.1.0之后的版本
 ```
-
-在浏览器打开：`http://localhost:4200`,端口默认使用4200
-
-
 
 ### 文档
 
@@ -35,9 +29,11 @@ npm run proxy //默认版本，tag v0.1.0之后的版本
 
 > 快捷键
 
-* 拷贝 `control+ c`
-* 复制 `control+ v`
-* 删除 `delete`
-* 上下左右快捷键
+名称|快捷键
+----|----
+拷贝| `control+ c`
+复制| `control+ v`
+删除| `delete`
+位置|上，下，左，右键
 
 
