@@ -8,7 +8,7 @@
 git clone https://github.com/bojue/Web-Editor.git
 
 //启动：服务端支持，doing
-npm run proxy // 默认版本，tag v0.1.0之后的版本，服务端支持。
+npm run proxy // tag v0.1.0之后的版本，需要下载服务端支持。
 //启动：纯前端静态数据版本：tag  v0.1.0版本
 npm run start // 未添加服务器支持，需要切换到 tag v0.1.0版本
 
