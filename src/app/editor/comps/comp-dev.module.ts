@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { AreaComponent } from "./comp-lib/tool/area/area.component";
 import { AuxiliaryComponent } from "./comp-lib/tool/auxiliary/auxiliary.component";
 import { ScaleComponent } from "./comp-lib/tool/scale/scale.component";

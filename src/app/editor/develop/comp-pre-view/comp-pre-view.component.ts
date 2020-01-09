@@ -1,10 +1,12 @@
 import { Component, OnInit, AfterContentInit, OnDestroy, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
 import { ViewContainRefHostDirective } from '../../directive/view-contain-ref-host.directive';
 import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { Location} from "@angular/common";
 import { CompDynamicCreateService } from '../../provider/comp-dynamic-create.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { SettingObjComponent } from '../../model/setting-object.interface';
+import { CompStorageLocalService } from '../../provider/comp-storage-local.service';
 
 @Component({
   selector: 'app-comp-pre-view',
@@ -18,29 +20,28 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
   eventEmitter:any;
   components: any[];
   pageId:number;
-  constructor(
+  constructor( 
+    public localStorageService:CompStorageLocalService,
     public emitSerive: EmitSubService, 
     private elementRef: ElementRef,
     private dynamicService: CompDynamicCreateService,
     private activatedRoute: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver,
     private route: Router,
+    private location:Location
 
   ) { }
 
   ngOnInit() {
-    this.getRouteParams();
+    this.getData();
   }
 
-  getRouteParams() {
-    this.activatedRoute.queryParams.subscribe(res => {
-      this.pageId = res['pageId'];
-      this.getData(res['pageObj']);
-    })
-  }
 
-  getData(pageObj) {
-    this.compList = JSON.parse(pageObj);
+  getData() {
+    let comps = this.localStorageService.getPreViceComponent();
+    console.log("comps")
+    console.log(comps)
+    this.compList = JSON.parse(comps);
     let parentCompList = _.cloneDeep(this.compList);
     this.eventEmitter = this.emitSerive.getEmitEventSub().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
@@ -113,10 +114,8 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
     }
   }
 
-  returnFun() {
-    this.route.navigate(['/workspace/develop'], {queryParams: {
-      pageId: this.pageId
-    }})
+  goBack() {
+    this.location.back();
   }
 
 }

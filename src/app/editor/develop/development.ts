@@ -19,6 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BaseHttpService } from '../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CompStorageLocalService } from '../provider/comp-storage-local.service';
 
 @Component({
   selector: 'app-development',
@@ -68,6 +69,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   }
   eventEmitter:any;
   constructor(
+    public localStorageService:CompStorageLocalService,
     public emitSerice: EmitSubService, 
     private http: HttpClient,
     private elementRef:ElementRef,
@@ -383,6 +385,16 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     }
   }
 
+  //运行
+  preView() {
+    this.auxiCompInit();
+    let comps = this.initPageComponentsStatus();
+    this.localStorageService.setPreViewComponent(JSON.stringify(comps));
+    console.log(this.localStorageService.getPreViceComponent())
+    this.router.navigate(['/workspace/develop/preview'] , { queryParams: {project:this.projectId, page: this.pageId }});
+  }
+  
+
   //创建页面
   addPage(event) {
     Observable.forkJoin(this.create({}, this.PAGE_URL)).subscribe(res => {
@@ -417,11 +429,6 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
       delete item['active'];
     })
     return _comps;
-  }
-  //运行
-  preView() {
-    this.auxiCompInit();
-    this.router.navigate(['/workspace/develop/preview'] , { queryParams: {project:this.projectId, page: this.pageId, pageObj:JSON.stringify(this.currnetPageComps)} });
   }
 
   //键盘事件-删除
