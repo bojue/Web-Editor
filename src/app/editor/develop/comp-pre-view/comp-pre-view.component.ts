@@ -55,7 +55,6 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
      if( this.currentViewContRef) {
        this.currentViewContRef.clear();
      }
-     this.localStorageService.clearPreViceComponent();
   }
   
   ngAfterContentInit() {

@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { BaseHttpService } from '../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';  
+import { CompStorageLocalService } from '../../provider/comp-storage-local.service';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -21,6 +23,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   @Output() activeCompFun = new EventEmitter<any>();
   @Output() addPage = new EventEmitter<any>();
   pages: any;
+  pageId:number;
   compList:any[];
   showBool:boolean;
   currentTab:string;
@@ -30,6 +33,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     private service: AppService,
     private activatedRoute: ActivatedRoute,
     private compListService: CompListService,
+    private localService:CompStorageLocalService
   ) { 
     super(http, 'page');
   }
@@ -42,6 +46,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   getParams() {
     this.activatedRoute.queryParams.subscribe(res => {
       this.projectId = res['project'];
+      this.pageId = res['page'];
     })
   }
   
@@ -50,12 +55,20 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     Observable.forkJoin([this.getAll(_url)]).subscribe(res =>{
       let data = res && res[0] && res[0]['data'];
       this.pages = data;
+      this.initPage();
     })
     this.showBool = true;
     this.compList = this.compListService.getCompList();
     this.selectTabs();
   }
 
+  initPage() {
+    let page = _.find(this.pages, {id: Number(this.pageId)});
+    if(page) {
+      page['actived'] = true;
+      this.seledCurrentPage(page, 'init');
+    }
+  }
   dragCompEnd(event){
     this.compDragEvent.emit(event);
   }
@@ -69,7 +82,10 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   }
 
   //选择当前页面的组件列表
-  seledCurrentPage(page) {
+  seledCurrentPage(page, state) {
+    if(state !== 'init') {
+      this.localService.clearEditorLocalStorage();
+    } 
     this.selCurrentPage.emit(page);
   }
 

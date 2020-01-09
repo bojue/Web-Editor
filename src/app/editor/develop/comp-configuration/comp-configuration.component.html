@@ -10,7 +10,6 @@
   </div>
   
   <!--页面管理 -->
-
   <app-comp-page-list *ngIf="pageGridSetting['showLeft'] && currentTab === 'tabList'" 
   [pages]="pages"
   (selCurrentPage)="seledCurrentPage($event)">

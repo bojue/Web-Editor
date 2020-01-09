@@ -321,7 +321,10 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   getCurrentPage(page) {
     this.initViewContRef();
     this.currentPage = page;
-    let comps = page && page['componentList'] && JSON.parse(page['componentList'])|| [];
+    let localComp = this.localStorageService.getPreViceComponent();
+    let useLocal = localComp && JSON.parse(localComp).length > 0;
+    let comps = useLocal ? JSON.parse(localComp):page['componentList'] && JSON.parse(page['componentList'])|| [];
+    this.router.navigate(['/develop'] , { queryParams: {project:page['projectId'], page: page['id'] }});
     this.currnetPageComps = comps;
     this.initPageCompState();
     this.getCompList(comps);
@@ -389,7 +392,6 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     this.auxiCompInit();
     let comps = this.initPageComponentsStatus();
     this.localStorageService.setPreViewComponent(JSON.stringify(comps));
-    console.log(this.localStorageService.getPreViceComponent())
     this.router.navigate(['/workspace/develop/preview'] , { queryParams: {project:this.projectId, page: this.pageId }});
   }
   
