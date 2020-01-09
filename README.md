@@ -8,7 +8,7 @@
 git clone https://github.com/bojue/Web-Editor.git
 
 //启动：服务端支持，doing
-npm run proxy //默认版本，tag v0.1.0之后的版本，服务端支持。
+npm run proxy // 默认版本，tag v0.1.0之后的版本，服务端支持。
 //启动：纯前端静态数据版本：tag  v0.1.0版本
 npm run start // 未添加服务器支持，需要切换到 tag v0.1.0版本
 
@@ -25,18 +25,10 @@ npm run start // 未添加服务器支持，需要切换到 tag v0.1.0版本
 * 快捷键
 * 预览
 
-> 快捷键
-
-名称|快捷键
-----|----
-拷贝| `control+ c`
-复制| `control+ v`
-删除| `delete`
-位置|上，下，左，右键
 
 > 编辑器代码组织
 
-```javascript
+```ASCII
 .
 +-- editor  //编辑器模块
 |   +-- comps  //模块
@@ -67,6 +59,14 @@ npm run start // 未添加服务器支持，需要切换到 tag v0.1.0版本
 |       +-- comp-dynamic-create.service //组态type和组态映射服务
 ```
 
+> 快捷键
+
+名称|快捷键
+----|----
+拷贝| `control+ c`
+复制| `control+ v`
+删除| `delete`
+位置|上，下，左，右键
 
 > History List
 
