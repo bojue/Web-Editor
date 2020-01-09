@@ -13,7 +13,7 @@ npm install
 
 ## 运行
 
-1. 默认运行命令，需要服务端支持,也就是所以tag v0.1.0之后的版本，请先下载 [服务端node版本](https://github.com/bojue/Web-editor-server-node) 并完成服务端启动。
+1. 默认运行命令，需要服务端支持，也就是所以tag v0.1.0之后的版本，请先下载 [服务端node版本](https://github.com/bojue/Web-editor-server-node) 并完成服务端启动。
 
 ```javascrpt
 npm run proxy 
