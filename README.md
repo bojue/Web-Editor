@@ -7,11 +7,20 @@
 ```javascript
 git clone https://github.com/bojue/Web-Editor.git
 
-//启动：服务端支持，doing
-npm run proxy // tag v0.1.0之后的版本，需要下载服务端支持。
-//启动：纯前端静态数据版本：tag  v0.1.0版本
-npm run start // 未添加服务器支持，需要切换到 tag v0.1.0版本
+```
 
+## 启动
+
+1. 启动，需要服务端支持，也就是tag v0.1.0之后的版本，请先下载 [服务端node版本](https://github.com/bojue/Web-editor-server-node) 并完成服务端启动。
+
+```javascrpt
+npm run proxy 
+
+```
+2. 如果需要测试前端静态版本，需要切换到:tag  v0.1.0版本,数据结构被重构，可以参考使用
+
+```javascript
+npm run start 
 ```
 
 ### 文档
