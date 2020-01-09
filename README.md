@@ -1,6 +1,6 @@
 # Tempo
 
-基于angular版本开发
+基于angular版本开发，[在线预览](https://bojue.github.io/Web-Editor/)
 
 ## 下载
 
