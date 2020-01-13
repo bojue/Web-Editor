@@ -10,7 +10,7 @@
         <span [ngStyle]="{'background':style['background']}"></span>
       </div>
       <ul class="bgs">
-        <li class="item" *ngFor="let bg of backgroundArr;let i = index;" [ngClass]="{'bd-style':i === 0}">
+        <li class="item" *ngFor="let bg of backgroundArr;let i = index;" [ngClass]="{'bd-style':i === 0,'borderSpan':i===1}">
           <span class="bg-col" (click)="selColor(bg)"  [ngStyle]="{'background':bg}"></span>
         </li>
       </ul>

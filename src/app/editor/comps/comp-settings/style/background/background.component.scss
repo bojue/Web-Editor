@@ -12,11 +12,22 @@
     }
     .style-bg-color {
         span {
-            width: 19px;
-            height: 18px;
+            border:1px solid rgba($color: #e6e6e6, $alpha: 0.8);
+            width: 24px;
+            height: 24px;
             display: inline-block;
             border:1px solid #e6e6e6;
         }
+    }
+    .bd-style.item span {
+        width: 24px;
+        height: 24px;
+    }
+
+    .borderSpan{
+       span {
+            border:1px solid rgba($color: #e6e6e6, $alpha: 0.8);
+       }
     }
 
 
@@ -24,10 +35,8 @@
         display:inline-block;
         min-width: 23px;
         .bg-col {
-            border:1px solid rgba($color: #e6e6e6, $alpha: 0.8);
-            width: 18px;
-            height:18px;
-            padding: 0 1px;
+            width: 24px;
+            height: 24px;
             display:inline-block;
             cursor: pointer;
         }

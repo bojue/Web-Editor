@@ -8,14 +8,16 @@
         }
     }
 
-
+    .bd-style.item span {
+        width: 24px;
+        height: 24px;
+    }
     .item {
         display:inline-block;
         min-width: 23px;
         .bg-col {
-            width: 20px;
-            height:20px;
-            padding: 0 1px;
+            width: 24px;
+            height: 24px;
             display:inline-block;
             cursor: pointer;
         }

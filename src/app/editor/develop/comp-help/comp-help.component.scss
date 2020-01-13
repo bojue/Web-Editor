@@ -6,7 +6,7 @@
             user-select: none;
             position: relative;
             height: 40px;
-            width: 32px;
+            width: 36px;
             text-align: right;
             line-height: 40px;
             border-left: 1px solid #ddd;
@@ -57,8 +57,7 @@
                 color: #666666;
                 font-size: 13px;
                 .name {
-                    direction: rtl;
-                    padding-right: 10px;
+                    text-align: center;
                     color:#ccc;
                 }
             }
