@@ -11,6 +11,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { CompStorageLocalService } from './editor/provider/comp-storage-local.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 const routes: Routes = [
   { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}
@@ -27,7 +29,9 @@ const routes: Routes = [
     NgxEchartsModule,
     CodeModule,
     TreeModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [
     AppService,

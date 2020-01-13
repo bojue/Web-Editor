@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { StyleBasicComponent } from '../../../comp-basic/style-basic/style-basic.component';
 import * as _ from 'loadsh';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-style-copy',
@@ -12,7 +13,8 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
   compStyle:any;
   styleArr:any[];
 
-  constructor() { 
+
+  constructor(private toastr: ToastrService) {
     super()
   }
 
@@ -103,6 +105,12 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    this.showCopySuccess();
   }
 
+  showCopySuccess() {
+    this.toastr.success('拷贝成功', '',{
+      timeOut: 1000
+    });
+  }
 }
