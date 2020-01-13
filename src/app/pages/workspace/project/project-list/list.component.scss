@@ -82,7 +82,7 @@
                         position: relative;
                         color: #888888;
                         display: inline-block;
-                        height: 69px;
+                        height: 97px;
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
@@ -99,7 +99,7 @@
                             text-align: center;
                             background: #fff;
                             .item {
-                                margin-top: 10px;
+                                margin-top: 5px;
                                 border:1px solid rgba(255, 0, 0,0.2);
                                 width: 100px;
                                 height: 32px;
@@ -126,7 +126,7 @@
                             display: inline-block;
                             width: 50%;
                             height: 40px;
-                            line-height: 53px;
+                            line-height: 40px;
                             opacity: 0.4;
                             &:hover {
                                 opacity: 1;

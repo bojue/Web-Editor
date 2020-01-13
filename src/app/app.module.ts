@@ -13,6 +13,8 @@ import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } f
 import { CompStorageLocalService } from './editor/provider/comp-storage-local.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { PageAddComponent } from './pages/workspace/page/page-add/page-add.component';
+import { PageEditComponent } from './pages/workspace/page/page-edit/page-edit.component';
 
 const routes: Routes = [
   { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}
@@ -21,6 +23,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    PageAddComponent,
+    PageEditComponent
   ],
   imports: [
     BrowserModule, 
@@ -45,7 +49,8 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
   entryComponents:[
-    
+    PageAddComponent,
+    PageEditComponent
   ],
   exports: [RouterModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

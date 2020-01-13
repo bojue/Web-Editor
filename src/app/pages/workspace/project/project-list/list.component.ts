@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseHttpService } from '../../../core/provider/baseHttp/base-http.service';
+import { BaseHttpService } from '../../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import 'rxjs/add/observable/forkJoin'

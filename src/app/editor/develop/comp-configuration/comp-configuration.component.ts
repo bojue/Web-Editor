@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';  
 import { CompStorageLocalService } from '../../provider/comp-storage-local.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { PageAddComponent } from '../../../pages/workspace/page/page-add/page-add.component';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -33,7 +35,8 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     private service: AppService,
     private activatedRoute: ActivatedRoute,
     private compListService: CompListService,
-    private localService:CompStorageLocalService
+    private localService:CompStorageLocalService,
+    private modalService: NgbModal
   ) { 
     super(http, 'page');
   }
@@ -93,7 +96,12 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     this.activeCompFun.emit(comp);
   }
 
+  addPageComponet() {
+    this.modalService.open(PageAddComponent)
+  }
+
   createPage() {
-    this.addPage.emit()
+    this.addPageComponet();
+    // this.addPage.emit()
   }
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Route } from '@angular/router';
-import { ListComponent } from './project-list/list.component';
-import { DetailComponent } from './project-detail/detail.component';
+import { ListComponent } from './project/project-list/list.component';
+import { DetailComponent } from './project/project-detail/detail.component';
 
 const routes: Route[] = [
   { path: '', component: ListComponent },

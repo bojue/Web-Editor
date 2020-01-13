@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseHttpService } from '../../../core/provider/baseHttp/base-http.service';
+import { BaseHttpService } from '../../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

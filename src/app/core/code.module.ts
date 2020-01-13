@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     RouterModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     BreadCurmbComponent,

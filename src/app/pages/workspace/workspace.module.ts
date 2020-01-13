@@ -4,8 +4,9 @@ import { CompConfigService } from "src/app/editor/provider/comp-config.service";
 import { WorkspaceRoutingModule } from "./workspace.routing.module";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
-import { ListComponent } from './project-list/list.component';
-import { DetailComponent } from './project-detail/detail.component';
+import { ListComponent } from './project/project-list/list.component';
+import { DetailComponent } from './project/project-detail/detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const comps = [
   ListComponent,
@@ -20,6 +21,7 @@ const comps = [
     CodeModule,
     CommonModule,
     FormsModule,
+    NgbModule,
     WorkspaceRoutingModule
   ],
   providers: [
