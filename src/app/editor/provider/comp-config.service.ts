@@ -18,7 +18,10 @@ export class CompConfigService {
                 type:'line',
                 data: {
                 },
-                style: this._defCompStyle(null,{
+                style: this._defCompStyle({
+                    left:100,
+                    top:100
+                },{
                     x1:100,
                     y1:100,
                     x2:300,

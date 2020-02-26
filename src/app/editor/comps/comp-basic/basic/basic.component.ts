@@ -67,15 +67,15 @@ export class BasicComponent implements OnInit {
     return paramVal;
   }
   
-  compEvent(event) {
+  compEvent(event, status:string = 'def') {
     let newTime = new Date().getTime();
     if(!this.lastTime || newTime - this.lastTime > this.INTERVAL_TIME) {
       this.lastTime = newTime;
-      this.emitDrapFun(event);
+      this.emitDrapFun(event, status);
     }
   }
 
-  emitDrapFun(event) {
+  emitDrapFun(event, status) {
     if(!(this.eventSubObj && this.eventSubObj['clientX'] === event['clientX'] && 
       this.eventSubObj['clientY'] === event['clentY'])) {
         event['dynamicData'] = this.settingObj;

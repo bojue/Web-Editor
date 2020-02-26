@@ -1,8 +1,10 @@
 <div id='lineComp' class="comp-line line" 
 [ngStyle]="{
   'position':style['position'],
-  'top':expandUnit('x1'),
-  'left':expandUnit('y1')
+  'top':0,
+  'left':0,
+  'width':'1200px',
+  'height':'800px'
 }"
 draggable="true" 
 (dragstart)="compEvent($event)"
@@ -10,13 +12,39 @@ draggable="true"
 (dragend)="compEvent($event)"
 (click)="compEvent($event)" 
 (mousedown)="compEvent($event)"
-[ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
+[ngClass]="{'comp-active': settingObj['active']}"
 >
+  <span class="circle" *ngIf="settingObj['active']">
+    <div class="circle-item fir" [ngStyle]="{
+      'position':style['position'],
+      'top':expandLineUnit('y','start'),
+      'left':expandLineUnit('x','start')
+    }"
+    draggable="true" 
+  (dragstart)="compEvent($event, 'start')"
+  (drag)="compEvent($event, 'start')"
+  (dragend)="compEvent($event, 'start')"></div>
+    <!-- <div class="circle-item sec" [ngStyle]="{
+      'position':style['position'],
+      'top':expandUnit('y','half'),
+      'left':expandUnit('x','half')
+    }"></div> -->
+    <div class="circle-item end" [ngStyle]="{
+      'position':style['position'],
+      'top':expandLineUnit('y'),
+      'left':expandLineUnit('x')
+    }"
+    draggable="true" 
+    (dragstart)="compEvent($event, 'end')"
+    (drag)="compEvent($event, 'end')"
+    (dragend)="compEvent($event, 'end')"></div>
+  </span>
+
   <svg id="svg" version="1.1"
   xmlns="http://www.w3.org/2000/svg">
   
   <line id="line" y1="0" x2="300" y2="300"
-  style="stroke:rgb(99,99,99);stroke-width:1"/>
+  style="stroke:#007fff;stroke-width:1"/>
   
   </svg>
 </div>

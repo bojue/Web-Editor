@@ -298,7 +298,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   selectComp(settingObj, eventType) {
     this.activeCompSettingObject = settingObj;
     this.getActiveComponent(settingObj);
-    if(eventType === 'click') {
+    if(eventType === 'click' && settingObj && settingObj['type'] !== 'line') {
       this.getAuxiliaryComponent(settingObj['style'], 'selectComponent');
     }
   }

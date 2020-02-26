@@ -1,5 +1,30 @@
 :host {
     .comp-line {
         position: absolute;
+        cursor: pointer;
+    }
+    .circle-item {
+        cursor:all-scroll;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border: 1px solid red;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff;
+        pointer-events: auto;
+        z-index: 11 !important;
+        &.fir {
+            left: 0;
+            top:0;
+        }
+        &.sec {
+            left: 100px;
+            top:100px;
+        }
+        &.end {
+            left:200px;
+            top:200px;
+        }
     }
 }
