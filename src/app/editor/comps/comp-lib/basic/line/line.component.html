@@ -6,12 +6,7 @@
   'width':'1200px',
   'height':'800px'
 }"
-draggable="true" 
-(dragstart)="compEvent($event)"
-(drag)="compEvent($event)"
-(dragend)="compEvent($event)"
 (click)="compEvent($event)" 
-(mousedown)="compEvent($event)"
 [ngClass]="{'comp-active': settingObj['active']}"
 >
   <span class="circle" *ngIf="settingObj['active']">

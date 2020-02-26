@@ -18,7 +18,7 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   ngOnInit() {
-
+    console.log(this.settingObj)
     this.initData();
   }
 

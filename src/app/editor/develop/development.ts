@@ -363,7 +363,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
      * 4.deleteComponent 删除组件
      */
     this.auxiCompInit() 
-    if(eventType === 'selectComponent') {
+    if(eventType === 'selectComponent' && this.activeCompSettingObject && this.activeCompSettingObject['type'] !== 'line') {
       this.auxiComp = this.infoService.getAuxiComp();
       this.auxiComp['style'] = selectStyle;
       this.auxiComp['contentPageSize'] = this.contentPageSize;
