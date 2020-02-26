@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
   styleUrls: ['./comp-list.component.scss']
 })
 export class CompListComponent implements OnInit {
-  @Input() componentModules:any;
+  @Input() compList:any;
   @Input() currnetPageComps:any;
   @Output() compDragEvent = new EventEmitter<any>();
 

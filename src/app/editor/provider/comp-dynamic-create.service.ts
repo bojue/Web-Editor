@@ -33,6 +33,7 @@ export class CompDynamicCreateService {
       'textarea': TextareaComponent,
       'button': ButtonComponent,
       'video': VideoComponent,
+      'line':LineComponent,
       
       //业务
 

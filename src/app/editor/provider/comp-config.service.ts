@@ -18,7 +18,12 @@ export class CompConfigService {
                 type:'line',
                 data: {
                 },
-                style: this._defCompStyle(),
+                style: this._defCompStyle(null,{
+                    x1:100,
+                    y1:100,
+                    x2:300,
+                    y2:300
+                }),
             },
             "text": {
                 compIndex: 2,
@@ -192,7 +197,7 @@ export class CompConfigService {
         style: this._defCompStyle()
     }
 
-    _defCompStyle(customStyle ?:any) {
+    _defCompStyle(customStyle ?:any,appendStyle?:any) {
         let styleJson = {
             position: 'absolute', //定位类型|position
             top:400, //位置|postion
@@ -210,6 +215,9 @@ export class CompConfigService {
         }
         for(let key in customStyle) {
             styleJson[key] = customStyle[key];
+        }
+        for(let key in appendStyle) {
+            styleJson[key] = appendStyle[key];
         }
         return styleJson;
     }

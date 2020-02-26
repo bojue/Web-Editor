@@ -22,7 +22,7 @@ const dataComp = [
     ImgValComponent,
     ListValComponent,
     AudioValComponent,
-    VideoValComponent
+    VideoValComponent,
 ]
 
 @NgModule({

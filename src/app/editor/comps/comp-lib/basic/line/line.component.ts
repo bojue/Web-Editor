@@ -8,6 +8,11 @@ import { SettingObjComponent } from "src/app/editor/model/setting-object.interfa
   styleUrls: ['./line.component.scss']
 })
 export class LineComponent extends BasicComponent implements OnInit, SettingObjComponent{
+  lineCompDom:HTMLElement;
+  svgDom:HTMLElement;
+  lineDom:HTMLElement;
+  height = 200;
+  width = 200;
   constructor(
     private element: ElementRef
   ) {
@@ -16,19 +21,20 @@ export class LineComponent extends BasicComponent implements OnInit, SettingObjC
 
   ngOnInit() {
     this.initData();
-    this.getLine();
+    this.init();
   }
 
-  getLine() {
-    let _qEle = "#canvas-line";
-    let line_canvas = this.element.nativeElement.querySelector(_qEle);
-    var ctx = line_canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.lineWidth=1;
-    ctx.lineCap="butt";
-    ctx.moveTo(0,0);
-    ctx.lineTo(200,200);
-    ctx.stroke();
+  init() {
+
+    this.svgDom = document.getElementById('svg');
+    this.svgDom.setAttribute('width', '200');
+    this.svgDom.setAttribute('height', '200');
+
+    this.lineDom = document.getElementById('line');
+    this.lineDom.setAttribute('x1', '0')
+    this.lineDom.setAttribute('y1', '0')
+    this.lineDom.setAttribute('x2', this.style['x2'] - this.style['x2'] + '')
+    this.lineDom.setAttribute('y2', this.style['y2'] - this.style['y2'] +'')
   }
 }
  

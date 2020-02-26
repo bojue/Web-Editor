@@ -34,6 +34,10 @@ export class CompListService {
             type: 'img',
             iconUrl: 'assets/icons/image.svg'
         },{
+            name:'连线',
+            type: 'line',
+            iconUrl: 'assets/icons/line.svg'
+        },{
             name:'视频',
             type: 'video',
             iconUrl: 'assets/icons/video.svg'

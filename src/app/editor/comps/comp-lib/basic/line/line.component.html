@@ -1,5 +1,22 @@
-<div class="comp-line">
-  <canvas id="canvas-line" width="1024" height="768" style="border:1px solid #aaa;display:block;margin:50 auto;">
-    浏览器不支持不支持canvas,推荐使用最新版本Chrome浏览器
-  </canvas>
+<div id='lineComp' class="comp-line line" 
+[ngStyle]="{
+  'position':style['position'],
+  'top':expandUnit('x1'),
+  'left':expandUnit('y1')
+}"
+draggable="true" 
+(dragstart)="compEvent($event)"
+(drag)="compEvent($event)"
+(dragend)="compEvent($event)"
+(click)="compEvent($event)" 
+(mousedown)="compEvent($event)"
+[ngClass]="{'comp-active': settingObj['active'] ,'comp-resize': settingObj['eResize']}"
+>
+  <svg id="svg" version="1.1"
+  xmlns="http://www.w3.org/2000/svg">
+  
+  <line id="line" y1="0" x2="300" y2="300"
+  style="stroke:rgb(99,99,99);stroke-width:1"/>
+  
+  </svg>
 </div>

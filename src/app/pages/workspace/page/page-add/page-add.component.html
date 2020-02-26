@@ -1,1 +1,26 @@
-<p>page-add works!</p>
+<div class="page-add editor-model">
+    <div class="top">
+        <div class="title">页面创建</div>
+    </div>
+    <div class="content">
+        <div class="body">
+            <div class="item">
+                <span class="label">
+                    <label for="">页面名称</label>
+                </span>
+                <span class="val">
+                    <input type="text" [(ngModel)]="page['name']">
+                </span>
+                <span class="info">
+                    <span>必填</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="btns">
+            <button class="btn brn-light cancel" (click)="cancel()">取消</button>
+            <button class="btn btn-primary save" (click)="save()">保存</button>
+        </div>
+    </div>
+</div>
