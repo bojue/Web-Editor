@@ -275,7 +275,9 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
         e.stopPropagation();
         let eventType = e && e.type;
         let style = currentComponent.settingObj && currentComponent.settingObj['style'];
-        if(eventType === 'dragstart') {
+        if(e['ignoreDragBool']) {
+          // ignoreDragBool
+        }else if(eventType === 'dragstart') {
           this.dragCompStartX = e.clientX;
           this.dragCompStartY = e.clientY;
           changeX = this.dragCompStartX -  style['left'];
@@ -298,7 +300,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   selectComp(settingObj, eventType) {
     this.activeCompSettingObject = settingObj;
     this.getActiveComponent(settingObj);
-    if(eventType === 'click' && settingObj && settingObj['type'] !== 'line') {
+    if(eventType === 'click') {
       this.getAuxiliaryComponent(settingObj['style'], 'selectComponent');
     }
   }

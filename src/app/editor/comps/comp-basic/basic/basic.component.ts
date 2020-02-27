@@ -75,7 +75,7 @@ export class BasicComponent implements OnInit {
     }
   }
 
-  emitDrapFun(event, status) {
+  emitDrapFun(event, status = 'def') {
     if(!(this.eventSubObj && this.eventSubObj['clientX'] === event['clientX'] && 
       this.eventSubObj['clientY'] === event['clentY'])) {
         event['dynamicData'] = this.settingObj;

@@ -20,7 +20,9 @@ export class CompConfigService {
                 },
                 style: this._defCompStyle({
                     left:100,
-                    top:100
+                    top:100,
+                    width:200,
+                    height:200
                 },{
                     x1:100,
                     y1:100,

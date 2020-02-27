@@ -1,45 +1,45 @@
 <div id='lineComp' class="comp-line line" 
+(dragstart)="compEvent($event)"
+(drag)="compEvent($event)"
+(dragend)="compEvent($event)"
+(click)="compEvent($event)" 
 [ngStyle]="{
   'position':style['position'],
-  'top':0,
-  'left':0,
-  'width':'1200px',
-  'height':'800px'
+  'top':expandUnit('top'),
+  'left':expandUnit('left'),
+  'width':expandUnit('width'),
+  'height':expandUnit('height')
 }"
-(click)="compEvent($event)" 
-[ngClass]="{'comp-active': settingObj['active']}"
+[ngClass]="{'comp-line-active': settingObj['active']}"
 >
   <span class="circle" *ngIf="settingObj['active']">
     <div class="circle-item fir" [ngStyle]="{
       'position':style['position'],
-      'top':expandLineUnit('y','start'),
-      'left':expandLineUnit('x','start')
+      'top':expandLineUnit('y','beigin'),
+      'left':expandLineUnit('x','beigin')
     }"
     draggable="true" 
-  (dragstart)="compEvent($event, 'start')"
-  (drag)="compEvent($event, 'start')"
-  (dragend)="compEvent($event, 'start')"></div>
-    <!-- <div class="circle-item sec" [ngStyle]="{
-      'position':style['position'],
-      'top':expandUnit('y','half'),
-      'left':expandUnit('x','half')
-    }"></div> -->
+    (dragstart)="compEvent($event, 'startingPoint')"
+    (drag)="compEvent($event, 'startingPoint')"
+    (dragend)="compEvent($event, 'startingPoint')">
+    s1
+  </div>
     <div class="circle-item end" [ngStyle]="{
       'position':style['position'],
-      'top':expandLineUnit('y'),
-      'left':expandLineUnit('x')
+      'top':expandLineUnit('y','end'),
+      'left':expandLineUnit('x','end')
     }"
     draggable="true" 
-    (dragstart)="compEvent($event, 'end')"
-    (drag)="compEvent($event, 'end')"
-    (dragend)="compEvent($event, 'end')"></div>
+    (dragstart)="compEvent($event, 'endPoint')"
+    (drag)="compEvent($event, 'endPoint')"
+    (dragend)="compEvent($event, 'endPoint')">
+    s2
+  </div>
   </span>
 
-  <svg id="svg" version="1.1"
-  xmlns="http://www.w3.org/2000/svg">
-  
-  <line id="line" y1="0" x2="300" y2="300"
-  style="stroke:#007fff;stroke-width:1"/>
-  
-  </svg>
+  <!-- <svg version="1.1"
+  xmlns="http://www.w3.org/2000/svg">  
+    <line id="line" y1="0" x2="300" y2="300"
+    style="stroke:#007fff;stroke-width:1"/>
+  </svg> -->
 </div>
