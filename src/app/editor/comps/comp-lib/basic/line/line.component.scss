@@ -1,14 +1,11 @@
 :host {
-    svg {
-        background: #ddd;
-    }
     #componentsBody .comp-line.comp-line-active {
         z-index: 0 !important;
     }
     .comp-line {
         position: absolute;
         cursor: pointer;
-        background: yellowgreen;
+        // background: yellowgreen;
     }
     .circle-item {
         cursor:all-scroll;

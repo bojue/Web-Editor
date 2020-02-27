@@ -10,11 +10,12 @@ import { SettingObjComponent } from "src/app/editor/model/setting-object.interfa
 export class LineComponent extends BasicComponent implements OnInit, SettingObjComponent{
   lineCompDom:HTMLElement;
   svgDom:SVGSVGElement;
-  lineDom:SVGAElement;
+  pathDom:SVGAElement;
   height = 200;
   width = 200;
   changeY = 0;
   changeX = 0;
+
   x1 = 0;
   x2 = 0;
   y1 = 0;
@@ -32,7 +33,7 @@ export class LineComponent extends BasicComponent implements OnInit, SettingObjC
   ngOnInit() {
     this.initData();
     this.svgDom = this.element.nativeElement.querySelector('svg');
-    this.lineDom = this.element.nativeElement.querySelector('line');
+    this.pathDom = this.element.nativeElement.querySelector('path');
     this.initStyle();
     this.initLine();
   }
@@ -44,12 +45,17 @@ export class LineComponent extends BasicComponent implements OnInit, SettingObjC
     this.style['height'] = this.style['y2'] - this.style['y1'];
   }
   initLine() {
-    // this.svgDom.setAttribute('width', `${this.style['width']}`)
-    // this.svgDom.setAttribute('height',  `${this.style['height']}`)
-    // this.lineDom.setAttribute('x1',  `${this.style['x1'] - this.style['left']}`)
-    // this.lineDom.setAttribute('y1',  `${this.style['y1'] - this.style['top']}`)
-    // this.lineDom.setAttribute('x2',  `${this.style['width'] }`)
-    // this.lineDom.setAttribute('y2',  `${ this.style['y2'] -  this.style['left'] }`)
+    this.svgDom.setAttribute('width', `${this.style['width']}`);
+    this.svgDom.setAttribute('height',  `${this.style['height']}`);
+    let xVal = this.style['x2'] - this.style['x1'];
+    let yVal = this.style['y2'] - this.style['y1'];
+
+    let _x1 = xVal > 0 ? 0 : this.style['width'];
+    let _y1 = yVal > 0 ? 0: this.style['height'];
+    let _x2 = xVal > 0 ? this.style['width'] : 0;
+    let _y2 = yVal > 0 ? this.style['height'] : 0;
+    this.pathDom.setAttribute('d', `M${_x1}, ${_y1}, L${_x2},  ${_y2}`)
+
   }
 
   expandLineUnit(param, state?:string) {

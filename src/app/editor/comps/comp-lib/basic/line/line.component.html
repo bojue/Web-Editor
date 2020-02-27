@@ -22,7 +22,6 @@
     (dragstart)="compEvent($event, 'startingPoint')"
     (drag)="compEvent($event, 'startingPoint')"
     (dragend)="compEvent($event, 'startingPoint')">
-    s1
   </div>
     <div class="circle-item end" [ngStyle]="{
       'position':style['position'],
@@ -33,13 +32,11 @@
     (dragstart)="compEvent($event, 'endPoint')"
     (drag)="compEvent($event, 'endPoint')"
     (dragend)="compEvent($event, 'endPoint')">
-    s2
   </div>
   </span>
 
-  <!-- <svg version="1.1"
+  <svg version="1.1"
   xmlns="http://www.w3.org/2000/svg">  
-    <line id="line" y1="0" x2="300" y2="300"
-    style="stroke:#007fff;stroke-width:1"/>
-  </svg> -->
+    <path style="stroke:#007fff;stroke-width:1"/>
+  </svg>
 </div>
