@@ -11,6 +11,8 @@ export class LineComponent extends BasicComponent implements OnInit, SettingObjC
   lineCompDom:HTMLElement;
   svgDom:SVGSVGElement;
   pathDom:SVGAElement;
+  LINE_DEF_WIDTH = 200;
+  LINE_DEF_HEIGHT = 200;
   height = 200;
   width = 200;
   changeY = 0;
@@ -39,10 +41,12 @@ export class LineComponent extends BasicComponent implements OnInit, SettingObjC
   }
 
   initStyle() {
-    this.style['left'] = Math.min(this.style['x2'],this.style['x1']);
-    this.style['top'] = Math.min(this.style['y2'] , this.style['y1']);
-    this.style['width'] = this.style['x2'] - this.style['y1'];
-    this.style['height'] = this.style['y2'] - this.style['y1'];
+    this.style['width'] = this.LINE_DEF_WIDTH;
+    this.style['height'] = this.LINE_DEF_HEIGHT;
+    this.style['x1'] = this.style['left'];
+    this.style['y1'] = this.style['top'];
+    this.style['x2'] = this.style['left'] + this.style['width'];
+    this.style['y2'] = this.style['top'] + this.style['height'];
   }
   initLine() {
     this.svgDom.setAttribute('width', `${this.style['width']}`);
