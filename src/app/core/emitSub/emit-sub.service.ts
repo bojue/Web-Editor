@@ -1,8 +1,9 @@
-import { Injectable, OnInit ,EventEmitter} from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, EventEmitter } from '@angular/core';
 
-@Injectable()
-export class EmitSubService {
+@Injectable({
+  providedIn: 'root'
+})
+export class  EmitSubService{
   eventEmitter: EventEmitter<any> = new EventEmitter();
 
   constructor() {}

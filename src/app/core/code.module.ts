@@ -8,13 +8,15 @@ import { CommonModule } from '@angular/common';
 import { BaseHttpService } from './provider/baseHttp/base-http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TempoToastrService } from './provider/toaster/toastr.service';
+import { EmitSubService } from './emitSub/emit-sub.service';
 
 @NgModule({
   declarations: [
     BreadCurmbComponent
  ],
   imports: [
-    RouterModule,
+
+  RouterModule,
     CommonModule,
     HttpClientModule,
   ],
@@ -26,7 +28,8 @@ import { TempoToastrService } from './provider/toaster/toastr.service';
     CompDynamicCreateService,
     MenuBreadCrumbService,
     UserAgentService,
-    TempoToastrService
+    TempoToastrService,
+    EmitSubService
   ]
 })
 export class CodeModule { }

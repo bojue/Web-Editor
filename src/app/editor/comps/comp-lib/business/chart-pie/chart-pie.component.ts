@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
 
 @Component({

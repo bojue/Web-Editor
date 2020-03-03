@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomBasicComponent } from '../../../comp-basic/custom-basic/custom-basic.component';
-import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
 import { ChartGuageService } from './chart-guage.service';
 
 @Component({

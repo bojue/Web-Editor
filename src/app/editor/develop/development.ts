@@ -6,7 +6,7 @@ import { SettingPage } from 'src/app/editor/model/setting-page.model';
 import { CompConfigService } from 'src/app/editor/provider/comp-config.service';
 import { CompDynamicCreateService } from 'src/app/editor/provider/comp-dynamic-create.service';
 import { Router } from '@angular/router';
-import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
 import { EventManager } from '@angular/platform-browser';
 import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
 import { AuxiliaryComponent } from 'src/app/editor/comps/comp-lib/tool/auxiliary/auxiliary.component';

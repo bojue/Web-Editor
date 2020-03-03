@@ -6,7 +6,6 @@ import { NgxEchartsModule } from "ngx-echarts";
 import { CodeModule } from "./core/code.module";
 import { AppService } from "./providers/app.service";
 import { CompConfigService } from "./editor/provider/comp-config.service";
-import { EmitSubService } from "./providers/emit-sub.service";
 import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
@@ -41,7 +40,6 @@ const routes: Routes = [
   providers: [
     AppService,
     CompConfigService,
-    EmitSubService,
     CompStorageLocalService,
     {
       provide:LocationStrategy,

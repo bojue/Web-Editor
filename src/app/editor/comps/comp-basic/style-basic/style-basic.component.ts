@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { SettingStyle } from "src/app/editor/model/setting-style.model";
 import { BasicComponent } from "../basic/basic.component";
-import { EmitSubService } from "src/app/providers/emit-sub.service";
+import { EmitSubService } from "src/app/core/emitSub/emit-sub.service";
 import { PageStyle } from '../../../model/setting-page-style.model';
 
 @Component({

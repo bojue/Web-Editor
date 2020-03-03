@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterContentInit, OnDestroy, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
 import { ViewContainRefHostDirective } from '../../directive/view-contain-ref-host.directive';
-import { EmitSubService } from 'src/app/providers/emit-sub.service';
+import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
 import { Location} from "@angular/common";
 import { CompDynamicCreateService } from '../../provider/comp-dynamic-create.service';
 import { ActivatedRoute, Router } from '@angular/router';

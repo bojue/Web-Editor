@@ -54,11 +54,11 @@ export class BasicComponent implements OnInit {
   //有边框辅助位置计算
   hasBorderWidth(paramVal, param, other ?: string) {
     let _other = 0;
-    if(other === 'height'){
+    if(param === 'height'){
       let _bordWidth = this.style['borderWidth'] * 2 || 0;
       let _padd = this.style['paddingTopBottom'] * 2 > 0 ? this.style['paddingTopBottom'] * 2 || 0 : 0;
       _other = _bordWidth + _padd;
-    }else if(other === 'width') {
+    }else if(param === 'width') {
       let _bordWidth = this.style['borderWidth'] * 2 || 0;
       let _padd = this.style['paddingLeftRight'] > 0 ? this.style['paddingLeftRight'] * 2 || 0 : 0;
       _other = _bordWidth + _padd;
