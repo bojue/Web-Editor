@@ -7,6 +7,7 @@ import { UserAgentService } from './tool/user-agent.service';
 import { CommonModule } from '@angular/common';
 import { BaseHttpService } from './provider/baseHttp/base-http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TempoToastrService } from './provider/toaster/toastr.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BaseHttpService,
     CompDynamicCreateService,
     MenuBreadCrumbService,
-    UserAgentService
+    UserAgentService,
+    TempoToastrService
   ]
 })
 export class CodeModule { }

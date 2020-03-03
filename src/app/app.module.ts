@@ -36,6 +36,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
+
   ],
   providers: [
     AppService,

@@ -1,7 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { StyleBasicComponent } from '../../../comp-basic/style-basic/style-basic.component';
 import * as _ from 'loadsh';
-import { ToastrService } from 'ngx-toastr';
+import { TempoToastrService } from '../../../../../core/provider/toaster/toastr.service';
 
 @Component({
   selector: 'app-style-copy',
@@ -14,7 +14,7 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
   styleArr:any[];
 
 
-  constructor(private toastr: ToastrService) {
+  constructor(private toastr: TempoToastrService) {
     super()
   }
 
@@ -109,8 +109,9 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
   }
 
   showCopySuccess() {
-    this.toastr.success('拷贝成功', '',{
-      timeOut: 1000
-    });
+    this.toastr.showToaster({
+      state:this.toastr.STATE.INFO,
+      info:"拷贝成功"
+    })
   }
 }
