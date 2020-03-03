@@ -44,9 +44,9 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   components: any[]; //页面实例化后的组态列表
 
   currentIndex = -1; //激活组件的下标
-  activeCurrentComp: SettingObject; //当前组件的数据
+  // activeCurrentComp: SettingObject; //当前组件的数据，方便快捷获取选中数据，暂时不需要已经注释
   activeCompSettingObject: SettingObject; //当前组态设置对象
-
+  multipleChoiceArray:any[] = []; //多选操作组件列表
 
   copyComp: any; //拷贝组件
   copyNum:number; //单个组件拷贝次数
@@ -198,7 +198,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   initCompsState() {
     this.currentIndex = -1;
-    this.activeCurrentComp = null;
+    // this.activeCurrentComp = null;
     this.activeCompSettingObject = null;
     _.map(this.currnetPageComps, (item,k) => {
       item['active'] = false;
@@ -313,7 +313,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
         this.currentIndex = k;
         comp['active'] = true;
         this.activeCompSettingObject = settingObj;
-        this.activeCurrentComp = comp;
+        // this.activeCurrentComp = comp;
       }
     });
 

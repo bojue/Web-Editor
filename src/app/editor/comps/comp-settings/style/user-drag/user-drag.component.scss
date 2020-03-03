@@ -1,0 +1,13 @@
+:host {
+    .set-val label {
+        width: 50px;
+        margin-left: 18px;
+    }
+    input.val {
+        width: 30px;
+        float: left;
+        z-index: 1;
+        margin-left: -12px;
+        margin-top: 1px;
+    }
+}

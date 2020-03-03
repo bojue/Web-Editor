@@ -209,13 +209,14 @@ export class CompConfigService {
             left:200,
             height:100, //尺寸|size
             width: 100,
-            borderColor: "#FF0000", //边框|border
+            borderColor: "rgba(255,0,0,0.6)", //边框|border
             borderWidth: 1,
             borderStyle: 'solid',
             paddingTopBottom:0, //内边距|padding
             paddingLeftRight:0,
             fontSize:14,
             textAlign:'center', //文字水平位置|textAlign
+            userDrag:'element'
    
         }
         for(let key in customStyle) {

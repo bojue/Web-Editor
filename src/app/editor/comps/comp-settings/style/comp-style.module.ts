@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { PaddingComponent } from "./padding/padding.component";
 import { StyleCopyComponent } from "./style-copy/style-copy.component";
 import { PageSizeComponent } from './page-size/page-size.component';
+import { UserDragComponent } from './user-drag/user-drag.component';
 
 const settingComp = [
     ColorComponent,
@@ -25,7 +26,8 @@ const settingComp = [
     OpacityComponent,
     FontsComponent,
     StyleCopyComponent,
-    PageSizeComponent
+    PageSizeComponent,
+    UserDragComponent
 ]
 
 @NgModule({

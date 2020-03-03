@@ -54,6 +54,7 @@
   
         <div class="set-body" *ngIf="stateObj === 'style'">
           <div class="set-list scrollY styles" >
+            <app-user-drag class="set-item user-select-node " [style]="activeSettingObj['style']"></app-user-drag>
             <app-size [style]="activeSettingObj['style']" class="user-select-node"></app-size>
             <app-position class="set-item user-select-node " [style]="activeSettingObj['style']"></app-position>
             <app-padding class="set-item user-select-node " [style]="activeSettingObj['style']"></app-padding>
