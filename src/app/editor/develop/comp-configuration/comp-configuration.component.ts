@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 import { CompStorageLocalService } from '../../provider/comp-storage-local.service';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { PageAddComponent } from '../../../pages/workspace/page/page-add/page-add.component';
+import { TempoToastrService } from '../../../core/provider/toaster/toastr.service';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -36,7 +37,8 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     private activatedRoute: ActivatedRoute,
     private compListService: CompListService,
     private localService:CompStorageLocalService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toaster: TempoToastrService
   ) { 
     super(http, 'page');
   }
@@ -96,12 +98,32 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     this.activeCompFun.emit(comp);
   }
 
-  addPageComponet() {
-    this.modalService.open(PageAddComponent)
-  }
-
   createPage() {
     this.addPageComponet();
     // this.addPage.emit()
+  }
+
+  addPageComponet() {
+    let addComp = this.modalService.open(PageAddComponent);
+    addComp.componentInstance.datas = {
+      state:'addPage'
+    };
+    addComp.result.then((result) => {
+      if(result === 'success') {
+        this.toaster.showToaster({
+          state: this.toaster.STATE.SUCCESS,
+          info:'页面创建成功'
+        })
+        this.initData();
+      }else {
+      
+      }
+  
+    }, (reason) => {
+      this.toaster.showToaster({
+        state: this.toaster.STATE.ERROR,
+        info:'页面创建失败'
+      })
+    });
   }
 }

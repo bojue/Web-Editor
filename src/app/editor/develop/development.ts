@@ -153,7 +153,8 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
  
       let activeEleBool = document.activeElement && document.activeElement['selectionStart'] !== undefined; //mac Delete删除组件焦点输入框的内容
       let _doc = document.activeElement as unknown as NodeListOf<HTMLElement>; //添加类型断言，TS类型检查导致的异常抛出
-      if((del_window || del_mac && (!activeEleBool || activeEleBool && !_doc['value'])|| (del_mac && $event.ctrlKey && this.activeCompSettingObject)) || ( (del_window || del_mac) && $event.ctrlKey  )){
+      let _delCompItem = $event && $event['target'] && $event['target']['class'] &&  $event['target']['classList'].indexOf('comp-item') > -1; //DOTO:不删除组态
+      if((del_window || del_mac && (activeEleBool === false || activeEleBool && !_doc['value'] && _delCompItem)|| (del_mac && $event.ctrlKey && this.activeCompSettingObject)) || ( (del_window || del_mac) && $event.ctrlKey  )){
         this.delCompEvet($event);
       }else if($event.ctrlKey && this.currentIndex >= 0) {
         if($event.code === 'KeyC' || $event.code === 'KeyV'){
@@ -321,6 +322,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   //选择当前页面组件列表
   getCurrentPage(page) {
+    console.log("page", page)
     this.initViewContRef();
     this.currentPage = page;
     let localComp = this.localStorageService.getPreViceComponent();

@@ -15,16 +15,23 @@ export class CompHelpComponent implements OnInit {
       {
         name:"拷贝",
         keySameBool:true,
-        key_same:"Control + c",
-        key_mac:"Control + c",
-        key_window:"Control + c"
+        key_same:"Control + C",
+        key_mac:"Control + C",
+        key_window:"Control + C"
+      },
+      {
+        name:"粘贴",
+        keySameBool:true,
+        key_same:"Control + V",
+        key_mac:"Control + V",
+        key_window:"Control + V"
       },
       {
         name:"删除",
         keySameBool:true,
-        key_same:"delete",
-        key_mac:"delete",
-        key_window:"delete"
+        key_same:"Delete",
+        key_mac:"Delete",
+        key_window:"Delete"
       },
       {
         name:"位置",

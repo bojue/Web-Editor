@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BaseHttpService } from '../../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-page-add',
@@ -14,10 +15,12 @@ import { HttpClient } from '@angular/common/http';
 export class PageAddComponent extends BaseHttpService implements OnInit {
   page:PageObject;
   projectId:number;
+  datas:any;
 
   constructor(
     public http: HttpClient,
-    private activeRoute:ActivatedRoute
+    public activeRoute:ActivatedRoute,
+    public modal:NgbActiveModal
   ) { 
     super(http, 'page')
   }
@@ -30,7 +33,6 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
   getRouteParams() {
     this.activeRoute.queryParams.subscribe(res => {
       this.projectId = res['project'];
-      console.log(this.projectId)
     })
   }
 
@@ -45,12 +47,13 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
   save() {
     let params = this.getPageParams();
     Observable.forkJoin([this.create(params)]).subscribe(res => {
-      let result = res[0];
-      console.log(result)
+      this.modal.close('success');
+    },error => {
+      this.modal.close('error');
     })
   }
 
   cancel() {
-    console.log("取消")
+    this.modal.close("close");
   }
 }

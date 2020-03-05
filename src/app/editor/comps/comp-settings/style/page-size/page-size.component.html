@@ -1,4 +1,4 @@
-<div class="item-set item-set-grid grid-2">
+<div class="item-set item-set-grid grid-2" *ngIf="pageStyles">
     <div class="set-val">
       <label class="lab">长</label>
       <input  class="val" type="number"  [(ngModel)]="pageStyles['width']" placeholder="长" >

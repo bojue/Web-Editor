@@ -5,7 +5,11 @@ export class PageObject {
     appendName:string;
     description:string;
     creator:any = 1; //创建人
-    style:string;
+    style:{
+        width:1200,
+        height:1000,
+        background:'#ffffff'
+    };
     vip_status:number = 1;  //vip标示
     componentList:string;
     create_time:string; //创建时间
