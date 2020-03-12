@@ -10,7 +10,8 @@ import { CompStorageLocalService } from '../../../provider/comp-storage-local.se
 })
 export class CompPageListComp implements OnInit {
   @Input() pages;
-  @Output() selCurrentPage = new EventEmitter<any>()
+  @Output() selCurrentPage = new EventEmitter<any>();
+  @Output() delCurrentPage = new EventEmitter<any>();
   options = {};
   pageList:any[];
   pageId:string;
@@ -40,6 +41,11 @@ export class CompPageListComp implements OnInit {
     this.initPageState(item);
     item['actived'] = true;
     this.selCurrentPage.emit(item);
+  }
+
+  deletePage(page, event) {
+    this.delCurrentPage.emit(page);
+    event.stopPropagation();
   }
 
 }

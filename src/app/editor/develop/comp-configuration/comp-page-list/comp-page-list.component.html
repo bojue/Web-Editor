@@ -5,6 +5,7 @@
         <div class="item page-item" [ngClass]="{actived: page['actived']}" (click)="changeComponent(page)">
           <img src="assets/icons/page.svg" alt="" class="icon">
           <span class="page-name" >{{page['name']}}</span>
+          <img class="deletePage" (click)="deletePage(page, $event)" src="assets/icons/delete.svg" [title]="'删除'+page['name']+'页面'" >
         </div>
     </div>
     <ng-container *ngIf="!pages || pages.length ===0">

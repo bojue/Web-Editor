@@ -44,6 +44,7 @@ export class BaseHttpService {
   }
 
   delete(params?:any, url?:string,header?:any) {
+    console.log(params)
     return this.https.delete(url)
   }
 

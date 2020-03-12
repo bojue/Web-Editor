@@ -29,6 +29,20 @@
                 margin-left: 26px;
                 user-select: text;
             }
+            .deletePage {
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                right: 10px;
+                opacity: 0;
+                top:2px;
+                z-index: 2;
+            }
+        }
+        .page-item:active,.page-item:hover{
+            .deletePage {
+                opacity: 0.7;
+            }
         }
     }
 

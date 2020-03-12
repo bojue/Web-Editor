@@ -322,7 +322,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   //选择当前页面组件列表
   getCurrentPage(page) {
-    console.log("page", page)
+    console.log(page)
     this.initViewContRef();
     this.currentPage = page;
     let localComp = this.localStorageService.getPreViceComponent();

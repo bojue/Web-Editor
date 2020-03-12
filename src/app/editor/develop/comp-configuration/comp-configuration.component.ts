@@ -126,4 +126,16 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
       })
     });
   }
+
+  delCurrentPage(page) {
+    let url = 'page/' + page['id'];
+    this.delete(null, url).subscribe(res => {
+      this.initData();
+      this.toaster.showToaster({
+        state: this.toaster.STATE.SUCCESS,
+        info:'删除页面成功'
+      })
+    })
+ 
+  }
 }
