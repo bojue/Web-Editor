@@ -10,11 +10,21 @@
                 font-weight: 500;
             }
        }
+       .required ,.error{
+            color: rgba(255, 0, 0, 0.7);
+            position: relative;
+            left: 5px;
+            top: 1px;
+       }
+       .disabled {
+        background: #cccccc;
+        border: 1px solid #ddd;
+        color: #000;
+       }
        .body {
            margin: 20px 10px;
            .item {
                font-size: 12px;
-               margin: 5px 0;
                display: grid;
                height: 30px;
                line-height: 30px;
