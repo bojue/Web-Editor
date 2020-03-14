@@ -12,6 +12,7 @@ import 'rxjs/add/observable/forkJoin'
 })
 export class ListComponent extends BaseHttpService implements OnInit {
   projects:any[];
+  states:any[];
   constructor(
       private http: HttpClient,
       private router:Router,
@@ -25,9 +26,9 @@ export class ListComponent extends BaseHttpService implements OnInit {
   }
 
   getData() {
-    Observable.forkJoin([this.getAll()]).subscribe(res=> {
-      let data = res && res[0] && res[0]['data'];
-      this.projects = data;
+    Observable.forkJoin([this.getAll(), this.getAll("states")]).subscribe(res=> {
+      this.projects = res && res[0] && res[0]['data'];
+      this.states = res && res[1] && res[1]['data']
     })
   }
 
