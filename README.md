@@ -2,6 +2,11 @@
 
 基于angular版本开发，[在线预览](https://bojue.github.io/Web-Editor/)
 
+## 项目截图
+
+![截图](./src/assets/imgs/project.png)
+
+
 ## 下载
 
 ```javascript
@@ -16,13 +21,13 @@ npm install
 1. 默认运行命令，需要服务端支持，也就是所以tag v0.1.0之后的版本，请先下载 [服务端node版本](https://github.com/bojue/Web-editor-server-node) 并完成服务端启动。
 
 ```javascrpt
-npm run proxy 
+npm run start 
 
 ```
 2. 如果仅需要运行前端静态版本，需要切换到:tag  v0.1.0版本,数据结构被重构，可以参考使用
 
 ```javascript
-npm run start 
+npm run onlyweb 
 ```
 
 ### 文档
