@@ -2,6 +2,11 @@
 
 基于angular版本开发，[在线预览](https://bojue.github.io/Web-Editor/)
 
+#### 项目截图：
+
+![项目列表](https://cdn.learnku.com/uploads/images/202003/16/58745/teGoig28Ci.png!large "项目列表")
+![编辑页面](https://cdn.learnku.com/uploads/images/202003/16/58745/LN3qPOeXh6.png!large "编辑页面")
+
 ## 下载
 
 ```javascript
