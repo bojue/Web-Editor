@@ -4,8 +4,7 @@
 
 #### 项目截图：
 
-![项目列表](https://cdn.learnku.com/uploads/images/202003/16/58745/teGoig28Ci.png!large "项目列表")
-![编辑页面](https://cdn.learnku.com/uploads/images/202003/16/58745/LN3qPOeXh6.png!large "编辑页面")
+[截图](http://10.163.100.175:8090/phoenix/phoenix-web/uploads/2f97024dca38aebc8348b8703b2408da/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7_2020-03-16_14.07.49.png)
 
 ## 下载
 
