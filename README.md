@@ -4,7 +4,7 @@
 
 #### 项目截图：
 
-[截图](http://10.163.100.175:8090/phoenix/phoenix-web/uploads/2f97024dca38aebc8348b8703b2408da/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7_2020-03-16_14.07.49.png)
+![截图](http://10.163.100.175:8090/phoenix/phoenix-web/uploads/2f97024dca38aebc8348b8703b2408da/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7_2020-03-16_14.07.49.png)
 
 ## 下载
 
