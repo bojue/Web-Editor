@@ -10,6 +10,7 @@ import { CompStorageLocalService } from '../../provider/comp-storage-local.servi
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { PageAddComponent } from '../../../pages/workspace/page/page-add/page-add.component';
 import { TempoToastrService } from '../../../core/provider/toaster/toastr.service';
+import { SweetalertService } from 'src/app/core/provider/toaster/sweetalert.service';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -38,7 +39,8 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     private compListService: CompListService,
     private localService:CompStorageLocalService,
     private modalService: NgbModal,
-    private toaster: TempoToastrService
+    private toaster: TempoToastrService,
+    private sweet:SweetalertService
   ) { 
     super(http, 'page');
   }
@@ -128,14 +130,25 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   }
 
   delCurrentPage(page) {
-    let url = 'page/' + page['id'];
-    this.delete(null, url).subscribe(res => {
-      this.initData();
-      this.toaster.showToaster({
-        state: this.toaster.STATE.SUCCESS,
-        info:'删除页面成功'
+    let id = page['id'];
+    if(id !== null) {
+      this.sweet.deleteAlert().then(res => {
+        if(res['value']) {
+          let url = 'page/' + id;
+          this.delete(null, url).subscribe(res => {
+            this.initData();
+            this.toaster.showToaster({
+              state: this.toaster.STATE.SUCCESS,
+              info:'删除页面成功'
+            })
+          })
+        }
       })
-    })
+    }
+    
+    
+ 
+   
  
   }
 }
