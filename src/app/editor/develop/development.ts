@@ -20,6 +20,7 @@ import { BaseHttpService } from '../../core/provider/baseHttp/base-http.service'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CompStorageLocalService } from '../provider/comp-storage-local.service';
+import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service';
 
 @Component({
   selector: 'app-development',
@@ -80,7 +81,8 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     private activeRoute: ActivatedRoute,
     private router: Router ,
     private userAgentService: UserAgentService,
-    private eventManager: EventManager
+    private eventManager: EventManager,
+    private toaster: TempoToastrService,
   ) {
     super(http, '')
   }
@@ -414,7 +416,10 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     let compString = JSON.stringify(comps);
     page['componentList'] = compString;
     Observable.forkJoin([this.update(page, this.PAGE_URL)]).subscribe(res => {
-      let data = res[0];
+      this.toaster.showToaster({
+        state: this.toaster.STATE.SUCCESS,
+        info:'更新成功'
+      })
     })
   }
 

@@ -7,7 +7,6 @@ import { CommonModule } from "@angular/common";
 import { ListComponent } from './project/project-list/list.component';
 import { DetailComponent } from './project/project-detail/detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PageDeleteComponent } from './page/page-delete/page-delete.component';
 import { PageAddComponent } from './page/page-add/page-add.component';
 import { PageEditComponent } from './page/page-edit/page-edit.component';
 
@@ -17,7 +16,6 @@ const comps = [
 ]
 
 const enterComp = [
-  PageDeleteComponent,
   PageAddComponent,
   PageEditComponent
 ]

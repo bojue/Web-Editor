@@ -12,6 +12,7 @@ export class CompPageListComp implements OnInit {
   @Input() pages;
   @Output() selCurrentPage = new EventEmitter<any>();
   @Output() delCurrentPage = new EventEmitter<any>();
+  @Output() editorCurrentPage = new EventEmitter<any>();
   options = {};
   pageList:any[];
   pageId:string;
@@ -45,6 +46,11 @@ export class CompPageListComp implements OnInit {
 
   deletePage(page, event) {
     this.delCurrentPage.emit(page);
+    event.stopPropagation();
+  }
+
+  editorPage(page,event) {
+    this.editorCurrentPage.emit(page);
     event.stopPropagation();
   }
 

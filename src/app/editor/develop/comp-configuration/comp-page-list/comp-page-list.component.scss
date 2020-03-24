@@ -29,19 +29,26 @@
                 margin-left: 26px;
                 user-select: text;
             }
-            .deletePage {
+            .iconPage {
                 width: 18px;
                 height: 18px;
                 position: absolute;
-                right: 10px;
-                opacity: 0;
-                top:2px;
+                opacity: 0.1;
+                top: 2px;
                 z-index: 2;
+            }
+            .editorPage {
+                right: 20px;
+                opacity: 0;
+            }
+            .deletePage {
+                right: 0px;
+                opacity: 0;
             }
         }
         .page-item:active,.page-item:hover{
-            .deletePage {
-                opacity: 0.7;
+            .iconPage {
+                opacity: 0.8;
             }
         }
     }

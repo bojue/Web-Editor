@@ -11,6 +11,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { PageAddComponent } from '../../../pages/workspace/page/page-add/page-add.component';
 import { TempoToastrService } from '../../../core/provider/toaster/toastr.service';
 import { SweetalertService } from 'src/app/core/provider/toaster/sweetalert.service';
+import { PageEditComponent } from '../../../pages/workspace/page/page-edit/page-edit.component';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -125,6 +126,31 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
       this.toaster.showToaster({
         state: this.toaster.STATE.ERROR,
         info:'页面创建失败'
+      })
+    });
+  }
+
+  editorCurrentPage(event) {
+    let comp = this.modalService.open(PageEditComponent);
+    comp.componentInstance.datas = {
+      state:'editorPage',
+      page:event
+    };
+    comp.result.then((result) => {
+      if(result === 'success') {
+        this.toaster.showToaster({
+          state: this.toaster.STATE.SUCCESS,
+          info:'页面名称更新成功'
+        })
+        this.initData();
+      }else {
+      
+      }
+  
+    }, (reason) => {
+      this.toaster.showToaster({
+        state: this.toaster.STATE.ERROR,
+        info:'页面名称更新成功'
       })
     });
   }
