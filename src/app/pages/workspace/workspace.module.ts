@@ -9,6 +9,8 @@ import { DetailComponent } from './project/project-detail/detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageAddComponent } from './page/page-add/page-add.component';
 import { PageEditComponent } from './page/page-edit/page-edit.component';
+import { ProjectAddComponent } from './project/project-add/project-add.component';
+import { ProjectEditorComponent } from './project/project-editor/project-editor.component';
 
 const comps = [
   ListComponent,
@@ -17,14 +19,15 @@ const comps = [
 
 const enterComp = [
   PageAddComponent,
-  PageEditComponent
+  PageEditComponent,
+  ProjectAddComponent,
+  ProjectEditorComponent
 ]
 
 @NgModule({
   declarations: [
     ...comps,
-    ...enterComp
-    
+    ...enterComp,
   ],
   imports: [
     CodeModule,
