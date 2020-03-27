@@ -23,7 +23,7 @@ export class ChartGuageComponent extends CustomBasicComponent implements OnInit 
 
   initData() {
     this.service.get({}).subscribe(res => {
-      console.log(res)
+   
     })
     this.chartOption = {
       tooltip : {

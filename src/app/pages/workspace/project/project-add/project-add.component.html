@@ -36,12 +36,22 @@
                     <span class="error" *ngIf="(appendName.dirty || appendName.touched) && appendName.errors && appendName.errors.required">必填</span>
                 </span>
             </div>
+            <div class="item">
+                <span class="label">
+                    <label for="">描述</label>
+                    <span class="required"></span>
+                </span>
+                <span class="val">
+                    <textarea type="text" placeholder="描述"
+                     #description="ngModel" [(ngModel)]="projectObj['description']"></textarea>
+                </span>
+            </div>
         </div>
     </div>
     <div class="footer">
         <div class="btns">
             <button class="btn brn-light cancel" (click)="cancel()">取消</button>
-            <button class="btn btn-primary save" [title]="name.errors?'正确填写表单':'保存'" [ngClass]="{'disabled':name.errors || appendName.error}" (click)="!name.errors && !appendName.error && save()">保存</button>
+            <button class="btn btn-primary save" [title]="!(name.errors && appendName.errors)?'正确填写表单':'保存'" [ngClass]="{'disabled':(name.errors || appendName.errors)}" (click)="!name.errors && !appendName.errors && save()">保存</button>
         </div>
     </div>
 </div>

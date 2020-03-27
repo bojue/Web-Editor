@@ -69,7 +69,6 @@ export class ListComponent extends BaseHttpService implements OnInit {
   }
 
   delProject(id) {
-    console.log(id)
     if(id !== null) {
       this.sweet.deleteAlert().then(res => {
         if(res['value']) {

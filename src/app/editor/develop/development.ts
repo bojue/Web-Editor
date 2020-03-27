@@ -324,7 +324,6 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   //选择当前页面组件列表
   getCurrentPage(page) {
-    console.log(page)
     this.initViewContRef();
     this.currentPage = page;
     let localComp = this.localStorageService.getPreViceComponent();
@@ -405,7 +404,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   //创建页面
   addPage(event) {
     Observable.forkJoin(this.create({}, this.PAGE_URL)).subscribe(res => {
-      console.log(res);
+
     })
   }
 
@@ -583,7 +582,6 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   changeBg(event) {
     this.development_setting_bg = event === 'open' ? 'bg-grid' : 'bg-blank' || this.development_setting_bg;
-    console.log(this.development_setting_bg)
   }
 
 }

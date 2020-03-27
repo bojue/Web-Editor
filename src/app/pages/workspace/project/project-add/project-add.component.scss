@@ -24,12 +24,11 @@
        .body {
            margin: 20px 10px;
            .item {
-               margin: 10px 5px;
-               font-size: 12px;
-               display: grid;
-               height: 30px;
-               line-height: 30px;
-               grid-template-columns: 80px auto 100px;
+                font-size: 12px;
+                display: grid;
+                min-height: 30px;
+                line-height: 30px;
+                grid-template-columns: 80px auto 100px;
                .label {
                    text-align: center;
                }
@@ -40,6 +39,12 @@
                         padding: 10px;
                         height: 31px;
                         line-height: 30px;
+                   }
+                   textarea {
+                       padding: 10px;
+                        width: 270px;
+                        margin: 10px;
+                        border: 1px solid #ddd;
                    }
                }
            }
