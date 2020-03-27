@@ -165,16 +165,11 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
             this.initData();
             this.toaster.showToaster({
               state: this.toaster.STATE.SUCCESS,
-              info:'删除页面成功'
+              info:'页面删除成功'
             })
           })
         }
       })
     }
-    
-    
- 
-   
- 
   }
 }

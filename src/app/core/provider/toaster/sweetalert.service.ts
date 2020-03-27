@@ -16,7 +16,7 @@ export class SweetalertService {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: '确定删除',
+      confirmButtonText: '确定',
       cancelButtonText:"取消"
     })
   }

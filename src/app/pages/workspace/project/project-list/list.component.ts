@@ -70,6 +70,25 @@ export class ListComponent extends BaseHttpService implements OnInit {
 
   delProject(id) {
     console.log(id)
+    if(id !== null) {
+      this.sweet.deleteAlert().then(res => {
+        if(res['value']) {
+          let url = 'project/' + id;
+          this.delete(null, url).subscribe(res => {
+            this.getData();
+            this.toaster.showToaster({
+              state: this.toaster.STATE.SUCCESS,
+              info:'项目删除成功'
+            })
+          },error => {
+            this.toaster.showToaster({
+              state: this.toaster.STATE.ERROR,
+              info:'项目删除失败'
+            })
+          })
+        }
+      })
+    }
   }
 
 }

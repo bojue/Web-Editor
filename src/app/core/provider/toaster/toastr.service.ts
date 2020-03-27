@@ -25,7 +25,7 @@ export class TempoToastrService {
       case this.STATE.WARNING:
         this.toastr.warning(null, params['info']);
         break;
-      case this.STATE.WARNING:
+      case this.STATE.ERROR:
         this.toastr.error(null, params['info']);
         break;
       default:
