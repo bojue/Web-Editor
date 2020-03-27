@@ -40,6 +40,8 @@ npm run onlyweb
 * 样式绑定
 * 快捷键
 * 预览
+* 项目管理
+* 服务器支持
 
 
 > 编辑器代码组织
@@ -88,15 +90,14 @@ npm run onlyweb
 
 - 项目基于angular2 (版本号 7.0.2)开发
 - 已经升级到V8.0
-- 目前正在支持服务端业务，[node服务端](https://github.com/bojue/Web-editor-server-node)
+- 服务端支持
+- 本地部署
 
 
 > TODO List
 
-- 完整的服务端支持
 - IDC行业组态扩展示例内容
 - 在线试用
-- 本地部署
 
 
 
