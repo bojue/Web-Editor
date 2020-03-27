@@ -19,11 +19,11 @@ npm install
 
 - 服务端下载
 
-下载编辑器对应的Node服务器 [Web-editor-server-node](https://github.com/bojue/Web-editor-server-node)，` v0.1.0 `以后版本都需要服务器支持，请按照 [node服务器文档](https://github.com/bojue/Web-editor-server-node/blob/master/README.md) 配置依次服务器
+下载编辑器对应的Node服务器 [Web-editor-server](https://github.com/bojue/Web-editor-server)，` v0.1.0 `以后版本都需要服务器支持，请按照 [node服务器文档](https://github.com/bojue/Web-editor-server/blob/master/README.md) 配置依次服务器
 
 ## 运行
 
-1. 默认运行命令，需要服务端支持，也就是所以tag v0.1.0之后的版本，请先下载 [服务端node版本](https://github.com/bojue/Web-editor-server-node) 并完成服务端启动。
+1. 默认运行命令，需要服务端支持，也就是所以tag v0.1.0之后的版本，请先下载 [服务端node版本](https://github.com/bojue/Web-editor-server) 并完成服务端启动。
 
 ```javascrpt
 npm run start 
