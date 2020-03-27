@@ -49,8 +49,8 @@ npm run onlyweb
 ```ASCII
 .
 +-- editor  //编辑器模块
-|   +-- comps  //模块
-|       +-- comp-basic //组件库依赖的基础模块
+|   +-- comps  
+|       +-- comp-basic 
 |           +-- data-basic 
 |           +-- event-basic
 |           +-- style-basic
