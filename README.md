@@ -9,12 +9,17 @@
 
 ## 下载
 
+- 前端
 ```javascript
 git clone https://github.com/bojue/Web-Editor.git
 cd Web-Editor
 npm install
 
 ```
+
+- 服务端下载
+
+下载编辑器对应的Node服务器 [Web-editor-server-node](https://github.com/bojue/Web-editor-server-node)，` v0.1.0 `以后版本都需要服务器支持，请按照 [node服务器文档](https://github.com/bojue/Web-editor-server-node/blob/master/README.md) 配置依次服务器
 
 ## 运行
 
