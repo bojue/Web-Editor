@@ -4,12 +4,8 @@ export class PageObject {
     name:string;
     appendName:string;
     description:string;
-    creator:any = 1; //创建人
-    style:{
-        width:1200,
-        height:1000,
-        background:'#ffffff'
-    };
+    width:number;
+    height:number;
     vip_status:number = 1;  //vip标示
     componentList:string;
     create_time:string; //创建时间

@@ -62,7 +62,7 @@ export class CompSettingComponent implements OnInit, OnChanges{
   ngOnChanges() {
     if(this.currentPage){
       this.pageName = this.currentPage['value'];
-      this.pageStyles = this.currentPage['style'];
+      console.log(this.currentPage)
     }
   }
 

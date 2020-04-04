@@ -39,6 +39,8 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
   getPageParams() {
     this.page['appendName'] != this.page['name'];
     this.page['projectId'] = this.projectId;
+    this.page['width'] = 1200;
+    this.page['height'] = 700;
     this.page['create_time'] = new Date().toString();
     this.page['update_time'] = new Date().toString();
     return this.page;
