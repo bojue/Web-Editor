@@ -62,7 +62,6 @@ export class CompSettingComponent implements OnInit, OnChanges{
   ngOnChanges() {
     if(this.currentPage){
       this.pageName = this.currentPage['value'];
-      console.log(this.currentPage)
     }
   }
 

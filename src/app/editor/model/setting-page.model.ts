@@ -4,4 +4,6 @@ export class SettingPage {
     defaultName: string;
     style?:any;
     data?:any;
+    height?:number;
+    width?:number;
 }

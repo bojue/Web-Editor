@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { SettingObjComponent } from '../../model/setting-object.interface';
 import { CompStorageLocalService } from '../../provider/comp-storage-local.service';
+import { PageObject } from 'src/app/pages/workspace/model/page.model';
 
 @Component({
   selector: 'app-comp-pre-view',
@@ -16,6 +17,10 @@ import { CompStorageLocalService } from '../../provider/comp-storage-local.servi
 export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy {
   @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
   compList: any[];
+  pageInfo :any  | {
+    width:number,
+    height:number
+  };
   currentViewContRef:any;
   eventEmitter:any;
   components: any[];
@@ -38,6 +43,8 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
 
 
   getData() {
+    this.pageInfo = this.localStorageService.getPreViewPageInfo();
+    console.log(this.pageInfo)
     let comps = this.localStorageService.getPreViceComponent();
     this.compList = JSON.parse(comps);
     let parentCompList = _.cloneDeep(this.compList);

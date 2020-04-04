@@ -396,6 +396,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   preView() {
     this.auxiCompInit();
     let comps = this.initPageComponentsStatus();
+    this.localStorageService.setPreViewPageInfo(JSON.stringify(this.currentPage));
     this.localStorageService.setPreViewComponent(JSON.stringify(comps));
     this.router.navigate(['/workspace/develop/preview'] , { queryParams: {project:this.projectId, page: this.pageId }});
   }
