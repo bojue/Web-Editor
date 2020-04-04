@@ -44,7 +44,6 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
 
   getData() {
     this.pageInfo = this.localStorageService.getPreViewPageInfo();
-    console.log(this.pageInfo)
     let comps = this.localStorageService.getPreViceComponent();
     this.compList = JSON.parse(comps);
     let parentCompList = _.cloneDeep(this.compList);
