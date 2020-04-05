@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
           },
           {
             name:"服务端支持",
-            state:false,
+            state:true,
             description:"计划有一版Tempo编辑器对应的服务端项目"
           },
           {
@@ -121,7 +121,7 @@ export class HomeComponent implements OnInit {
           },
           {
             name:"本地部署",
-            state:false,
+            state:true,
             description:"无"
           }
         ]

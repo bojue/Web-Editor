@@ -2,8 +2,9 @@
 
 基于angular版本开发，[在线预览](https://bojue.github.io/Web-Editor/)
 
-## 项目截图
+## 项目截图update
 
+![功能](/src/assets/imgs/update.png)
 ![截图](/src/assets/imgs/project.png)
 
 
