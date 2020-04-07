@@ -110,7 +110,7 @@ export class StyleCopyComponent extends StyleBasicComponent implements OnInit , 
 
   showCopySuccess() {
     this.toastr.showToaster({
-      state:this.toastr.STATE.INFO,
+      state:this.toastr.STATE.SUCCESS,
       info:"拷贝成功"
     })
   }

@@ -36,7 +36,7 @@ npm run start
 npm run onlyweb 
 ```
 
-### 文档
+### 使用说明
 
 > 功能列表
 
@@ -49,6 +49,30 @@ npm run onlyweb
 * 项目管理
 * 服务器支持
 
+
+> 快捷键
+
+名称|快捷键
+----|----
+拷贝| `control+ c`
+复制| `control+ v`
+删除| `delete`
+位置|上，下，左，右键
+
+> History List
+
+- 项目基于angular2 (版本号 7.0.2)开发
+- 已经升级到V8.0
+- 服务端支持
+- 本地部署
+
+
+> TODO List
+
+- IDC行业组态扩展示例内容
+- 在线试用
+
+### 开发文档
 
 > 编辑器代码组织
 
@@ -82,28 +106,6 @@ npm run onlyweb
 |       +-- comp-config.service //组态配置信息
 |       +-- comp-dynamic-create.service //组态type和组态映射服务
 ```
-
-> 快捷键
-
-名称|快捷键
-----|----
-拷贝| `control+ c`
-复制| `control+ v`
-删除| `delete`
-位置|上，下，左，右键
-
-> History List
-
-- 项目基于angular2 (版本号 7.0.2)开发
-- 已经升级到V8.0
-- 服务端支持
-- 本地部署
-
-
-> TODO List
-
-- IDC行业组态扩展示例内容
-- 在线试用
 
 
 
