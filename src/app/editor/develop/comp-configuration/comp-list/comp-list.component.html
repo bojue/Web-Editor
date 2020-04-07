@@ -9,6 +9,7 @@
               <div class="content-item" id="{{'id_'+mIndex+cIndex}}" draggable="true" [ngClass]="{'noPage':!currnetPageComps}" (dragend)="currnetPageComps && dragCompEnd($event, comp['type'], ''+mIndex+cIndex)" >
                 <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
                 <span class="text">{{comp['name']}}</span>
+                <img *ngIf="comp['vip_state']" src="assets/icons/vip.svg" alt="" class="vip_icon">
               </div>
           </ng-container>
       </ng-container>

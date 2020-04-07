@@ -34,6 +34,7 @@
         .tit {
             margin-left: 8px;
         }
+        
     }
 
     .lists {
@@ -53,6 +54,7 @@
             margin-bottom: -1px;
             text-align: center;
             opacity: 0.8;
+            position: relative;
             &.noPage {
                 opacity: 0.5;
                 cursor: no-drop;
@@ -67,6 +69,13 @@
                 height: 30px;
                 margin-left: 13px;
                 margin-top: 4px;
+                &.vip_icon {
+                    position: absolute;
+                    width: 12px;
+                    height: 12px;
+                    right: 0px;
+                    top: -3px;
+                }
             }
         }
     }

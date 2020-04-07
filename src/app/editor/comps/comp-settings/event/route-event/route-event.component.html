@@ -1,11 +1,29 @@
-<div class="route-event" *ngIf="showBoolHeader()">
+<div class="route-event" *ngIf="showBoolHeader() && !event['routeBool']">
+  <div class="item-set item-set-grid grid-2">
+    <input class="val" [checked]="event['routeBool']" type="checkbox"   (click)="changeVal()" >
+    <label class="lab">绑定路由跳转</label>
+  </div>
+</div>
+<div class="route-event" *ngIf="showBoolHeader() && event['routeBool']">
+    <div class="item-set item-set-grid grid-2">
+      <input class="val" [checked]="event['routeBool']" type="checkbox"   (click)="changeVal()" >
+      <label class="lab">绑定路由跳转</label>
+    </div>
     <div class="tit">路由</div>
     <div class="value-set">
       <span class="lab">路径</span>
-      <input class="val" type="text" [(ngModel)]="event['route']['route_link']" placeholder="路径">
+      <input class="val" type="text" [(ngModel)]="event['route']['route_url']" placeholder="路径">
     </div>
     <div class="value-set">
       <span class="lab">参数</span>
-      <input class="val" type="text" [(ngModel)]="event['route']['param']" placeholder="参数">
+      <input class="val" type="text" [(ngModel)]="event['route']['data']['param']" placeholder="param赋值">
+    </div>
+    <div class="value-set">
+      <span class="lab">项目</span>
+      <input class="val" type="text" [(ngModel)]="event['route']['data']['projectId']" placeholder="">
+    </div>
+    <div class="value-set">
+      <span class="lab">页面</span>
+      <input class="val" type="text" [(ngModel)]="event['route']['data']['pageId']" placeholder="">
     </div>
   </div>

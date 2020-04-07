@@ -294,7 +294,6 @@
         margin-top: 5px;
     }
     .data-val, .setting-valus, .setting-events {
-    
         .tit {
             height: 24px;
             line-height: 24px;
@@ -306,7 +305,8 @@
             margin: 5px;
             input,textarea {
                 width: 130px;
-                height: 18px;
+                height: 28px;
+                line-height: 28px;
             }
         }
     }

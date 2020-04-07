@@ -1,4 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
+import * as _ from 'loadsh';
 
 @Injectable({
   providedIn: 'root'
@@ -53,17 +54,19 @@ export class CompListService {
                 iconUrl: 'assets/icons/bingtu.svg'
             },
             {
-                name:'折线',
-                type: 'chart_polyline',
-                iconUrl: 'assets/icons/zhexian.svg'
-            },{
-                name: '仪表盘',
-                type:'chart_gauge',
-                iconUrl:'assets/icons/gauge.svg'
-            },{
                 name: "雷达图",
                 type:"chart_radar",
                 iconUrl:'assets/icons/leidatu.svg'
+            },{
+                name:'折线',
+                type: 'chart_polyline',
+                iconUrl: 'assets/icons/zhexian.svg',
+                vip_state:true
+            },{
+                name: '仪表盘',
+                type:'chart_gauge',
+                iconUrl:'assets/icons/gauge.svg',
+                vip_state:true
             }
         ]
     }]

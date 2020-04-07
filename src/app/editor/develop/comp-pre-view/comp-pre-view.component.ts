@@ -100,9 +100,7 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
     switch (type) {
       case 'click':
         if(eventObj['routeBool']) {
-          let params = eventObj['route'];
-          let link = params['route_link'];
-          this.routerLink(link, params);
+          console.log("单页面预览状态不支持页面跳转，可以查看页面跳转参数：", eventObj['route'])
         }else if (eventObj[type +'Bool']) {
           console.log("点击事件处理，目前只做了路由处理")
         }

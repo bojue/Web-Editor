@@ -92,14 +92,14 @@ export class CompConfigService {
                     height:30
                 }),
                 event:{
-                    clickBool: false,
-                    click: {
-                        data: null
-                    },
                     routeBool: true,
                     route:{
-                        route_link: 'home',
-                        data: null,
+                        route_url: 'home',
+                        data: {
+                            param:null,
+                            pageId:null,
+                            projectId:null
+                        },
                     }
                 }
             },  

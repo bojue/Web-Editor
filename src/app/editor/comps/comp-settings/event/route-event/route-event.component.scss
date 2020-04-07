@@ -3,6 +3,14 @@
     .route-event {
         display: block;
         position: relative;
+        .grid-2 {
+            grid-template-columns: 15% 80%;
+            .lab{
+                position: absolute;
+                left: 24px;
+                top: 11px;
+            }
+        }
         .value-set {
             width: 100%;
             span {
@@ -12,8 +20,8 @@
                 color: #777777;
             }
             input {
-                height: 20px;
-                line-height: 20px;
+                height: 28px;
+                line-height: 28px;
                 width: 100px;
                 padding: 1px 3px;
             }

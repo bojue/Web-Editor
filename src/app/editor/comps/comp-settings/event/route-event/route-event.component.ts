@@ -19,4 +19,8 @@ export class RouteEventComponent extends EventBasicComponent implements OnInit {
   initData() {
     this.event_type = 'route';
   }
+
+  changeVal() {
+    this.event['routeBool'] = !this.event['routeBool'];
+  }
 }
