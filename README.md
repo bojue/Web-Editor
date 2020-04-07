@@ -18,9 +18,9 @@ npm install
 
 ```
 
-- 服务端下载
+- 服务端
 
-下载编辑器对应的Node服务器 [Web-editor-server](https://github.com/bojue/Web-editor-server)，` v0.1.0 `以后版本都需要服务器支持，请按照 [node服务器文档](https://github.com/bojue/Web-editor-server/blob/master/README.md) 配置依次服务器
+下载编辑器对应的[Node服务端](https://github.com/bojue/Web-editor-server)，` v0.1.0 `以后版本都需要服务器支持，请按照 [文档](https://github.com/bojue/Web-editor-server/blob/master/README.md) 配置依次服务器
 
 ## 运行
 
@@ -59,19 +59,6 @@ npm run onlyweb
 删除| `delete`
 位置|上，下，左，右键
 
-> History List
-
-- 项目基于angular2 (版本号 7.0.2)开发
-- 已经升级到V8.0
-- 服务端支持
-- 本地部署
-
-
-> TODO List
-
-- IDC行业组态扩展示例内容
-- 在线试用
-
 ### 开发文档
 
 > 编辑器代码组织
@@ -106,8 +93,18 @@ npm run onlyweb
 |       +-- comp-config.service //组态配置信息
 |       +-- comp-dynamic-create.service //组态type和组态映射服务
 ```
+### 其他
+
+> History List
+
+- 项目基于angular2 (版本号 7.0.2)开发
+- 已经升级到V8.0
+- 服务端支持
+- 本地部署
 
 
+> TODO List
 
-
+- IDC行业组态扩展示例内容
+- 在线试用
 
