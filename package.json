@@ -6,6 +6,8 @@
     "start": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
     "proxy": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
     "onlyweb": "ng serve --port 8200 --open",
+    "web": "ng serve --port 8200 --open",
+    "dev": "npm run web",
     "build": "ng build",
     "build:aot": "ng build --aot=true",
     "github": "ng build --prod --base-href https://bojue.github.io/Web-Editor",
@@ -67,6 +69,6 @@
     "raw-loader": "^1.0.0",
     "ts-node": "~8.5.4",
     "tslint": "~5.20.1",
-    "typescript": "^3.4.3"
+    "typescript": "^3.5.3"
   }
 }
