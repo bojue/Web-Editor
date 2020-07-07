@@ -6,9 +6,19 @@ import { PageStyle } from '../model/setting-page-style.model';
   providedIn: 'root'
 })
 export class CompStorageLocalService {
-
+  devMode:String = 'web'; //开发模式，默认使用web
   constructor() { 
 
+  }
+
+  /**
+   * 获取开发模式,
+   * web:仅web前端静态数据支持，不需要服务端支持
+   * api:需要服务端api支持 
+   * default:默认使用web开发模式
+  */
+  getDevMode() {
+    return this.devMode;
   }
 
   clearEditorLocalStorage() {

@@ -1,6 +1,6 @@
 {
   "name": "dadc",
-  "version": "0.0.0",
+  "version": "1.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
@@ -37,6 +37,7 @@
     "ngx-echarts": "^4.2.2",
     "ngx-toastr": "^11.3.3",
     "node-sass": "^4.13.0",
+    "remove-drag-ghosting": "^1.0.0",
     "rxjs": "~6.5.3",
     "rxjs-compat": "^6.5.3",
     "sweetalert2": "^9.10.1",

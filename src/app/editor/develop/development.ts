@@ -21,6 +21,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CompStorageLocalService } from '../provider/comp-storage-local.service';
 import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service';
+import removeGhosting from 'remove-drag-ghosting';
+
 
 @Component({
   selector: 'app-development',
@@ -274,6 +276,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     let changeY = 0;
     (<SettingObjComponent> compInstance).settingObj = currentComponent.settingObj;
     (compInstance).onChildComponentChange.subscribe((e)=> {
+    removeGhosting(e);
     if(e && e.stopPropagation){
         e.stopPropagation();
         let eventType = e && e.type;
