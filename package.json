@@ -1,6 +1,6 @@
 {
   "name": "dadc",
-  "version": "1.0.2",
+  "version": "0.1.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
