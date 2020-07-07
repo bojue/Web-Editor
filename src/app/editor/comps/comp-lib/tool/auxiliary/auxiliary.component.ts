@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { BasicComponent } from '../../../comp-basic/basic/basic.component';
 import { SettingObjComponent } from 'src/app/editor/model/setting-object.interface';
 import { SettingObject } from 'src/app/editor/model/setting-object.module';
+import removeGhosting from 'remove-drag-ghosting';
 
 @Component({
   selector: 'app-auxiliary',
@@ -26,6 +27,7 @@ export class AuxiliaryComponent extends BasicComponent implements OnInit, OnDest
   }
 
   compEvent(event, state?:string, eventEndBool?:boolean) {
+    removeGhosting(event)
     let newTime = new Date().getTime();
     if(!this.lastTime || newTime - this.lastTime > this.INTERVAL_TIME) {
       this.lastTime = newTime;
