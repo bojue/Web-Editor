@@ -1,5 +1,7 @@
 
 import { Component, OnInit} from '@angular/core';
+import { IndexDBService } from './providers/indexDB.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,12 +9,16 @@ import { Component, OnInit} from '@angular/core';
 })
 
 export class AppComponent implements OnInit{
- 
-  constructor() {
+  DB_NAME = 'tempoEditor';
+  DB:any;
+  tempoIndexDBTab:any[];
+  constructor(
+    private indexDBService:IndexDBService,
+  ) {
     
   }
 
   ngOnInit() {
-
+    this.indexDBService.initIndexDB();
   }
 };

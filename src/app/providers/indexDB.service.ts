@@ -97,15 +97,8 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             data:this.pages
         }
     ]
-
-    DB = {
-        name:"tempoEditor",
-        request:null,
-        db:null,
-        objectStore:null,
-        customerObjectStore:null
-    }
-    
+    DB_NAME='tempoEditor';
+    DB:any;
     constructor(
     private http: HttpClient
     ) {
@@ -118,8 +111,8 @@ export class IndexDBService extends BaseHttpService implements OnInit{
 
 
 
-    create_data() {
-        let request = this.DB.db.transaction('pages', 'readwrite').objectStore('pages');
+    create_data(DB) {
+        let request = DB.db.transaction('pages', 'readwrite').objectStore('pages');
         request.add({
             "id": 4,
             "projectId": 1,
@@ -149,8 +142,8 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         }
     }
 
-    getData() {
-        let transaction = this.DB.db.transaction(['pages']);
+    getData(DB) {
+        let transaction = DB.db.transaction(['pages']);
         let objectStore = transaction.objectStore('pages');
         let request = objectStore.get(1); //传主键
         request.onerror = function(event) {
@@ -165,8 +158,8 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         };
     }
 
-    getDataAll = function() {
-        let objectStore = this.DB.db.transaction('pages').objectStore('pages');
+    getDataAll(DB) {
+        let objectStore = DB.db.transaction('pages').objectStore('pages');
         objectStore.openCursor().onsuccess = function(event) { 
             let cursor = event.target.result;
             if (cursor) {
@@ -177,8 +170,8 @@ export class IndexDBService extends BaseHttpService implements OnInit{
     }
     
 
-    updateData() {
-        var request = this.DB.db.transaction('pages').objectStore('pages').put({
+    updateData(DB) {
+        var request = DB.db.transaction('pages').objectStore('pages').put({
             "id": 4,
             "projectId": 1,
             "name": "列表",
@@ -204,9 +197,9 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         }
     }
 
-    delete_db() {
-        this.DB.db.close();
-        window.indexedDB.deleteDatabase(this.DB.name)
+    delete_db(DB, name) {
+        DB.db.close();
+        window.indexedDB.deleteDatabase(name)
     }
 
     // 初始化IndexDB
@@ -214,22 +207,27 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         if (!window.indexedDB) {
             window.alert("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.")
         }
+        let DB:any;
 
         //连接数据库
-        this.DB.request = indexedDB.open(this.DB.name, 2);
-        this.DB.request.onerror = function(event) {
+        let request = indexedDB.open(this.DB_NAME, 2);
+        request.onerror = function(event:any) {
             console.log("Why didn't you allow my web app to use IndexedDB?! errorCode:", event.target.errorCode);
         };
-        this.DB.request.onsuccess = function() {
+        request.onsuccess = function(event:any) {
+            let db = event.target.result;
             console.log('IndeDB opened successfully!')
         }
-        this.DB.request.onupgradeneeded = function(event) {
-            this.DB.db = event.target.result;
-            for(let index in this.tempoIndexDBTab) {
-                let dbTab = this.tempoIndexDBTab[index];
-                this.createDBTab(dbTab);
+        let that = this;
+        request.onupgradeneeded = function(event:any) {
+            console.log('IndeDB onupgradeneeded!')
+            let db = event.target.result;
+            let objectStore:any;
+            for(let index in that.tempoIndexDBTab) {
+                let dbTab = that.tempoIndexDBTab[index];
+                objectStore = that.createDBTab(dbTab, db);
             }
-            this.initDBTabDate();
+            that.initDBTabDate(objectStore, db, that.tempoIndexDBTab);
         };
     }
 
@@ -238,11 +236,12 @@ export class IndexDBService extends BaseHttpService implements OnInit{
      * params: { name:String, keyPath:String, data:Array}
      * 
      */ 
-    createDBTab = function(table) {
-        this.DB.objectStore = this.DB.db.createObjectStore(table.name, { keyPath: table.keyPath });
+    createDBTab = function(table, db) {
+        let objectStore = db.createObjectStore(table.name, { keyPath: table.keyPath });
         for(let item in table.data[0]) {
-            this.DB.objectStore.createIndex(item, item, { unique: false });
+            objectStore.createIndex(item, item, { unique: false });
         }
+        return objectStore;
     }
     
     /**
@@ -250,11 +249,12 @@ export class IndexDBService extends BaseHttpService implements OnInit{
      * params: { name:String, keyPath:String, data:Array}
      * 
      */ 
-    initDBTabDate = function() {
-        this.DB.objectStore.transaction.oncomplete = function(event) {
-            for(let index in this.tempoIndexDBTab) {
-                let dbTab = this.tempoIndexDBTab[index];
-                var customerObjectStore = this.DB.db.transaction(dbTab.name, "readwrite").objectStore(dbTab.name);
+    initDBTabDate(objectStore, db, tempoIndexDBTab) {
+        let that = this;
+        objectStore.transaction.oncomplete = function() {
+            for(let index in that.tempoIndexDBTab) {
+                let dbTab = tempoIndexDBTab[index];
+                let customerObjectStore = db.transaction(dbTab.name, "readwrite").objectStore(dbTab.name);
                 dbTab.data.forEach(function(project) {
                     customerObjectStore.add(project);
                 });
