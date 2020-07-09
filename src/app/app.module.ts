@@ -12,6 +12,7 @@ import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } f
 import { CompStorageLocalService } from './editor/provider/comp-storage-local.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { VariablesService } from './core/provider/global-variables/variables.service';
 
 const routes: Routes = [
   { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}
@@ -37,6 +38,7 @@ const routes: Routes = [
     AppService,
     CompConfigService,
     CompStorageLocalService,
+    VariablesService,
     {
       provide:LocationStrategy,
       useClass: HashLocationStrategy

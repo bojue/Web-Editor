@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
-import { BaseHttpService } from '../core/provider/baseHttp/base-http.service';
+import { BaseHttpService } from '../baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
+import { VariablesService } from '../global-variables/variables.service';
 
 @Injectable({
   providedIn: 'root'
@@ -81,7 +82,7 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         }
     ]
     
-    
+    DB:any;
     tempoIndexDBTab =[
         {
             name:"projects",
@@ -98,9 +99,9 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         }
     ]
     DB_NAME='tempoEditor';
-    DB:any;
     constructor(
-    private http: HttpClient
+        private http: HttpClient,
+        public variables: VariablesService
     ) {
     super(http, '')
     }
@@ -111,8 +112,10 @@ export class IndexDBService extends BaseHttpService implements OnInit{
 
 
 
-    create_data(DB) {
-        let request = DB.db.transaction('pages', 'readwrite').objectStore('pages');
+    create_data() {
+        let db = this.variables.getIndexDB();
+        if(!db) return;
+        let request = db.transaction('pages', 'readwrite').objectStore('pages')
         request.add({
             "id": 4,
             "projectId": 1,
@@ -131,19 +134,12 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             "width": 1200,
             "height": 700
         });
-        request.onsuccess = function(event) {
-            console.log('数据写入成功');
-        }
-        request.onerror = function(event) {
-            console.log('数据写入失败');
-        }
-        request.onabort = function(event) {
-            console.log('事务回滚');
-        }
     }
 
-    getData(DB) {
-        let transaction = DB.db.transaction(['pages']);
+    getData() {
+        let db = this.variables.getIndexDB();
+        if(!db) return;
+        let transaction = db.transaction(['pages']);
         let objectStore = transaction.objectStore('pages');
         let request = objectStore.get(1); //传主键
         request.onerror = function(event) {
@@ -158,20 +154,34 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         };
     }
 
-    getDataAll(DB) {
-        let objectStore = DB.db.transaction('pages').objectStore('pages');
-        objectStore.openCursor().onsuccess = function(event) { 
-            let cursor = event.target.result;
-            if (cursor) {
-                console.log(cursor.value)
-                cursor.continue();
+    getDataAll(api:string) {
+        let res = [];
+        let db = this.variables.getIndexDB();
+        if(!db) return res;
+        let promise = new Promise(((resolve, reject) => {
+            let objectStore = db.transaction(api).objectStore(api);
+            let request = objectStore.openCursor();
+            request.onerror = error => { reject(error)}
+            request.onsuccess = event => {
+                let cursor = event.target.result;
+                if (cursor) {
+                    res.push(cursor.value);
+                    cursor.continue();
+                }else {
+                    resolve(res);
+                }
             }
-        }
+        }))
+        return promise;
+
+      
     }
     
 
-    updateData(DB) {
-        var request = DB.db.transaction('pages').objectStore('pages').put({
+    updateData() {
+        let db = this.variables.getIndexDB();
+        if(!db) return;
+        var request = db.transaction('pages').objectStore('pages').put({
             "id": 4,
             "projectId": 1,
             "name": "列表",
@@ -197,8 +207,10 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         }
     }
 
-    delete_db(DB, name) {
-        DB.db.close();
+    delete_db(name) {
+        let db = this.variables.getIndexDB();
+        if(!db) return;
+        db.close();
         window.indexedDB.deleteDatabase(name)
     }
 
@@ -208,6 +220,7 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             window.alert("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.")
         }
         let DB:any;
+        let that = this;
 
         //连接数据库
         let request = indexedDB.open(this.DB_NAME, 2);
@@ -216,12 +229,14 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         };
         request.onsuccess = function(event:any) {
             let db = event.target.result;
+            that.catchStorage(db);
             console.log('IndeDB opened successfully!')
         }
-        let that = this;
+
         request.onupgradeneeded = function(event:any) {
             console.log('IndeDB onupgradeneeded!')
             let db = event.target.result;
+            that.catchStorage(db);
             let objectStore:any;
             for(let index in that.tempoIndexDBTab) {
                 let dbTab = that.tempoIndexDBTab[index];
@@ -229,6 +244,10 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             }
             that.initDBTabDate(objectStore, db, that.tempoIndexDBTab);
         };
+    }
+
+    catchStorage(db) {
+        this.variables.setIndexDB(db);
     }
 
     /**

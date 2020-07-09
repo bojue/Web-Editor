@@ -9,6 +9,9 @@ import { BaseHttpService } from './provider/baseHttp/base-http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TempoToastrService } from './provider/toaster/toastr.service';
 import { EmitSubService } from './emitSub/emit-sub.service';
+import { IndexDBService } from './provider/indexDB/indexDB.service';
+import { LocalStorageService } from './provider/localStorage/localStorage.service';
+import { VariablesService } from './provider/global-variables/variables.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { EmitSubService } from './emitSub/emit-sub.service';
     MenuBreadCrumbService,
     UserAgentService,
     TempoToastrService,
-    EmitSubService
+    EmitSubService,
+    IndexDBService,
+    LocalStorageService
   ]
 })
 export class CodeModule { }

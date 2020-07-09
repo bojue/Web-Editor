@@ -1,6 +1,6 @@
 
 import { Component, OnInit} from '@angular/core';
-import { IndexDBService } from './providers/indexDB.service';
+import { IndexDBService } from './core/provider/indexDB/indexDB.service';
 
 @Component({
   selector: 'app-root',

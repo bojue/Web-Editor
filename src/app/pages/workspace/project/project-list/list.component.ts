@@ -9,6 +9,7 @@ import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service
 import { SweetalertService } from 'src/app/core/provider/toaster/sweetalert.service';
 import { PageAddComponent } from '../../page/page-add/page-add.component';
 import { ProjectAddComponent } from '../project-add/project-add.component';
+import { IndexDBService } from '../../../../core/provider/indexDB/indexDB.service';
 
 @Component({
   selector: 'app-project-list',
@@ -18,13 +19,16 @@ import { ProjectAddComponent } from '../project-add/project-add.component';
 export class ListComponent extends BaseHttpService implements OnInit {
   projects:any[];
   states:any[];
+  projectsUrl:string = 'projects';
+  statesUrl:string = 'states';
   constructor(
       private http: HttpClient,
       private router:Router,
       private route: ActivatedRoute,
       private modalService: NgbModal,
       private toaster: TempoToastrService,
-      private sweet:SweetalertService
+      private sweet:SweetalertService,
+      private indexDBService:IndexDBService,
   ) { 
     super(http, "projects")
   }
@@ -34,9 +38,8 @@ export class ListComponent extends BaseHttpService implements OnInit {
   }
 
   getData() {
-    Observable.forkJoin([this.getAll(), this.getAll("states")]).subscribe(res=> {
-      this.projects = res && res[0] && res[0]['data'];
-      this.states = res && res[1] && res[1]['data']
+    Observable.forkJoin([this.indexDBService.getDataAll(this.projectsUrl)]).subscribe(res => {
+      this.projects = res && res[0];
     })
   }
 
