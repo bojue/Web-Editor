@@ -10,6 +10,7 @@ import { SweetalertService } from 'src/app/core/provider/toaster/sweetalert.serv
 import { PageAddComponent } from '../../page/page-add/page-add.component';
 import { ProjectAddComponent } from '../project-add/project-add.component';
 import { IndexDBService } from '../../../../core/provider/indexDB/indexDB.service';
+import * as _ from 'loadsh';
 
 @Component({
   selector: 'app-project-list',
@@ -49,25 +50,15 @@ export class ListComponent extends BaseHttpService implements OnInit {
 
   toAddProject() {
     let addProject = this.modalService.open(ProjectAddComponent);
+    addProject.componentInstance.id =  _.maxBy(this.projects, o => o.id) && _.maxBy(this.projects, o => o.id)['id'] || 0;
     addProject.componentInstance.datas = {
-      state:'addProject'
+      state:'addProject',
     };
     addProject.result.then((result) => {
       if(result === 'success') {
-        this.toaster.showToaster({
-          state: this.toaster.STATE.SUCCESS,
-          info:'项目创建成功'
-        })
         this.getData();
-      }else {
-        
       }
   
-    }, (reason) => {
-      this.toaster.showToaster({
-        state: this.toaster.STATE.ERROR,
-        info:'项目创建失败'
-      })
     });
   }
 

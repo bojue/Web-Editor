@@ -17,7 +17,6 @@ export class VariablesService implements OnInit {
     }
 
     getIndexDB() {
-        console.log(this.DB);
         return this.DB
     }
 }

@@ -42,7 +42,7 @@ const routes = [
     ViewContainRefHostDirective
   ],
   imports: [
-  CodeModule,
+    CodeModule,
     CommonModule,
     FormsModule,
     CompDevModule,

@@ -13,70 +13,30 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             "name": "运营报表系统",
             "appendName": "运营报表系统",
             "description": "运营报表数据",
-            "status": 0,
-            "vip_staus": 0,
-            "creator": "1",
-            "create_time": "2020-01-05T03:02:58.000Z",
-            "update_time": "2020-01-05T03:02:58.000Z",
-            "type": "cutome"
-        }
-       
-    ]
-    status =  [
-        {
-            "id": 1,
-            "name": "已发布",
-            "src": "assets/icons/state_official.svg",
-            "description": "已发布"
-        },
-        {
-            "id": 2,
-            "name": "待发布",
-            "src": "assets/icons/state_pres.svg",
-            "description": "待发布"
-        },
-        {
-            "id": 3,
-            "name": "未发布",
-            "src": "assets/icons/state_pre.svg",
-            "description": "未发布"
         }
     ]
+
     
     pages = [
         {
             "id": 1,
             "projectId": 1,
             "name": "列表",
-            "appendName": "列表",
             "description": "无",
-            "status": 0,
-            "creator_id": null,
-            "create_time": "2020-01-05T06:38:23.000Z",
-            "update_time": "2020-01-09T07:27:56.000Z",
-            "type": null,
             "creator": 1,
             "style": "{'width':'1000','height':'800','background':'#fff'}",
             "componentList": "[]", 
-            "vip_status": null,
             "width": 1200,
             "height": 700
         },
         {
-            "id": 2,
-            "projectId": 2,
-            "name": "详情",
-            "appendName": "0",
-            "description": "0",
-            "status": null,
-            "creator_id": null,
-            "create_time": "2020-03-26T16:38:44.000Z",
-            "update_time": "2020-03-26T16:38:44.000Z",
-            "type": "default",
+            "id": 1,
+            "projectId": 1,
+            "name": "列表",
+            "description": "无",
             "creator": 1,
-            "style": "0",
-            "componentList": "[]",
-            "vip_status": 1,
+            "style": "{'width':'1000','height':'800','background':'#fff'}",
+            "componentList": "[]", 
             "width": 1200,
             "height": 700
         }
@@ -88,10 +48,6 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             name:"projects",
             keyPath:"id",
             data:this.projects
-        }, {
-            name:"status",
-            keyPath:"id",
-            data:this.status
         }, {
             name:"pages",
             keyPath:"id",
@@ -112,28 +68,20 @@ export class IndexDBService extends BaseHttpService implements OnInit{
 
 
 
-    create_data() {
+    create_data(api, createObj) {
         let db = this.variables.getIndexDB();
         if(!db) return;
-        let request = db.transaction('pages', 'readwrite').objectStore('pages')
-        request.add({
-            "id": 4,
-            "projectId": 1,
-            "name": "列表",
-            "appendName": "列表",
-            "description": "无",
-            "status": 0,
-            "creator_id": null,
-            "create_time": "2020-01-05T06:38:23.000Z",
-            "update_time": "2020-01-09T07:27:56.000Z",
-            "type": null,
-            "creator": 1,
-            "style": "{'width':'1000','height':'800','background':'#fff'}",
-            "componentList": "[]", 
-            "vip_status": null,
-            "width": 1200,
-            "height": 700
-        });
+        return new Promise((resolve, reject) => {
+            let objectStore = db.transaction([api], 'readwrite').objectStore(api);
+            let request = objectStore.add(createObj);
+            request.onerror = error => {
+                reject(error);
+            }
+            request.onsuccess = event => {
+                console.log(api, createObj)
+                resolve();
+            }
+        })
     }
 
     getData() {
@@ -158,7 +106,7 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         let res = [];
         let db = this.variables.getIndexDB();
         if(!db) return res;
-        let promise = new Promise(((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             let objectStore = db.transaction(api).objectStore(api);
             let request = objectStore.openCursor();
             request.onerror = error => { reject(error)}
@@ -171,10 +119,7 @@ export class IndexDBService extends BaseHttpService implements OnInit{
                     resolve(res);
                 }
             }
-        }))
-        return promise;
-
-      
+        })
     }
     
 

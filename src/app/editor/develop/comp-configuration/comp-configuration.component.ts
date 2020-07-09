@@ -12,6 +12,7 @@ import { PageAddComponent } from '../../../pages/workspace/page/page-add/page-ad
 import { TempoToastrService } from '../../../core/provider/toaster/toastr.service';
 import { SweetalertService } from 'src/app/core/provider/toaster/sweetalert.service';
 import { PageEditComponent } from '../../../pages/workspace/page/page-edit/page-edit.component';
+import { IndexDBService } from 'src/app/core/provider/indexDB/indexDB.service';
 
 @Component({
   selector: 'app-comp-configuration',
@@ -41,7 +42,8 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     private localService:CompStorageLocalService,
     private modalService: NgbModal,
     private toaster: TempoToastrService,
-    private sweet:SweetalertService
+    private sweet:SweetalertService,
+    private indexDBService: IndexDBService
   ) { 
     super(http, 'page');
   }
@@ -60,9 +62,8 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   
   initData() {
     let _url = `pages/${this.projectId}`;
-    Observable.forkJoin([this.getAll(_url)]).subscribe(res =>{
-      let data = res && res[0] && res[0]['data'];
-      this.pages = data;
+    Observable.forkJoin([this.indexDBService.getDataAll('pages')]).subscribe(res => {
+      this.pages = res && res[0];
       this.initPage();
     })
     this.showBool = true;
@@ -112,6 +113,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
       state:'addPage'
     };
     addComp.result.then((result) => {
+      console.log(result)
       if(result === 'success') {
         this.toaster.showToaster({
           state: this.toaster.STATE.SUCCESS,
@@ -122,12 +124,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
       
       }
   
-    }, (reason) => {
-      this.toaster.showToaster({
-        state: this.toaster.STATE.ERROR,
-        info:'页面创建失败'
-      })
-    });
+    })
   }
 
   editorCurrentPage(event) {
