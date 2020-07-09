@@ -66,8 +66,7 @@ export class ListComponent extends BaseHttpService implements OnInit {
     if(id !== null) {
       this.sweet.deleteAlert().then(res => {
         if(res['value']) {
-          let url = 'project/' + id;
-          this.delete(null, url).subscribe(res => {
+          Observable.forkJoin([this.indexDBService.deleteData(this.projectsUrl, id)]).subscribe(res => {
             this.getData();
             this.toaster.showToaster({
               state: this.toaster.STATE.SUCCESS,

@@ -68,21 +68,6 @@ export class IndexDBService extends BaseHttpService implements OnInit{
 
 
 
-    create_data(api, createObj) {
-        let db = this.variables.getIndexDB();
-        if(!db) return;
-        return new Promise((resolve, reject) => {
-            let objectStore = db.transaction([api], 'readwrite').objectStore(api);
-            let request = objectStore.add(createObj);
-            request.onerror = error => {
-                reject(error);
-            }
-            request.onsuccess = event => {
-                console.log(api, createObj)
-                resolve();
-            }
-        })
-    }
 
     getData() {
         let db = this.variables.getIndexDB();
@@ -102,6 +87,25 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         };
     }
 
+    // 创建对象
+    createData(api, createObj) {
+        let db = this.variables.getIndexDB();
+        if(!db) return;
+        return new Promise((resolve, reject) => {
+            let objectStore = db.transaction([api], 'readwrite').objectStore(api);
+            let request = objectStore.add(createObj);
+            request.onerror = error => {
+                reject(error);
+            }
+            request.onsuccess = event => {
+                console.log(api, createObj)
+                resolve();
+            }
+        })
+    }
+
+
+    // 获取列表
     getDataAll(api:string) {
         let res = [];
         let db = this.variables.getIndexDB();
@@ -121,8 +125,25 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             }
         })
     }
+
+    // 根据主键删除对象
+    deleteData(api, key) {
+        let db = this.variables.getIndexDB();
+        if(!db) return;
+        return new Promise((resolve, reject) => {
+            let objectStore = db.transaction([api], 'readwrite').objectStore(api);
+            let request = objectStore.delete(key);
+            request.onerror = error => {
+                reject(error);
+            }
+            request.onsuccess = event => {
+                resolve();
+            }
+        })
+    }
     
 
+    // 更新数据
     updateData() {
         let db = this.variables.getIndexDB();
         if(!db) return;

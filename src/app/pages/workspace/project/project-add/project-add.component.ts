@@ -41,7 +41,7 @@ export class ProjectAddComponent extends BaseHttpService implements OnInit {
 
   save() {
     let params = this.getPageParams();
-    Observable.forkJoin([this.indexDBService.create_data(this.pagesUrl, params)]).subscribe(res => {
+    Observable.forkJoin([this.indexDBService.createData(this.pagesUrl, params)]).subscribe(res => {
       this.toaster.showToaster({
         state: this.toaster.STATE.SUCCESS,
         info:'项目创建成功'
