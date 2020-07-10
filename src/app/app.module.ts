@@ -13,6 +13,7 @@ import { CompStorageLocalService } from './editor/provider/comp-storage-local.se
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { VariablesService } from './core/provider/global-variables/variables.service';
+import { EmitSubService } from './core/emitSub/emit-sub.service';
 
 const routes: Routes = [
   { path: '', loadChildren:() => import('./pages/pages.module').then(m => m.PagesModule)}

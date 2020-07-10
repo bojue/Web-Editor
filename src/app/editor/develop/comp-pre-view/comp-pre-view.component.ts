@@ -47,7 +47,7 @@ export class CompPreViewComponent implements OnInit, AfterContentInit, OnDestroy
     let comps = this.localStorageService.getPreViceComponent();
     this.compList = JSON.parse(comps);
     let parentCompList = _.cloneDeep(this.compList);
-    this.eventEmitter = this.emitSerive.getEmitEventSub().subscribe(res => {
+    this.eventEmitter = this.emitSerive.getEmitEvent().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
         let data = res['data']
         let currentList = _.concat(parentCompList, data);

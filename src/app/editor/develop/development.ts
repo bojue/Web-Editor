@@ -18,7 +18,7 @@ import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { BaseHttpService } from '../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { CompStorageLocalService } from '../provider/comp-storage-local.service';
 import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service';
 import removeGhosting from 'remove-drag-ghosting';
@@ -72,7 +72,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     showLeft: true,
     showRight: true
   }
-  eventEmitter:any;
+  sub:Subscription;
   constructor(
     public localStorageService:CompStorageLocalService,
     public emitSerice: EmitSubService, 
@@ -97,7 +97,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   }
 
   ngOnDestroy() {
-    this.eventEmitter.unsubscribe();
+    this.sub.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -140,7 +140,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   eventEmitterSub() {
     let parentCompList = _.cloneDeep(this.currnetPageComps);
-    this.eventEmitter = this.emitSerice.getEmitEventSub().subscribe(res => {
+    this.sub = this.emitSerice.getEmitEvent().subscribe(res => {
       if(res && res['type'] === 'child-comp') {
         let data = res['data'];
         let currentList = _.concat(parentCompList, data)
@@ -421,6 +421,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     let compString = JSON.stringify(comps);
     page['componentList'] = compString;
     Observable.forkJoin([this.indexDBService.updateData(this.pagesUrl, page)]).subscribe(res => {
+      this.emitSerice.setEmitEvent('update-projects')
       this.toaster.showToaster({
         state: this.toaster.STATE.SUCCESS,
         info:'页面更新成功'

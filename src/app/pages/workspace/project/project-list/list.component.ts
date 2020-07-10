@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BaseHttpService } from '../../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,6 +11,8 @@ import { PageAddComponent } from '../../page/page-add/page-add.component';
 import { ProjectAddComponent } from '../project-add/project-add.component';
 import { IndexDBService } from '../../../../core/provider/indexDB/indexDB.service';
 import * as _ from 'loadsh';
+import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-project-list',
@@ -22,6 +24,8 @@ export class ListComponent extends BaseHttpService implements OnInit {
   states:any[];
   projectsUrl:string = 'projects';
   statesUrl:string = 'states';
+  sub:Subscription;
+
   constructor(
       private http: HttpClient,
       private router:Router,
@@ -30,6 +34,7 @@ export class ListComponent extends BaseHttpService implements OnInit {
       private toaster: TempoToastrService,
       private sweet:SweetalertService,
       private indexDBService:IndexDBService,
+      public emitSerice: EmitSubService, 
   ) { 
     super(http, "projects")
   }
@@ -58,7 +63,6 @@ export class ListComponent extends BaseHttpService implements OnInit {
       if(result === 'success') {
         this.getData();
       }
-  
     });
   }
 

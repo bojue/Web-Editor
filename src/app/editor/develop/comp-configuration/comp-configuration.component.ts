@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output ,EventEmitter} from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { AppService } from "src/app/providers/app.service";
 import { CompListService } from "../../provider/comp-list.service";
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { BaseHttpService } from '../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -13,13 +13,14 @@ import { TempoToastrService } from '../../../core/provider/toaster/toastr.servic
 import { SweetalertService } from 'src/app/core/provider/toaster/sweetalert.service';
 import { PageEditComponent } from '../../../pages/workspace/page/page-edit/page-edit.component';
 import { IndexDBService } from 'src/app/core/provider/indexDB/indexDB.service';
+import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
 
 @Component({
   selector: 'app-comp-configuration',
   templateUrl: './comp-configuration.component.html',
   styleUrls: ['./comp-configuration.component.scss']
 })
-export class CompConfigurationComponent extends BaseHttpService implements OnInit {
+export class CompConfigurationComponent extends BaseHttpService implements OnInit ,OnDestroy{
   url: 'page';
   projectId:number;
   @Input() pageGridSetting;
@@ -34,7 +35,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   showBool:boolean;
   currentTab:string;
   pagesUrl = 'pages';
-
+  sub:Subscription;
   constructor(
     private http:HttpClient,
     private service: AppService,
@@ -44,7 +45,8 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     private modalService: NgbModal,
     private toaster: TempoToastrService,
     private sweet:SweetalertService,
-    private indexDBService: IndexDBService
+    private indexDBService:IndexDBService,
+    public emitSerice: EmitSubService, 
   ) { 
     super(http, 'page');
   }
@@ -52,6 +54,12 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   ngOnInit() {
     this.getParams();
     this.initData();
+  }
+
+  ngOnDestroy() {
+    if(this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   getParams() {
@@ -62,7 +70,16 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   }
   
   initData() {
-    let _url = `pages/${this.projectId}`;
+    this.getData();
+    this.sub = this.emitSerice.getEmitEvent().subscribe(res => {
+      console.log('update-projects', res)
+      if(res && res['type'] === 'update-projects') {
+        this.getData();
+      }
+    });
+  }
+
+  getData() {
     Observable.forkJoin([this.indexDBService.getDataAll(this.pagesUrl)]).subscribe(res => {
       this.pages = res && res[0];
       console.log(this.pages)
@@ -71,6 +88,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     this.showBool = true;
     this.compList = this.compListService.getCompList();
     this.selectTabs();
+    
   }
 
   initPage() {

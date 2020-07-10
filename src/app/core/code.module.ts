@@ -27,6 +27,7 @@ import { VariablesService } from './provider/global-variables/variables.service'
     BreadCurmbComponent,
   ],
   providers: [
+    EmitSubService,
     BaseHttpService,
     CompDynamicCreateService,
     MenuBreadCrumbService,

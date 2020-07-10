@@ -1,18 +1,20 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class  EmitSubService{
-  eventEmitter: EventEmitter<any> = new EventEmitter();
+  event: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
-  setEmitEventSub(event) {
-    this.eventEmitter.next(event)
+  getEmitEvent(): Observable<any> {
+    return this.event.asObservable();
   }
-  
-  getEmitEventSub() {
-    return this.eventEmitter;
+  setEmitEvent(type?: string, data?:any) {
+      let params = {
+          data: data,
+          type: type || 'update',
+      };
+      this.event.next(params);
   }
 }

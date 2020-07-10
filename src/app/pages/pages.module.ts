@@ -3,6 +3,7 @@ import { PageRoutingModule } from "./pages.routing.modules";
 import { WorkspaceModule } from './workspace/workspace.module';
 import { CommonModule } from "@angular/common";
 import { HomeComponent } from './home/home.component';
+import { CodeModule } from '../core/code.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     PageRoutingModule,
     WorkspaceModule,
-    CommonModule
+    CommonModule,
+    CodeModule
   ],
   providers: [
   ],

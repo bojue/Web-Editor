@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as _ from 'lodash';  
 import { ActivatedRoute, Route } from '@angular/router';
-import { CompStorageLocalService } from '../../../provider/comp-storage-local.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-comp-page-list',
@@ -13,18 +13,20 @@ export class CompPageListComp implements OnInit {
   @Output() selCurrentPage = new EventEmitter<any>();
   @Output() delCurrentPage = new EventEmitter<any>();
   @Output() editorCurrentPage = new EventEmitter<any>();
+
   options = {};
   pageList:any[];
   pageId:string;
 
   constructor(
-    private activeRoute:ActivatedRoute
+    private activeRoute:ActivatedRoute,
+
   ) { 
 
   }
 
   ngOnInit() {
-
+  
   }
 
   //初始化组态选择状态
