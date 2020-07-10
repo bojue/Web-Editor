@@ -133,20 +133,12 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     };
     comp.result.then((result) => {
       if(result === 'success') {
-        this.toaster.showToaster({
-          state: this.toaster.STATE.SUCCESS,
-          info:'页面名称更新成功'
-        })
         this.initData();
       }else {
       
       }
   
     }, (reason) => {
-      this.toaster.showToaster({
-        state: this.toaster.STATE.ERROR,
-        info:'页面名称更新成功'
-      })
     });
   }
 

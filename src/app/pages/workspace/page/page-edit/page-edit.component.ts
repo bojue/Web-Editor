@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import * as _ from "loadsh";
+import { IndexDBService } from 'src/app/core/provider/indexDB/indexDB.service';
+import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service';
 
 @Component({
   selector: 'app-page-edit',
@@ -15,24 +17,39 @@ import * as _ from "loadsh";
 export class PageEditComponent extends BaseHttpService implements OnInit {
   page:PageObject;
   datas:any;
+  pagesUrl:string = 'pages';
 
   constructor(
     public http: HttpClient,
     public activeRoute:ActivatedRoute,
-    public modal:NgbActiveModal
+    public modal:NgbActiveModal,
+    public indexDBService:IndexDBService,
+    private toaster: TempoToastrService,
   ) { 
     super(http, 'page')
   }
 
   ngOnInit() {
-    this.page = _.cloneDeep( this.datas['page'])
+    this.page = this.datas['page']
   }
 
   save() {
-    Observable.forkJoin([this.update(this.page)]).subscribe(res => {
+    let params = _.cloneDeep(this.page);
+    if('actived' in params) {
+      delete params['actived'];
+    }
+    Observable.forkJoin([this.indexDBService.updateData(this.pagesUrl, params)]).subscribe(res => {
+      this.toaster.showToaster({
+        state: this.toaster.STATE.SUCCESS,
+        info:'页面更新成功'
+      })
       this.modal.close('success');
     },error => {
-      this.modal.close('error');
+      this.toaster.showToaster({
+        state: this.toaster.STATE.ERROR,
+        info:'页面更新失败'
+      })
+      this.modal.close("error");
     })
   }
 

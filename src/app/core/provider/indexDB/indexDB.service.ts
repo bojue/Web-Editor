@@ -130,30 +130,18 @@ export class IndexDBService extends BaseHttpService implements OnInit{
     
 
     // 更新数据
-    updateData() {
+    updateData(api, updateObj) {
         let db = this.variables.getIndexDB();
         if(!db) return;
-        var request = db.transaction('pages').objectStore('pages').put({
-            "id": 4,
-            "projectId": 1,
-            "name": "列表",
-            "appendName": "列表",
-            "description": "无",
-            "status": 0,
-            "type": null,
-            "creator": 1,
-            "style": "{'width':'1000','height':'800','background':'#fff'}",
-            "componentList": "[]", 
-            "vip_status": null,
-            "width": 1200,
-            "height": 700
-        });
-        request.onsuccess = function(event) {
-            console.log('数据更新成功');
-        }
-        request.onerror = function(event) {
-            console.log('数据更新失败');
-        }
+        return new Promise((resolve, reject) => {
+            var request = db.transaction([api],'readwrite').objectStore(api).put(updateObj);
+            request.onerror = error => {
+                reject(error);
+            }
+            request.onsuccess = event => {
+                resolve();
+            }
+        })
     }
 
     delete_db(name) {

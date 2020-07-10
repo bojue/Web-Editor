@@ -22,6 +22,7 @@ import { Observable } from 'rxjs';
 import { CompStorageLocalService } from '../provider/comp-storage-local.service';
 import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service';
 import removeGhosting from 'remove-drag-ghosting';
+import { IndexDBService } from 'src/app/core/provider/indexDB/indexDB.service';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   @Input() componets: Component[];
   @ViewChild(ViewContainRefHostDirective, { static: true}) viewContRef: ViewContainRefHostDirective;
   PAGE_URL = 'page';
+  pagesUrl = "pages";
   development_setting_bg:string = 'bg-grid';
   componentModules: any[];
   basicComponents: any[];
@@ -85,6 +87,7 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     private userAgentService: UserAgentService,
     private eventManager: EventManager,
     private toaster: TempoToastrService,
+    public indexDBService:IndexDBService,
   ) {
     super(http, '')
   }
@@ -203,7 +206,6 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
 
   initCompsState() {
     this.currentIndex = -1;
-    // this.activeCurrentComp = null;
     this.activeCompSettingObject = null;
     _.map(this.currnetPageComps, (item,k) => {
       item['active'] = false;
@@ -418,10 +420,15 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
     let comps = this.initPageComponentsStatus();
     let compString = JSON.stringify(comps);
     page['componentList'] = compString;
-    Observable.forkJoin([this.update(page, this.PAGE_URL)]).subscribe(res => {
+    Observable.forkJoin([this.indexDBService.updateData(this.pagesUrl, page)]).subscribe(res => {
       this.toaster.showToaster({
         state: this.toaster.STATE.SUCCESS,
-        info:'更新成功'
+        info:'页面更新成功'
+      })
+    },error => {
+      this.toaster.showToaster({
+        state: this.toaster.STATE.ERROR,
+        info:'页面更新失败'
       })
     })
   }
