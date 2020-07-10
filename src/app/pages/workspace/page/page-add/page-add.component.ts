@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { BaseHttpService } from '../../../../core/provider/baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { IndexDBService } from '../../../../core/provider/indexDB/indexDB.service';
+import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service';
 
 @Component({
   selector: 'app-page-add',
@@ -16,11 +18,15 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
   page:PageObject;
   projectId:number;
   datas:any;
+  id:number;
+  pagesUrl:string = 'pages';
 
   constructor(
     public http: HttpClient,
     public activeRoute:ActivatedRoute,
-    public modal:NgbActiveModal
+    public modal:NgbActiveModal,
+    public indexDBService:IndexDBService,
+    private toaster: TempoToastrService,
   ) { 
     super(http, 'page')
   }
@@ -32,26 +38,33 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
 
   getRouteParams() {
     this.activeRoute.queryParams.subscribe(res => {
-      this.projectId = res['project'];
+      this.projectId = parseInt(res['project']);
     })
   }
 
   getPageParams() {
-    this.page['appendName'] != this.page['name'];
+    this.page['id'] = this.id + 1;
     this.page['projectId'] = this.projectId;
     this.page['width'] = 1200;
     this.page['height'] = 700;
-    this.page['create_time'] = new Date().toString();
-    this.page['update_time'] = new Date().toString();
+    this.page['componentList'] = "[]";
     return this.page;
   }
 
   save() {
     let params = this.getPageParams();
-    Observable.forkJoin([this.create(params)]).subscribe(res => {
+    Observable.forkJoin([this.indexDBService.createData(this.pagesUrl, params)]).subscribe(res => {
+      this.toaster.showToaster({
+        state: this.toaster.STATE.SUCCESS,
+        info:'页面创建成功'
+      })
       this.modal.close('success');
     },error => {
-      this.modal.close('error');
+      this.toaster.showToaster({
+        state: this.toaster.STATE.ERROR,
+        info:'页面创建失败'
+      })
+      this.modal.close("error");
     })
   }
 

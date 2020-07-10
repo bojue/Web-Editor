@@ -102,7 +102,12 @@ export class HomeComponent implements OnInit {
           {
             name:"服务端支持",
             state:true,
-            description:"计划有一版Tempo编辑器对应的服务端项目"
+            description:"编辑器(v0.1.1版本)支持服务端"
+          },
+          {
+            name:"IndexDB数据存储",
+            state:true,
+            description:"编辑器(v0.1.2+版本)支持IndexDB数据存储"
           },
           {
             name:"在线试用",

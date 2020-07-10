@@ -33,6 +33,7 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   compList:any[];
   showBool:boolean;
   currentTab:string;
+  pagesUrl = 'pages';
 
   constructor(
     private http:HttpClient,
@@ -62,8 +63,9 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   
   initData() {
     let _url = `pages/${this.projectId}`;
-    Observable.forkJoin([this.indexDBService.getDataAll('pages')]).subscribe(res => {
+    Observable.forkJoin([this.indexDBService.getDataAll(this.pagesUrl)]).subscribe(res => {
       this.pages = res && res[0];
+      console.log(this.pages)
       this.initPage();
     })
     this.showBool = true;
@@ -109,16 +111,12 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
 
   addPageComponet() {
     let addComp = this.modalService.open(PageAddComponent);
+    addComp.componentInstance.id =  _.maxBy(this.pages, o => o['id']) && _.maxBy(this.pages, o => o['id'])['id'] || 0;
     addComp.componentInstance.datas = {
       state:'addPage'
     };
     addComp.result.then((result) => {
-      console.log(result)
       if(result === 'success') {
-        this.toaster.showToaster({
-          state: this.toaster.STATE.SUCCESS,
-          info:'页面创建成功'
-        })
         this.initData();
       }else {
       
@@ -157,12 +155,16 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     if(id !== null) {
       this.sweet.deleteAlert().then(res => {
         if(res['value']) {
-          let url = 'page/' + id;
-          this.delete(null, url).subscribe(res => {
+          Observable.forkJoin([this.indexDBService.deleteData(this.pagesUrl, id)]).subscribe(res => {
             this.initData();
             this.toaster.showToaster({
               state: this.toaster.STATE.SUCCESS,
               info:'页面删除成功'
+            })
+          },error => {
+            this.toaster.showToaster({
+              state: this.toaster.STATE.ERROR,
+              info:'页面删除失败'
             })
           })
         }
