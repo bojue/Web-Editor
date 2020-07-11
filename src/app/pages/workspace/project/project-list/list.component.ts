@@ -55,7 +55,6 @@ export class ListComponent extends BaseHttpService implements OnInit {
 
   toAddProject() {
     let addProject = this.modalService.open(ProjectAddComponent);
-    addProject.componentInstance.id =  _.maxBy(this.projects, o => o.id) && _.maxBy(this.projects, o => o.id)['id'] || 0;
     addProject.componentInstance.datas = {
       state:'addProject',
     };

@@ -131,7 +131,6 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
 
   addPageComponet() {
     let addComp = this.modalService.open(PageAddComponent);
-    addComp.componentInstance.id =  _.maxBy(this.pages, o => o['id']) && _.maxBy(this.pages, o => o['id'])['id'] || 0;
     addComp.componentInstance.datas = {
       state:'addPage'
     };

@@ -18,7 +18,6 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
   page:PageObject;
   projectId:number;
   datas:any;
-  id:number;
   pagesUrl:string = 'pages';
 
   constructor(

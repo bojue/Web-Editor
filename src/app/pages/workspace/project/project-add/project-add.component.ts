@@ -17,7 +17,6 @@ import { TempoToastrService } from 'src/app/core/provider/toaster/toastr.service
 export class ProjectAddComponent extends BaseHttpService implements OnInit {
   projectObj: ProjectObject;
   pagesUrl="projects";
-  id:number;
 
   constructor(
     public http: HttpClient,
