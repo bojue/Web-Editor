@@ -62,45 +62,46 @@ npm run start
 
 ```ASCII
 .
-+-- editor                          //编辑器模块
++-- editor                      //编辑器模块
 |   +-- comps  
-|       +-- comp-basic                //组件库基类
+|       +-- comp-basic              //组件库基类
 |           +-- data-basic             //数据基类组件
 |           +-- event-basic            //事件基类组件
 |           +-- style-basic            //样式基类组件
 |           +-- custom-basic           //自定义基类组件（业务组件）
-|       +-- comp-lib                  //核心组件库
+|       +-- comp-lib                //核心组件库
 |           +-- basic                   //基础组件库，不需要绑定数据的组件 
 |           +-- business                //业务组件库，可绑定数据等复杂操作
 |           +-- tool                    //工具组件库，仅方便编辑组态
-|       +-- comp-settings            //设置组件库
+|       +-- comp-settings          //设置组件库
 |           +-- data                    //数据绑定
 |           +-- event                   //事件绑定
 |           +-- style                   //样式绑定
-|   +-- develop                       //开发编辑模块
+|   +-- develop                     //开发编辑模块
 |       +-- configuration               //页面配置
 |       +-- help                        //帮助
 |       +-- pre-view                    //预览
 |       +-- setting                     //组件设置
 |       +-- develop.component           //编辑器核心容器组态
-|   +-- directive                     //编辑器指令
+|   +-- directive                   //编辑器指令
 |   +-- model  
-|   +-- provider                      //编辑器核心服务
+|   +-- provider                    //编辑器核心服务
 |       +-- comp-list.service           //组态列表
 |       +-- comp-config.service         //组态配置信息
 |       +-- comp-dynamic-create.service //组态type和组态映射
 ```
 
-## v0.1.0
-- 服务端(仅v0.1.0支持服务端)
+## v0.1.1
+- 服务端(仅v0.1.1支持服务端)
+
+```javascript
+npm run proxy 
+```
+
 
 下载编辑器对应的[Node服务端](https://github.com/bojue/Web-editor-server)，` v0.1.0 `以后版本都需要服务器支持，请按照 [文档](https://github.com/bojue/Web-editor-server/blob/master/README.md) 配置依次服务器
 
-- 如果仅需要运行前端静态版本，需要切换到:tag  v0.1.0版本,数据结构被重构，可以参考使用
 
-```javascript
-npm run onlyweb 
-```
 ## 其他
 
 
