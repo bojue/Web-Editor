@@ -43,7 +43,6 @@ export class PageAddComponent extends BaseHttpService implements OnInit {
   }
 
   getPageParams() {
-    this.page['id'] = this.id + 1;
     this.page['projectId'] = this.projectId;
     this.page['width'] = 1200;
     this.page['height'] = 700;

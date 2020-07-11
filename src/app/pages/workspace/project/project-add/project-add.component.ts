@@ -34,7 +34,6 @@ export class ProjectAddComponent extends BaseHttpService implements OnInit {
   }
 
   getPageParams() {
-    this.projectObj.id = this.id + 1;
     this.projectObj['description'] =  this.projectObj['description'] || '无';
     return this.projectObj;
   }

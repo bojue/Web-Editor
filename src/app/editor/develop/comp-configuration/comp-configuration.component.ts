@@ -85,7 +85,6 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
     }
     Observable.forkJoin([this.indexDBService.getDataAll(this.pagesUrl,query)]).subscribe(res => {
       this.pages = res && res[0];
-      console.log(this.pages)
       this.initPage();
     })
     this.showBool = true;

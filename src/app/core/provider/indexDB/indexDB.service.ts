@@ -81,13 +81,13 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         let db = this.variables.getIndexDB();
         if(!db) return;
         return new Promise((resolve, reject) => {
+            console.log(api, createObj)
             let objectStore = db.transaction([api], 'readwrite').objectStore(api);
             let request = objectStore.add(createObj);
             request.onerror = error => {
                 reject(error);
             }
             request.onsuccess = event => {
-                console.log(api, createObj)
                 resolve();
             }
         })
@@ -197,7 +197,7 @@ export class IndexDBService extends BaseHttpService implements OnInit{
      * 
      */ 
     createDBTab = function(table, db) {
-        let objectStore = db.createObjectStore(table.name, { keyPath: table.keyPath });
+        let objectStore = db.createObjectStore(table.name, { keyPath: table.keyPath ,autoIncrement: true });
         for(let item in table.data[0]) {
             objectStore.createIndex(item, item, { unique: false });
         }
