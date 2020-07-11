@@ -22,7 +22,7 @@ import { EmitSubService } from 'src/app/core/emitSub/emit-sub.service';
 })
 export class CompConfigurationComponent extends BaseHttpService implements OnInit ,OnDestroy{
   url: 'page';
-  projectId:number;
+  projectId:string;
   @Input() pageGridSetting;
   @Input() currnetPageComps;
   @Output() compDragEvent = new EventEmitter<any>();
@@ -72,7 +72,6 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   initData() {
     this.getData();
     this.sub = this.emitSerice.getEmitEvent().subscribe(res => {
-      console.log('update-projects', res)
       if(res && res['type'] === 'update-projects') {
         this.getData();
       }
@@ -80,7 +79,11 @@ export class CompConfigurationComponent extends BaseHttpService implements OnIni
   }
 
   getData() {
-    Observable.forkJoin([this.indexDBService.getDataAll(this.pagesUrl)]).subscribe(res => {
+    let query = {
+      prop:'projectId',
+      val:parseInt(this.projectId)
+    }
+    Observable.forkJoin([this.indexDBService.getDataAll(this.pagesUrl,query)]).subscribe(res => {
       this.pages = res && res[0];
       console.log(this.pages)
       this.initPage();

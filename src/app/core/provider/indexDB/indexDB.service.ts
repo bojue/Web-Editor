@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { BaseHttpService } from '../baseHttp/base-http.service';
 import { HttpClient } from '@angular/common/http';
 import { VariablesService } from '../global-variables/variables.service';
+import { QueryModel } from './query.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +34,13 @@ export class IndexDBService extends BaseHttpService implements OnInit{
         {
             name:"projects",
             keyPath:"id",
-            data:this.projects
+            data:this.projects,
+            createIndex:'id'
         }, {
             name:"pages",
             keyPath:"id",
-            data:this.pages
+            data:this.pages,
+            createIndex:'projectId'
         }
     ]
     DB_NAME='tempoEditor';
@@ -91,14 +94,14 @@ export class IndexDBService extends BaseHttpService implements OnInit{
     }
 
 
-    // 获取列表
-    getDataAll(api:string) {
+    // 获取列表(按照条件查询)
+    getDataAll(api:string, query ?:QueryModel) {
         let res = [];
         let db = this.variables.getIndexDB();
         if(!db) return res;
         return new Promise((resolve, reject) => {
-            let objectStore = db.transaction(api).objectStore(api);
-            let request = objectStore.openCursor();
+            let store = db.transaction(api).objectStore(api);
+            let request = query ? store.index(query['prop']).openCursor(IDBKeyRange.only(query['val']), "next") : store.openCursor();
             request.onerror = error => { reject(error)}
             request.onsuccess = event => {
                 let cursor = event.target.result;
@@ -109,6 +112,7 @@ export class IndexDBService extends BaseHttpService implements OnInit{
                     resolve(res);
                 }
             }
+    
         })
     }
 

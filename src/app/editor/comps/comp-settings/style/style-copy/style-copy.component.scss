@@ -2,14 +2,14 @@
     code {
         background: #eee;
         display: block;
-        height: 280px;
+        height: 300px;
         overflow-y: auto;
         text-align: left;
         padding: 10px 6px;
         word-break: break-all;
     }
     .in-block {
-        display: inline-table;
+        display: block;
         height: 18px;
         line-height: 18px;
         padding: 0;
