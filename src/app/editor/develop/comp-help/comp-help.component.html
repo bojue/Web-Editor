@@ -1,20 +1,26 @@
 <div class="help">
   <div class="title" (click)="showHelp = !showHelp">
-    <span>帮助</span>
+    <span><img class="img-help" src="assets/icons/helps.svg" alt=""></span>
   </div>
   <div class="body" *ngIf="showHelp"> 
     <div class="tit">
-      <div class="title" title="帮助文档">文档</div>
+      <div class="title" title="帮助文档">帮助文档</div>
       <img src="assets/icons/hidden.png" title="隐藏文档" alt="隐藏文档" class="close" (click)="showHelp = !showHelp">
     </div>
     <div class="item-title">快捷键</div>
     <ng-container *ngFor="let item of data;let i = $index">
       <div class="key-item">
-        <span class="name">{{item['name']}}</span>
-        <span class="key">{{item['key_same']}}</span>
+        <code class="name">{{item['name']}}</code>
+        <code class="key">{{item['key_same']}}</code>
       </div>
     </ng-container>
-    
+    <div class="item-title">仓库</div>
+    <ng-container>
+      <div class="key-item">
+        <code class="name">GitHub</code>
+        <a href="https://github.com/bojue">bojue</a>
+      </div>
+    </ng-container>
   
   </div>
 </div>

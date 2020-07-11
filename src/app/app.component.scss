@@ -51,6 +51,26 @@ $border-color4: $color-grey-1;
             border: 1px solid #cccccc;  
         }
     }
+    .github {
+        position: fixed;
+        right: 10px;
+        top:5px;
+        width: 30px;
+        height: 30px;
+        z-index: 1;
+        border-radius: 50%;
+        border:1px solid rgba(255, 0, 0, 0.5);
+        &:hover {
+            border:1px solid rgba(255, 0, 0, 0.5);
+            background: rgba(255, 0, 0, 0.5);
+        }
+        img {
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    }
 
     .data-val {
         position: relative;

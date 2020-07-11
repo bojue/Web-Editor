@@ -1,24 +1,24 @@
 :host {
     .help {
-        position: relative;
+        position: fixed;
+        bottom: 110px;
+        right: 10px;
         .title {
             cursor: pointer;
             user-select: none;
             position: relative;
-            height: 40px;
-            width: 42px;
-            text-align: right;
-            line-height: 40px;
-            border-left: 1px solid #ddd;
-            right: 4px;
+        }
+        .img-help {
+            width: 28px;
         }
         .body {
             position: absolute;
-            right: 0px;
-            top: 46px;
+            right: -8px;
+            bottom: 20px;
             background: #ffffff;
             width: 171px;
-            height: 820px;
+            height: 290px;
+            border-bottom: 1px solid  #eee;
             .tit {
                 background: rgba(255,0,0, 0.05);
                 left: 0px;
@@ -45,7 +45,7 @@
                 height: 26px;
                 line-height: 26px;
                 margin: 0px 5px;
-                color:#cccccc;
+                color:#aaaaaa;
             }
 
             .key-item {
