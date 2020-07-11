@@ -10,11 +10,11 @@ export class  EmitSubService{
   getEmitEvent(): Observable<any> {
     return this.event.asObservable();
   }
-  setEmitEvent(type?: string, data?:any) {
-      let params = {
-          data: data,
-          type: type || 'update',
-      };
-      this.event.next(params);
+  setEmitEvent(type: string, data?:any) {
+    let eventSub = {
+        data: data,
+        type: type,
+    };
+    this.event.next(eventSub);
   }
 }

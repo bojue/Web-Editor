@@ -8,9 +8,9 @@
   <div class="set-val"  *ngIf="showMoreBool">
     <code class="style-code" id="copyContent">
       <ng-container *ngFor="let code of styleArr;let i = index;">
-          <span class="in-block">
+          <code class="in-block">
             {{code}}
-          </span>
+          </code>
       </ng-container>
       <span class="copy" (click)="copyStyle(styleArr)">复制</span>
     </code>

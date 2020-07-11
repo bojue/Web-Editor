@@ -2,15 +2,18 @@
     code {
         background: #eee;
         display: block;
-        height: 255px;
+        height: 280px;
         overflow-y: auto;
         text-align: left;
         padding: 10px 6px;
+        word-break: break-all;
     }
     .in-block {
         display: inline-table;
         height: 18px;
         line-height: 18px;
+        padding: 0;
+        margin-bottom: 2px;
     }
     .set-val {
         margin: 0px;
@@ -18,7 +21,7 @@
         .style-code {
             position: absolute;
             bottom: 29px;
-            width: 150px;
+            width: 160px;
             margin: 3px;
         }
     }

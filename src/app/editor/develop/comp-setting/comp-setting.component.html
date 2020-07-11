@@ -42,8 +42,7 @@
         <div class="del">
           <img class='del-btn' (click)="deleteComp($event)" src="assets/icons/delete.svg" title="删除组件" alt="删除组件">
         </div>
-    
-  
+        
         <div class="set-tabs">
           <ng-container *ngFor="let tab of states;" >
             <div class="item tab" (click)="activeState(tab)" [ngClass]="{'active':tab['active']}">
