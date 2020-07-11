@@ -6,7 +6,7 @@
     "start": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
     "proxy": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
     "onlyweb": "ng serve --port 8200 --open",
-    "web": "ng serve --port 8200 --open",
+    "web": "ng serve --port 8210 --host 10.169.42.145  --open",
     "dev": "npm run web",
     "build": "ng build",
     "build:aot": "ng build --aot=true",
