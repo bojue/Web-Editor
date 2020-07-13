@@ -12,6 +12,7 @@ import { CompSettingBasicModule } from "../../comp-basic/comp-setting-basic.modu
 import { CodeModule } from "src/app/core/code.module";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { IndexDBService } from 'src/app/core/provider/indexDB/indexDB.service';
 
 const dataComp = [
     UploaderComponent,
@@ -39,7 +40,7 @@ const dataComp = [
     [...dataComp]
   ],
   providers: [
-
+    IndexDBService
   ],
   bootstrap: [],
   entryComponents:[

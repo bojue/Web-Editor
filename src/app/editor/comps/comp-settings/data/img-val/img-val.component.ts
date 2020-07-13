@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DataBasicComponent } from "../../../comp-basic/data-basic/data-basic.component";
+import { Observable } from 'rxjs';
+import { DataBasicComponent } from '../../../comp-basic/data-basic/data-basic.component';
+import { IndexDBService } from 'src/app/core/provider/indexDB/indexDB.service';
 
 @Component({
   selector: 'app-img-val',
@@ -7,28 +9,24 @@ import { DataBasicComponent } from "../../../comp-basic/data-basic/data-basic.co
   styleUrls: ['./img-val.component.scss']
 })
 export class ImgValComponent extends DataBasicComponent implements OnInit {
-    imgs = [];
+    imgs:any[];
     data_type = 'img_url';
-    constructor() {
+    imgsUrl = 'imgs';
+    constructor(
+      private  indexDBService:IndexDBService
+    ) {
       super()
     }
   
     ngOnInit() {
       this.initParentData();
-      this.imgs = [{
-        name:"you",
-        url: 'assets/imgs/you.jpg',
-      },{
-        name:"es6",
-        url: 'assets/imgs/es.jpeg',
-      },
-      {
-        name:"es6",
-        url: 'assets/imgs/test1.jpg',
-      },{
-        name:"es6",
-        url: 'assets/imgs/test2.jpg',
-      }]
+      this.getData();
+    }
+
+    getData() {
+      Observable.forkJoin([this.indexDBService.getDataAll(this.imgsUrl)]).subscribe(res => {
+        this.imgs = res && res[0];
+      })
     }
   
     selectImg(img) {

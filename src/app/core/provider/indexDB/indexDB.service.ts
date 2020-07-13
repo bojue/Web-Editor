@@ -8,7 +8,9 @@ import { QueryModel } from './query.model';
   providedIn: 'root'
 })
 export class IndexDBService extends BaseHttpService implements OnInit{
-     projects = [
+    DB:any;
+    DB_NAME='tempoEditor';
+    projects = [
         {
             "id": 1,
             "name": "运营报表系统",
@@ -16,8 +18,6 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             "description": "运营报表数据",
         }
     ]
-
-    
     pages = [
         {
             "id": 1,
@@ -28,8 +28,15 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             "height": 700
         }
     ]
-    
-    DB:any;
+    imgs = [{
+        id:1,
+        name:"you",
+        url: 'assets/imgs/you.jpg',
+    },{
+        id:2,
+        name:"es6",
+        url: 'assets/imgs/es.jpeg',
+    }]
     tempoIndexDBTab =[
         {
             name:"projects",
@@ -41,9 +48,14 @@ export class IndexDBService extends BaseHttpService implements OnInit{
             keyPath:"id",
             data:this.pages,
             createIndex:'projectId'
+        },
+        {
+            name:"imgs",
+            keyPath:"id",
+            data:this.imgs,
+            createIndex:'imgs'
         }
     ]
-    DB_NAME='tempoEditor';
     constructor(
         private http: HttpClient,
         public variables: VariablesService
@@ -54,9 +66,6 @@ export class IndexDBService extends BaseHttpService implements OnInit{
     ngOnInit() {
         
     }
-
-
-
 
     getData() {
         let db = this.variables.getIndexDB();
