@@ -81,7 +81,7 @@
         border-bottom: 1px solid #cccccc;
         width: auto;
         height: 800px;
-        overflow: auto;
+        overflow: visible;
         &.bg-blank {
             border: 1px solid #ccc;
         }
