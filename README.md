@@ -7,6 +7,10 @@
 ![功能](/src/assets/imgs/update.png)
 ![截图](/src/assets/imgs/project.png)
 
+```diff
+! DEMO数据存储在IndexedDB，不要清除本地缓存:cookie及其他网站数据 
+! 商业开发请开发对应后台服务
+```
 
 ## 下载
 
