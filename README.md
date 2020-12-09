@@ -4,7 +4,6 @@
 
 ## 项目截图
 
-![功能](/src/assets/imgs/update.png)
 ![截图](/src/assets/imgs/project.png)
 
 ```diff
