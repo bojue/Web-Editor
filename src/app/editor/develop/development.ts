@@ -237,10 +237,11 @@ export class DevelopmentPageComponent extends BaseHttpService implements OnInit,
   // 初始化视图容器,这样写是为了操作安全,扩展多人同时编辑,多页面操作切换
   initViewContRef(){
     if(!this.components) return;
-    let len = this.components.length;
-    for(let i=0; i < len;i++){
-      this.currentViewContRef.clear(i)
-    }
+    // let len = this.components.length;
+    // for(let i=0; i < len;i++){
+    //   this.currentViewContRef.clear(i)
+    // }
+    this.currentViewContRef.clear()
   }
 
   //删除组件 
