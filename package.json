@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 8100  --open",
-    "dev":  "ng serve --port 8210 --host localhost --open",
+    "dev": "ng serve --port 8210 --host localhost --open",
     "proxy": "ng serve --port 8100 --proxy-config proxy.config.json  --open",
     "build": "ng build",
     "build:aot": "ng build --aot=true",
