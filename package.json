@@ -34,7 +34,7 @@
     "loadsh": "0.0.4",
     "ngx-echarts": "^4.2.2",
     "ngx-toastr": "^11.3.3",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "remove-drag-ghosting": "^1.0.0",
     "rxjs": "~6.5.3",
     "rxjs-compat": "^6.5.3",
