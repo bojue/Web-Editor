@@ -132,4 +132,6 @@ npm run proxy
 
 ## History
 
-- 20220405 ng版本更新V8 => V13
+- 20220405 
+    - angular版本更新Version8 => Version13
+    - 优化拖拽创建组件卡顿问题
