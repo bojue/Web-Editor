@@ -1,0 +1,49 @@
+code {
+    background: #eee;
+    display: block;
+    height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 10px 6px;
+    word-break: break-all;
+}
+.in-block {
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    padding: 0;
+    margin-bottom: 2px;
+}
+.set-val {
+    margin: 0px;
+    padding: 0;
+    .style-code {
+        position: absolute;
+        bottom: 29px;
+        width: 160px;
+        margin: 3px;
+    }
+}
+.item-set-grid .title .icon {
+    opacity: 0.4;
+    img.code {
+        width: 16px;
+        
+    }
+}
+.copy {
+    width: 40px;
+    height: 18px;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 18px;
+    color: #ccc;
+    &:hover {
+        border: 1px solid #999999;
+        color: #999999;
+
+    }
+}

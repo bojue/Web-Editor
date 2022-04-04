@@ -1,0 +1,14 @@
+<div class="comp-page-comps-list scrollY">
+  <!-- <div class="tit">页面列表</div> -->
+  <div class="comps" >
+    <ng-container  *ngFor="let comp of pageComps;let i = index;" >
+        <div class="item comp-item" *ngIf="comp['type'] !== 'auxi'" [ngClass]="{actived: comp['actived']}" (click)="selectComp(comp)">
+          <span class="index">{{i+1}}.</span>
+          <span class="comp-name" >{{comp['name']}}</span>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!pageComps || pageComps.length ===0">
+      <span class="no-val">当前页面没有元素</span>
+    </ng-container>
+  </div>
+</div>

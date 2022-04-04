@@ -1,0 +1,9 @@
+<div class="bread-curmb">
+  <ul class="bc-ul" >
+    <li class="bc-item" *ngFor="let item of breadcurms;let i = index;">
+        <a [routerLink]="item['path']" routerLinkActive="active">
+          {{ item.name }}
+        </a>
+      </li>
+  </ul>
+</div>

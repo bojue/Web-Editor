@@ -1,0 +1,31 @@
+<div class="page-add editor-model">
+    <div class="top">
+        <div class="title">更改页面名称</div>
+    </div>
+    <div class="content">
+        <div class="body">
+            <div class="item">
+                <span class="label">
+                    <label for="">页面名称</label>
+                    <span class="required">*</span>
+                </span>
+                <span class="val">
+                    <input type="text" placeholder="页面名称" 
+                     #name="ngModel" [(ngModel)]="page['name']"
+                    minlength="2"
+                    required>
+                </span>
+                <span class="info">
+                    <span class="error" *ngIf="(name.dirty || name.touched) && name.errors?.['minlength']">最小长度2个字符</span>
+                    <span class="error" *ngIf="(name.dirty || name.touched) && name.errors?.['required']">必填</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="btns">
+            <button class="btn brn-light cancel" (click)="cancel()">取消</button>
+            <button class="btn btn-primary save" [title]="name.errors?'正确填写表单':'保存'" [ngClass]="{'disabled':name.errors}" (click)="!name.errors && save()">保存</button>
+        </div>
+    </div>
+</div>

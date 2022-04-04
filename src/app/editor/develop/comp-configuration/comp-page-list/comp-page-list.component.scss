@@ -1,0 +1,65 @@
+
+:host  {
+    ul,li{
+        list-style: none;
+        padding:0px;
+        margin: 0;
+    }
+    .comp-page {
+        min-height: 400px;
+    }
+    .pages {
+        position: relative;
+        font-weight: 400;
+        font-size: 12px;
+        .page-item {
+            position: relative;
+            height: 24px;
+            line-height: 24px;
+            cursor: pointer;
+            border:1px solid #fff;
+            opacity: 0.8;
+            &:active ,&:hover, &.actived{
+                background: rgba(255,0,0,0.05);
+                // border-bottom:1px solid rgba(255,0,0,0.3);
+            }
+            .icon {
+                padding: 3px 2px 3px 5px;
+                position: absolute;
+                width: 22px;
+                height: 22px;
+            }
+            .page-name {
+                margin-left: 26px;
+                user-select: text;
+            }
+            .iconPage {
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                opacity: 0.1;
+                top: 2px;
+                z-index: 2;
+            }
+            .editorPage {
+                right: 20px;
+                opacity: 0;
+            }
+            .deletePage {
+                right: 0px;
+                opacity: 0;
+            }
+        }
+        .page-item:active,.page-item{
+            .iconPage {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .no-val {
+        text-align: center;
+        margin: 10px;
+        color: #aaa;
+    }
+}

@@ -1,0 +1,9 @@
+<div class="pre-view">
+    <div class="view-icon">
+      <img class="view" (click)="goBack()" src="assets/icons/return.svg" title="当前预览模式" alt="预览模式">
+    </div>
+    <div class="content" [ngStyle]="{'width':pageInfo && pageInfo['width']+'px', 'height':pageInfo &&pageInfo['height']+'px'}">
+        <ng-template view-contain-ref #contentComp ></ng-template>
+    </div>
+  </div>
+  

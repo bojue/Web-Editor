@@ -1,0 +1,43 @@
+<div class="comp-config">
+  
+  <!-- 操作管理 -->
+  <div class="marage-btn" *ngIf="pageGridSetting['showLeft']">
+    <div class="tabs">
+        <div class="tab" [ngClass]="{active:currentTab === 'tabList'}" (click)="selectTabs('tabList')">列表</div>
+        <div class="tab"  [ngClass]="{active:currentTab ==='tabComps'}" (click)="selectTabs('tabComps')">元素</div>
+        <div class="tab add" (click)="createPage()" title="页面创建">+</div>
+    </div>
+  </div>
+  
+  <!--页面管理 -->
+  <app-comp-page-list *ngIf="pageGridSetting['showLeft'] && currentTab === 'tabList'" 
+  [pages]="pages"
+  (editorCurrentPage)="editorCurrentPage($event)"
+  (delCurrentPage)="delCurrentPage($event)"
+  (selCurrentPage)="seledCurrentPage($event)">
+  </app-comp-page-list>
+  
+  <!-- 元素管理 -->
+  <app-comp-page-comps-list *ngIf="pageGridSetting['showLeft'] && currentTab === 'tabComps'" 
+  [pageComps]="currnetPageComps"
+  (activeComp)="activeComp($event)">
+  </app-comp-page-comps-list>
+
+  <!-- 组件列表 -->
+  <app-comp-list
+    *ngIf="pageGridSetting['showLeft']"
+    class="modules" 
+    [compList]="compList"
+    [currnetPageComps]="currnetPageComps"
+    (compChangeByDrag)="changeByDrag($event)"
+    (dragCompCreateComp)="dragCompCreateComp($event)">
+  </app-comp-list>
+
+  <!-- 边框设置 -->
+  <div class="div-border right-border">
+    <div class="set-btn" (click)="showGrigFun()">
+      <img src="assets/icons/right.svg" alt="" *ngIf="!pageGridSetting['showLeft']">
+      <img src="assets/icons/left.svg" alt="" *ngIf="pageGridSetting['showLeft']"> 
+    </div>
+  </div>
+</div>

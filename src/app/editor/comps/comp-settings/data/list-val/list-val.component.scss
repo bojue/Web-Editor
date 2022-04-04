@@ -1,0 +1,16 @@
+.list-val {
+    display: block;
+    margin: 10px;
+    .set-grid {
+        display: grid;
+        margin-left: 15px;
+        margin-top: 10px;
+        grid-template-columns: 40px 110px;
+        input {
+            padding: 4px 6px;
+        }
+        .val {
+            padding: 4px 6px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<div *ngIf="showBoolHeader()" class="data-val">
+    <div class="title">
+      <span class="tit">文本值</span> 
+      <span class="icon" (click)="showMoreFun()">
+        <img src="{{iconUrl}}" alt="">
+      </span>
+    </div>
+    <div class="val" *ngIf="showMoreBool">
+      <input type="text" #button_val="ngModel" [(ngModel)]="data['text_val']">
+    </div>
+  </div>

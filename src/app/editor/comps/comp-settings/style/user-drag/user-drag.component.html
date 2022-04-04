@@ -1,0 +1,10 @@
+<div class="item-set item-set-grid grid-2 user-drag">
+    <div class="set-val">
+      <input class="val" [checked]="style?.['userDrag'] === 'element'" type="checkbox"   (click)="changeVal('element')" >
+      <label class="lab">不固定</label>
+  </div>
+  <div class="set-val">
+    <input class="val" [checked]="style?.['userDrag'] === 'none'" type="checkbox" (click)="changeVal('none')" >
+    <label class="lab">固定</label>
+  </div>
+</div>

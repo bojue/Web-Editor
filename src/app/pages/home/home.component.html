@@ -1,0 +1,27 @@
+<div class="home">
+    <div class="design">
+        <a [routerLink]="designPath" routerLinkActive="active">进入工作区</a>
+    </div>
+    <div class="body">
+        <div class="val">
+           基于 angular 开发的 Web 页面编辑工具
+        </div>
+        <div class="description">
+            <div class="des" *ngFor="let item of desciptions;">
+                <div class="tit">
+                    <span class="name">{{item['name']}}</span>
+                </div>
+                <ng-container *ngFor="let child of item['children'];">
+                    <div class="content">
+                        <div class="child" [ngClass]="{disabled:!child['state']}">
+                            <span class="title">{{child['name']}}</span>
+                            <span class="state">
+                                <img class="img" *ngIf="child['state']" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEO0lEQVRoQ+1YW4gbZRT+zmR36ypU3M2kKyIorrWTBPHB24MPBUWLFbwydjPZJrbSFUEf1gsIXuoNVNAiKFjdspLdzGqqVihK0SI+WB9aWqRsJq2tsCLUdSarFGktbjNHJuvWrJnkn8n/0Cwkr/93vvN955z/kiEs8x8tc/3oGDjfHex0oNMByQp0RkiygE3D42bsRarwRHHYOd4I2LYdSJjR15npaQCHFKVyz/TQ77/4mWhLA/G8+jaAx2sE7+uqKPcd3vib/X8TbWcgno9tB3hLfbV5b2935YGD+h8na9fayoBmqh8SI9NkY+w+/fdF+sxDM2cWMW1hIF5AD82rOQYeDHAofGodc3Rshethz7uBwcm+lT2k5AC6O4D4M0SsF1Pl3W3RgcHCgNozX5kAcIdQPGOOXFcvbpz7pi32QHKq7/IKR3LEWCsUD/4ZYN0y5va3xSmk5dWrCcgBuFksniyQolup2WJb3APaR6uSVHG9sblOLB4HXCWiHxmanWnpJl7YYJExy3D0AMmEkORU9HqXKQeGJgIz4dv5roh+XJ91mmEbnkKrC/2Xdc0rO7wNRsCOouE8LErabD1uqrcQwzsqrxTxEOOLC0516wdHTpwWYv0AyVy/5io0DqKbFtcZtK1k2KMiQr91Lb/qNoLrzfylwnhGwUo7Qe6DKlVdB+L5/hsBxQRwVV0yppestP2CUEQNQJuKrieXvJm/JEDcuGU4mwLgzkGWGEhOxm53iQsALm5IwvyklS6/GSRJwozdz8xe5S8MgH/HMpzHAuCWQM4ZWLsVXc6gWmDCvSISYt5STJc/aDrz+agBkCdeEfGB8JqVcp4R4nwASzqQGFvZx709BYBuFZExY0Mp7XzsP/PqZgLGRBzeOgPPlQznlSBYP0zdHlgzNXCF4la8MbpBRMrA+pLhfFmL08zYo8T8rih2YQPyaNEobwuCbYTxPUaTZuxal3kngNUC8lMgrLNSznceLm5GR8EUaH8APGIZ5fdlxPueQouE3rkNYCcYA4IkvypE61zmuwC8KhREOAvmrGWU80JsAEDT57SWV+8E8AkBvQKuowCuEeYjnGRQtpSyPxdiAwKE/wcSE9EhVsi7F2R/J9ilbGnY/lqWqDZeaKA62xPRESj0nkTiY65L2SPD9vcSHL6hgQx4kZoZe4qY32hBwA8KUWY6ZR9uIVYYEtiAx5TIqy8z8KyQ9T/APiVCmekN9k8hYkJBQxmojlP9N5tGrf2Ku5GxdGc2lKKQ4NAG/jUxDiDbKBcRdp39izNHN5f/DKknNLwlA9VxmlQ/8303EU9aP5Yzi589QisKGdCyAe/xZw9G94Bq3k1E262U/UhIDVLwlg1Uu1B9/K3Ys/Buorcsw35CSk0LwVIGvHze449cd1PJsJ9vIb90iLQBaQWSBB0DkgWUDu90QLqEkgSdDkgWUDp82XfgHzXzRUDyHNP7AAAAAElFTkSuQmCC" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

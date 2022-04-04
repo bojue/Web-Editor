@@ -1,0 +1,22 @@
+.img-val {   
+    .title {
+        height: 30px;
+        line-height: 30px;
+    } 
+    .file-val {
+        display:grid;
+        grid-template-columns: 50% 50%;
+        .img-item {
+            cursor: pointer;
+            text-align: center;
+            margin: 2px 0px;
+
+            img {
+                width: 94%;
+                height: 76px;
+                border:1px solid blueviolet;
+                border-radius: 5px;
+            }
+        }
+    }
+}

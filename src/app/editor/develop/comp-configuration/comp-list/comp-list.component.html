@@ -1,0 +1,21 @@
+<div class="item-module " *ngFor="let module of compList ; let mIndex = index;">
+    <div class="comp-tit" (click)="module['hiddenBool']= !module['hiddenBool']">
+      <img class="icon" src="assets/icons/downicon.svg" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}" alt="">
+      <div class="tit" [ngClass]="{'icon-showmore':!module['hiddenBool'],'icon-showlitter':module['hiddenBool']}"> {{module['name']}}</div>
+    </div>
+    <div class="comp-list lists scrollY" id="compList">
+      <ng-container *ngIf="!module['hiddenBool']">
+          <ng-container *ngFor="let comp of module['compList'];let cIndex = index;" >
+              <div class="content-item" id="{{'id_'+mIndex+cIndex}}" draggable="true" [ngClass]="{'noPage':!currnetPageComps}"  
+                (dragstart)="currnetPageComps && dragCompCreate($event, comp['type'], ''+mIndex+cIndex)"
+                (drag)="currnetPageComps && dragCompEvent($event)"
+                (dragend)="currnetPageComps && dragCompEvent($event)"
+                 >
+                <img src="{{comp['iconUrl']}}" alt="{{comp['name']}}" class="icon">
+                <span class="text">{{comp['name']}}</span>
+                <img *ngIf="comp['vip_state']" src="assets/icons/vip.svg" alt="" class="vip_icon">
+              </div>
+          </ng-container>
+      </ng-container>
+    </div>  
+  </div>

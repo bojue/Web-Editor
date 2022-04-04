@@ -1,0 +1,29 @@
+<div class=" comp-item custom-comp-item chart-guage"
+  [ngClass]="{'comp-active': settingObj['active'] }"  
+  draggable="true" 
+  (dragstart)="compEvent($event)"
+  (drag)="compEvent($event)"
+  (dragend)="compEvent($event)"
+  (click)="compEvent($event)" 
+  (mousedown)="compEvent($event)"
+  [ngStyle]="{
+    'position':style['position'],
+    'top':expandUnit('top'),
+    'left':expandUnit('left'),
+    'width':expandUnit('width'),
+    'background':style['background'],
+    'height':expandUnit('height'),
+    'border-width':expandUnit('borderWidth'),
+    'border-style':style['borderStyle'],
+    'border-color':style['borderColor'],
+    'border-radius':getBorderRadius(style['borderRadius']),
+    'padding-top':expandUnit('paddingTopBottom'),
+    'padding-bottom':expandUnit('paddingTopBottom'),
+    'padding-left':expandUnit('paddingLeftRight'),
+    'padding-right':expandUnit('paddingLeftRight'),
+    '-webkit-user-drag':style['userDrag']
+  }"
+
+  echarts 
+  [options]="chartOption">
+</div>

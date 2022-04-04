@@ -1,0 +1,60 @@
+<div class="devBody" [ngClass]="{
+  'width-all':pageGridSetting['showLeft'] && pageGridSetting['showRight'],
+  'width-no':!pageGridSetting['showLeft'] && !pageGridSetting['showRight'],
+  'width-left':pageGridSetting['showLeft'] && !pageGridSetting['showRight'],
+  'width-right':!pageGridSetting['showLeft'] && pageGridSetting['showRight']}">
+  <!-- 1.组态管理 -->
+  <div class="comp-marage" [ngStyle]="{
+    height: contentHeight + 'px'
+  }">
+    <app-comp-configuration
+      [projectId]="projectId"
+      [currnetPageComps]="currnetPageComps"
+      [pageGridSetting]="pageGridSetting"
+      (dragCompCreateCompEvent)="dragCreateComp($event)"
+      (compChangeByDrag)="compChangeByDrag($event)"
+      (selCurrentPage)="getCurrentPage($event)"
+      (activeCompFun)="activeComp($event)"
+      (addPage)="addPage($event)">
+    </app-comp-configuration>
+  </div>
+
+  <!-- 2.卡尺辅助 -->
+  <div class="canvas-comp">
+    <app-scale></app-scale>
+  </div>
+
+  <!-- 3.视图 -->
+  <div id='componentsBody' [ngClass]="{hasPage:!currnetPageComps, 'bg-grid':development_setting_bg==='bg-grid', 'bg-blank': development_setting_bg === 'bg-blank'}" class="border-r border-b m-l-5 h90 content">
+    <div class="selectPagePrompt" *ngIf="!currnetPageComps">
+      <div class="info">请选择页面</div>
+    </div>
+    <div class="content" [ngStyle]="{'width':currentPage && currentPage['style'] && currentPage['style']['width']+'px','height':currentPage && currentPage['style'] && currentPage['style']['height'] + 'px'}">
+      <ng-template view-contain-ref #contentComp ></ng-template>
+    </div>
+
+  </div>
+
+  <!-- 4.设置-->
+  <div class="setting-but">
+    <app-comp-setting 
+      class="settings" 
+      [currentPage]= "currentPage"
+      [hasPageBool]="!!currnetPageComps"
+      [pageGridSetting]="pageGridSetting"
+      [activeSettingObj]="activeCompSettingObject" 
+      (settingObjChange)="chengeComponent($event)"
+      (deleteComponent)="deleteComponent($event)"
+      (preViewComp)="preView()"
+      (updateCurrentPage)="savePage()"
+      (changeBackground)="changeBg($event)">
+    </app-comp-setting>
+  </div>
+
+  <!-- 5.帮助 -->
+  <div class="comp-help">
+    <app-comp-help></app-comp-help>
+  </div>
+
+
+</div>

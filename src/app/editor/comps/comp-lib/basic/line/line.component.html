@@ -1,0 +1,42 @@
+<div id='lineComp' class="comp-line line" 
+(dragstart)="compEvent($event)"
+(drag)="compEvent($event)"
+(dragend)="compEvent($event)"
+(click)="compEvent($event)" 
+[ngStyle]="{
+  'position':style['position'],
+  'top':expandUnit('top'),
+  'left':expandUnit('left'),
+  'width':expandUnit('width'),
+  'height':expandUnit('height')
+}"
+[ngClass]="{'comp-line-active': settingObj['active']}"
+>
+  <span class="circle" *ngIf="settingObj['active']">
+    <div class="circle-item fir" [ngStyle]="{
+      'position':style['position'],
+      'top':expandLineUnit('y','beigin'),
+      'left':expandLineUnit('x','beigin')
+    }"
+    draggable="true" 
+    (dragstart)="compEvent($event, 'startingPoint')"
+    (drag)="compEvent($event, 'startingPoint')"
+    (dragend)="compEvent($event, 'startingPoint')">
+  </div>
+    <div class="circle-item end" [ngStyle]="{
+      'position':style['position'],
+      'top':expandLineUnit('y','end'),
+      'left':expandLineUnit('x','end')
+    }"
+    draggable="true" 
+    (dragstart)="compEvent($event, 'endPoint')"
+    (drag)="compEvent($event, 'endPoint')"
+    (dragend)="compEvent($event, 'endPoint')">
+  </div>
+  </span>
+
+  <svg version="1.1"
+  xmlns="http://www.w3.org/2000/svg">  
+    <path style="stroke:#007fff;stroke-width:1"/>
+  </svg>
+</div>

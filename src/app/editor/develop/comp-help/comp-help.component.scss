@@ -1,0 +1,65 @@
+:host ::ng-deep  {.help {
+    position: fixed;
+    bottom: 110px;
+    right: 10px;
+    .title {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+    }
+    .img-help {
+        width: 28px;
+    }
+    .body {
+        position: absolute;
+        right: -8px;
+        bottom: 20px;
+        background: #ffffff;
+        width: 171px;
+        height: 290px;
+        border-bottom: 1px solid  #eee;
+        .tit {
+            background: rgba(255,0,0, 0.05);
+            left: 0px;
+            .title {
+                left: 0;
+                border-left: 5px solid rgba(255,0,0, 0.9);
+                user-select: none;
+                height: 30px;
+                line-height: 30px;
+                padding-left: 10px;
+                font-size: 13px;
+            }
+        }
+      
+        .close {
+            cursor: pointer;
+            position: absolute;
+            right: 6px;
+            width: 16px;
+            top: 7px;
+        }
+        .item-title {
+            font-size: 12px;
+            height: 26px;
+            line-height: 26px;
+            margin: 0px 5px;
+            color:#aaaaaa;
+        }
+
+        .key-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 30% 70%;
+            height: 40px;
+            line-height: 40px;
+            color: #666666;
+            font-size: 13px;
+            .name {
+                text-align: center;
+                color:#ccc;
+            }
+        }
+    }
+}
+}

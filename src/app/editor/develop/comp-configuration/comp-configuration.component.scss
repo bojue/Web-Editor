@@ -1,0 +1,116 @@
+.comp-config {
+    border-right: 4px solid #ffffff;
+    margin-right: 1px;
+}
+.marage-btn {
+    position: relative;
+    display: block;
+    .tabs {
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        .tab {
+            display: inline-block;
+            cursor: pointer;
+            border-right: 1px solid #eeeeee;
+            border-bottom: 1px solid #cccccc;
+            width: 69px;
+            height: 30px;
+            line-height: 30px;
+            &.add {
+                width: 28px;
+                border-right: none;
+            }
+            &.active {
+                width: 69px;
+                font-size: 14px;
+            }
+            &.active,&:hover {
+                // background: rgba(255, 0, 0, 0.05);
+                color: red;
+                border-bottom-color:rgba(255, 0, 0, 1);
+            }
+        }
+    }
+}
+.pages {
+    min-height: 250px;
+    padding: 5px;
+}
+.right-border {
+    right: -1px;
+    .set-btn {
+        cursor: pointer;
+        position: absolute;
+        top: 385px;
+        width: 6px;
+        height: 30px;
+        background: rgba(255,0,0, 0.5);
+        left: 2px;
+        &:hover {
+            background:rgba(255,0,0, 0.8);
+        }
+        img {
+            width: 6px;
+            height: 30px;
+            &:hover {
+                width: 7px;
+            }
+        }
+    }
+}
+.div-border {
+    position: absolute;
+    width: 4px;
+    top: 0px;
+}
+@keyframes trans-lett
+{
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(90deg);
+    }
+}
+@keyframes trans-more
+{
+    0% {
+        transform:rotate(90deg);
+    }
+    100% {
+        transform:rotate(0deg);
+    }
+}
+
+.item-discription {
+    height: 30px;
+    line-height: 30px;
+    border-left: 4px solid rgb(18, 150, 219);
+    background: rgba(18, 150, 219,0.05);
+    .title {
+        padding-left: 20px;
+        font-size: 13px;
+    }
+}
+.comp-tit {
+    cursor: pointer;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    background: #f2f2f2;
+    .icon {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        right: 20px;
+        top: 5px;
+        &.icon-showmore {
+            animation: trans-more 0.3s ease-in-out 0s;
+        }
+        &.icon-showlitter {
+            animation: trans-lett 0.3s ease-in-out 0s;
+            transform:rotate(90deg);
+        }
+    }
+}

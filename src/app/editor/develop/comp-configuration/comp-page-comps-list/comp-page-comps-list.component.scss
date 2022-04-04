@@ -1,0 +1,30 @@
+:host {
+    .comp-page-comps-list {
+        min-height: 250px;
+        padding: 5px;
+        .comp-item {
+            position: relative;
+            cursor: pointer;
+            height: 24px;
+            line-height: 24px;
+            padding: 0 5px;
+            &:active ,&:hover, &.actived{
+                background: rgba(255,0,0,0.05);
+            }
+            .index {
+                width: 20px;
+                display: inline-block;
+                text-align: left;
+            }
+            .comp-name {
+                user-select: text;
+            }
+        }
+   
+    }
+    .no-val {
+        text-align: center;
+        margin: 10px;
+        color: #aaa;
+    }
+}

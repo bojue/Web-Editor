@@ -1,0 +1,48 @@
+<div class="project-list-body">
+        <div class="projects">
+          <div class="tit">
+            <span class="title">项目</span>
+            <span class="description">
+              <ng-container *ngFor="let item of states;">
+                  <span class="item">
+                  <img src="{{item['src']}}" alt="">
+                  <span class="val">{{item['name']}}</span>
+                </span>
+              </ng-container>
+      
+            </span>
+          </div>
+          <div class="list" >
+            <ng-container *ngFor="let item of projects;">
+              <div class="project">
+                <div class="more">
+                  <span class="state" *ngIf="item['state']"><img src="assets/icons/state_{{item['state']}}.svg" alt=""></span>
+                  <img class="more" src="assets/icons/more.svg" alt="">
+                </div>
+              
+                <div class="name" >
+                  <span>{{item['name']}}</span>
+                </div>
+                <div class="detail">
+                   <div class="description">
+                      简介:
+                      {{item['description'] || '无'}}
+                   </div>
+                   <div class="operating-append">
+                     <div class="item edit" (click)="toDetail(item['id'], 'develop')">编辑组态页面</div>
+                     <div class="item info" (click)="toDetail(item['id'], 'detail')">项目路由配置</div>
+                   </div>
+      
+                </div>
+                <div class="operating">
+                  <div class="item del" title="删除" (click)="delProject(item['id'])"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAC8klEQVRoQ+2Zz2vUUBDHv5Nt3lapiJQiyO6rotWNlSJWERG0xZMHL5714EU8efHmxfZv6EnxIIInbwoevLSCiohFitS8VcGarSIiRZAizbYZydqUmG53s6+bhYfmFiYz8/1k8ibvB8HwiwzXj38bQBXzt0E8DOCwZiXnADwref4FTX/9CpSlfZFBd3UTx/0YGHc8f0wnlvYnpKR4AOCcTtI6Pgslz+/ViaUPULQnQTQSJuUgGHXml6daFaCk4Min5PlaWuo6uYWuEVhWTdxGFzGfXgMAxlsVHz5PwI3IL/yMGsYIgql6L2kdgCvtYQK90hGUtQ+DjzpedTqeZz1AoWuELGsyazE68Zn5klOp3mkIEBrDKgC0NkDjpQZwn4G3OgIa+VjMPUx0Jt6S//6s+IvjVW8lY6QaOPHBlgMGBzy/7QChsPdSHFwBZlsZ2C0D6HaLtBVTUgR/xjeQJtemAcIfWsDIgXku2SU2slUK2LKYE+c5YDvpp6RYBpDrCEC5P3+WmR+FySzQ1f3e0kT0phvZVEEMwcJMPT8lxRIA0REAV4qxaIAnpwMNbbFOl/RTUvwC0G0sgCvFIgFbjQVQUvwE0GMsQFmKHwxsNxZASbEAYIfJAN8B1KbWmf8HMulCRfsbiPqMBXCl/ZVAO40FUFJ8BrDLZIAKgIKxAG5RfCKCNBZASfERwG5jAcpSfGBgr7EASop3AAZMBlAADpgMEC5XHZMB3gA4ZC5Av5gBY8hcACleR1srRk7mXCmmCThicgVeAjhmLEC5X7xgxnFjAZQUzwGc6AhAmESF5wTh6qlSHU3uvtVsRNuY6bpTWXoc2Wf70JPrth/WsymZfwrwyY4BJEVv9r4s808YfCozgJXA7x2cR7jwzuRarVrtcCWTNrqZA7lmxK60LxPoZvRcOwHW5ujNRLTRPlfy/D3N4qXanY7vPjQL2Eb7vTTnx6kAVrvNFSa6RsC+NoqsF2qBgYm058apATIWrR3+P4D2q2uT42/QtkRe7b7gGQAAAABJRU5ErkJggg==" alt="删除"></div>
+                  <div class="item run" title="运行"><img src="data:image/png;base64,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" alt="运行"></div>
+                </div>
+              </div>
+            </ng-container>
+            <div class="project add-pro" title="添加项目" (click)="toAddProject()">
+                <div class="operating item-add" title=""><img class="add" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAFU0lEQVRoQ91aW2hcVRRd+7ZMaYpV8EcppuCDFtEqomJF6qP2YbVVRGn9UNGPQKNm9omPUH/UH0t85OykNUI+FPVDiyJqtUmaVGsRIypFa1GLWrCl6E/BB4l0aO+WPZ5bhskkN9O5k2Y8cBmYe88+e53H3uesdQgZFOfc3DiOlxHR9QAWENGCOI6Lv2ZeVY9EUXTEfgHY76dRFO3x3v9Ta/N0qgaY+QoANwG4DsCtAGZXaes4gI8AfAbgYxHZW2X94udVA2DmcwFweHIljR4gokFV/RHAISI6lMvlDtn7QqHQrKrNAJqJaLGqrgKwqKRuAYDYIyK/VQOkKgDMnDi+MEyNASIassd7/101DTvnLlXVFfYQ0epQ99cAwsBMqUwJgHPuQlV9GcDNwepuAC+JyDtTaiXlI2a+C8BDAG4Inw4T0Ubv/c9p9lMBMPMtAN4AcDaA/UTU5b1/Nc3wqbx3zj2gqu0ALgFwFMC9ItI/ma1JATDzIwB6goGROI7v7+np+elUnJtqnba2touiKHoNwNJQp01EtkxUf0IAzrkNqvpmqLhTRGzhTVth5kEAK4uRhuge7/1blRqvCKC9vf2yOI6/CRWeEZGnp83zkoaY2dp9yv6Koujyrq6ub8v9GAegtbX1nFwu9yWA88JCffh0OJ+0ycxbwwI/XCgUru7t7f291J9xAJj5AwBrAWwTkQ2n0/kSEDZ91gPYLiLrJgQQ4rwHsA/A6mqTSjlYZv7E/hORG2vpiJA8BwAsAeAs2yX2To5A+GgEwEIiejCLUMnMGgCkhus0gCHEvgLAkt3SpHNLAXQCeALA7lp7rGToMwNgNsOIWrJ7TkQ6ihEqvLCNmfW+7W3uzjDDZg3AMvbbtr0Ko7A3AbAJwLNENOC9t8ybSclyCiUOOef6VdX2Tk+KyOYEwE4AK5I/M/H+vyHPdATCbCl2NoAhEVlJLS0tTU1NTX8BmEVEV3nvv57JAJxzV6rqVwBOjI2NzSfn3FpVtdh/UEQuyMr50FuZj0Cw+wuA84loHTGzDccmItrqvbfNW2alHlPInHPObVFV2yFsNgC287sPQKuI2J4/s1IvAMy8EUAvgNdtCg2r6nIAt4mInVEzK3UEYGfwD4loF+Xz+R/snEpES6o9FqYhrReAcBzdZ+dvm0IWgc6YM2fOWZ2dnX9O5lRJJkzzvZb3qTuBjo6OM48dO/YHgL8bH0DDT6GGX8QNH0ZLElmP9z5fy+orr1vHKNStqm3FRJbP51fZLhTAARFZ3AgAmNnoy0W2K7VENldVLZTOzjoX1GMEkhwA4DgRzU+20+8BuB3AoyLSldUo1AMAMxtz9yKA90XkjgTAYwCeV9WB7u7uGX2gyefz/YEMflxEXvh/HCnDHrtxD/UBgAkXjUurBBAmYBixtT+O4ztrZaKzIrYCY/1uoN0rE1tJ5GHmoSBkjIjItVlFpFrsMPPngW4fFhEjH06WcYxZUGO+CILGtNPqFbJ5QrMfJaJrylWbipRfUGV2BGMzgl4HsKaSWjMhZ1mmzpgeNq00ewmtbv04oUozKelaptJsC8xwVTJotXM/kMwWSIxOn1SdKb5PayCoNduD4LGPiCQL5rpSu4GBtkhoNPrhKIrWVlJlJl3ElQwH1aYvCB/2Sb1l1u2FQqGlXI2p5FvqCJRWKhe6bRuuqnuC0F0VJRkoQhO5lwWy1pqqj9BdBmKiqwYHiWiHqn6fctXgYlVdY9Rgid3puWpQBsQ0BZNeTT6ySx+z0tZT2fsTdskDgMlQg9N22aOSk8Zwz5s3b7mqmjidet2GiEZGR0d39fX1jVUJetzn/wJM6vCTKToptQAAAABJRU5ErkJggg==" alt="添加项目"></div>
+            </div>
+          </div>
+        </div>
+      </div>

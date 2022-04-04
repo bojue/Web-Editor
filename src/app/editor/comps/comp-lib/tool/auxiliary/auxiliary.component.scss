@@ -1,0 +1,56 @@
+#auxi-comp {
+    .line-item  {
+        position: absolute;
+        background: rgba(255, 0, 0, 0.3);
+        display: block;
+    }
+    .line-view-w {
+        height: 1px;
+        width: 100%;
+    }
+
+    .line-view-h {
+        width: 1px;
+        height: 800px;
+    }
+
+    .w-h {
+        position: absolute;
+        font-size: 12px;
+        color: #aaaaaa;
+        &.width {
+            right: -5px;
+            bottom: 10px;            
+        }
+        &.width2 {
+            top:10px;            
+        }
+        &.height {
+            bottom: -3px;
+            right: 10px;
+        }
+        &.height2 {
+            left: 10px;
+        }
+    }
+
+
+    .circle-item {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border:1px solid rgb(255,0,0);
+        padding: 0 !important;
+        margin: 0 !important;
+        // border-radius: 50%;
+        background: #ffffff;
+        pointer-events:auto;
+        z-index:11 !important;
+        &.col {
+            cursor: ew-resize;
+        }
+        &.row {
+            cursor: ns-resize;
+        }
+    }
+}

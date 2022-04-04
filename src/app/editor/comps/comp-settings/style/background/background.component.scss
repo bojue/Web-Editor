@@ -1,0 +1,43 @@
+.grid-1 {
+    grid-template-columns: 100%;
+    .set-val {
+        .lab {
+            width: 50px !important;
+        }
+        .val {
+            width: 100px !important;
+        }
+    }
+}
+.style-bg-color {
+    span {
+        border:1px solid rgba(230,230,230, 0.8);
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+    }
+}
+.bd-style.item span {
+    width: 24px;
+    height: 24px;
+}
+
+.borderSpan{
+    width: 22px;
+    height: 22px;
+   span {
+        border:1px solid rgba(230,230,230, 0.8);
+   }
+}
+
+
+.item {
+    display:inline-block;
+    min-width: 23px;
+    .bg-col {
+        width: 24px;
+        height: 24px;
+        display:inline-block;
+        cursor: pointer;
+    }
+}

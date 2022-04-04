@@ -1,0 +1,16 @@
+<div class="comp-page scrollY">
+  <!-- <div class="tit">页面列表</div> -->
+  <div class="pages">
+    <div *ngFor="let page of pages;">
+        <div class="item page-item" [ngClass]="{actived: page['actived']}" (click)="changeComponent(page)">
+          <img src="assets/icons/page.svg" alt="" class="icon">
+          <span class="page-name" >{{page['name']}}</span>
+          <img class="editorPage iconPage" (click)="editorPage(page, $event)" src="assets/icons/editorLine.svg" title="编辑页面" alt="编辑">
+          <img class="deletePage iconPage" (click)="deletePage(page, $event)" src="assets/icons/delete.svg" [title]="'删除'+page['name']+'页面'" >
+        </div>
+    </div>
+    <ng-container *ngIf="!pages || pages.length ===0">
+        <span class="no-val">当前项目没有页面</span>
+      </ng-container>
+  </div>
+</div>

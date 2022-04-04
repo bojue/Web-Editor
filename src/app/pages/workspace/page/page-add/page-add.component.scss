@@ -1,0 +1,60 @@
+.editor-model {
+    .top {
+         height: 50px;
+         line-height: 50px;
+         margin: 0px 10px;
+         border-bottom: 1px dashed rgba(0,0,0,0.2);
+         .title {
+             font-size: 16px;
+             font-weight: 500;
+         }
+    }
+    .required ,.error{
+         color: rgba(255, 0, 0, 0.7);
+         position: relative;
+         left: 5px;
+         top: 1px;
+    }
+    .disabled {
+     background: #cccccc;
+     border: 1px solid #ddd;
+     color: #000;
+    }
+    .body {
+        margin: 20px 10px;
+        .item {
+            margin: 5px;
+            font-size: 12px;
+            display: grid;
+            height: 30px;
+            line-height: 30px;
+            grid-template-columns: 80px auto 100px;
+            .label {
+                text-align: center;
+            }
+            .val {
+                input {
+                     width: 270px;
+                     margin: 0 10px;
+                     padding: 10px;
+                     height: 31px;
+                     line-height: 30px;
+                }
+            }
+        }
+    }
+    .footer {
+        margin: 10px 20px;
+        position: relative;
+        height: 30px;
+        .btns {
+            position: absolute;
+            right: 10px;
+        }
+        .btn {
+             width: 60px;
+             padding: 1px;
+             margin: 0px 4px;
+        }
+    }
+ }

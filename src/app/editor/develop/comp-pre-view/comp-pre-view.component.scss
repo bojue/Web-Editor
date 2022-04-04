@@ -1,0 +1,21 @@
+.pre-view {
+    position: relative;
+    display: block;
+    .view-icon {
+        position: absolute;
+        top:-50px;
+        right: 90px;
+        .view {
+            cursor: pointer;
+            margin-top: 13px;
+            width: 22px;
+            height: 22px;
+        }
+    }
+}
+.content {
+    position: absolute;
+    border:1px solid ghostwhite;
+    left: 50%;
+    transform: translateX(-50%);
+}

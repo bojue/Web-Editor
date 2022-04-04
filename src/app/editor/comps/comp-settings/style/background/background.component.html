@@ -1,0 +1,18 @@
+<div class="item-set item-set-grid grid-1">
+  <div class="title">
+    <span class="tit">背景</span> 
+    <span class="icon" (click)="showMoreFun()">
+      <img src="{{iconUrl}}" alt="">
+    </span>
+  </div>
+  <div class="set-val val-grid-2" *ngIf="showMoreBool">
+      <div class="style-bg-color">
+        <span [ngStyle]="{'background':style['background']}"></span>
+      </div>
+      <ul class="bgs">
+        <li class="item" *ngFor="let bg of backgroundArr;let i = index;" [ngClass]="{'bd-style':i === 0}">
+          <span class="bg-col" (click)="selColor(bg)"  [ngStyle]="{'background':bg}"></span>
+        </li>
+      </ul>
+    </div>
+</div>
