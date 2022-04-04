@@ -9,7 +9,9 @@
 
 <img width="1264" alt="newdemo" src="https://user-images.githubusercontent.com/14350577/156899343-63bdfce5-206d-4f18-aab3-0a888ddc0716.png">
 
+
 ```diff
+
 ! DEMO数据存储在IndexedDB，不要清除本地缓存:cookie及其他网站数据 
 ! 商业开发请开发对应后台服务
 ```
@@ -17,7 +19,9 @@
 ## 下载
 
 - 前端
+
 ```javascript
+
 git clone https://github.com/bojue/Web-Editor.git
 cd Web-Editor
 npm install
