@@ -117,8 +117,8 @@ npm run proxy
 
 > History List
 
-- 项目基于angular2 (版本号 7.0.2)开发
-- 已经升级到V8.0
+- 项目基于angular2 (版本号 13)开发
+- 已经升级到V13
 - 服务端支持
 - 本地部署
 
