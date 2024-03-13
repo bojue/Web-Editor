@@ -6,10 +6,7 @@
 
 ## 项目截图
 
-
-<img width="1278" alt="update" src="https://user-images.githubusercontent.com/14350577/156899334-b5b7b5fa-16ef-4077-906d-ecde085805f2.png">
-
-<img width="1264" alt="newdemo" src="https://user-images.githubusercontent.com/14350577/156899343-63bdfce5-206d-4f18-aab3-0a888ddc0716.png">
+![截屏2024-03-13 17 46 25](https://github.com/bojue/Web-Editor/assets/14350577/5913829b-2ee3-4b5f-bc4f-2e7c50f0d4d2)
 
 
 ```diff
