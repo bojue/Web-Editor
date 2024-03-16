@@ -1,4 +1,4 @@
-# Tempo
+# DataSpace
 
 基于angular版本开发，[在线预览](https://aistore.yichuansoft.com/dashboard/#/develop?project=1&page=2)
 
@@ -7,13 +7,6 @@
 ## 项目截图
 
 ![截屏2024-03-13 17 46 25](https://github.com/bojue/Web-Editor/assets/14350577/5913829b-2ee3-4b5f-bc4f-2e7c50f0d4d2)
-
-
-```diff
-
-! DEMO数据存储在IndexedDB，不要清除本地缓存:cookie及其他网站数据 
-! 商业开发请开发对应后台服务
-```
 
 ## 下载
 
@@ -52,7 +45,7 @@ npm run start
 * 快捷键
 * 预览
 * 项目管理
-* <del>服务器支持 (仅v0.1.0支持)</del>
+* <del>服务器支持 (仅v0.1.0支持)</del> 服务端支持远程
 * IndexDB
 
 
@@ -116,6 +109,7 @@ npm run proxy
 
 > History List
 
+- UI和交互优化
 - 项目基于angular2 (版本号 13)开发
 - 已经升级到V13
 - 服务端支持
