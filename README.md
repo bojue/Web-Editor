@@ -1,6 +1,6 @@
 # DataSpace
 
-基于angular版本开发，[在线预览](https://aistore.yichuansoft.com/dashboard/#/develop?project=1&page=2)
+服务迁移中:在线预览功能暂停
 
 低代码搭建效果演示：[产品MVP DEMO 效果演示](https://www.bilibili.com/video/BV1oW4y1t7px/?vd_source=034415f0468861a710931e3467dc4d15)
 
