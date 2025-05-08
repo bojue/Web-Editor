@@ -2,8 +2,6 @@
 
 服务迁移中:在线预览功能暂停
 
-低代码搭建效果演示：[产品MVP DEMO 效果演示](https://www.bilibili.com/video/BV1oW4y1t7px/?vd_source=034415f0468861a710931e3467dc4d15)
-
 ## 项目截图
 
 ![截屏2024-03-13 17 46 25](https://github.com/bojue/Web-Editor/assets/14350577/5913829b-2ee3-4b5f-bc4f-2e7c50f0d4d2)
