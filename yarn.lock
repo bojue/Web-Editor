@@ -27,7 +27,7 @@
 
 "@angular-devkit/build-angular@~13.3.0":
   version "13.3.0"
-  resolved "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-13.3.0.tgz"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-13.3.0.tgz#d8d07e0d167282e8cee165d700e4c9b0770417e0"
   integrity sha512-3Ji7EeqGHj7i1Jgmeo3aIEXsnfKyFeQPpl65gcYmHwj5dP4lZzLSU4rMaWWUKksccgqCUXgPI2vKePTPazmikg==
   dependencies:
     "@ampproject/remapping" "1.1.1"
@@ -251,7 +251,7 @@
   resolved "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.17.7.tgz"
   integrity sha512-p8pdE6j0a29TNGebNm7NzYZWB3xVZJBZ7XGs42uAKzQo8VQ3F0By/cQCtUEABwIqw5zo6WA4NbmxsfzADzMKnQ==
 
-"@babel/core@7.16.12", "@babel/core@^7.12.3", "@babel/core@^7.7.5":
+"@babel/core@7.16.12":
   version "7.16.12"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.16.12.tgz"
   integrity sha512-dK5PtG1uiN2ikk++5OzSYsitZKny4wOCD0nrO4TqnW4BVBTQ2NGS3NgilvT/TEyxTST7LNyWV/T4tXDoD3fOgg==
@@ -293,7 +293,7 @@
     json5 "^2.1.2"
     semver "^6.3.0"
 
-"@babel/core@^7.17.2":
+"@babel/core@^7.12.3", "@babel/core@^7.17.2", "@babel/core@^7.7.5":
   version "7.17.8"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.17.8.tgz"
   integrity sha512-OdQDV/7cRBtJHLSOBqqbYNkOcydOgnX59TZx4puf41fzcVtN3e/4yqY8lMQsK+5X2lJtAdmA+6OHqsj1hBJ4IQ==
@@ -314,7 +314,7 @@
     json5 "^2.1.2"
     semver "^6.3.0"
 
-"@babel/generator@7.16.8", "@babel/generator@^7.16.8":
+"@babel/generator@7.16.8":
   version "7.16.8"
   resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.16.8.tgz"
   integrity sha512-1ojZwE9+lOXzcWdWmO6TbUzDfqLD39CmEhN8+2cX9XkDo5yW1OpgfejfliysR2AWLpMamTiOiAp/mtroaymhpw==
@@ -323,7 +323,7 @@
     jsesc "^2.5.1"
     source-map "^0.5.0"
 
-"@babel/generator@^7.17.0", "@babel/generator@^7.17.3", "@babel/generator@^7.17.7":
+"@babel/generator@^7.16.8", "@babel/generator@^7.17.0", "@babel/generator@^7.17.3", "@babel/generator@^7.17.7":
   version "7.17.7"
   resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.17.7.tgz"
   integrity sha512-oLcVCTeIFadUoArDTwpluncplrYBmTCCZZgXCbgNGvOBBiSDDK3eWO4b/+eOTli5tKv1lg+a5/NAXg+nTcei1w==
@@ -5516,7 +5516,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.1.0, postcss-value-parser@^
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@8.4.5, postcss@^8.2.14, postcss@^8.2.15, postcss@^8.3.7:
+postcss@8.4.5:
   version "8.4.5"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.5.tgz"
   integrity sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==
@@ -5525,7 +5525,7 @@ postcss@8.4.5, postcss@^8.2.14, postcss@^8.2.15, postcss@^8.3.7:
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
 
-postcss@^8.4.7:
+postcss@^8.2.14, postcss@^8.2.15, postcss@^8.3.7, postcss@^8.4.7:
   version "8.4.12"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.12.tgz"
   integrity sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==
